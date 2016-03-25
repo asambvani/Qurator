@@ -1,0 +1,25 @@
+{
+  "name": "qurator-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "xlsjs": "^0.7.5",
+    "consolidate": "^0.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asambvani/Qurator-Website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asambvani/Qurator-Website/issues"
+  },
+  "homepage": "https://github.com/asambvani/Qurator-Website#readme"
+}

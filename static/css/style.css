@@ -1,0 +1,804 @@
+@import url(http://fonts.googleapis.com/css?family=Abel|Michroma|Telex|Carrois+Gothic+SC);
+
+body {
+    margin:0px;    
+}
+
+hr {
+     
+
+}
+
+.top_bar{
+   
+    background:rgb(141,198,213);
+    height:8px;
+    margin:0px;
+    border:0px;
+
+}
+.menu_bar{
+   
+    background:black;
+    height:150px;
+    margin:0px;
+    border:0px;
+
+}
+.master_container
+{
+    position:relative;
+    margin:auto;
+    width:960px;
+    height:100%;
+   
+}
+
+.content_container{
+    position:relative;
+    margin:auto;
+    width:960px;
+    height:100%;
+    /*background-color: green;*/
+}
+
+.body_background{
+
+    width:100%;
+    background:linear-gradient(rgba(217,217,217,.2),rgba(217,217,217,0.3));
+    position:relative;
+    top:0;
+
+}
+.body_content{
+    position:relative;
+    width:960px;
+    margin:auto;
+    /*background:red;*/
+    
+
+
+}
+.header {
+     position:relative;
+     width:960px;
+     height:120px;
+}
+
+#header_1 {
+    /*background:rgb(255,0,0);*/ 
+    line-height:80px;
+    height:120px;
+    width:417px;
+    float:left;
+    /*background-color: green;*/
+}
+
+#header_2 {
+    /*background:red*/
+    height:120px;
+    width:125px; 
+    float:left;
+   
+}
+
+#header_3 {
+    /*background:blue*/
+    line-height:80px;
+    height:120px;   
+    width:417px;
+    float:left;
+    
+}
+
+.greyarea {
+     /*background:rgb(235, 235, 235)*/
+     width:417px;
+     
+}
+
+.links {
+    font-family: 'Abel', sans-serif;
+    position:relative;
+    bottom: 0;
+    float:left;
+    width:208px;
+    height:80px;
+    text-align:center;
+    vertical-align: text-center;
+}
+
+.headline {
+    width:960px;
+    height:70px;
+    text-align:center;
+    position:relative;
+    vertical-align: middle;
+
+
+}
+
+.headline h1 {
+    font-family: 'Abel', sans-serif;
+    font-size:125%;
+    font-style: italic;
+    font-weight:normal;
+    margin:0px;
+    padding-top:25px;
+
+}
+
+.qurate_description {
+    font-family: 'Abel', sans-serif;
+    font-size:18px;
+    font-weight:normal;
+    margin:auto;
+    padding-top:25px;
+    text-align: center;
+
+}
+
+h5 {
+     margin:0px;
+     font-family: 'Abel', sans-serif;
+
+    font-size:16px;
+    padding-top:20px
+}
+
+a {
+    color:rgb(0,0,0);
+    text-decoration:none;
+}
+
+a:hover {
+    color:rgb(184,153,183);   
+}
+
+.image {
+     position:relative;
+     width:960px;
+     height:400px;
+     margin:auto;
+     box-shadow:0px 0px 1px 1px rgba(0,0,0,0.2);
+}
+
+.highlights_container {
+     position:relative;
+     width:960px;
+     height:400px;
+     /*background-color: white;*/
+}
+
+.boxes {
+     position:relative;
+/*     background:red;*/
+     width:320px;
+     height:400px;
+     float:left;
+}
+
+.hlogo_1 {
+    
+    position:relative;
+    width:200px;
+    height:200px;
+    margin:auto;
+    background:linear-gradient(rgba(141,198,213,0.2),rgba(141,197,213,0.1)), url("/img/canvas.png");
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-style:bold;
+    font-size:20px;
+    font-weight: bold;
+    text-align:center;
+    box-shadow:0px 0px 1px 1px rgba(0,0,0,0.5);
+    
+    
+}
+
+.hlogo_2 {
+    
+    position:relative;
+    width:200px;
+    height:200px;
+    margin:auto;
+    background:linear-gradient(rgba(184,153,183,0.2),rgba(184,153,183,0.1)), url("/img/canvas.png");
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-style:bold;
+    font-size:20px;
+    font-weight: bold;
+    text-align:center;
+    vertical-align: middle;
+    box-shadow:0px 0px 1px 1px rgba(0,0,0,0.5);
+}
+
+.hlogo_3 {
+    
+    position:relative;
+    width:200px;
+    height:200px;
+    margin:auto;
+    background:linear-gradient(rgba(238,185,153,0.2),rgba(238,185,153,0.1)), url("/img/canvas.png");
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-style:bold;
+    font-weight: bold;
+    font-size:20px;
+    text-align:center;
+    vertical-align: middle;
+    box-shadow:0px 0px 1px 1px rgba(0,0,0,0.5);
+
+}
+
+.htitle {
+    position:relative;
+    width:200px;
+    height:40px;
+    margin:auto;
+}
+
+.htext {
+    position:relative;
+    width:200px;
+    height:180px;
+    margin:auto;
+}
+
+.htitle h4 {
+    text-align:center;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    margin:0px;
+    font-size:18px;
+    padding:8px
+
+}
+
+.htext p {
+    padding-top: 10px;
+    font-family: 'Telex', sans-serif;
+    font-size:14px;
+    text-align:justify;
+    margin:0px;
+}
+
+/* About Us Page Styles */
+
+.about-content {
+    height:800px;
+    width:960px;
+    margin:auto;
+ 
+}
+
+.about-title {
+     height:120px;
+    
+}
+
+.about-title h2 {
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size:40px;
+    color:rgb(141,198,213);
+    padding-top:35px;
+    padding-left:5px
+}
+
+.about-main {
+    width:960px;   
+}
+
+.about-menu {
+    float:left;
+    width:250px;
+    height:580px;
+    background:rgb(238,185,153);
+}
+
+.about-menu-ul {
+    list-style:none;
+    font-family: 'Telex', sans-serif;
+    font-size:14px;
+    padding:10px;
+}
+
+.about-menu-ul li {
+     border:1px solid rgb(210,210,210);
+     padding:5px;
+     background:rgb(230,230,230);
+}
+
+.about-menu-ul li:hover {
+     background:rgb(255, 125, 125);
+     color:rgb(255,255,255);
+}
+
+.about-main-content {
+    width:690px;
+    float:left;
+    height:580px;
+    background:rgb(248,248,248);
+    padding:10px;
+}
+
+.about-main-content h6 {
+    font-family: 'Telex', sans-serif;
+    font-size:20px;
+    padding:0px;
+    margin:0px;
+    margin-top:10px
+}
+
+.about-main-content p {
+    font-family:sans-serif;
+    font-size:13px;
+    text-align:justify;
+    line-height:22px
+}
+
+#teamProfiles {
+     padding:0px;
+     margin:0px;
+    list-style:none;
+}
+
+#teamProfiles li div {
+    width:100px;
+    height:110px;
+    background:rgb(190,190,190);
+    border:1px solid;
+    float:left;
+    margin-right:20px;
+}
+
+.portfolio-ul {
+    width:960px;
+     padding:8px;
+    margin:0px;
+    float:left;
+    list-style:none;
+}
+
+.portfolio-ul li {
+    width:200px;
+    height:200px;
+    float:left;
+    margin-right:40px;
+    margin-bottom:40px;
+    box-shadow:0px 0px 10px 2px rgba(0,0,0,0.5);
+    opacity:1.0;
+}
+
+.portfolio-ul li:hover {
+     opacity:0.8;   
+     box-shadow:0px 0px 1px 1px rgba(0,0,0,0.5);
+}
+
+.contact-form {
+     position:relative;
+}
+
+.field-holder {
+     width:440px;
+/*     height:50px;*/
+
+}
+
+.field-holder .label {
+    width:150px;
+    float:left;
+}
+
+.field-holder .field {
+       
+    
+}
+
+.field-holder .label h6 {
+    font-family:sans-serif;
+    font-size:12px;
+    font-weight:normal;
+    padding:0px;
+    margin:0px;
+    margin-top:4px
+}
+
+.field-holder .field input,textarea {
+    border-radius:5px;
+    padding:5px;
+    border:1px solid;
+    width: 250px;
+    font-weight:bold;
+}
+
+.field-holder .field input:focus,textarea:focus {
+    border:1px solid red;
+}
+
+.clearfix {
+     clear:both;   
+     float:none;
+}
+
+#sendMessage {
+     padding:10px;
+     border-radius:10px;
+     font-weight:bold;
+    border:3px solid rgb(255,0,0);
+    cursor:pointer;
+}
+
+#sendMessage:hover {
+        border:3px solid rgb(0,255,0);
+    
+}
+
+.about-menu h6 {
+        font-family:sans-serif;
+        margin:0px;
+        margin-left:25px;
+        font-size:13px;
+        margin-top:25px;
+}
+
+.about-menu p {
+     font-family:sans-serif;
+     margin:0px;
+     margin-left:25px;
+    font-size:11px;
+   
+}
+
+.about-menu hr {
+/*     border:1px solid red;*/
+     height:5px;
+     background:white;
+    
+}
+
+.floating_nav_background{
+
+    width:100%;
+    height:50px;
+    position:fixed;
+    top:0px;
+    background:rgba(141,198,213,1);
+    visibility: hidden;
+    z-index: 2;
+}
+
+.floating_nav_links{
+
+    width:960px;
+    margin:auto;
+    top:0px;
+    height: 50px;
+    font-family: 'Abel', sans-serif;
+    position:relative;
+    bottom: 0;
+    text-align:center;
+    vertical-align: text-center;
+}
+
+.floating_nav_link_container{
+
+    width:180px;
+    height:50px;
+    float:left;
+    vertical-align: text-center;
+    line-height:50px;    
+}
+
+.home_floating_nav_link{
+
+    line-height:50px;    
+    float:left;
+    vertical-align: text-center;
+}
+
+
+.floating_nav_link_container a:hover {
+    color:white;   
+}
+
+.home_floating_nav_link a:hover {
+    color:white;   
+}
+
+
+/* ----------- Shop Entire Store CSS ----------*/
+
+.entire_store_background{
+
+    background:rgba(141,198,213,.5);
+
+}
+
+.entire_store_container{
+
+    height:2000px;
+    width:960px;
+    margin:auto;
+
+}
+
+.entire_store_header{
+
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size:40px;
+    color:gray;
+    padding-left:5px;
+    padding-top:10px;
+    position:relative;
+
+}
+
+/* --------------- About Us CSS ---------------*/
+
+
+
+.about-us-NAV-background{
+
+    background:rgba(217,217,217,0.5);
+    width:100%;
+}
+
+.our-product-background{
+
+     background:rgba(141,198,213,.5);
+
+}
+
+.about-us-NAV-container{
+
+
+    height:30px; 
+    width: 960px;
+    margin: auto;
+    top:0;
+    position:relative;
+
+}
+
+.about-us-link-container{
+
+    width:240px;
+    height:30px;
+    line-height:30px;
+    bottom:0px;
+    text-align: center;
+    font-family: 'Abel', sans-serif;
+    font-size: 16px;
+    float:left;
+    vertical-align: middle; 
+}
+
+.about-us-link-container a:hover{
+
+    color:rgb(184,153,183);
+     
+}
+
+.about-us-header{
+
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size:40px;
+    color:gray;
+    padding-left:0px;
+    padding-top:10px;
+    position:relative;
+
+}
+
+.our-product-container{
+
+    position:relative;
+    height:1000px;
+    width:960px;
+    margin:auto;
+
+}
+
+.our-team-background{
+
+     background:rgba(238,185,153,.5);
+
+}
+
+.our-team-container{
+
+    position:relative;
+    height:1200px;
+    width:960px;
+    margin:auto;
+
+}
+
+.team-pictures-container{
+
+    width:960px;
+    height:500px;
+
+    margin:auto;
+}
+
+.team-picture{
+
+    width:200px;
+    height:250px;
+    position: relative;
+    float:left; 
+    margin-left:10%;
+    font-family: 'Verdana', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+
+}
+
+.team-picture img{
+
+    border-radius: 100px;
+}
+
+.our-team-break{
+
+    width:960px;
+    height:1px;
+    margin:auto;
+    background:white;
+
+}
+
+.our-team-text{
+
+    font-family: 'Verdana', sans-serif;
+    font-size: 18px;
+    color:gray;
+    text-align: justify;
+}
+
+
+/* ------------ Algorithm Page CSS ------------*/ 
+
+.algorithm_background {
+
+   width:100%;
+   background: url("/img/algorithm_background.jpg");
+   position:relative;
+
+}
+
+
+.algorithm_container {
+    
+    position:relative;
+    width:960px;
+    height: 800px;
+    /*background: url("/img/algorithm_background.jpg");*/
+}
+
+.top_picture_box{
+ 
+    position:relative;
+    width:250px;
+    height:250px;
+    background-color: white;
+    margin-left:15%;
+    margin-top:2%;
+    float:left;
+    box-shadow:0px 0px 10px 2px rgba(0,0,0,0.5);
+    border-style: solid;
+    border-color:rgba(255,255,0,0) ;
+
+
+}
+
+.bottom_picture_box{
+  
+    position:relative;
+    width:250px;
+    height:250px;
+    background-color: white;
+    margin-left:15%;
+    margin-top:10%;
+    float:left;
+    box-shadow:0px 0px 10px 2px rgba(0,0,0,.8);
+    border-style: solid;
+    border-color:rgba(255,255,0,0);
+}
+
+.left_button{
+  
+    position:absolute;
+    width:50px;
+    height:50px;
+    margin-top:300px;
+    background: url("/img/left_arrow.png");
+
+   
+}
+
+.right_button{
+    
+    position:absolute;
+    width:50px;
+    height:50px;
+    background-color:black;
+    margin-top:300px;
+    margin-left:910px;
+    background: url("/img/right_arrow.png");
+
+}
+
+.suggestions_section {
+
+   width:100%;
+   height:2000px;
+   background:rgba(141,198,213,.5);
+   position:relative;
+   visibility: hidden;
+
+
+}
+
+.suggestions_section header{
+    
+    position:relative;
+    margin: auto;
+    width:960px;
+    height:75px;
+    top:0px;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size:40px;
+    color:gray;
+    padding-top:35px;
+    padding-left:5px
+    vertical-align:top;
+
+}
+
+.suggestions_container{
+
+    width: 960px;
+    margin:auto;
+    background: black;  
+
+}
+
+.picture_thumbnail{
+
+    width: 250px;
+    height: 250px;
+    background:black;
+    float:left;
+    margin-right: 70px; 
+    margin-bottom: 70px;
+    border-color: white; 
+    box-shadow:0px 0px 10px 2px rgba(0,0,0,.8);
+    
+}
+
+.picture_thumbnail div:hover {
+
+    width: 250px;
+    height: 250px;
+    background:black;
+    float:left;
+    margin-right: 70px; 
+    margin-bottom: 70px;
+    border-color: white; 
+    box-shadow:0px 0px 10px 2px rgba(0,0,0,.8);
+    opacity: 0.8; 
+    
+}
+
+.slide_number{
+
+    position: absolute;
+    width: 150px;
+    height: 20px;
+    margin-top:675px;
+    margin-left:400px;
+    background:url('/img/slide1.png');
+
+
+}

@@ -1,0 +1,20 @@
+@import 'colors';
+
+.container {
+  padding: 5px;
+  color: var(--primary);
+  text-align: center;
+}
+
+.value {
+  margin: 0;
+}
+
+.button {
+  min-width: 70px;
+  margin: 10px;
+  border: 1px solid var(--secondary);
+  background: white;
+  font-size: 15px;
+  color: var(--primary);
+}

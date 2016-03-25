@@ -1,0 +1,11 @@
+body {
+  background: #ccc;
+}
+
+.navbar-brand {
+  padding: 0;
+
+  img {
+    width: 51px;
+  }
+}

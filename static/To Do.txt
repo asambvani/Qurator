@@ -1,0 +1,10 @@
+1. Fix nav bar spacing on entire-store page
+
+3. Figure out how to read csv files. If cant figure out in 45 minutes, manually configure the arrays 
+4. Complete fancy box functionality on the qurate page 
+	a. start by loading stock photos
+5. Complete a SIMPLE about page
+	a. What the product is "THE PRODUCT"
+	b. Team - with contact us link "THE TEAM" 
+6. Maybe redo the backgroudn on the home page...it's too similar to the background on the main image. Explore changing main image
+7. Make bottom banner (simple sight map)	
