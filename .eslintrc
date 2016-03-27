@@ -4,5 +4,6 @@
   "rules": {
     "semi": [1, "never"],
     "new-cap": 0,
+    "react/prefer-stateless-function": 0,
   },
 }

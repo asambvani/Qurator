@@ -1,0 +1,10 @@
+.address {
+  background: #fff;
+  height: 600px;
+  border-right: 25px solid #ccc;
+}
+
+.map {
+  composes: address;
+  border-right: none;
+}

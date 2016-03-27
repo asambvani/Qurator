@@ -1,0 +1,24 @@
+.slider {
+  margin-bottom: 60px;
+
+  :global(.slick-list) {
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  :global(.slick-slide) {
+    width: 700px;
+  }
+}
+
+.slide {
+  display: inline-block !important;
+  width: calc(50% - 14px);
+  margin: 5px;
+  border: 2px solid transparent;
+}
+
+.selectedSlide {
+  composes: slide;
+  border: 2px solid yellow;
+}

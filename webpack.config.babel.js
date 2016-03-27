@@ -2,6 +2,7 @@ import path from 'path'
 import webpack from 'webpack'
 import postcssNext from 'postcss-cssnext'
 import postcssImport from 'postcss-import'
+import postcssNested from 'postcss-nested'
 import HtmlPlugin from 'html-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
@@ -41,10 +42,10 @@ module.exports = {
     app: [
       'eventsource-polyfill',
       'webpack-hot-middleware/client?path=/__webpack_hmr',
-      './src/index',
+      './src/client/index',
     ],
   } : {
-    app: './src/index.js',
+    app: './src/client/index.js',
   },
 
   output: {
@@ -57,10 +58,11 @@ module.exports = {
     postcssImport({
       addDependencyTo: webpack,
       path: [
-        path.resolve(__dirname, 'src'),
-        path.resolve(__dirname, 'src/styles'),
+        path.resolve(__dirname, 'src/client'),
+        path.resolve(__dirname, 'src/client/styles'),
       ],
     }),
+    postcssNested(),
     postcssNext(),
   ],
 
@@ -73,9 +75,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /main.css/,
         loader: ExtractTextPlugin.extract(
           'style',
           `css?modules&importLoaders=1${cssModuleName}!postcss`
+        ),
+      },
+      {
+        test: /\.css$/,
+        include: /main.css/,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css!postcss'
         ),
       },
       {
@@ -89,10 +100,13 @@ module.exports = {
   },
 
   resolve: {
-    root: path.join(__dirname, 'src'),
     extensions: ['', '.js', '.html', '.css'],
+    root: path.join(__dirname, 'src/client'),
+    alias: {
+      _shared: path.join(__dirname, 'src/client/components/shared'),
+    },
     modulesDirectories: [
-      'src',
+      'src/client',
       'node_modules',
     ],
   },
