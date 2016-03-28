@@ -8,8 +8,8 @@ import history from 'connect-history-api-fallback'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig from './webpack.config.babel'
-import db from './src/server/db'
-import api from './src/server/api'
+import db from './server/db'
+import router from './server/api'
 
 const app = express()
 const compiler = webpack(webpackConfig)
@@ -17,13 +17,13 @@ const port = config.get('port')
 
 app.use(logger('dev'))
 app.use(express.static(path.join(__dirname, '/static')))
-app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
+app.use('/api', router)
 app.use(history())
-app.use(api)
 
-// if (prod) {}
+// if (prod) { }
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,

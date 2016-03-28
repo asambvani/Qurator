@@ -1,0 +1,21 @@
+body {
+  background: #ccc;
+}
+
+.navbar-brand {
+  padding: 0;
+
+  img {
+    width: 51px;
+    display: inline-block;
+    margin-right: 15px;
+  }
+
+  span {
+    vertical-align: middle;
+  }
+}
+
+.slick-prev {
+  display: none !important;
+}

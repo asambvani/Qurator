@@ -43,10 +43,10 @@ module.exports = {
       // 'bootstrap.css',
       'eventsource-polyfill',
       'webpack-hot-middleware/client?path=/__webpack_hmr',
-      './src/client/index',
+      './client/index',
     ],
   } : {
-    app: './src/client/index.js',
+    app: './client/index.js',
   },
 
   output: {
@@ -59,8 +59,8 @@ module.exports = {
     postcssImport({
       addDependencyTo: webpack,
       path: [
-        path.resolve(__dirname, 'src/client'),
-        path.resolve(__dirname, 'src/client/styles'),
+        path.resolve(__dirname, 'client'),
+        path.resolve(__dirname, 'client/styles'),
       ],
     }),
     postcssNested(),
@@ -102,12 +102,12 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js', '.html', '.css'],
-    root: path.join(__dirname, 'src/client'),
+    root: path.join(__dirname, 'client'),
     alias: {
-      _shared: path.join(__dirname, 'src/client/components/shared'),
+      _shared: path.join(__dirname, 'client/components/shared'),
     },
     modulesDirectories: [
-      'src/client',
+      'client',
       'node_modules',
     ],
   },

@@ -8,7 +8,8 @@
     "build": "npm run clean && npm run build:webpack",
     "start": "NODE_ENV=production babel-node server.js",
     "dev": "NODE_ENV=development babel-node server.js",
-    "fixtures": "babel-node ./src/server/fixtures",
+    "nodemon": "NODE_ENV=development nodemon ./node_modules/babel-cli/bin/babel-node.js server.js",
+    "fixtures": "babel-node ./server/fixtures",
     "lint": "eslint src"
   },
   "repository": {
@@ -53,6 +54,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.9.0",
+    "lodash": "^4.6.1",
     "postcss-cssnext": "^2.4.0",
     "postcss-custom-media": "^5.0.0",
     "postcss-import": "^8.0.1",
@@ -70,6 +72,7 @@
     "reselect": "^2.0.3",
     "rimraf": "^2.4.3",
     "style-loader": "^0.13.0",
+    "superagent": "^1.8.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
