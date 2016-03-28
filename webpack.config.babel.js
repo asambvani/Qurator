@@ -40,6 +40,7 @@ module.exports = {
 
   entry: dev ? {
     app: [
+      // 'bootstrap.css',
       'eventsource-polyfill',
       'webpack-hot-middleware/client?path=/__webpack_hmr',
       './src/client/index',

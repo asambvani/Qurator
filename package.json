@@ -6,7 +6,8 @@
     "clean": "rimraf dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.babel.js",
     "build": "npm run clean && npm run build:webpack",
-    "start": "babel-node server.js",
+    "start": "NODE_ENV=production babel-node server.js",
+    "dev": "NODE_ENV=development babel-node server.js",
     "fixtures": "babel-node ./src/server/fixtures",
     "lint": "eslint src"
   },

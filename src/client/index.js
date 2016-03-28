@@ -12,6 +12,7 @@ const generateImages = (n) => {
   }))
 }
 
+// dispatch(actions.init());
 const store = configureStore({ images: generateImages(38) })
 
 render(
