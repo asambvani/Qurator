@@ -1,11 +1,18 @@
 import { createSelector } from 'reselect'
 
-export const selectedTags = createSelector(
+state => ({
+  // Images to array, should it be an array initially?
+  images: Object.keys(state.entities.images).map(k => state.entities.images[k]),
+  tags: selectedTags(state),
+})
+
+export const showcase = createSelector(
   (state) => state.picker,
-  (images) => (
+  (state) => state.entities.images,
+  (ids, images) => (
     images.reduce((tags, image) => {
       image.tags.forEach(tag => tags.add(tag))
-      return tags
+      return {images,tags}
     }, new Set())
   )
 )

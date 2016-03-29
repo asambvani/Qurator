@@ -10,7 +10,7 @@ export default class QNavbar extends React.Component {
       <Navbar inverse>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/">
+            <Link to="/app/qurate">
               <img src="/img/logo.png" />
               Qurator
             </Link>
@@ -19,15 +19,22 @@ export default class QNavbar extends React.Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="/aboutus.htm">About us</NavItem>
-            <NavItem eventKey={2} href="/qurate.htm">Qurate</NavItem>
+            <LinkContainer to="/app/about" >
+              <NavItem>About</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/app/qurate" >
+              <NavItem>Qurate</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/app/shop" >
+              <NavItem> Shop entire store</NavItem>
+            </LinkContainer>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} href="/entire-store.htm">
-              Shop entire store
-            </NavItem>
-            <LinkContainer to="/contacts">
-              <NavItem eventKey={2}>Contacts</NavItem>
+            <LinkContainer to="/app/cart" >
+              <NavItem> Cart</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/app/contacts">
+              <NavItem>Contacts</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

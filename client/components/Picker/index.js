@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { selectedTags } from 'selectors'
+import { showcase } from 'selectors'
 import { Grid, Row, Col, Button } from 'react-bootstrap'
 import autobind from 'autobind-decorator'
 import { shuffle } from 'lodash'
@@ -8,11 +8,7 @@ import { resetPicker } from 'actions/picker'
 import Slider from './Slider'
 import styles from './styles'
 
-@connect(state => ({
-  // Images to array, should it be an array initially?
-  images: Object.keys(state.entities.images).map(k => state.entities.images[k]),
-  tags: selectedTags(state),
-}), { resetPicker })
+@connect(showcase, { resetPicker })
 class Picker extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,
