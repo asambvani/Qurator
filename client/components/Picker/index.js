@@ -29,9 +29,10 @@ class Picker extends Component {
     const { images, tags } = this.props
     let filteredImages = images
 
-    if (tags.size) {
+    if (Object.keys(tags).length) {
+      console.log('Selected tags: ', tags)
       filteredImages = images.filter(img => (
-        img.tags.some(tag => tags.has(tag))
+        img.tags.some(tag => tags[tag])
       ))
     }
 

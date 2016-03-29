@@ -10,8 +10,10 @@ export const currentTags = createSelector(
   (state) => state.entities.images,
   (ids, images) => (
     ids.map(id => images[id]).reduce((tags, image) => {
-      image.tags.forEach(tag => tags.add(tag))
+      image.tags.forEach(tag => {
+        tags[tag] = ++tags[tag] || 1
+      })
       return tags
-    }, new Set())
+    }, {})
   )
 )

@@ -17,6 +17,7 @@ const generateImages = (n) => {
 
 const insertImages = async (data) => {
   try {
+    await Image.remove({})
     const imagesCount = await Image.count({})
 
     if (!imagesCount) {

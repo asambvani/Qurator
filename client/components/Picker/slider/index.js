@@ -46,7 +46,7 @@ class Slider extends Component {
             <img
               key={img.id}
               src={img.url}
-              className={selected.has(img) ? styles.selectedSlide : styles.slide}
+              className={selected.has(img.id) ? styles.selectedSlide : styles.slide}
               onClick={this.handleClick.bind(this, img)}
             />
           ))}

@@ -6,7 +6,6 @@ export default createReducer({
   [unpickImage]: (state, id) => {
     const index = state.indexOf(id)
     if (index > -1) {
-      // disable(fetch)
       return [
         ...state.slice(0, index),
         ...state.slice(index + 1),
@@ -17,7 +16,26 @@ export default createReducer({
   [resetPicker]: () => [],
 }, [])
 
-// tags = {car:2,woman:1}
+// const tagsReducer = createReducer({
+//   [pickImage]: (state, id) => [...state, id],
+//   [unpickImage]: (state, id) => {
+//     const index = state.indexOf(id)
+//     if (index > -1) {
+//       return [
+//         ...state.slice(0, index),
+//         ...state.slice(index + 1),
+//       ]
+//     }
+//     return state
+//   },
+//   [resetPicker]: () => [],
+// })
+//
+// export default combineReducers({
+//
+// })
+
+// tags = { car: 2, woman: 1 }
 // const tags = (state = {}, { type, image }) => {
 //   const index = state.indexOf(image)
 //
