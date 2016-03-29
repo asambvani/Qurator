@@ -7,7 +7,7 @@
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.babel.js",
     "build": "npm run clean && npm run build:webpack",
     "start": "NODE_ENV=production babel-node server.js",
-    "dev": "NODE_ENV=development babel-node server.js",
+    "dev": "babel-node server.js",
     "nodemon": "NODE_ENV=development nodemon ./node_modules/babel-cli/bin/babel-node.js server.js",
     "fixtures": "babel-node ./server/fixtures",
     "lint": "eslint src"
@@ -64,6 +64,7 @@
     "react-router-bootstrap": "^0.20.1",
     "react-transform-hmr": "^1.0.1",
     "redux": "^3.3.1",
+    "redux-act": "^0.4.0",
     "redux-devtools": "^3.1.1",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.4",

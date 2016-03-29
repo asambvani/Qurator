@@ -9,7 +9,7 @@ const generateImages = (n) => {
   ]
   const pickTag = (data) => data[Math.floor(Math.random() * (data.length))]
   return [...Array(n)].map((image, i) => ({
-    url: `img/thumb/${i < 9 ? '0' : ''}${i + 1}.jpg`,
+    url: `/img/thumb/${i < 9 ? '0' : ''}${i + 1}.jpg`,
     tags: [pickTag(tags), pickTag(tags)],
     order: i + 1,
   }))

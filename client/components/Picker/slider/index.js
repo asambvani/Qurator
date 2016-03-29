@@ -1,16 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { onImagePick, onImageUnpick } from 'actions/picker'
+import { pickImage, unpickImage } from 'actions/picker'
 import { shuffle } from 'lodash'
 import Slick from 'react-slick'
 import styles from './styles'
 
 @connect(state => ({
   selected: new Set(state.picker),
-}), {
-  pickImage: onImagePick,
-  unpickImage: onImageUnpick,
-})
+}), { pickImage, unpickImage })
 class Slider extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,
@@ -26,12 +23,11 @@ class Slider extends Component {
     imagesLimit: 40,
   }
 
-  handleClick(img) {
-    const { selected, pickImage, unpickImage } = this.props
-    if (selected.has(img)) {
-      unpickImage(img)
+  handleClick({ id }) {
+    if (this.props.selected.has(id)) {
+      this.props.unpickImage(id)
     } else {
-      pickImage(img)
+      this.props.pickImage(id)
     }
   }
 

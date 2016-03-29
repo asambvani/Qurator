@@ -1,14 +1,18 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { showcase } from 'selectors'
-import { Grid, Row, Col, Button } from 'react-bootstrap'
 import autobind from 'autobind-decorator'
+import { currentTags, currentImages } from 'selectors'
+import { Grid, Row, Col, Button } from 'react-bootstrap'
 import { shuffle } from 'lodash'
 import { resetPicker } from 'actions/picker'
 import Slider from './Slider'
 import styles from './styles'
 
-@connect(showcase, { resetPicker })
+@connect(
+state => ({
+  images: currentImages(state),
+  tags: currentTags(state),
+}), { resetPicker })
 class Picker extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,

@@ -1,17 +1,5 @@
-export const PICK_IMAGE = 'PICK_IMAGE'
-export const UNPICK_IMAGE = 'UNPICK_IMAGE'
-export const RESET_PICKER = 'RESET_PICKER'
+import { createAction } from 'redux-act'
 
-export const onImagePick = (image) => ({
-  type: PICK_IMAGE,
-  image,
-})
-
-export const onImageUnpick = (image) => ({
-  type: UNPICK_IMAGE,
-  image,
-})
-
-export const resetPicker = () => ({
-  type: RESET_PICKER,
-})
+export const pickImage = createAction('Pick image')
+export const unpickImage = createAction('Unpick image')
+export const resetPicker = createAction('Reset picker')

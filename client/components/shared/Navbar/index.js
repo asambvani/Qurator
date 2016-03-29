@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Nav, Navbar, NavItem, MenuItem, NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar, NavItem } from 'react-bootstrap'
 
-// export default () => ( // I need hot-reload :)
 export default class QNavbar extends React.Component {
   render() {
     return (
@@ -42,4 +41,3 @@ export default class QNavbar extends React.Component {
     )
   }
 }
-// )

@@ -10,7 +10,7 @@ export const Schemas = {
   IMAGE_ARRAY: arrayOf(imageSchema),
 }
 
-const callAPI = (endpoint, method, data, schema) => {
+const callAPI = (endpoint, method, data, schema) => { // eslint-disable-line arrow-body-style
   return request({ endpoint, method, data })
     .then(json => {
       if (schema) {
