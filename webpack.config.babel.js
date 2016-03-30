@@ -26,7 +26,7 @@ let plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({ __DEBUG__: dev }),
-  new HtmlPlugin({ inject: false, template: './index.html' }),
+  new HtmlPlugin({ inject: true, template: './index.html' }),
   new ExtractTextPlugin('style.[chunkhash].css', {
     disable: dev,
     allChunks: true,
@@ -40,9 +40,9 @@ module.exports = {
 
   entry: dev ? {
     app: [
-      // 'bootstrap.css',
+      './client/styles/bootstrap.min.css',
       'eventsource-polyfill',
-      'webpack-hot-middleware/client?path=/__webpack_hmr',
+      'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true',
       './client/index',
     ],
   } : {
@@ -91,11 +91,8 @@ module.exports = {
         ),
       },
       {
-        test: /\.(svg|png|jpg|gif)$/,
-        include: [
-          path.resolve(__dirname, 'static'),
-        ],
-        loader: 'url-loader?limit=300000&name=[name].[ext]',
+        test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader?name=../fonts/[name].[ext]',
       },
     ],
   },
