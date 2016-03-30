@@ -3,18 +3,14 @@ import { Route, IndexRoute } from 'react-router'
 import App from './App'
 import Picker from './Picker'
 import Contacts from './Contacts'
+import About from './Contacts'
 import Notfound from './Notfound'
 
 export default (
-  <Route path="app/qurate" component={App}>
+  <Route path="app" component={App}>
     <IndexRoute component={Picker} />
-    <Route path="app/contacts" component={Contacts} />
+    <Route path="contacts" component={Contacts} />
+    <Route path="about" component={About} />
     <Route path="*" component={Notfound} />
   </Route>
 )
-
-    // <IndexRoute component={Picker} />
-// <Route path="/counter" component={CounterPage} />
-// <Route path="/github" component={GithubPage} />
-//   <Route path="/github/:username" component={GitUserPage} />
-//   <Route path="/github/:username/:reponame" component={RepoPage} />

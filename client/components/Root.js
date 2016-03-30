@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Provider } from 'react-redux'
-import { Router, browserHistory } from 'react-router'
+import { Router, browserHistory, Redirect } from 'react-router'
 import DevTools from './DevTools'
 import routes from './routes'
 import 'styles/main'
@@ -12,13 +12,16 @@ class Root extends Component {
 
   render() {
     if (module.hot) {
-      module.hot.decline('./routes.js');
+      module.hot.decline('./routes.js')
     }
 
     return (
       <Provider store={this.props.store}>
         <div>
-          <Router history={browserHistory} routes={routes} />
+          <Router history={browserHistory} >
+            <Redirect from="/" to="/app" />
+            {routes}
+          </Router>
           <DevTools />
         </div>
       </Provider>

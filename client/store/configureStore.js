@@ -4,13 +4,14 @@ import createLogger from 'redux-logger'
 import api from '../middleware/api'
 import rootReducer from '../reducers'
 import DevTools from '../components/DevTools'
+import updateFilter from '../middleware/updateFilter'
 
 const configureStore = (initialState) => {
   const store = createStore(
     rootReducer,
     initialState,
     compose(
-      applyMiddleware(thunk, api, createLogger()),
+      applyMiddleware(updateFilter, thunk, api, createLogger()),
       DevTools.instrument()
     )
   )
