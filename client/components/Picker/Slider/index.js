@@ -45,7 +45,7 @@ class Slider extends Component {
           {this.images.slice(j, j + imagesPerSlide).map(img => (
             <img
               key={img.id}
-              src={img.url}
+              src={`/img/thumb/${img.url}`}
               className={selected.has(img.id) ? styles.selectedSlide : styles.slide}
               onClick={this.handleClick.bind(this, img)}
             />

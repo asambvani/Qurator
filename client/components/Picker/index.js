@@ -58,7 +58,7 @@ class Picker extends Component {
                 lg={1}
                 key={img.id}
               >
-                <img className={styles.image} src={img.url} />
+                <img className={styles.image} src={`/img/thumb/${img.url}`} />
               </Col>
             ))}
           </Row>

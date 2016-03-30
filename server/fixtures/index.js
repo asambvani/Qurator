@@ -9,7 +9,7 @@ const generateImages = (n) => {
   ]
   const pickTag = (data) => data[Math.floor(Math.random() * (data.length))]
   return [...Array(n)].map((image, i) => ({
-    url: `/img/thumb/${i < 9 ? '0' : ''}${i + 1}.jpg`,
+    url: `${i < 9 ? '0' : ''}${i + 1}.jpg`,
     tags: [pickTag(tags), pickTag(tags)],
     order: i + 1,
   }))
@@ -37,5 +37,5 @@ let images = []
 for (let i = 0; i < 10; i++) {
   images = images.concat(shuffle(generateImages(38)))
 }
-// console.log(images)
+
 insertImages(images)

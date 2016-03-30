@@ -10,6 +10,7 @@
     "dev": "babel-node server.js",
     "nodemon": "NODE_ENV=development nodemon ./node_modules/babel-cli/bin/babel-node.js server.js",
     "fixtures": "babel-node ./server/fixtures",
+    "fixturesCSV": "babel-node ./server/fixtures/uploadCSV",
     "lint": "eslint src"
   },
   "repository": {
@@ -84,6 +85,7 @@
     "babel-eslint": "6.0.0",
     "body-parser": "1.15.0",
     "config": "1.19.0",
+    "d3": "3.5.16",
     "humps": "1.0.0",
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.5.1",
