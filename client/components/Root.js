@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { Router, browserHistory, Redirect } from 'react-router'
 import DevTools from './DevTools'
 import routes from './routes'
+import 'styles/bootstrap.min'
 import 'styles/main'
 
 class Root extends Component {

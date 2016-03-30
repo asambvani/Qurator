@@ -1,6 +1,6 @@
 import { Schema, arrayOf, normalize } from 'normalizr'
 import { camelizeKeys } from 'humps'
-import request from './requestPromise'
+import 'isomorphic-fetch'
 
 export const CALL_API_SYMBOL = Symbol('Call API')
 
@@ -11,12 +11,19 @@ export const Schemas = {
 }
 
 const callAPI = (endpoint, method, data, schema) => { // eslint-disable-line arrow-body-style
-  return request({ endpoint, method, data })
-    .then(json => {
-      if (schema) {
-        return normalize(camelizeKeys(json), schema)
+  return fetch(`/api/${endpoint}`, {
+    method: method || 'GET',
+    body: data || {},
+  })
+    .then(response =>
+      response.json().then(json => ({ json, response }))
+    )
+    .then(({ json, response }) => {
+      if (!response.ok) {
+        return Promise.reject(json)
       }
-      return json
+
+      return normalize(camelizeKeys(json), schema)
     })
 }
 

@@ -21,7 +21,7 @@ const insertImages = async(data) => {
     }
 
     if (!imagesCount) {
-      console.log('Inserted successfully')
+      console.log('Inserted successfully!')
     }
   } catch (err) {
     console.error(err)

@@ -76,7 +76,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /main.css/,
+        exclude: /client\/styles/,
         loader: ExtractTextPlugin.extract(
           'style',
           `css?modules&importLoaders=1${cssModuleName}!postcss`
@@ -84,7 +84,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: /main.css/,
+        include: /client\/styles/,
         loader: ExtractTextPlugin.extract(
           'style',
           'css!postcss'
