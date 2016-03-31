@@ -35,14 +35,6 @@ class Showcase extends Component {
 
   render() {
     const { images } = this.props
-    // let filteredImages = images
-    //
-    // if (Object.keys(tags).length) {
-    //   // console.log('Selected tags: ', tags)
-    //   filteredImages = images.filter(img => (
-    //     img.tags.some(tag => tags[tag])
-    //   ))
-    // }
 
     return (
       <Grid fluid>

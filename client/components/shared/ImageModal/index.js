@@ -27,6 +27,7 @@ class ImageModal extends Component {
 
   render() {
     const { active, onClose, image } = this.props
+    // TODO: move product options to DB?
     const availableResolutions = ['1920x1080', '1680x1050', '1280x1024']
 
     return (

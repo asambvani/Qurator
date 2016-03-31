@@ -17,3 +17,14 @@ export const currentTags = createSelector(
     }, {})
   )
 )
+
+export const cartItems = createSelector(
+  (state) => state.cart,
+  (state) => state.entities.images,
+  (items, images) => (
+    items.map(item => {
+      item.image = images[item.id]
+      return item
+    })
+  )
+)
