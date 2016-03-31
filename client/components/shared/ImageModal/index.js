@@ -45,7 +45,6 @@ class ImageModal extends Component {
               resolution"
               placeholder="select"
             >
-              <option selected disabled hidden>select</option>
               {availableResolutions.map(res => (
                 <option key={res} value={res}>{res}</option>
               ))}
