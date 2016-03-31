@@ -23,7 +23,7 @@ class Root extends Component {
             <Redirect from="/" to="/app" />
             {routes}
           </Router>
-          <DevTools />
+          {!window.devToolsExtension ? <DevTools /> : null}
         </div>
       </Provider>
     )

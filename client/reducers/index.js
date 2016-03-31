@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import merge from 'lodash/merge'
 import picker from './picker'
+import cart from './cart'
 
 export function entities(state = { images: {} }, action) {
   if (action.response && action.response.entities) {
@@ -12,6 +13,7 @@ export function entities(state = { images: {} }, action) {
 const rootReducer = combineReducers({
   entities,
   picker,
+  cart,
 })
 
 export default rootReducer

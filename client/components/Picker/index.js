@@ -1,22 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import autobind from 'autobind-decorator'
-import { currentTags, currentImages } from 'selectors'
-import { Grid, Row, Col, Button } from 'react-bootstrap'
-import { shuffle } from 'lodash'
+import { Grid, Button } from 'react-bootstrap'
 import { resetPicker } from 'actions/picker'
 import Slider from './Slider'
+import Showcase from './Showcase'
 import styles from './styles'
 
-@connect(
-state => ({
-  images: currentImages(state),
-  tags: currentTags(state),
-}), { resetPicker })
+@connect(null, { resetPicker })
 class Picker extends Component {
   static propTypes = {
-    images: PropTypes.array.isRequired,
-    tags: PropTypes.object,
     resetPicker: PropTypes.func,
   }
 
@@ -26,16 +19,6 @@ class Picker extends Component {
   }
 
   render() {
-    const { images, tags } = this.props
-    let filteredImages = images
-
-    if (Object.keys(tags).length) {
-      console.log('Selected tags: ', tags)
-      filteredImages = images.filter(img => (
-        img.tags.some(tag => tags[tag])
-      ))
-    }
-
     return (
       <div>
         <Grid>
@@ -47,22 +30,9 @@ class Picker extends Component {
           >
             Reset
           </Button>
-          {images.length ? <Slider {...this.props} /> : null}
+          <Slider {...this.props} />
         </Grid>
-        <Grid fluid>
-          <Row>
-            {shuffle(filteredImages).map(img => (
-              <Col
-                xs={3}
-                md={2}
-                lg={1}
-                key={img.id}
-              >
-                <img className={styles.image} src={`/img/thumb/${img.url}`} />
-              </Col>
-            ))}
-          </Row>
-        </Grid>
+        <Showcase />
       </div>
     )
   }

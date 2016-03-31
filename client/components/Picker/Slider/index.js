@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { currentImages } from 'selectors'
 import { pickImage, unpickImage } from 'actions/picker'
 import { shuffle } from 'lodash'
 import Slick from 'react-slick'
 import styles from './styles'
 
 @connect(state => ({
+  images: currentImages(state),
   selected: new Set(state.picker),
 }), { pickImage, unpickImage })
 class Slider extends Component {
@@ -70,6 +72,8 @@ class Slider extends Component {
       // slickGoTo: this.props.reset ? 1 : null,
       // slickGoTo: 1,
     }
+
+    if (!this.props.images.length) return null
 
     return (
       <Slick {...settings}>

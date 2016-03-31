@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Nav, Navbar, NavItem } from 'react-bootstrap'
 
-export default class QNavbar extends React.Component {
+@connect(state => ({ cart: state.cart }))
+class QNavbar extends Component {
+  static propTypes = {
+    cart: PropTypes.array.isRequired,
+  }
+
   render() {
     return (
       <Navbar inverse>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/app/qurate">
+            <Link to="/app">
               <img src="/img/logo.png" />
               Qurator
             </Link>
@@ -21,7 +27,7 @@ export default class QNavbar extends React.Component {
             <LinkContainer to="/app/about" >
               <NavItem>About</NavItem>
             </LinkContainer>
-            <LinkContainer to="/app/qurate" >
+            <LinkContainer to="/app" >
               <NavItem>Qurate</NavItem>
             </LinkContainer>
             <LinkContainer to="/app/shop" >
@@ -30,7 +36,7 @@ export default class QNavbar extends React.Component {
           </Nav>
           <Nav pullRight>
             <LinkContainer to="/app/cart" >
-              <NavItem> Cart</NavItem>
+              <NavItem>Cart {this.props.cart.length}</NavItem>
             </LinkContainer>
             <LinkContainer to="/app/contacts">
               <NavItem>Contacts</NavItem>
@@ -41,3 +47,5 @@ export default class QNavbar extends React.Component {
     )
   }
 }
+
+export default QNavbar

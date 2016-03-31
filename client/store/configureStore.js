@@ -1,6 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
-import createLogger from 'redux-logger'
 import api from '../middleware/api'
 import rootReducer from '../reducers'
 import DevTools from '../components/DevTools'
@@ -11,8 +10,8 @@ const configureStore = (initialState) => {
     rootReducer,
     initialState,
     compose(
-      applyMiddleware(updateFilter, thunk, api, createLogger()),
-      DevTools.instrument()
+      applyMiddleware(updateFilter, thunk, api),
+      window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
     )
   )
 
