@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Redux example app",
   "scripts": {
+    "test": "npm run lint",
     "clean": "rimraf public",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.babel.js",
     "build": "npm run clean && npm run build:webpack",
@@ -12,7 +13,7 @@
     "dev": "npm run clean && nodemon --watch server --watch node_modules .",
     "fixtures": "babel-node ./server/fixtures",
     "fixturesCSV": "babel-node ./server/fixtures/uploadCSV",
-    "lint": "eslint src"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
