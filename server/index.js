@@ -23,25 +23,26 @@ app.use(bodyParser.json())
 app.use('/api', router)
 app.use(history())
 
+if (process.env.NODE_ENV === 'development') {
+  app.use(webpackDevMiddleware(compiler, {
+    hot: true,
+    noInfo: true,
+    publicPath: webpackConfig.output.publicPath,
+    historyApiFallback: true,
+    stats: {
+      hash: false,
+      colors: true,
+      timings: true,
+      chunks: true,
+      assets: false,
+      version: false,
+      children: false,
+      chunkModules: false,
+    },
+  }))
 
-app.use(webpackDevMiddleware(compiler, {
-  hot: true,
-  noInfo: true,
-  publicPath: webpackConfig.output.publicPath,
-  historyApiFallback: true,
-  stats: {
-    hash: false,
-    colors: true,
-    timings: true,
-    chunks: true,
-    assets: false,
-    version: false,
-    children: false,
-    chunkModules: false,
-  },
-}))
-
-app.use(webpackHotMiddleware(compiler))
+  app.use(webpackHotMiddleware(compiler))
+}
 
 const listen = () => {
   app.listen(port)
