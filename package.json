@@ -9,7 +9,7 @@
     "preinstall": "npm prune",
     "postinstall": "npm run build",
     "start": "pm2 stop qurator; NODE_ENV=production pm2 start index.js --name qurator",
-    "dev": "npm run clean && nodemon --watch server --watch node_modules node .",
+    "dev": "npm run clean && nodemon --watch server --watch node_modules .",
     "fixtures": "babel-node ./server/fixtures",
     "fixturesCSV": "babel-node ./server/fixtures/uploadCSV",
     "lint": "eslint src"
