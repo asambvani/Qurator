@@ -6,6 +6,8 @@
     "clean": "rimraf dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.babel.js",
     "build": "npm run clean && npm run build:webpack",
+    "preinstall": "npm prune",
+    "postinstall": "npm run build",
     "start": "pm2 stop qurator; NODE_ENV=production pm2 start index.js --name qurator",
     "dev": "nodemon --watch server --watch node_modules node .",
     "fixtures": "babel-node ./server/fixtures",
