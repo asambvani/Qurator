@@ -7,7 +7,7 @@ import webpack from 'webpack'
 import history from 'connect-history-api-fallback'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig from '../webpack.config.babel'
+import webpackConfig from '../webpack.config'
 import db from './db'
 import router from './api'
 

@@ -1,10 +1,10 @@
-import path from 'path'
-import webpack from 'webpack'
-import postcssNext from 'postcss-cssnext'
-import postcssImport from 'postcss-import'
-import postcssNested from 'postcss-nested'
-import HtmlPlugin from 'html-webpack-plugin'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
+var path = require('path')
+var webpack = require('webpack')
+var postcssNext = require('postcss-cssnext')
+var postcssImport = require('postcss-import')
+var postcssNested = require('postcss-nested')
+var HtmlPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const dev = process.env.NODE_ENV !== 'production'
 const cssModuleName = dev ? '&localIdentName=[name]__[local]--[hash:base64:5]' : ''
@@ -22,7 +22,7 @@ const productionPlugins = [
   }),
 ]
 
-let plugins = [
+var plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({ __DEBUG__: dev }),
@@ -40,13 +40,12 @@ module.exports = {
 
   entry: dev ? {
     app: [
-      './client/styles/bootstrap.min.css',
       'eventsource-polyfill',
       'webpack-hot-middleware/client?path=/__webpack_hmr&reload=true',
       './client/index',
     ],
   } : {
-    app: './client/index.js',
+    app: ['./client/index'],
   },
 
   output: {
