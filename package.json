@@ -57,7 +57,7 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
     "html-webpack-plugin": "2.9.0",
-    "lodash": "^4.6.1",
+    "lodash": "4.6.1",
     "postcss-cssnext": "2.4.0",
     "postcss-custom-media": "5.0.0",
     "postcss-import": "8.0.1",
