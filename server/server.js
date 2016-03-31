@@ -7,9 +7,9 @@ import webpack from 'webpack'
 import history from 'connect-history-api-fallback'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig from './webpack.config.babel'
-import db from './server/db'
-import router from './server/api'
+import webpackConfig from '../webpack.config.babel'
+import db from './db'
+import router from './api'
 
 const app = express()
 const compiler = webpack(webpackConfig)
@@ -23,7 +23,6 @@ app.use(bodyParser.json())
 app.use('/api', router)
 app.use(history())
 
-// if (prod) { }
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
