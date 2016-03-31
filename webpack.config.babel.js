@@ -26,7 +26,7 @@ let plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({ __DEBUG__: dev }),
-  new HtmlPlugin({ inject: true, template: './index.html' }),
+  new HtmlPlugin({ inject: true, template: './client/index.html' }),
   new ExtractTextPlugin('style.[chunkhash].css', {
     disable: dev,
     allChunks: true,
@@ -51,7 +51,7 @@ module.exports = {
 
   output: {
     publicPath: '/',
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'public'),
     filename: 'js/[name].[hash].js',
   },
 
@@ -89,6 +89,10 @@ module.exports = {
           'style',
           'css!postcss'
         ),
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'file-loader?name=../img/[name].[ext]',
       },
       {
         test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
