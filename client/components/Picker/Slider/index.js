@@ -47,7 +47,7 @@ class Slider extends Component {
               key={img.id}
               src={`/img/thumb/${img.url}`}
               className={selected.has(img.id) ? styles.selectedSlide : styles.slide}
-              onClick={this.handleClick.bind(this, img)}
+              onClick={this.handleClick.bind(this, img)} // eslint-disable-line
             />
           ))}
         </div>

@@ -8,7 +8,7 @@ const ImageSchema = mongoose.Schema({
 })
 
 ImageSchema.statics = {
-  async list({ tags = {}, resolution, name }) {
+  async list({ tags = {} }) {
     try {
       const images = await this.find()
 
