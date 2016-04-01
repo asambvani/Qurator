@@ -11,9 +11,14 @@ export const Schemas = {
 }
 
 const callAPI = (endpoint, method, data, schema) => { // eslint-disable-line arrow-body-style
+
   return fetch(`/api/${endpoint}`, {
     method: method || 'GET',
-    body: data || {},
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data || {}),
   })
     .then(response =>
       response.json().then(json => ({ json, response }))
@@ -22,7 +27,6 @@ const callAPI = (endpoint, method, data, schema) => { // eslint-disable-line arr
       if (!response.ok) {
         return Promise.reject(json)
       }
-
       return normalize(camelizeKeys(json), schema)
     })
 }

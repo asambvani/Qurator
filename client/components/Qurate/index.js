@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import * as pickerActions from 'actions/picker'
 import { createSelector } from 'reselect'
-import { shuffle, toArray } from 'lodash'
+import { shuffle, toArray, orderBy } from 'lodash'
 import autobind from 'autobind-decorator'
 import { Grid, Button } from 'react-bootstrap'
 import Picker from './Picker'
@@ -16,7 +16,7 @@ const selector = createSelector(
     state => state.currentPicker,
   ],
   (images, picker, currentPicker) => ({
-    images: toArray(images),
+    images: orderBy(toArray(images), 'weight', 'desc'),
     currentPicker: currentPicker.map(id => images[id]),
     selected: new Set(picker),
   }))
@@ -51,7 +51,11 @@ class Qurate extends Component {
   }
 
   render() {
-    const { pickImage, unpickImage, selected, currentPicker, images } = this.props
+    const {
+      handleResetClick,
+      handleNextClick,
+      props: { pickImage, unpickImage, selected, currentPicker, images },
+    } = this
     return (
       <div className="container" >
         <Grid>
@@ -60,23 +64,36 @@ class Qurate extends Component {
             <div>Pick images you like</div>
           </div>
           <div className={styles.buttonBar} >
-            <Button
-              bsStyle="danger"
-              className={styles.reset}
-              onClick={this.handleResetClick}
-            >
-              Reset
-            </Button>
-            <Button
-              bsStyle="primary"
-              className={styles.next}
-              onClick={this.handleNextClick}
-            >
-              Next
-            </Button>
+            {currentPicker.length ?
+              <div>
+                <Button
+                  bsStyle="danger"
+                  className={styles.reset}
+                  onClick={handleResetClick}
+                >
+                  Reset
+                </Button>
+                <Button
+                  bsStyle="primary"
+                  className={styles.next}
+                  onClick={handleNextClick}
+                >
+                  Next
+                </Button>
+              </div>
+              :
+              <Button
+                className={styles.startButton}
+                bsStyle="primary"
+                bsSize="large"
+                onClick={handleNextClick}
+              >
+                Start
+              </Button>
+            }
           </div>
 
-          <Picker {...{ pickImage, unpickImage, selected, currentPicker }} />
+          <Picker {...{ pickImage, unpickImage, selected, currentPicker, handleNextClick }} />
         </Grid>
         <Showcase {...{ images } } />
       </div>

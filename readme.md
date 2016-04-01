@@ -5,6 +5,7 @@ Todo
 Code
     [] Switch AWS tiny => small node
     [X] Update image randomizer to match DB
+    [X] Make picker actually work as per spec
     [X] Remove react-slick and replace it with manual component
     [] Add redirect from cart to shopify and setup shopify
     [] Add filters on Shop entire store

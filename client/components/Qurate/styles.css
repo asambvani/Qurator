@@ -2,12 +2,17 @@
   float: left;
 }
 
+.startButton {
+  margin: 0 auto;
+}
+
 .next {
   float: right;
 }
 .buttonBar {
   overflow: auto;
   width: 100%;
+  margin: 1em;
 }
 
 .textHolder {

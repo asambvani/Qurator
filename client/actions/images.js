@@ -4,7 +4,7 @@ export const IMAGES_REQUEST = 'IMAGES_REQUEST'
 export const IMAGES_SUCCESS = 'IMAGES_SUCCESS'
 export const IMAGES_FAILURE = 'IMAGES_FAILURE'
 
-export function fetchImages(tags = []) {
+export function fetchImages(tags = {}) {
   return {
     [CALL_API_SYMBOL]: {
       data: { tags },
