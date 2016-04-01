@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 import autobind from 'autobind-decorator'
 import { Modal, Button, Input } from 'react-bootstrap'
 import { addToCart } from 'actions/cart'
+import styles from './styles'
 
 @connect(null, { addToCart })
 class ImageModal extends Component {
@@ -27,8 +29,7 @@ class ImageModal extends Component {
 
   render() {
     const { active, onClose, image } = this.props
-    // TODO: move product options to DB?
-    const availableResolutions = ['1920x1080', '1680x1050', '1280x1024']
+    const availableSizes = ['50x35inch', '20x15inch', '15x12inch']
 
     return (
       <Modal show={active} onHide={onClose}>
@@ -36,25 +37,33 @@ class ImageModal extends Component {
           <Modal.Title>Image: {image.url}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Options</h4>
-          <p>Freaking text</p>
-          <form>
-            <Input
-              ref="resolution"
-              type="select"
-              label="Select
-              resolution"
-              placeholder="select"
-            >
-              {availableResolutions.map(res => (
-                <option key={res} value={res}>{res}</option>
-              ))}
-            </Input>
-            <Input ref="count" label="Count" type="number" defaultValue="1" />
-          </form>
+          <img src={`/img/thumb/${image.url}`} className={styles.image} />
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={onClose}>Close</Button>
+          <form className="form-inline pull-left" >
+            <Input
+              className={styles.paddingForm}
+              ref="size"
+              type="select"
+              label="Size"
+              placeholder="select"
+            >
+              {availableSizes.map(res => (
+                <option key={res} value={res} >{res}</option>
+              ))}
+            </Input>
+            <Input
+              className={styles.paddingForm}
+              ref="qty"
+              label="Quantity"
+              type="select"
+              defaultValue="1"
+            >
+              {_.times(10, n => (
+                <option key={n} value={n + 1} >{n + 1}</option>
+              ))}
+            </Input>
+          </form>
           <Button
             onClick={this.addToCart}
             bsStyle="primary"

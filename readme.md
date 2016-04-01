@@ -9,11 +9,13 @@ Code
     [] Add filters on Shop entire store
     [] Make deploy work    
     [] Remove react-slick and replace it with manual component
+    [] define img url prefix in config
 UI
     
     [] Add about and contacts pages
     [X] Add cart icon
-    [] Change image sizes to inches
+    [X] Change image sizes to inches
+    [X] Make modal show actual image    
     [] Make next button bigger
     [] Add white bootstrap background
    

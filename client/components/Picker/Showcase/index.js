@@ -39,17 +39,17 @@ class Showcase extends Component {
     return (
       <Grid fluid>
         <Row>
-          {images.map(img => (
+          {images.map(image => (
             <Col
               xs={3}
               md={2}
               lg={1}
-              key={img.id}
+              key={image.id}
             >
               <img
                 className={styles.image}
-                src={`/img/thumb/${img.url}`}
-                onClick={this.showModal.bind(this, img)} // eslint-disable-line
+                src={`/img/thumb/${image.url}`}
+                onClick={this.showModal.bind(this, image)} // eslint-disable-line
               />
             </Col>
           ))}
