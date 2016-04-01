@@ -2,15 +2,16 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import autobind from 'autobind-decorator'
 import { Grid, Button } from 'react-bootstrap'
-import { resetPicker } from 'actions/picker'
-import Slider from './Slider'
+import { resetPicker, showNextPicker } from 'actions/picker'
+import Picker from './Picker'
 import Showcase from './Showcase'
 import styles from './styles'
 
-@connect(null, { resetPicker })
-class Picker extends Component {
+@connect(null, { resetPicker, showNextPicker })
+class Qurate extends Component {
   static propTypes = {
     resetPicker: PropTypes.func,
+    showNextPicker: PropTypes.func,
   }
 
   @autobind
@@ -20,6 +21,7 @@ class Picker extends Component {
 
   @autobind
   handleNextClick() {
+    this.props.showNextPicker()
   }
 
   render() {
@@ -47,7 +49,7 @@ class Picker extends Component {
             </Button>
           </div>
 
-          <Slider {...this.props} />
+          <Picker />
         </Grid>
         <Showcase />
       </div>
@@ -55,4 +57,4 @@ class Picker extends Component {
   }
 }
 
-export default Picker
+export default Qurate

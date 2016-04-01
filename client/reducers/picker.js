@@ -1,20 +1,13 @@
 import { createReducer } from 'redux-act'
+import initialState from '../services/initialState'
 import { pickImage, unpickImage, resetPicker } from '../actions/picker'
+import _ from 'lodash'
 
 export default createReducer({
   [pickImage]: (state, id) => [...state, id],
-  [unpickImage]: (state, id) => {
-    const index = state.indexOf(id)
-    if (index > -1) {
-      return [
-        ...state.slice(0, index),
-        ...state.slice(index + 1),
-      ]
-    }
-    return state
-  },
-  [resetPicker]: () => [],
-}, [])
+  [unpickImage]: (state, id) => _.without(state, id),
+  [resetPicker]: () => initialState.picker,
+}, initialState.picker)
 
 // const tagsReducer = createReducer({
 //   [pickImage]: (state, id) => [...state, id],

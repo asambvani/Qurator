@@ -1,17 +1,25 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { currentImages } from 'selectors'
 import { pickImage, unpickImage } from 'actions/picker'
+import { createSelector } from 'reselect'
 import { shuffle } from 'lodash'
 import Slick from 'react-slick'
 import styles from './styles'
 import config from 'services/config'
 const { image: { prefix } } = config
 
+const currentImages = createSelector(
+  state => state.entities.images,
+  images => Object.keys(images).map(k => images[k])
+)
+
 @connect(state => ({
   images: currentImages(state),
   selected: new Set(state.picker),
-}), { pickImage, unpickImage })
+}), {
+  pickImage,
+  unpickImage,
+})
 class Slider extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,
@@ -28,10 +36,11 @@ class Slider extends Component {
   }
 
   handleClick({ id }) {
-    if (this.props.selected.has(id)) {
-      this.props.unpickImage(id)
+    const { selected, pickImage: pick, unpickImage: unpick } = this.props
+    if (selected.has(id)) {
+      unpick(id)
     } else {
-      this.props.pickImage(id)
+      pick(id)
     }
   }
 
@@ -45,7 +54,7 @@ class Slider extends Component {
 
     for (let i = 0, j = 0; i < slidesNumber; i++, j += imagesPerSlide) {
       res.push(
-        <div className={styles.slide} key={j}>
+        <div className={styles.slide} key={j} >
           {this.images.slice(j, j + imagesPerSlide).map(img => (
             <img
               key={img.id}
@@ -71,11 +80,11 @@ class Slider extends Component {
       className: styles.slider,
       draggable: false,
       prevArrow: false,
-      // slickGoTo: this.props.reset ? 1 : null,
-      // slickGoTo: 1,
     }
 
-    if (!this.props.images.length) return null
+    if (!this.props.images.length) {
+      return null
+    }
 
     return (
       <Slick {...settings}>
