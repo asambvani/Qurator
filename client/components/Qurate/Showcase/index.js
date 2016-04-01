@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import autobind from 'autobind-decorator'
-import { currentImages } from 'selectors'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { resetPicker } from 'actions/picker'
 import ImageModal from 'components/ImageModal'
