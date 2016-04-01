@@ -5,6 +5,8 @@ import { pickImage, unpickImage } from 'actions/picker'
 import { shuffle } from 'lodash'
 import Slick from 'react-slick'
 import styles from './styles'
+import config from 'services/config'
+const { image: { prefix } } = config
 
 @connect(state => ({
   images: currentImages(state),
@@ -47,7 +49,7 @@ class Slider extends Component {
           {this.images.slice(j, j + imagesPerSlide).map(img => (
             <img
               key={img.id}
-              src={`/img/thumb/${img.url}`}
+              src={`${prefix.tb}${img.url}`}
               className={selected.has(img.id) ? styles.selectedSlide : styles.slide}
               onClick={this.handleClick.bind(this, img)} // eslint-disable-line
             />

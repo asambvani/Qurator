@@ -5,6 +5,8 @@ import autobind from 'autobind-decorator'
 import { Modal, Button, Input } from 'react-bootstrap'
 import { addToCart } from 'actions/cart'
 import styles from './styles'
+import config from 'services/config'
+const { image: { prefix } } = config
 
 @connect(null, { addToCart })
 class ImageModal extends Component {
@@ -37,7 +39,7 @@ class ImageModal extends Component {
           <Modal.Title>Image: {image.url}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={`/img/thumb/${image.url}`} className={styles.image} />
+          <img src={`${prefix.tb}${image.url}`} className={styles.image} />
         </Modal.Body>
         <Modal.Footer>
           <form className="form-inline pull-left" >

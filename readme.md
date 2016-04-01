@@ -9,7 +9,7 @@ Code
     [] Add filters on Shop entire store
     [] Make deploy work    
     [] Remove react-slick and replace it with manual component
-    [] define img url prefix in config
+    [X] define img url prefix in config
 UI
     
     [] Add about and contacts pages

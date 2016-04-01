@@ -6,11 +6,13 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import { resetPicker } from 'actions/picker'
 import ImageModal from 'components/ImageModal'
 import styles from './styles'
+import config from 'services/config'
+const { image: { prefix } } = config
 
 @connect(
-state => ({
-  images: currentImages(state),
-}), { resetPicker })
+  state => ({
+    images: currentImages(state),
+  }), { resetPicker })
 class Showcase extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,
@@ -37,7 +39,7 @@ class Showcase extends Component {
     const { images } = this.props
 
     return (
-      <Grid fluid>
+      <Grid fluid >
         <Row>
           {images.map(image => (
             <Col
@@ -48,7 +50,7 @@ class Showcase extends Component {
             >
               <img
                 className={styles.image}
-                src={`/img/thumb/${image.url}`}
+                src={`${prefix.tb}${image.url}`}
                 onClick={this.showModal.bind(this, image)} // eslint-disable-line
               />
             </Col>
