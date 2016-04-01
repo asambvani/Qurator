@@ -71,7 +71,7 @@ class Qurate extends Component {
                   className={styles.reset}
                   onClick={handleResetClick}
                 >
-                  Reset
+                  Start over
                 </Button>
                 <Button
                   bsStyle="primary"
