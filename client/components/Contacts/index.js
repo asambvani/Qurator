@@ -6,8 +6,9 @@ class Contacts extends Component {
       <div className="container" >
         <p>We’d love to hear from you!</p>
         <p>
-          Feel free to contact us at
-          <a href="mailto:info@qurator-art.com" >info@qurator-art.com</a>
+          Feel free to contact us at <a href="mailto:info@qurator-art.com">
+          info@qurator-art.com
+        </a>
         </p>
         <p>
           If you are an artist interested in joining our platform, please send us your Instagram
