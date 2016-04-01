@@ -12,10 +12,10 @@ Code
     [X] define img url prefix in config
 UI
     
-    [] Add about and contacts pages
+    [] Add about and contacts pages    
     [X] Add cart icon
     [X] Change image sizes to inches
     [X] Make modal show actual image    
-    [] Make next button bigger
-    [] Add white bootstrap background
+    [X] Make next button bigger
+    [X] Add white bootstrap background
    

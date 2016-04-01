@@ -18,18 +18,35 @@ class Picker extends Component {
     this.props.resetPicker()
   }
 
+  @autobind
+  handleNextClick() {
+  }
+
   render() {
     return (
-      <div>
+      <div className="container" >
         <Grid>
-          <h3>Picker</h3>
-          <Button
-            bsStyle="primary"
-            className={styles.reset}
-            onClick={this.handleResetClick}
-          >
-            Reset
-          </Button>
+          <div className={styles.textHolder} >
+            <h3>Picker</h3>
+            <div>Pick images you like</div>
+          </div>
+          <div className={styles.buttonBar} >
+            <Button
+              bsStyle="danger"
+              className={styles.reset}
+              onClick={this.handleResetClick}
+            >
+              Reset
+            </Button>
+            <Button
+              bsStyle="primary"
+              className={styles.next}
+              onClick={this.handleNextClick}
+            >
+              Next
+            </Button>
+          </div>
+
           <Slider {...this.props} />
         </Grid>
         <Showcase />

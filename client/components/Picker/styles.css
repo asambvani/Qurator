@@ -1,4 +1,15 @@
 .reset {
+  float: left;
+}
+
+.next {
   float: right;
-  margin-top: -35px;
+}
+.buttonBar {
+  overflow: auto;
+  width: 100%;
+}
+
+.textHolder {
+  text-align: center;
 }
