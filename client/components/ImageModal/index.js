@@ -34,7 +34,7 @@ class ImageModal extends Component {
     const availableSizes = ['50x35inch', '20x15inch', '15x12inch']
 
     return (
-      <Modal show={active} onHide={onClose}>
+      <Modal show={active} onHide={onClose} bsSize="large">
         <Modal.Header closeButton>
           <Modal.Title>Image: {image.url}</Modal.Title>
         </Modal.Header>
