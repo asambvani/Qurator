@@ -1,5 +1,6 @@
 import { createReducer } from 'redux-act'
 import _ from 'lodash'
+import initialState from '../services/initialState'
 import { addToCart, removeFromCart, resetCart } from '../actions/cart'
 
 export default createReducer({
@@ -24,6 +25,6 @@ export default createReducer({
     }
     return state
   },
-  [resetCart]: () => [],
-}, [])
+  [resetCart]: () => initialState.cart,
+}, initialState.cart)
 

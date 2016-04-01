@@ -1,5 +1,5 @@
 export default {
   entities: {},
   picker: [],
-  cart: {},
+  cart: [],
 }

@@ -7,12 +7,18 @@ import { resetPicker } from 'actions/picker'
 import ImageModal from 'components/ImageModal'
 import styles from './styles'
 import config from 'services/config'
+import { createStructuredSelector } from 'reselect'
+import _ from 'lodash'
 const { image: { prefix } } = config
 
+const selector = createStructuredSelector({
+  images: state => _.toArray(state.entities.images),
+})
+
+
 @connect(
-  state => ({
-    images: currentImages(state),
-  }), { resetPicker })
+  selector,
+  { resetPicker })
 class Showcase extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,

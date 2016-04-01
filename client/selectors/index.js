@@ -1,9 +1,5 @@
 import { createSelector } from 'reselect'
 
-export const currentImages = createSelector(
-  state => state.entities.images,
-  images => Object.keys(images).map(k => images[k])
-)
 
 export const currentTags = createSelector(
   (state) => state.picker,

@@ -20,11 +20,11 @@ class ImageModal extends Component {
   @autobind
   addToCart() {
     const { image, onClose } = this.props
-    const { resolution, count } = this.refs
+    const { size, qty } = this.refs
     this.props.addToCart({
       id: image.id,
-      res: resolution.getValue(),
-      count: count.getValue(),
+      size: size.getValue(),
+      qty: qty.getValue(),
     })
     onClose()
   }

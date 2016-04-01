@@ -6,20 +6,25 @@ import { shuffle } from 'lodash'
 import Slick from 'react-slick'
 import styles from './styles'
 import config from 'services/config'
+import _ from 'lodash'
 const { image: { prefix } } = config
 
-const currentImages = createSelector(
-  state => state.entities.images,
-  images => Object.keys(images).map(k => images[k])
-)
+const selector = createSelector(
+  [
+    state => state.entities.images,
+    state => state.picker,
+  ],
+  (imagesHash, picker) => ({
+    images: _.toArray(imagesHash),
+    selected: new Set(picker),
+  }))
 
-@connect(state => ({
-  images: currentImages(state),
-  selected: new Set(state.picker),
-}), {
-  pickImage,
-  unpickImage,
-})
+@connect(
+  selector,
+  {
+    pickImage,
+    unpickImage,
+  })
 class Slider extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,

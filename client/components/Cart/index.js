@@ -17,8 +17,8 @@ class Cart extends Component {
       <tr key={i}>
         <td>{i + 1}</td>
         <td>{item.image.url}</td>
-        <td>{item.res}</td>
-        <td>{item.count}</td>
+        <td>{item.size}</td>
+        <td>{item.qty}</td>
       </tr>
     ))
   }
