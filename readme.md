@@ -12,7 +12,8 @@ Code
 UI
     
     [] Add about and contacts pages
-    [] Add cart icon
+    [X] Add cart icon
+    [] Change image sizes to inches
     [] Make next button bigger
     [] Add white bootstrap background
    

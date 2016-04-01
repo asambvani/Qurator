@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import Navbar from '_shared/Navbar'
+import Navbar from './Navbar'
 
 const App = ({ children }) => (
   <div>

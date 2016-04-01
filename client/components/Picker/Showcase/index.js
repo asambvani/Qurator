@@ -4,7 +4,7 @@ import autobind from 'autobind-decorator'
 import { currentImages } from 'selectors'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { resetPicker } from 'actions/picker'
-import ImageModal from 'components/shared/ImageModal'
+import ImageModal from 'components/ImageModal'
 import styles from './styles'
 
 @connect(
