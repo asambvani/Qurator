@@ -4,7 +4,7 @@ import App from './App'
 import Picker from './Picker'
 import Cart from './Cart'
 import Contacts from './Contacts'
-import About from './Contacts'
+import About from './About'
 import Notfound from './Notfound'
 
 export default (

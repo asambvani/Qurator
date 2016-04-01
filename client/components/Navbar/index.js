@@ -26,14 +26,14 @@ class QNavbar extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to="/app/about" >
-              <NavItem>About</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/app" >
-              <NavItem>Qurate</NavItem>
-            </LinkContainer>
             <LinkContainer to="/app/shop" >
               <NavItem> Shop entire store</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/app/contacts" >
+              <NavItem>Contacts</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/app/about" >
+              <NavItem>About</NavItem>
             </LinkContainer>
           </Nav>
           <Nav pullRight >
@@ -41,9 +41,6 @@ class QNavbar extends Component {
               <NavItem>
                 <i className="glyphicon glyphicon-shopping-cart" /><span> </span>
                 Cart {cartLength > 0 ? `(${cartLength})` : null }</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/app/contacts" >
-              <NavItem>Contacts</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
