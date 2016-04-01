@@ -39,7 +39,7 @@ class ImageModal extends Component {
           <Modal.Title>Image: {image.url}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={`${prefix.tb}${image.url}`} className={styles.image} />
+          <img src={`${prefix.large}${image.url}`} className={styles.image} />
         </Modal.Body>
         <Modal.Footer>
           <form className="form-inline pull-left" >

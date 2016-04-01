@@ -31,7 +31,7 @@ class Showcase extends Component {
   showModal(image) {
     this.setState({
       image,
-      showModal: true,
+      modalShown: true,
     })
   }
 
@@ -41,18 +41,26 @@ class Showcase extends Component {
   }
 
   render() {
-    const { images } = this.props
+    const {
+      hideModal, showModal,
+      props: { images },
+      state: { modalShown, image },
+    } = this
 
     return (
       <Grid fluid >
         <Row>
-          {images.map(image => (
-            <ImageTumbnailShowsModalOnClick image={image} showModal={this.showModal} />
+          {images.map(img => (
+            <ImageTumbnailShowsModalOnClick
+              key={img.id}
+              image={img}
+              showModal={showModal}
+            />
           ))}
           <ImageModal
-            image={this.state.image}
-            active={this.state.showModal}
-            onClose={this.hideModal}
+            image={image}
+            active={modalShown}
+            onClose={hideModal}
           />
         </Row>
       </Grid>
