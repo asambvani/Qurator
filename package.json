@@ -13,7 +13,7 @@
     "dev": "npm run clean && nodemon --watch server --watch node_modules .",
     "fixtures": "babel-node ./server/fixtures",
     "fixturesCSV": "babel-node ./server/fixtures/uploadCSV",
-    "lint": "eslint .; exit 0"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",

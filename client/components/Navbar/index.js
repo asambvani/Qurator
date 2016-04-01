@@ -11,7 +11,7 @@ class QNavbar extends Component {
   }
 
   render() {
-    const { props: { cart: { length: cartLength } } } = this;
+    const { props: { cart: { length: cartLength } } } = this
 
     return (
       <Navbar inverse >

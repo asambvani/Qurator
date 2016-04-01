@@ -49,7 +49,7 @@ class Showcase extends Component {
               <img
                 className={styles.image}
                 src={`/img/thumb/${img.url}`}
-                onClick={this.showModal.bind(this, img)}
+                onClick={this.showModal.bind(this, img)} // eslint-disable-line
               />
             </Col>
           ))}
