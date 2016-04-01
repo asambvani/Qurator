@@ -33,7 +33,7 @@ class Showcase extends Component {
 
   @autobind
   hideModal() {
-    this.setState({ showModal: false })
+    this.setState({ modalShown: false })
   }
 
   render() {
