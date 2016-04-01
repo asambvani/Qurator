@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Modal, Button, Input } from 'react-bootstrap'
 import times from 'lodash/times'
-import { addToCart } from 'actions/cart'
+import { addToCart as addToCartAction } from 'actions/cart'
 import config from 'services/config'
 import styles from './styles'
 
@@ -19,7 +19,7 @@ const { options, image: { prefix } } = config
     },
   },
   null,
-  { addToCart }
+  { addToCart: addToCartAction }
 )
 class ImageModal extends Component {
   static propTypes = {
@@ -34,12 +34,12 @@ class ImageModal extends Component {
 
   @autobind
   addToCart() {
-    const { image, onClose, resetForm, fields: { size, qty } } = this.props
-    this.props.addToCart({
-      id: image.id,
-      size: size.value,
-      qty: qty.value,
-    })
+    const {
+      onClose, resetForm, addToCart,
+      image: { id },
+      fields: { size: { value: size }, qty: { value: qty } },
+    } = this.props
+    addToCart({ id, size, qty })
     onClose()
     resetForm()
   }
@@ -50,7 +50,7 @@ class ImageModal extends Component {
     return (
       <Modal show={isActive} onHide={onClose} bsSize="large" >
         <Modal.Header closeButton >
-          <Modal.Title>Image: {image.url}</Modal.Title>
+          <Modal.Title>{image.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img src={`${prefix.large}${image.url}`} className={styles.image} />

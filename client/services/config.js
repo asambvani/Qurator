@@ -7,7 +7,7 @@ export default {
     },
   },
   options: {
-    size: ['50x35inch', '20x15inch', '15x12inch'],
+    size: ['16x20 inch', '24x30 inch'],
     qty: 10,
   },
 }

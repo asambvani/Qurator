@@ -10,7 +10,7 @@ const images = d3.csv
     ...image,
     tags: image.tags.split(', '),
   }))
-
+console.log(images);
 const insertImages = async(data) => {
   try {
     await Image.remove({})

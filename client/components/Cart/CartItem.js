@@ -15,13 +15,25 @@ export default class CartItem extends Component {
   }
 
   render() {
-    const { removeFromCart, props: { item, index } } = this
+    const {
+      removeFromCart,
+      props: {
+        item: { image: { title, description, artist, artistBio }, size, qty },
+        index,
+      },
+    } = this
+
     return (
       <tr>
         <td>{index + 1}</td>
-        <td>{item.image.url}</td>
-        <td>{item.size}</td>
-        <td>{item.qty}</td>
+        <td>
+          <h5>{title}</h5>
+          Description: {description}<br />
+          Artist: {artist}<br />
+          Bio: {artistBio}
+        </td>
+        <td>{size}</td>
+        <td>{qty}</td>
         <td><i
           className="glyphicon glyphicon-remove"
           onClick={removeFromCart}

@@ -3,6 +3,14 @@ import _ from 'lodash'
 
 const ImageSchema = mongoose.Schema({
   url: String,
+  title: String,
+  description: String,
+  artist: String,
+  artistBio: String,
+  scene: String,
+  color: String,
+  mood: String,
+  complexity: String,
   tags: Array,
   order: Number,
 })
