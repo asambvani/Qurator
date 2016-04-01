@@ -1,18 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
 import autobind from 'autobind-decorator'
 import { Grid, Row } from 'react-bootstrap'
-import { resetPicker } from 'actions/picker'
 import ImageModal from 'components/ImageModal'
 import ImageTumbnailShowsModalOnClick from './ImageTumbnailShowsModalOnClick'
-import { createStructuredSelector } from 'reselect'
-import _ from 'lodash'
 
-const selector = createStructuredSelector({
-  images: state => _.toArray(state.entities.images),
-})
 
-@connect(selector, { resetPicker })
 class Showcase extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,
@@ -45,6 +37,11 @@ class Showcase extends Component {
 
     return (
       <Grid fluid >
+        <ImageModal
+          image={image}
+          isActive={modalShown}
+          onClose={hideModal}
+        />
         <Row>
           {images.map(img => (
             <ImageTumbnailShowsModalOnClick
@@ -53,11 +50,6 @@ class Showcase extends Component {
               showModal={showModal}
             />
           ))}
-          <ImageModal
-            image={image}
-            active={modalShown}
-            onClose={hideModal}
-          />
         </Row>
       </Grid>
     )

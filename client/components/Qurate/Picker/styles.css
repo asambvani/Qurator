@@ -1,14 +1,9 @@
+.picker {
+  width: 700px;
+  margin: 0 auto;
+}
 .slider {
   margin-bottom: 60px;
-
-  :global(.slick-list) {
-    width: 700px;
-    margin: 0 auto;
-  }
-
-  :global(.slick-slide) {
-    width: 700px;
-  }
 }
 
 .slide {

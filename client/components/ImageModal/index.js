@@ -3,22 +3,25 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Modal, Button, Input } from 'react-bootstrap'
-import _ from 'lodash'
+import times from 'lodash/times'
 import { addToCart } from 'actions/cart'
 import config from 'services/config'
 import styles from './styles'
 
 const { options, image: { prefix } } = config
 
-@reduxForm({
-  form: 'image-popup',
-  fields: ['size', 'qty'],
-  initialValues: {
-    size: options.size[0],
-    qty: 1,
+@reduxForm(
+  {
+    form: 'image-popup',
+    fields: ['size', 'qty'],
+    initialValues: {
+      size: options.size[0],
+      qty: 1,
+    },
   },
-})
-@connect(null, { addToCart })
+  null,
+  { addToCart }
+)
 class ImageModal extends Component {
   static propTypes = {
     isActive: PropTypes.bool,
@@ -46,8 +49,8 @@ class ImageModal extends Component {
     const { isActive, onClose, image, handleSubmit, fields: { size, qty } } = this.props
 
     return (
-      <Modal show={isActive} onHide={onClose} bsSize="large">
-        <Modal.Header closeButton>
+      <Modal show={isActive} onHide={onClose} bsSize="large" >
+        <Modal.Header closeButton >
           <Modal.Title>Image: {image.url}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -73,7 +76,7 @@ class ImageModal extends Component {
               defaultValue="1"
               className={styles.paddingForm}
             >
-              {_.times(options.qty, n => (
+              {times(options.qty, n => (
                 <option key={n} value={n + 1} >{n + 1}</option>
               ))}
             </Input>

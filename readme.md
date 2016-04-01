@@ -4,11 +4,12 @@ Todo
 
 Code
     [] Switch AWS tiny => small node
-    [] Update image rundomizer to match DB    
+    [X] Update image randomizer to match DB
+    [X] Remove react-slick and replace it with manual component
     [] Add redirect from cart to shopify and setup shopify
     [] Add filters on Shop entire store
     [] Make deploy work    
-    [] Remove react-slick and replace it with manual component
+    
     [X] define img url prefix in config
 UI
     [X] Add actual images

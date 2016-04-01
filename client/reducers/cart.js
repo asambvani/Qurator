@@ -1,11 +1,11 @@
 import { createReducer } from 'redux-act'
-import _ from 'lodash'
+import findIndex from 'lodash/findIndex'
 import initialState from '../services/initialState'
 import { addToCart, removeFromCart, resetCart } from '../actions/cart'
 
 export default createReducer({
   [addToCart]: (state, item) => {
-    const index = _.findIndex(state, { id: item.id })
+    const index = findIndex(state, { id: item.id })
     if (index > -1) {
       return [
         ...state.slice(0, index),
@@ -16,7 +16,7 @@ export default createReducer({
     return [...state, item]
   },
   [removeFromCart]: (state, item) => {
-    const index = _.findIndex(state, { id: item.id })
+    const index = findIndex(state, { id: item.id })
     if (index > -1) {
       return [
         ...state.slice(0, index),

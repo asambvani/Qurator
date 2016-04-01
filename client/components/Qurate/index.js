@@ -1,17 +1,39 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import * as pickerActions from 'actions/picker'
+import { createSelector } from 'reselect'
+import { shuffle, toArray } from 'lodash'
 import autobind from 'autobind-decorator'
 import { Grid, Button } from 'react-bootstrap'
-import { resetPicker, showNextPicker } from 'actions/picker'
 import Picker from './Picker'
 import Showcase from './Showcase'
 import styles from './styles'
 
-@connect(null, { resetPicker, showNextPicker })
+const selector = createSelector(
+  [
+    state => state.entities.images,
+    state => state.picker,
+    state => state.currentPicker,
+  ],
+  (images, picker, currentPicker) => ({
+    images: toArray(images),
+    currentPicker: currentPicker.map(id => images[id]),
+    selected: new Set(picker),
+  }))
+
+@connect(
+  selector,
+  pickerActions
+)
 class Qurate extends Component {
   static propTypes = {
-    resetPicker: PropTypes.func,
-    showNextPicker: PropTypes.func,
+    resetPicker: PropTypes.func.isRequired,
+    showNextPicker: PropTypes.func.isRequired,
+    pickImage: PropTypes.func.isRequired,
+    unpickImage: PropTypes.func.isRequired,
+    images: PropTypes.array,
+    selected: PropTypes.object.isRequired,
+    currentPicker: PropTypes.array.isRequired,
   }
 
   @autobind
@@ -21,10 +43,15 @@ class Qurate extends Component {
 
   @autobind
   handleNextClick() {
-    this.props.showNextPicker()
+    const { props: { images, selected, showNextPicker } } = this
+    const notSeletedImages = toArray(images)
+      .map(image => image.id)
+      .filter(id => !selected.has(id))
+    showNextPicker(shuffle(notSeletedImages).slice(0, 4))
   }
 
   render() {
+    const { pickImage, unpickImage, selected, currentPicker, images } = this.props
     return (
       <div className="container" >
         <Grid>
@@ -49,9 +76,9 @@ class Qurate extends Component {
             </Button>
           </div>
 
-          <Picker />
+          <Picker {...{ pickImage, unpickImage, selected, currentPicker }} />
         </Grid>
-        <Showcase />
+        <Showcase {...{ images } } />
       </div>
     )
   }

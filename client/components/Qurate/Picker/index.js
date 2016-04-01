@@ -1,43 +1,14 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { pickImage, unpickImage } from 'actions/picker'
-import { createSelector } from 'reselect'
-import { shuffle } from 'lodash'
-import Slick from 'react-slick'
 import styles from './styles'
 import config from 'services/config'
-import _ from 'lodash'
 const { image: { prefix } } = config
 
-const selector = createSelector(
-  [
-    state => state.entities.images,
-    state => state.picker,
-  ],
-  (imagesHash, picker) => ({
-    images: _.toArray(imagesHash),
-    selected: new Set(picker),
-  }))
-
-@connect(
-  selector,
-  {
-    pickImage,
-    unpickImage,
-  })
-class Slider extends Component {
+class Picker extends Component {
   static propTypes = {
-    images: PropTypes.array.isRequired,
-    imagesPerSlide: PropTypes.number,
-    imagesLimit: PropTypes.number,
-    selected: PropTypes.object,
-    pickImage: PropTypes.func,
-    unpickImage: PropTypes.func,
-  }
-
-  static defaultProps = {
-    imagesPerSlide: 4,
-    imagesLimit: 40,
+    selected: PropTypes.object.isRequired,
+    currentPicker: PropTypes.array.isRequired,
+    pickImage: PropTypes.func.isRequired,
+    unpickImage: PropTypes.func.isRequired,
   }
 
   handleClick({ id }) {
@@ -49,54 +20,21 @@ class Slider extends Component {
     }
   }
 
-  renderSlides() {
-    const res = []
-    const { images, imagesPerSlide, imagesLimit, selected } = this.props
-    const slidesNumber = imagesLimit / imagesPerSlide
-    if (!this.images && images.length) {
-      this.images = shuffle(images).slice(0, imagesLimit)
-    }
-
-    for (let i = 0, j = 0; i < slidesNumber; i++, j += imagesPerSlide) {
-      res.push(
-        <div className={styles.slide} key={j} >
-          {this.images.slice(j, j + imagesPerSlide).map(img => (
-            <img
-              key={img.id}
-              src={`${prefix.tb}${img.url}`}
-              className={selected.has(img.id) ? styles.selectedSlide : styles.slide}
-              onClick={this.handleClick.bind(this, img)} // eslint-disable-line
-            />
-          ))}
-        </div>
-      )
-    }
-    return res
-  }
-
   render() {
-    const settings = {
-      dots: true,
-      speed: 500,
-      infinite: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      variableWidth: true,
-      className: styles.slider,
-      draggable: false,
-      prevArrow: false,
-    }
-
-    if (!this.props.images.length) {
-      return null
-    }
-
+    const { currentPicker, selected } = this.props
     return (
-      <Slick {...settings}>
-        {this.renderSlides()}
-      </Slick>
+      <div className={styles.picker}>
+        {currentPicker.map((img) => (
+          <img
+            key={img.id}
+            src={`${prefix.tb}${img.url}`}
+            className={selected.has(img.id) ? styles.selectedSlide : styles.slide}
+            onClick={this.handleClick.bind(this, img)} // eslint-disable-line
+          />
+        ))}
+      </div>
     )
   }
 }
 
-export default Slider
+export default Picker
