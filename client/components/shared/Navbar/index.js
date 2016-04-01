@@ -11,11 +11,13 @@ class QNavbar extends Component {
   }
 
   render() {
+    const { props: { cart: { length: cartLength } } } = this;
+
     return (
-      <Navbar inverse>
+      <Navbar inverse >
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/app">
+            <Link to="/app" >
               <img src="/img/logo.png" />
               Qurator
             </Link>
@@ -34,11 +36,13 @@ class QNavbar extends Component {
               <NavItem> Shop entire store</NavItem>
             </LinkContainer>
           </Nav>
-          <Nav pullRight>
+          <Nav pullRight >
             <LinkContainer to="/app/cart" >
-              <NavItem><i className="glyphicon glyphicon-shopping-cart" /> Cart {this.props.cart.length}</NavItem>
+              <NavItem>
+                <i className="glyphicon glyphicon-shopping-cart" /><span> </span>
+                Cart {cartLength > 0 ? `(${cartLength})` : null }</NavItem>
             </LinkContainer>
-            <LinkContainer to="/app/contacts">
+            <LinkContainer to="/app/contacts" >
               <NavItem>Contacts</NavItem>
             </LinkContainer>
           </Nav>
