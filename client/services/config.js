@@ -6,4 +6,8 @@ export default {
       original: '/img/original/',
     },
   },
+  options: {
+    size: ['50x35inch', '20x15inch', '15x12inch'],
+    qty: 10,
+  },
 }

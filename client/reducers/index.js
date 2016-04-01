@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { reducer as form } from 'redux-form'
 import merge from 'lodash/merge'
 import picker from './picker'
 import cart from './cart'
@@ -14,6 +15,8 @@ const rootReducer = combineReducers({
   entities,
   picker,
   cart,
+  form,
+  currentPicker: () => [],
 })
 
 export default rootReducer

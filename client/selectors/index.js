@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect'
 
-
 export const currentTags = createSelector(
   (state) => state.picker,
   (state) => state.entities.images,

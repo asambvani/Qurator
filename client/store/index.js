@@ -6,7 +6,6 @@ import DevTools from '../components/DevTools'
 import updateFilter from '../middleware/updateFilter'
 import initialState from '../services/initialState'
 
-
 const store = createStore(
   rootReducer,
   initialState,

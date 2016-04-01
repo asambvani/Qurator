@@ -1,18 +1,21 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Nav, Navbar, NavItem } from 'react-bootstrap'
 
-@connect(state => ({ cart: state.cart }))
+const cartSelector = createStructuredSelector({
+  cartCount: state => state.cart.reduce((sum, item) => sum + +item.qty, 0),
+})
+
+@connect(cartSelector)
 class QNavbar extends Component {
   static propTypes = {
-    cart: PropTypes.array.isRequired,
+    cartCount: PropTypes.number,
   }
 
   render() {
-    const { props: { cart: { length: cartLength } } } = this
-
     return (
       <Navbar inverse >
         <Navbar.Header>
@@ -40,7 +43,7 @@ class QNavbar extends Component {
             <LinkContainer to="/app/cart" >
               <NavItem>
                 <i className="glyphicon glyphicon-shopping-cart" /><span> </span>
-                Cart {cartLength > 0 ? `(${cartLength})` : null }</NavItem>
+                Cart ({this.props.cartCount})</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

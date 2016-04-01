@@ -13,10 +13,7 @@ const selector = createStructuredSelector({
   images: state => _.toArray(state.entities.images),
 })
 
-
-@connect(
-  selector,
-  { resetPicker })
+@connect(selector, { resetPicker })
 class Showcase extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,

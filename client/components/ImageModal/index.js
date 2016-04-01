@@ -1,40 +1,52 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import _ from 'lodash'
+import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Modal, Button, Input } from 'react-bootstrap'
+import _ from 'lodash'
 import { addToCart } from 'actions/cart'
-import styles from './styles'
 import config from 'services/config'
-const { image: { prefix } } = config
+import styles from './styles'
 
+const { options, image: { prefix } } = config
+
+@reduxForm({
+  form: 'image-popup',
+  fields: ['size', 'qty'],
+  initialValues: {
+    size: options.size[0],
+    qty: 1,
+  },
+})
 @connect(null, { addToCart })
 class ImageModal extends Component {
   static propTypes = {
-    active: PropTypes.bool,
+    isActive: PropTypes.bool,
     onClose: PropTypes.func,
     image: PropTypes.object,
     addToCart: PropTypes.func,
+    handleSubmit: PropTypes.func,
+    fields: PropTypes.object,
+    resetForm: PropTypes.func,
   }
 
   @autobind
   addToCart() {
-    const { image, onClose } = this.props
-    const { size, qty } = this.refs
+    const { image, onClose, resetForm, fields: { size, qty } } = this.props
     this.props.addToCart({
       id: image.id,
-      size: size.getValue(),
-      qty: qty.getValue(),
+      size: size.value,
+      qty: qty.value,
     })
     onClose()
+    resetForm()
   }
 
   render() {
-    const { active, onClose, image } = this.props
-    const availableSizes = ['50x35inch', '20x15inch', '15x12inch']
+    const { isActive, onClose, image, handleSubmit, fields: { size, qty } } = this.props
 
     return (
-      <Modal show={active} onHide={onClose} bsSize="large">
+      <Modal show={isActive} onHide={onClose} bsSize="large">
         <Modal.Header closeButton>
           <Modal.Title>Image: {image.url}</Modal.Title>
         </Modal.Header>
@@ -42,26 +54,26 @@ class ImageModal extends Component {
           <img src={`${prefix.large}${image.url}`} className={styles.image} />
         </Modal.Body>
         <Modal.Footer>
-          <form className="form-inline pull-left" >
+          <form onSubmit={handleSubmit} className="form-inline pull-left" >
             <Input
-              className={styles.paddingForm}
-              ref="size"
-              type="select"
+              {...size}
               label="Size"
-              placeholder="select"
+              type="select"
+              value={size.value}
+              className={styles.paddingForm}
             >
-              {availableSizes.map(res => (
+              {options.size.map(res => (
                 <option key={res} value={res} >{res}</option>
               ))}
             </Input>
             <Input
-              className={styles.paddingForm}
-              ref="qty"
+              {...qty}
               label="Quantity"
               type="select"
               defaultValue="1"
+              className={styles.paddingForm}
             >
-              {_.times(10, n => (
+              {_.times(options.qty, n => (
                 <option key={n} value={n + 1} >{n + 1}</option>
               ))}
             </Input>
