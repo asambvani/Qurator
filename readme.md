@@ -3,7 +3,7 @@ Readme
 Todo
 
 Code
-    
+    [] Switch AWS tiny => small node
     [] Update image rundomizer to match DB    
     [] Add redirect from cart to shopify and setup shopify
     [] Add filters on Shop entire store
