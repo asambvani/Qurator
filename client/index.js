@@ -1,10 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Root from './components/Root'
-import configureStore from './store/configureStore'
+import store from './store'
 import { fetchImages } from './actions/images'
 
-const store = configureStore()
 store.dispatch(fetchImages())
 
 render(
