@@ -7,7 +7,7 @@ const { image: { prefix } } = config
 
 export default class ImageTumbnailShowsModalOnClick extends Component {
   static propTypes = {
-    image: PropTypes.array.isRequired,
+    image: PropTypes.object.isRequired,
     showModal: PropTypes.func.isRequired,
   }
 

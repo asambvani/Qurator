@@ -8,7 +8,6 @@ import ImageTumbnailShowsModalOnClick from './ImageTumbnailShowsModalOnClick'
 import { createStructuredSelector } from 'reselect'
 import _ from 'lodash'
 
-
 const selector = createStructuredSelector({
   images: state => _.toArray(state.entities.images),
 })
