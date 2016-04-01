@@ -4,7 +4,6 @@ import { Grid, Row } from 'react-bootstrap'
 import ImageModal from 'components/ImageModal'
 import ImageTumbnailShowsModalOnClick from './ImageTumbnailShowsModalOnClick'
 
-
 class Showcase extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,

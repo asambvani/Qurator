@@ -5,16 +5,6 @@ import { cartItems } from 'selectors'
 import * as cartActions from 'actions/cart'
 import CartItem from './CartItem'
 
-const { options } = config
-
-@reduxForm({
-  form: 'image-popup',
-  fields: ['size', 'qty'],
-  initialValues: {
-    size: options.size[0],
-    qty: 1,
-  },
-})
 @connect(state => ({
   items: cartItems(state),
 }), cartActions)

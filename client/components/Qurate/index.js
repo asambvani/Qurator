@@ -5,8 +5,8 @@ import { createSelector } from 'reselect'
 import { shuffle, toArray, orderBy } from 'lodash'
 import autobind from 'autobind-decorator'
 import { Grid, Button } from 'react-bootstrap'
+import Showcase from 'components/Showcase'
 import Picker from './Picker'
-import Showcase from './Showcase'
 import styles from './styles'
 
 const selector = createSelector(
@@ -19,12 +19,10 @@ const selector = createSelector(
     images: orderBy(toArray(images), 'weight', 'desc'),
     currentPicker: currentPicker.map(id => images[id]),
     selected: new Set(picker),
-  }))
-
-@connect(
-  selector,
-  pickerActions
+  })
 )
+
+@connect(selector, pickerActions)
 class Qurate extends Component {
   static propTypes = {
     resetPicker: PropTypes.func.isRequired,
@@ -59,7 +57,7 @@ class Qurate extends Component {
     return (
       <div className="container" >
         <Grid>
-          <div className={styles.textHolder} >
+          <div className="text-center">
             <h3>Picker</h3>
             <div>Pick images you like</div>
           </div>
