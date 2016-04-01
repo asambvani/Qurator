@@ -36,7 +36,7 @@ class QNavbar extends Component {
           </Nav>
           <Nav pullRight>
             <LinkContainer to="/app/cart" >
-              <NavItem>Cart {this.props.cart.length}</NavItem>
+              <NavItem><i className="glyphicon glyphicon-shopping-cart" /> Cart {this.props.cart.length}</NavItem>
             </LinkContainer>
             <LinkContainer to="/app/contacts">
               <NavItem>Contacts</NavItem>
