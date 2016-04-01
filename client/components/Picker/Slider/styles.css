@@ -20,5 +20,5 @@
 
 .selectedSlide {
   composes: slide;
-  border: 2px solid yellow;
+  border: 7px solid #31b0d5;
 }
