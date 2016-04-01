@@ -3,15 +3,15 @@ Readme
 Todo
 
 Code
-    [] Switch AWS tiny => small node
+    [X] Switch AWS tiny => small node
     [X] Update image randomizer to match DB
     [X] Make picker actually work as per spec
     [X] Remove react-slick and replace it with manual component
     [] Add redirect from cart to shopify and setup shopify
     [] Add filters on Shop entire store
-    [] Make deploy work    
-    
+    [X] Make deploy work    
     [X] define img url prefix in config
+    
 UI
     [X] Add actual images
     [X] Add contacts/about page    
