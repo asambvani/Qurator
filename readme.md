@@ -11,7 +11,7 @@ Code
     [] Remove react-slick and replace it with manual component
     [X] define img url prefix in config
 UI
-    
+    [X] Add actual images
     [X] Add contacts/about page    
     [X] Add cart icon
     [X] Change image sizes to inches
