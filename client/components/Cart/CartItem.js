@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import autobind from 'autobind-decorator'
+import config from 'services/config'
+import styles from './styles'
+const { image: { prefix: { tb } } } = config
 
 export default class CartItem extends Component {
   static propTypes = {
@@ -18,7 +21,7 @@ export default class CartItem extends Component {
     const {
       removeFromCart,
       props: {
-        item: { image: { title, description, artist, artistBio }, size, qty },
+        item: { image: { url, title, description, artist, artistBio }, size, qty },
         index,
       },
     } = this
@@ -32,6 +35,10 @@ export default class CartItem extends Component {
           Artist: {artist}<br />
           Bio: {artistBio}
         </td>
+        <td><img
+          className={styles.tumbnail}
+          src={`${tb}${url}`}
+        /></td>
         <td>{size}</td>
         <td>{qty}</td>
         <td><i

@@ -35,6 +35,7 @@ class Cart extends Component {
                 <thead>
                 <tr>
                   <th>#</th>
+                  <th>Info</th>
                   <th>Image</th>
                   <th>Resolution</th>
                   <th>Count</th>
