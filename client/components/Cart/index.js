@@ -37,7 +37,7 @@ class Cart extends Component {
                   <th>#</th>
                   <th>Info</th>
                   <th>Image</th>
-                  <th>Resolution</th>
+                  <th>Size</th>
                   <th>Count</th>
                   <th>Remove</th>
                 </tr>
@@ -46,6 +46,7 @@ class Cart extends Component {
                 {this.renderItems()}
                 </tbody>
               </Table>
+              Total:{items.reduce((sum, item) => sum + item.qty, 0)}
               <Button
                 className="pull-right"
                 bsStyle="primary"

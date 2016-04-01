@@ -6,7 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Nav, Navbar, NavItem } from 'react-bootstrap'
 
 const cartSelector = createStructuredSelector({
-  cartCount: state => state.cart.reduce((sum, item) => sum + +item.qty, 0),
+  cartCount: state => state.cart.reduce((sum, item) => sum + item.qty, 0),
 })
 
 @connect(cartSelector)

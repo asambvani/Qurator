@@ -39,7 +39,7 @@ class ImageModal extends Component {
       image: { id },
       fields: { size: { value: size }, qty: { value: qty } },
     } = this.props
-    addToCart({ id, size, qty })
+    addToCart({ id, size, qty: parseInt(qty, 10) })
     onClose()
     resetForm()
   }
