@@ -11,7 +11,6 @@ export const Schemas = {
 }
 
 const callAPI = (endpoint, method, data, schema) => { // eslint-disable-line arrow-body-style
-
   return fetch(`/api/${endpoint}`, {
     method: method || 'GET',
     headers: {
