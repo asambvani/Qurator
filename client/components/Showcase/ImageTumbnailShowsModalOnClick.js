@@ -8,13 +8,14 @@ const { image: { prefix } } = config
 export default class ImageTumbnailShowsModalOnClick extends Component {
   static propTypes = {
     image: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired,
     showModal: PropTypes.func.isRequired,
   }
 
   @autobind
   showModal() {
-    const { showModal, image } = this.props
-    showModal(image)
+    const { showModal, index } = this.props
+    showModal(index)
   }
 
   render() {

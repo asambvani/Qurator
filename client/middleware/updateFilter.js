@@ -6,7 +6,7 @@ export default store => next => action => {
   const result = next(action)
   if (action.type === showNextPicker.getType()) {
     const tags = currentTags(store.getState())
-    next(fetchImages(tags))
+    next(fetchImages({ tags }))
   }
 
   if (action.type === resetPicker.getType()) {

@@ -4,6 +4,7 @@ import merge from 'lodash/merge'
 import picker from './picker'
 import currentPicker from './currentPicker'
 import cart from './cart'
+import imagesFilter from './imagesFilter'
 
 export function entities(state = { images: {} }, action) {
   if (action.response && action.response.entities) {
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   currentPicker,
   cart,
   form,
+  imagesFilter,
 })
 
 export default rootReducer

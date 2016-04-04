@@ -32,6 +32,10 @@ class ImageModal extends Component {
     handleSubmit: PropTypes.func,
     fields: PropTypes.object,
     resetForm: PropTypes.func,
+    currentIndex: PropTypes.number,
+    imagesCount: PropTypes.number,
+    handleNextClick: PropTypes.func,
+    handlePrevClick: PropTypes.func,
   }
 
   @autobind
@@ -47,12 +51,22 @@ class ImageModal extends Component {
   }
 
   render() {
-    const { isActive, onClose, image, handleSubmit, fields: { variant, qty } } = this.props
+    const {
+      isActive,
+      onClose,
+      image = {},
+      currentIndex = 0,
+      imagesCount = 0,
+      handleSubmit,
+      handleNextClick,
+      handlePrevClick,
+      fields: { variant, qty },
+    } = this.props
 
     return (
       <Modal show={isActive} onHide={onClose} bsSize="large" >
         <Modal.Header closeButton >
-          <Modal.Title>{image.title}</Modal.Title>
+          <Modal.Title className="text-center">{image.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img src={`${prefix.large}${image.url}`} className={styles.image} />
@@ -87,6 +101,20 @@ class ImageModal extends Component {
             bsStyle="primary"
           >
             Add to cart
+          </Button>
+        </Modal.Footer>
+        <Modal.Footer>
+          <Button
+            className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
+            onClick={handlePrevClick}
+          >
+            Previous
+          </Button>
+          <Button
+            className={currentIndex === imagesCount ? 'hidden' : styles.navButtonRight}
+            onClick={handleNextClick}
+          >
+            Next
           </Button>
         </Modal.Footer>
       </Modal>

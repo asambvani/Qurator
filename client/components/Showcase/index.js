@@ -10,14 +10,14 @@ class Showcase extends Component {
   }
 
   state = {
-    image: {},
+    image: 0,
     showModal: false,
   }
 
   @autobind
-  showModal(image) {
+  showModal(imageIndex) {
     this.setState({
-      image,
+      imageIndex,
       modalShown: true,
     })
   }
@@ -27,24 +27,39 @@ class Showcase extends Component {
     this.setState({ modalShown: false })
   }
 
+  @autobind
+  handleNextClick() {
+    this.setState({ imageIndex: this.state.imageIndex + 1 })
+  }
+
+  @autobind
+  handlePrevClick() {
+    this.setState({ imageIndex: this.state.imageIndex - 1 })
+  }
+
   render() {
     const {
       hideModal, showModal,
       props: { images },
-      state: { modalShown, image },
+      state: { modalShown, imageIndex },
     } = this
 
     return (
       <Grid fluid >
         <ImageModal
-          image={image}
+          currentIndex={imageIndex}
+          image={images[imageIndex]}
           isActive={modalShown}
           onClose={hideModal}
+          imagesCount={images.length}
+          handleNextClick={this.handleNextClick}
+          handlePrevClick={this.handlePrevClick}
         />
         <Row>
-          {images.map(img => (
+          {images.map((img, i) => (
             <ImageTumbnailShowsModalOnClick
               key={img.id}
+              index={i}
               image={img}
               showModal={showModal}
             />

@@ -4,10 +4,10 @@ export const IMAGES_REQUEST = 'IMAGES_REQUEST'
 export const IMAGES_SUCCESS = 'IMAGES_SUCCESS'
 export const IMAGES_FAILURE = 'IMAGES_FAILURE'
 
-export function fetchImages(tags = {}) {
+export function fetchImages(options) {
   return {
     [CALL_API_SYMBOL]: {
-      data: { tags },
+      data: options,
       types: [IMAGES_REQUEST, IMAGES_SUCCESS, IMAGES_FAILURE],
       method: 'POST',
       endpoint: 'images',
@@ -16,6 +16,6 @@ export function fetchImages(tags = {}) {
   }
 }
 
-export function loadImages(tags) {
-  return dispatch => dispatch(fetchImages(tags))
+export function loadImages(options) {
+  return dispatch => dispatch(fetchImages(options))
 }

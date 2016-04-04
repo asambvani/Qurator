@@ -9,11 +9,12 @@
 .next {
   float: right;
 }
+
 .buttonBar {
   text-align: center;
   overflow: auto;
   width: 100%;
-  margin: 1em;
+  margin: 1em 0;
 }
 
 .textHolder {

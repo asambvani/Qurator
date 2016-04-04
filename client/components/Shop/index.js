@@ -4,18 +4,19 @@ import autobind from 'autobind-decorator'
 import { Grid, Row } from 'react-bootstrap'
 import { createStructuredSelector } from 'reselect'
 import _ from 'lodash'
+import { loadImages as filterAction } from 'actions/images'
 import Showcase from 'components/Showcase'
 import Filter from './Filter'
-
 
 const selector = createStructuredSelector({
   images: state => _.toArray(state.entities.images),
 })
 
-@connect(selector)
+@connect(selector, { filterImages: filterAction })
 class Shop extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,
+    filterImages: PropTypes.func,
   }
 
   state = {
@@ -23,13 +24,12 @@ class Shop extends Component {
   }
 
   @autobind
-  handleSearch() {
-    console.log('filter')
-    // this.props.filterImages()
+  applyFilter(options) {
+    console.log('filter: ', options)
+    this.props.filterImages(options)
   }
 
   render() {
-    // filter: url,title,description,artist,artistBio,tags,scene
     const { images } = this.props
 
     return (
@@ -41,7 +41,7 @@ class Shop extends Component {
           </div>
           <br />
           <Filter
-            handleSearchClick={this.handleSearch}
+            applyFilter={this.applyFilter}
           />
           <Showcase {...{ images } } />
         </Row>

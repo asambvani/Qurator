@@ -3,4 +3,5 @@ export default {
   picker: [],
   currentPicker: [],
   cart: [],
+  imagesFilter: [],
 }

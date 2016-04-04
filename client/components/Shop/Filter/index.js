@@ -9,36 +9,27 @@ import styles from './styles'
   {
     form: 'shop-filter',
     fields: ['title', 'description', 'artist', 'artistBio', 'tags', 'scene'],
-    initialValues: {
-      // tags: [{ id: 1, text: 'Apples' }],
-      // size: options.size[0],
-      // qty: 1,
-    },
   },
-  // null,
-  // {}
+  null,
+  {}
 )
 class Filter extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func,
     fields: PropTypes.object,
     resetForm: PropTypes.func,
-    handleSearchClick: PropTypes.func,
-  }
-
-  state = {
-    tags: [{ id: 1, text: 'Apples' }],
+    applyFilter: PropTypes.func,
   }
 
   @autobind
-  handleDelete(i) {
+  handleTagDelete(i) {
     const { value: tags = [] } = this.props.fields.tags
     tags.splice(i, 1)
     this.props.fields.tags.onChange(tags)
   }
 
   @autobind
-  handleAddition(tag) {
+  handleTagAddition(tag) {
     const { value: tags = [] } = this.props.fields.tags
     tags.push({
       id: tags.length + 1,
@@ -47,22 +38,48 @@ class Filter extends Component {
     this.props.fields.tags.onChange(tags)
   }
 
-  render() {
-    // filter: title,description,artist,artistBio,tags,scene
+  @autobind
+  handleSearchClick() {
     const {
-      handleSearchClick,
+      applyFilter,
+      fields: {
+        title,
+        description,
+        artist,
+        artistBio,
+        scene,
+        tags,
+      },
+    } = this.props
+
+    applyFilter({
+      title: title.value,
+      description: description.value,
+      artist: artist.value,
+      artistBio: artistBio.value,
+      scene: scene.value,
+      // tags: tags.value.map(tag => tag.text),
+      tags: tags.value && tags.value.reduce((res, tag) => {
+        res[tag.text] = 1
+        return res
+      }, {}),
+    })
+  }
+
+  render() {
+    const {
       handleSubmit,
       fields: {
         title,
         description,
         artist,
         artistBio,
-        tags,
         scene,
+        tags,
       },
     } = this.props
 
-    const suggestions = ['asudo', 'test']
+    const suggestions = ['sudo', 'test']
 
     return (
       <div>
@@ -110,10 +127,11 @@ class Filter extends Component {
                 <span>Tags</span>
               </label>
               <ReactTags
+                autofocus={false}
                 tags={tags.value}
                 suggestions={suggestions}
-                handleDelete={this.handleDelete}
-                handleAddition={this.handleAddition}
+                handleDelete={this.handleTagDelete}
+                handleAddition={this.handleTagAddition}
               />
             </div>
           </Col>
@@ -122,7 +140,7 @@ class Filter extends Component {
           <Button
             bsStyle="primary"
             className={styles.search}
-            onClick={handleSearchClick}
+            onClick={this.handleSearchClick}
           >
             Search
           </Button>
@@ -133,4 +151,3 @@ class Filter extends Component {
 }
 
 export default Filter
-

@@ -17,10 +17,19 @@ const ImageSchema = mongoose.Schema({
 })
 
 ImageSchema.statics = {
-  async list({ tags = {} }) {
+  async list(params) {
     try {
-      const images = await this.find()
+      const query = Object.keys(params).reduce((res, key) => {
+        if (params[key] && key !== 'tags') {
+          res[key] = { $regex: `.*${params[key]}*.` }
+        }
+        return res
+      }, {})
 
+      const images = await this.find(query)
+      console.log(query, images)
+
+      const { tags = {} } = params
       const imagesOrdered = _.orderBy(
         images
           .map(image => image.toObject())
