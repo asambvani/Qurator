@@ -1,1 +1,9 @@
 port: 8080
+shopify:
+#  url: https://0fa050908c7c5f6bfa7f007ec16a685f:8c8dcc85c183b525dbdf85dad8b9559a@qurator.myshopify.com/
+  login: qurator
+  apiKey: 0fa050908c7c5f6bfa7f007ec16a685f
+  token: 8c8dcc85c183b525dbdf85dad8b9559a
+  sharedSecret: 6d75d752caacefb8f4e31616241b1da0
+  productId: 5978006147
+  appId: 6

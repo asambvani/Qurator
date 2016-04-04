@@ -2,6 +2,10 @@ import React, { Component, PropTypes } from 'react'
 import autobind from 'autobind-decorator'
 import config from 'services/config'
 import styles from './styles'
+import configShared from '../../../shared/config'
+const { options: { variants } } = configShared
+const sizes = variants.map(variant => variant.size)
+
 const { image: { prefix: { tb } } } = config
 
 export default class CartItem extends Component {
@@ -39,7 +43,7 @@ export default class CartItem extends Component {
           className={styles.tumbnail}
           src={`${tb}${url}`}
         /></td>
-        <td>{size}</td>
+        <td>{sizes[size]}</td>
         <td>{qty}</td>
         <td><i
           className="glyphicon glyphicon-remove"

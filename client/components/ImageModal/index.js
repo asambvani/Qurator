@@ -5,16 +5,19 @@ import { Modal, Button, Input } from 'react-bootstrap'
 import times from 'lodash/times'
 import { addToCart as addToCartAction } from 'actions/cart'
 import config from 'services/config'
+import configShared from '../../../shared/config'
 import styles from './styles'
 
-const { options, image: { prefix } } = config
+const { image: { prefix } } = config
+const { options, options: { variants } } = configShared
+const sizes = variants.map(variant => variant.size)
 
 @reduxForm(
   {
     form: 'image-popup',
     fields: ['size', 'qty'],
     initialValues: {
-      size: options.size[0],
+      size: '0',
       qty: 1,
     },
   },
@@ -64,8 +67,8 @@ class ImageModal extends Component {
               value={size.value}
               className={styles.paddingForm}
             >
-              {options.size.map(res => (
-                <option key={res} value={res} >{res}</option>
+              {sizes.map((res, index) => (
+                <option key={res} value={index.toString()} >{res}</option>
               ))}
             </Input>
             <Input

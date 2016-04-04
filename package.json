@@ -12,6 +12,7 @@
     "start": "pm2 stop qurator; NODE_ENV=production pm2 start index.js --name qurator",
     "dev": "npm run clean && nodemon --watch server --watch node_modules .",
     "fixtures": "babel-node ./server/fixtures/uploadCSV",
+    "fixturesShopify": "babel-node ./server/fixtures/shopify",
     "lint": "eslint ."
   },
   "repository": {
@@ -62,6 +63,7 @@
     "html-webpack-plugin": "2.15.0",
     "humps": "1.0.0",
     "isomorphic-fetch": "2.2.1",
+    "json-loader": "0.5.4",
     "lodash": "4.7.0",
     "mongoose": "4.4.10",
     "morgan": "1.7.0",
@@ -93,6 +95,7 @@
     "redux-thunk": "2.0.1",
     "reselect": "2.2.1",
     "rimraf": "2.5.2",
+    "shopify-node-api": "1.6.3",
     "style-loader": "0.13.1",
     "superagent": "1.8.3",
     "url-loader": "0.5.7",

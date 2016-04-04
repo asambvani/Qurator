@@ -6,8 +6,10 @@ export default {
       original: '/img/original/',
     },
   },
-  options: {
-    size: ['16x20 inch', '24x30 inch'],
-    qty: 10,
+  shopify: {
+    // NO private shopify token\password should go here! Only API key.
+    apiKey: 'bb9ef80f1b6be1fbcf5e8eb02398c662',
+    myShopifyDomain: 'qurator',
+    appId: '6',
   },
 }

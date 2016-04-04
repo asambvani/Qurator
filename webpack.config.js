@@ -74,6 +74,10 @@ module.exports = {
         loader: 'babel',
       },
       {
+        test: /\.(json)?$/,
+        loader: 'json',
+      },
+      {
         test: /\.css$/,
         exclude: /client\/styles/,
         loader: ExtractTextPlugin.extract(

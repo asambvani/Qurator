@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import autobind from 'autobind-decorator'
 import { Input } from 'react-bootstrap'
 import _ from 'lodash'
 import config from 'services/config'
