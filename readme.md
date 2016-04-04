@@ -6,4 +6,3 @@ Todo
     [] Add filters on Shop entire store
     [] Make cart persistent in session, session in Mongo    
      
-   

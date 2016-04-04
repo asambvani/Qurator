@@ -10,14 +10,13 @@ import styles from './styles'
 
 const { image: { prefix } } = config
 const { options, options: { variants } } = configShared
-const sizes = variants.map(variant => variant.size)
 
 @reduxForm(
   {
     form: 'image-popup',
-    fields: ['size', 'qty'],
+    fields: ['variant', 'qty'],
     initialValues: {
-      size: '0',
+      variant: '0',
       qty: 1,
     },
   },
@@ -40,15 +39,15 @@ class ImageModal extends Component {
     const {
       onClose, resetForm, addToCart,
       image: { id },
-      fields: { size: { value: size }, qty: { value: qty } },
+      fields: { variant: { value: variant }, qty: { value: qty } },
     } = this.props
-    addToCart({ id, size, qty: parseInt(qty, 10) })
+    addToCart({ id, variant, qty: parseInt(qty, 10) })
     onClose()
     resetForm()
   }
 
   render() {
-    const { isActive, onClose, image, handleSubmit, fields: { size, qty } } = this.props
+    const { isActive, onClose, image, handleSubmit, fields: { variant, qty } } = this.props
 
     return (
       <Modal show={isActive} onHide={onClose} bsSize="large" >
@@ -61,14 +60,14 @@ class ImageModal extends Component {
         <Modal.Footer>
           <form onSubmit={handleSubmit} className="form-inline pull-left" >
             <Input
-              {...size}
+              {...variant}
               label="Size"
               type="select"
-              value={size.value}
+              value={variant.value}
               className={styles.paddingForm}
             >
-              {sizes.map((res, index) => (
-                <option key={res} value={index.toString()} >{res}</option>
+              {variants.map(({ size }, index) => (
+                <option key={index} value={index.toString()} >{size}</option>
               ))}
             </Input>
             <Input

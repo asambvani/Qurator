@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import autobind from 'autobind-decorator'
 import config from 'services/config'
+import money from '../../services/formatMoney'
 import styles from './styles'
 import configShared from '../../../shared/config'
 const { options: { variants } } = configShared
-const sizes = variants.map(variant => variant.size)
-
 const { image: { prefix: { tb } } } = config
 
 export default class CartItem extends Component {
@@ -25,11 +24,11 @@ export default class CartItem extends Component {
     const {
       removeFromCart,
       props: {
-        item: { image: { url, title, description, artist, artistBio }, size, qty },
+        item: { image: { url, title, description, artist, artistBio }, variant, qty },
         index,
       },
     } = this
-
+    const rowTotal = money(qty * variants[variant].price)
     return (
       <tr>
         <td>{index + 1}</td>
@@ -43,13 +42,14 @@ export default class CartItem extends Component {
           className={styles.tumbnail}
           src={`${tb}${url}`}
         /></td>
-        <td>{sizes[size]}</td>
+        <td>{variants[variant].size}</td>
         <td>{qty}</td>
         <td><i
           className="glyphicon glyphicon-remove"
           onClick={removeFromCart}
         />
         </td>
+        <td>{rowTotal}</td>
       </tr>
     )
   }
