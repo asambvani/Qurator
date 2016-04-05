@@ -70,8 +70,8 @@ class Cart extends Component {
                 <thead>
                 <tr>
                   <th>#</th>
-                  <th>Info</th>
                   <th>Image</th>
+                  <th>Info</th>
                   <th>Size</th>
                   <th>Count</th>
                   <th>Remove</th>

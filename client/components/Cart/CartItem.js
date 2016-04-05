@@ -33,15 +33,17 @@ export default class CartItem extends Component {
       <tr>
         <td>{index + 1}</td>
         <td>
+          <img
+            className={styles.tumbnail}
+            src={`${tb}${url}`}
+          />
+        </td>
+        <td>
           <h5>{title}</h5>
           Description: {description}<br />
           Artist: {artist}<br />
           Bio: {artistBio}
         </td>
-        <td><img
-          className={styles.tumbnail}
-          src={`${tb}${url}`}
-        /></td>
         <td>{variants[variant].size}</td>
         <td>{qty}</td>
         <td><i
