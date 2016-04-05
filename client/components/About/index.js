@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
+
 class Contacts extends Component {
   render() {
     return (
       <div className="container" >
         <h3>OUR PRODUCT</h3>
-        <p>It’s simple. No searching. Just two Sizes. No frames</p>
+        <p>It’s simple. No searching. Just two Sizes. No frames.</p>
         <p>
           We want to make buying awesome, affordable, ready-to-hang photos as simple and easy as
           possible for you. That’s why on our Qurate page you can take our preference test, and our
@@ -29,7 +30,8 @@ class Contacts extends Component {
           we were and fit with our décor, but we did not all understand the intricacies of art or
           have the time to source art from galleries. During our second semester at Harvard
           Business School, we decided to start Qurator, a service for those who want art, but
-          don’t know where to start.<br />
+          don’t know where to start.</p>
+        <p>
           When interviewing consumers in our target young professional segment, we found that
           most people we talked to were intimidated by art because they did not understand it
           and were unable to identify their art preferences. We also heard many complaints about
@@ -37,12 +39,11 @@ class Contacts extends Component {
           At Qurator we have designed an easy-to-use algorithm where the customer clicks
           through pieces of art, picking their favorites and is then recommended a small subset
           of pieces for purchase. These pieces are priced affordably and are delivered to the
-          customer’s residence in a ready-to-hang format.<br />
+          customer’s residence in a ready-to-hang format.</p>
+        <p>
           We hope your enjoy our website and tell your friends about us. We’d also love to hear
-          from you, so contact us with any feedback.<br />
-          Happy shopping!<br />
-        </p>
-
+          from you, so contact us with any feedback.</p>
+        <p>Happy shopping!</p>
       </div>
     )
   }

@@ -33,7 +33,7 @@ class QNavbar extends Component {
               <NavItem> Shop entire store</NavItem>
             </LinkContainer>
             <LinkContainer to="/app/contacts" >
-              <NavItem>Contacts</NavItem>
+              <NavItem>Contact us</NavItem>
             </LinkContainer>
             <LinkContainer to="/app/about" >
               <NavItem>About</NavItem>
