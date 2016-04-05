@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Input, Col, Button } from 'react-bootstrap'
-import { WithContext as ReactTags } from 'react-tag-input'
+import { WithContext as TagsInput } from 'react-tag-input'
+import { allTags, allArtists } from 'selectors'
 import styles from './styles'
 
 @reduxForm(
@@ -10,15 +11,17 @@ import styles from './styles'
     form: 'shop-filter',
     fields: ['title', 'description', 'artist', 'artistBio', 'tags', 'scene'],
   },
-  null,
-  {}
+  state => ({
+    availableTags: allTags(state),
+    artists: allArtists(state),
+  }),
 )
 class Filter extends Component {
   static propTypes = {
-    handleSubmit: PropTypes.func,
-    fields: PropTypes.object,
-    resetForm: PropTypes.func,
-    applyFilter: PropTypes.func,
+    fields: PropTypes.object.isRequired,
+    applyFilter: PropTypes.func.isRequired,
+    availableTags: PropTypes.array.isRequired,
+    artists: PropTypes.array.isRequired,
   }
 
   @autobind
@@ -69,6 +72,7 @@ class Filter extends Component {
   render() {
     const {
       availableTags,
+      artists,
       fields: {
         title,
         description,
@@ -108,11 +112,14 @@ class Filter extends Component {
           <Col md={6}>
             <Input
               {...artist}
-              label="Artist"
-              type="text"
-              value={artist.value}
+              label="Size"
+              type="select"
               className={styles.paddingForm}
-            />
+            >
+              {artists.map((value, index) => (
+                <option key={index} value={value} >{value}</option>
+              ))}
+            </Input>
             <Input
               {...artistBio}
               label="Artist bio"
@@ -124,7 +131,7 @@ class Filter extends Component {
               <label className="control-label">
                 <span>Tags</span>
               </label>
-              <ReactTags
+              <TagsInput
                 autofocus={false}
                 tags={tags.value}
                 suggestions={availableTags}
