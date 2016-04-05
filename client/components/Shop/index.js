@@ -25,7 +25,7 @@ class Shop extends Component {
 
   @autobind
   applyFilter(options) {
-    this.props.filterImages(options)
+    this.props.filterImages(options, '/filter')
   }
 
   render() {

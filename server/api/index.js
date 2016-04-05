@@ -24,13 +24,20 @@ const router = express.Router()
 //   ])
 // })
 
-// tags or filter {resolution, tag, name}
 router.post('/images', async (req, res) => {
   try {
     const images = await Image.list(req.body)
     res.json(images)
   } catch (err) {
-    console.error(err)
+    res.status(500).send({ error: err.message })
+  }
+})
+
+router.post('/images/filter', async (req, res) => {
+  try {
+    const images = await Image.filter(req.body)
+    res.json(images)
+  } catch (err) {
     res.status(500).send({ error: err.message })
   }
 })

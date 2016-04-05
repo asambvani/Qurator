@@ -1,6 +1,9 @@
 import mongoose from 'mongoose'
 import _ from 'lodash'
 
+const log = console.log.bind(console)
+const error = console.error.bind(console)
+
 const ImageSchema = mongoose.Schema({
   url: String,
   title: String,
@@ -13,19 +16,10 @@ const ImageSchema = mongoose.Schema({
 })
 
 ImageSchema.statics = {
-  async list(params) {
+  async list({ tags = {} }) {
     try {
-      const query = Object.keys(params).reduce((res, key) => {
-        if (params[key] && key !== 'tags') {
-          res[key] = { $regex: `.*${params[key]}*.` }
-        }
-        return res
-      }, {})
+      const images = await this.find()
 
-      const images = await this.find(query)
-      console.log(query, images)
-
-      const { tags = {} } = params
       const imagesOrdered = _.orderBy(
         images
           .map(image => image.toObject())
@@ -36,8 +30,33 @@ ImageSchema.statics = {
           }), 'weight', 'desc')
       return imagesOrdered.slice(0, 100)
     } catch (err) {
-      console.error(err)
-      return err
+      error(err)
+      throw err
+    }
+  },
+
+  async filter({ tags = [], query = '' }) {
+    try {
+      const fieldsToQuery = ['title', 'description', 'artistBio']
+      const expr = fieldsToQuery.map(field => (
+        { [field]: { $regex: `.*${query}*.` } }
+      ))
+
+      let images = []
+      if (tags.length && query.length) {
+        images = await this.find({ $or: expr, tags: { $all: tags } })
+      } else if (tags.length) {
+        images = await this.find({ tags: { $all: tags } })
+      } else if (query.length) {
+        images = await this.find({ $or: expr })
+      } else {
+        images = await this.find()
+      }
+      log(expr)
+      return images
+    } catch (err) {
+      error(err)
+      throw err
     }
   },
 }

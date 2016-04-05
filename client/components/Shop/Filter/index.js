@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Input, Col, Button } from 'react-bootstrap'
+import Select from 'react-select'
 import { WithContext as TagsInput } from 'react-tag-input'
 import { allTags, allArtists } from 'selectors'
 import styles from './styles'
@@ -9,11 +10,11 @@ import styles from './styles'
 @reduxForm(
   {
     form: 'shop-filter',
-    fields: ['title', 'description', 'artist', 'artistBio', 'tags', 'scene'],
+    fields: ['query', 'artist', 'tags'],
   },
   state => ({
     availableTags: allTags(state),
-    artists: allArtists(state),
+    availatbleAritsts: allArtists(state),
   }),
 )
 class Filter extends Component {
@@ -21,7 +22,7 @@ class Filter extends Component {
     fields: PropTypes.object.isRequired,
     applyFilter: PropTypes.func.isRequired,
     availableTags: PropTypes.array.isRequired,
-    artists: PropTypes.array.isRequired,
+    availatbleAritsts: PropTypes.array.isRequired,
   }
 
   @autobind
@@ -44,41 +45,22 @@ class Filter extends Component {
   @autobind
   handleSearchClick(e) {
     e.preventDefault()
-    const {
-      applyFilter,
-      fields: {
-        title,
-        description,
-        artist,
-        artistBio,
-        scene,
-        tags,
-      },
-    } = this.props
+    const { applyFilter, fields: { query, artist, tags } } = this.props
 
     applyFilter({
-      title: title.value,
-      description: description.value,
+      query: query.value,
       artist: artist.value,
-      artistBio: artistBio.value,
-      scene: scene.value,
-      tags: tags.value && tags.value.reduce((res, tag) => {
-        res[tag.text] = 1
-        return res
-      }, {}),
+      tags: tags.value && tags.value.map(tag => tag.text),
     })
   }
 
   render() {
     const {
       availableTags,
-      artists,
+      availatbleAritsts,
       fields: {
-        title,
-        description,
+        query,
         artist,
-        artistBio,
-        scene,
         tags,
       },
     } = this.props
@@ -86,47 +68,23 @@ class Filter extends Component {
     return (
       <div>
         <form onSubmit={this.handleSearchClick}>
-          <Col md={6}>
+          <Col md={12}>
             <Input
-              {...title}
-              label="Title"
+              {...query}
+              label="Search"
               type="text"
-              value={title.value}
-              className={styles.paddingForm}
+              value={query.value}
             />
-            <Input
-              {...description}
-              label="Description"
-              type="text"
-              value={description.value}
-              className={styles.paddingForm}
-            />
-            <Input
-              {...scene}
-              label="Scene"
-              type="text"
-              value={scene.value}
-              className={styles.paddingForm}
-            />
-          </Col>
-          <Col md={6}>
-            <Input
-              {...artist}
-              label="Size"
-              type="select"
-              className={styles.paddingForm}
-            >
-              {artists.map((value, index) => (
-                <option key={index} value={value} >{value}</option>
-              ))}
-            </Input>
-            <Input
-              {...artistBio}
-              label="Artist bio"
-              type="text"
-              value={artistBio.value}
-              className={styles.paddingForm}
-            />
+            <div className="form-group">
+              <label className="control-label">
+                <span>Artist</span>
+              </label>
+              <Select
+                value={artist.value}
+                options={availatbleAritsts.map(art => ({ value: art, label: art }))}
+                onChange={artist.onChange}
+              />
+            </div>
             <div className="form-group">
               <label className="control-label">
                 <span>Tags</span>
@@ -139,8 +97,6 @@ class Filter extends Component {
                 handleAddition={this.handleTagAddition}
               />
             </div>
-          </Col>
-          <Col md={12}>
             <Button
               type="submit"
               bsStyle="primary"

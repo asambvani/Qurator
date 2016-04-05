@@ -70,7 +70,7 @@ module.exports = {
     loaders: [
       {
         test: /\.(jsx|js)?$/,
-        exclude: /(node_modules|static|styles)/,
+        exclude: /(node_modules|static)/,
         loader: 'babel',
       },
       {
@@ -79,7 +79,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /client\/styles/,
+        exclude: /(client\/styles|node_modules)/,
         loader: ExtractTextPlugin.extract(
           'style',
           `css?modules&importLoaders=1${cssModuleName}!postcss`
@@ -87,7 +87,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: /client\/styles/,
+        include: /(client\/styles|node_modules)/,
         loader: ExtractTextPlugin.extract(
           'style',
           'css!postcss'
