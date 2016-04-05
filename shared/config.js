@@ -3,12 +3,12 @@ export default {
     variants: [
       {
         size: '16x20 inch',
-        price: 100,
+        price: 1.00,
         sku: 1,
       },
       {
         size: '24x30 inch',
-        price: 150,
+        price: 1.50,
         sku: 2,
       },
     ],
