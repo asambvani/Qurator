@@ -20,3 +20,11 @@
 .textHolder {
   text-align: center;
 }
+
+.socialBar {
+  text-align: center;
+}
+
+.socialBar > a {
+  margin: 1em;
+}

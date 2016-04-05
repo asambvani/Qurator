@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Router, browserHistory, Redirect } from 'react-router'
 import DevTools from './DevTools'
-import 'styles/bootstrap.min'
-import 'styles/main'
 import routes from './routes'
 
 class Root extends Component {

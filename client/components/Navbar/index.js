@@ -21,7 +21,7 @@ class QNavbar extends Component {
         <Navbar.Header>
           <Navbar.Brand>
             <Link to="/app" >
-              <img src="/img/logo.png" />
+              <img src="/img/logo.jpg" />
               Qurator
             </Link>
           </Navbar.Brand>
@@ -42,7 +42,7 @@ class QNavbar extends Component {
           <Nav pullRight >
             <LinkContainer to="/app/cart" >
               <NavItem>
-                <i className="glyphicon glyphicon-shopping-cart" /><span> </span>
+                <i className="fa fa-shopping-cart" /><span> </span>
                 Cart ({this.props.cartCount})</NavItem>
             </LinkContainer>
           </Nav>

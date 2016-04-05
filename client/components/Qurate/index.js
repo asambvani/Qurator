@@ -57,7 +57,7 @@ class Qurate extends Component {
     return (
       <div className="container" >
         <Grid>
-          <div className="text-center">
+          <div className="text-center" >
             <h3>Picker</h3>
             <div>Pick images you like</div>
           </div>
@@ -94,6 +94,22 @@ class Qurate extends Component {
           <Picker {...{ pickImage, unpickImage, selected, currentPicker, handleNextClick }} />
         </Grid>
         <Showcase {...{ images } } />
+        <hr />
+        <div className={styles.socialBar} >
+          <a
+            className="btn btn-social-icon btn-lg btn-facebook"
+            href="https://www.facebook.com/quratorart/"
+          >
+            <i className="fa fa-facebook" />
+          </a>
+          <a
+            className="btn btn-social-icon btn-lg btn-instagram"
+            href="https://www.instagram.com/qurator_art/"
+          >
+            <i className="fa fa-instagram" />
+          </a>
+        </div>
+
       </div>
     )
   }
