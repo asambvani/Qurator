@@ -7,6 +7,7 @@ import autobind from 'autobind-decorator'
 import { Grid, Button } from 'react-bootstrap'
 import Showcase from 'components/Showcase'
 import Picker from './Picker'
+import TagsCloud from './TagsCloud'
 import styles from './styles'
 
 const selector = createSelector(
@@ -18,7 +19,13 @@ const selector = createSelector(
   (images, picker, currentPicker) => ({
     images: orderBy(toArray(images), 'weight', 'desc'),
     currentPicker: currentPicker.map(id => images[id]),
-    selected: new Set(picker),
+    selectedImagesIds: new Set(picker),
+    selectedTags: picker.map(id => images[id]).reduce((tags, image) => {
+      image.tags.forEach(tag => {
+        tags[tag] = ++tags[tag] || 1
+      })
+      return tags
+    }, {}),
   })
 )
 
@@ -30,7 +37,8 @@ class Qurate extends Component {
     pickImage: PropTypes.func.isRequired,
     unpickImage: PropTypes.func.isRequired,
     images: PropTypes.array,
-    selected: PropTypes.object.isRequired,
+    selectedImagesIds: PropTypes.object.isRequired,
+    selectedTags: PropTypes.object.isRequired,
     currentPicker: PropTypes.array.isRequired,
   }
 
@@ -41,10 +49,10 @@ class Qurate extends Component {
 
   @autobind
   handleNextClick() {
-    const { props: { images, selected, showNextPicker } } = this
+    const { props: { images, selectedImagesIds, showNextPicker } } = this
     const notSeletedImages = toArray(images)
       .map(image => image.id)
-      .filter(id => !selected.has(id))
+      .filter(id => !selectedImagesIds.has(id))
     showNextPicker(shuffle(notSeletedImages).slice(0, 4))
   }
 
@@ -52,7 +60,14 @@ class Qurate extends Component {
     const {
       handleResetClick,
       handleNextClick,
-      props: { pickImage, unpickImage, selected, currentPicker, images },
+      props: {
+        pickImage,
+        unpickImage,
+        selectedImagesIds,
+        selectedTags,
+        currentPicker,
+        images,
+      },
     } = this
     return (
       <div className="container" >
@@ -90,8 +105,15 @@ class Qurate extends Component {
               </Button>
             }
           </div>
-
-          <Picker {...{ pickImage, unpickImage, selected, currentPicker, handleNextClick }} />
+          <TagsCloud {...{ selectedTags }} />
+          <Picker {...{
+            pickImage,
+            unpickImage,
+            selectedImagesIds,
+            currentPicker,
+            handleNextClick,
+          }}
+          />
         </Grid>
         <Showcase {...{ images } } />
         <hr />

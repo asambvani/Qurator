@@ -8,10 +8,6 @@ const ImageSchema = mongoose.Schema({
   description: String,
   artist: String,
   artistBio: String,
-  scene: String,
-  color: String,
-  mood: String,
-  complexity: String,
   tags: Array,
   order: Number,
 })
