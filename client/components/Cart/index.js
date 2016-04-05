@@ -27,20 +27,19 @@ class Cart extends Component {
     Promise.all(
       items.map(({ image: { productId } }) => shopClient.fetchProduct(productId))
       )
-      .then(products => {
-        shopClient.createCart()
-        shopClient.createCart().then(cart => cart
-          .addVariants.apply(
-            cart,
-            items.map(({ qty: quantity, size }, index) => ({
-              variant: products[index].variants[size],
-              quantity,
-            })))
+      .then(products => shopClient.createCart().then(cart => cart
+        .addVariants.apply(
+          cart,
+          items.map(({ qty: quantity, variant }, index) => ({
+            variant: products[index].variants[variant],
+            quantity,
+          }))
           )
-          .then(cart => {
-            location.href = cart.checkoutUrl
-          })
-      })
+        )
+        .then(cart => {
+          location.href = cart.checkoutUrl
+        })
+      )
       .catch(err => {
         console.error('Request failed', err)
       })

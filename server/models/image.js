@@ -4,7 +4,7 @@ import _ from 'lodash'
 const ImageSchema = mongoose.Schema({
   url: String,
   title: String,
-  productId: String,
+  productId: Number,
   description: String,
   artist: String,
   artistBio: String,

@@ -11,8 +11,9 @@
     "postinstall": "npm run build",
     "start": "pm2 stop qurator; NODE_ENV=production pm2 start index.js --name qurator",
     "dev": "npm run clean && nodemon --watch server --watch node_modules .",
-    "fixtures": "babel-node ./server/fixtures/uploadCSV",
-    "fixturesShopify": "babel-node ./server/fixtures/shopify",
+    "fixturesShopify": "NODE_ENV=production babel-node ./server/fixtures/shopify",
+    "exportMongo": "mongoexport -h ds015508.mlab.com:15508 -d qurator -c images -u dbuser -p 029jflkdjwf028y3htgwdfs -o backup/images.json",
+    "restoreMongo": "mongo qurator --eval \"db.dropDatabase()\" && mongoimport -h localhost -d qurator -c images --file backup/images.json",
     "lint": "eslint ."
   },
   "repository": {
