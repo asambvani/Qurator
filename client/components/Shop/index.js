@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import autobind from 'autobind-decorator'
 import { Grid, Row } from 'react-bootstrap'
 import { createStructuredSelector } from 'reselect'
-import _ from 'lodash'
+import { allTags } from 'selectors'
 import { loadImages as filterAction } from 'actions/images'
 import Showcase from 'components/Showcase'
 import Filter from './Filter'
 
 const selector = createStructuredSelector({
-  images: state => _.toArray(state.entities.images),
+  images: state => state.imagesFilter.ids.map(id => state.entities.images[id]),
+  tags: allTags,
 })
 
 @connect(selector, { filterImages: filterAction })
@@ -17,6 +18,7 @@ class Shop extends Component {
   static propTypes = {
     images: PropTypes.array.isRequired,
     filterImages: PropTypes.func,
+    tags: PropTypes.array,
   }
 
   state = {
@@ -25,12 +27,11 @@ class Shop extends Component {
 
   @autobind
   applyFilter(options) {
-    console.log('filter: ', options)
     this.props.filterImages(options)
   }
 
   render() {
-    const { images } = this.props
+    const { images, tags } = this.props
 
     return (
       <Grid>
@@ -41,6 +42,7 @@ class Shop extends Component {
           </div>
           <br />
           <Filter
+            availableTags={tags}
             applyFilter={this.applyFilter}
           />
           <Showcase {...{ images } } />

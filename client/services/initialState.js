@@ -3,5 +3,5 @@ export default {
   picker: [],
   currentPicker: [],
   cart: [],
-  imagesFilter: [],
+  imagesFilter: { isFetching: false, ids: [] },
 }

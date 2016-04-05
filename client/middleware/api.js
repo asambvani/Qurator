@@ -36,25 +36,12 @@ export default store => next => action => { // eslint-disable-line no-unused-var
     return next(action)
   }
 
-  const { endpoint, schema, types, method, data } = apiAction
-  const [requestType, successType, failureType] = types
-
-  const actionWith = (payload) => {
-    const finalAction = Object.assign({}, action, payload)
-    delete finalAction[CALL_API_SYMBOL]
-    return finalAction
-  }
-
-  next(actionWith({ type: requestType }))
+  const { endpoint, schema, actions, method, data } = apiAction
+  const [requestAction, successAction, failureAction] = actions
+  next(requestAction())
 
   return callAPI(endpoint, method, data, schema).then(
-    response => next(actionWith({
-      type: successType,
-      response,
-    })),
-    error => next(actionWith({
-      type: failureType,
-      error: error.message || 'Oops!',
-    }))
+    response => next(successAction(response)),
+    error => next(failureAction({ error: error.message || 'Oops!' }))
   )
 }

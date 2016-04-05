@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import Tag from './Tag'
 import map from 'lodash/map'
-import styles from './styles'
 import max from 'lodash/max'
 import toArray from 'lodash/toArray'
+import styles from './styles'
 
 class TagsCloud extends Component {
   static propTypes = {

@@ -1,4 +1,14 @@
 import { createSelector } from 'reselect'
+import { toArray } from 'lodash'
+
+export const allTags = createSelector(
+  (state) => state.entities.images,
+  (images) => {
+    const tags = new Set()
+    toArray(images).map(image => image.tags.forEach(tag => tags.add(tag)))
+    return [...tags]
+  }
+)
 
 export const currentTags = createSelector(
   (state) => state.picker,

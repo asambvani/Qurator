@@ -1,17 +1,10 @@
 import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form'
-import merge from 'lodash/merge'
+import entities from './entities'
 import picker from './picker'
 import currentPicker from './currentPicker'
 import cart from './cart'
 import imagesFilter from './imagesFilter'
-
-export function entities(state = { images: {} }, action) {
-  if (action.response && action.response.entities) {
-    return merge({}, state, action.response.entities)
-  }
-  return state
-}
 
 const rootReducer = combineReducers({
   entities,

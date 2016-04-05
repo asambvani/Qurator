@@ -1,14 +1,15 @@
+import { createAction } from 'redux-act'
 import { CALL_API_SYMBOL, Schemas } from 'middleware/api'
 
-export const IMAGES_REQUEST = 'IMAGES_REQUEST'
-export const IMAGES_SUCCESS = 'IMAGES_SUCCESS'
-export const IMAGES_FAILURE = 'IMAGES_FAILURE'
+export const imagesRequest = createAction('Images request start')
+export const imagesSuccess = createAction('Images request success')
+export const imagesFailure = createAction('Images request failure')
 
 export function fetchImages(options) {
   return {
     [CALL_API_SYMBOL]: {
       data: options,
-      types: [IMAGES_REQUEST, IMAGES_SUCCESS, IMAGES_FAILURE],
+      actions: [imagesRequest, imagesSuccess, imagesFailure],
       method: 'POST',
       endpoint: 'images',
       schema: Schemas.IMAGE_ARRAY,

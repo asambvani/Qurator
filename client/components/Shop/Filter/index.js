@@ -39,7 +39,8 @@ class Filter extends Component {
   }
 
   @autobind
-  handleSearchClick() {
+  handleSearchClick(e) {
+    e.preventDefault()
     const {
       applyFilter,
       fields: {
@@ -58,7 +59,6 @@ class Filter extends Component {
       artist: artist.value,
       artistBio: artistBio.value,
       scene: scene.value,
-      // tags: tags.value.map(tag => tag.text),
       tags: tags.value && tags.value.reduce((res, tag) => {
         res[tag.text] = 1
         return res
@@ -68,7 +68,7 @@ class Filter extends Component {
 
   render() {
     const {
-      handleSubmit,
+      availableTags,
       fields: {
         title,
         description,
@@ -79,11 +79,9 @@ class Filter extends Component {
       },
     } = this.props
 
-    const suggestions = ['sudo', 'test']
-
     return (
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={this.handleSearchClick}>
           <Col md={6}>
             <Input
               {...title}
@@ -129,22 +127,23 @@ class Filter extends Component {
               <ReactTags
                 autofocus={false}
                 tags={tags.value}
-                suggestions={suggestions}
+                suggestions={availableTags}
                 handleDelete={this.handleTagDelete}
                 handleAddition={this.handleTagAddition}
               />
             </div>
           </Col>
+          <Col md={12}>
+            <Button
+              type="submit"
+              bsStyle="primary"
+              className={styles.search}
+              onClick={this.handleSearchClick}
+            >
+              Search
+            </Button>
+          </Col>
         </form>
-        <Col md={12}>
-          <Button
-            bsStyle="primary"
-            className={styles.search}
-            onClick={this.handleSearchClick}
-          >
-            Search
-          </Button>
-        </Col>
       </div>
     )
   }

@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import styles from './styles'
 import classnames from 'classnames'
-
+import styles from './styles'
 
 class Tag extends Component {
   static propTypes = {
