@@ -14,6 +14,7 @@
     "fixturesShopify": "NODE_ENV=production babel-node ./server/fixtures/shopify",
     "exportMongo": "mongoexport -h ds015508.mlab.com:15508 -d qurator -c images -u dbuser -p 029jflkdjwf028y3htgwdfs -o backup/images.json",
     "restoreMongo": "mongo qurator --eval \"db.dropDatabase()\" && mongoimport -h localhost -d qurator -c images --file backup/images.json",
+    "copyMongo": "npm run exportMongo && npm run restoreMongo",
     "lint": "eslint ."
   },
   "repository": {

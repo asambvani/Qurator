@@ -21,9 +21,15 @@ class Cart extends Component {
     removeFromCart: PropTypes.func.isRequired,
   }
 
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
   @autobind
   checkout() {
     const { items } = this.props
+    this.setState({ redirectingToShopify: true })
     Promise.all(
       items.map(({ image: { productId } }) => shopClient.fetchProduct(productId))
       )
@@ -53,7 +59,7 @@ class Cart extends Component {
   }
 
   render() {
-    const { checkout, props: { items } } = this
+    const { checkout, props: { items }, state: { redirectingToShopify } } = this
     const total = {
       qty: items.reduce((sum, item) => sum + item.qty, 0),
       price: money(items.reduce((sum, item) => sum + item.qty * variants[item.variant].price, 0)),
@@ -83,11 +89,17 @@ class Cart extends Component {
                 </tbody>
               </Table>
               <Button
+                disabled={redirectingToShopify}
                 className="pull-right"
                 bsStyle="primary"
                 bsSize="large"
                 onClick={checkout}
               >
+                {redirectingToShopify &&
+                <i
+                  className="fa fa-spinner fa-spin"
+                  style={ { marginRight: '1em' } }
+                /> }
                 Checkout: {total.qty} {total.qty === 1 ? 'item' : 'items'} for {total.price}
               </Button>
             </div>
