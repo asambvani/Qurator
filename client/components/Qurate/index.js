@@ -24,8 +24,7 @@ const selector = createSelector(
   ],
   (
     images, step, pickerImageIds, pickerSelectedIds, selectedImages,
-    resultFromServer, currentTags
-  ) => ({
+    resultFromServer, currentTags) => ({
     images: orderBy(toArray(images), 'weight', 'desc'),
     step,
     picker: {
@@ -146,7 +145,7 @@ class Qurate extends Component {
           }}
           />}
         </Grid>
-        <Showcase {...{ images: resultFromServer } } />
+        {step > maxSteps && <Showcase {...{ images: resultFromServer } } />}
         <hr />
         <div className={styles.socialBar} >
           <a
