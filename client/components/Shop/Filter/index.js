@@ -1,16 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
-import { Input, Col, Button } from 'react-bootstrap'
+import { Input, Col } from 'react-bootstrap'
 import Select from 'react-select'
+import { cloneDeep } from 'lodash'
 import { WithContext as TagsInput } from 'react-tag-input'
 import { allTags, allArtists } from 'selectors'
-import styles from './styles'
 
 @reduxForm(
   {
     form: 'shop-filter',
     fields: ['stringQuery', 'artist', 'tags'],
+    initialValues: { tags: [] },
   },
   state => ({
     availableTags: allTags(state),
@@ -23,18 +24,25 @@ class Filter extends Component {
     applyFilter: PropTypes.func.isRequired,
     availableTags: PropTypes.array.isRequired,
     availatbleAritsts: PropTypes.array.isRequired,
+    values: PropTypes.object.isRequired,
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.values !== this.props.values) {
+      this.invokeSearch(nextProps.values)
+    }
   }
 
   @autobind
   handleTagDelete(i) {
-    const { value: tags = [] } = this.props.fields.tags
+    const tags = cloneDeep(this.props.values.tags)
     tags.splice(i, 1)
     this.props.fields.tags.onChange(tags)
   }
 
   @autobind
   handleTagAddition(tag) {
-    const { value: tags = [] } = this.props.fields.tags
+    const tags = cloneDeep(this.props.values.tags)
     tags.push({
       id: tags.length + 1,
       text: tag,
@@ -42,16 +50,17 @@ class Filter extends Component {
     this.props.fields.tags.onChange(tags)
   }
 
-  @autobind
-  handleSearchClick(e) {
-    e.preventDefault()
-    const { applyFilter, fields: { stringQuery, artist, tags } } = this.props
-
-    applyFilter({
-      stringQuery: stringQuery.value,
-      artist: artist.value,
-      tags: tags.value && tags.value.map(tag => tag.text),
+  invokeSearch({ stringQuery, artist, tags } = this.props.values) {
+    this.props.applyFilter({
+      artist,
+      stringQuery,
+      tags: tags.map(tag => tag.text),
     })
+  }
+
+  @autobind
+  handleArtistChange(value) {
+    this.props.fields.artist.onChange(Array.isArray(value) ? {} : value)
   }
 
   render() {
@@ -67,7 +76,7 @@ class Filter extends Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSearchClick}>
+        <form>
           <Col md={12}>
             <Input
               {...stringQuery}
@@ -81,8 +90,8 @@ class Filter extends Component {
               </label>
               <Select
                 value={artist.value}
+                onChange={this.handleArtistChange}
                 options={availatbleAritsts.map(art => ({ value: art, label: art }))}
-                onChange={artist.onChange}
               />
             </div>
             <div className="form-group">
@@ -97,14 +106,6 @@ class Filter extends Component {
                 handleAddition={this.handleTagAddition}
               />
             </div>
-            <Button
-              type="submit"
-              bsStyle="primary"
-              className={styles.search}
-              onClick={this.handleSearchClick}
-            >
-              Search
-            </Button>
           </Col>
         </form>
       </div>

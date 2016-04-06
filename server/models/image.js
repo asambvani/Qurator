@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import _ from 'lodash'
 
-const log = console.log.bind(console)
+const log = console.log.bind(console) // eslint-disable-line
 const error = console.error.bind(console)
 
 const ImageSchema = mongoose.Schema({
@@ -35,13 +35,13 @@ ImageSchema.statics = {
     }
   },
 
-  async filter({ tags = [], stringQuery = '' }) {
+  async filter({ tags = [], artist = '', stringQuery = '' }) {
     try {
       const query = {}
       if (stringQuery.length) {
         const fieldsToQuery = ['title', 'description', 'artistBio']
         query.$or = fieldsToQuery.map(field => (
-          { [field]: { $regex: `.*${stringQuery}*.` } }
+          { [field]: { $regex: `.*${stringQuery}*.`, $options: 'i' } }
         ))
       }
 
@@ -49,8 +49,12 @@ ImageSchema.statics = {
         query.tags = { $all: tags }
       }
 
+      if (artist && artist.length) {
+        query.artist = { $regex: `.*${artist}*.`, $options: 'i' }
+      }
+
       log(JSON.stringify(query))
-      return await this.find(query)
+      return await this.find(query).limit(100)
     } catch (err) {
       error(err)
       throw err

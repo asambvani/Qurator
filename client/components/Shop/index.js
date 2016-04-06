@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import autobind from 'autobind-decorator'
+import { throttle } from 'lodash'
 import { Grid, Row } from 'react-bootstrap'
 import { createStructuredSelector } from 'reselect'
 import { filterImagesByForm } from 'actions/images'
@@ -19,13 +20,20 @@ class Shop extends Component {
     tags: PropTypes.array,
   }
 
-  state = {
-    filter: {},
+  constructor(props) {
+    super(props)
+    this.state = { filter: {} }
+    this.debouncedFilterImagesByForm = throttle(props.filterImagesByForm, 1000)
+  }
+
+  componentDidMount() {
+    this.debouncedFilterImagesByForm()
   }
 
   @autobind
   applyFilter(options) {
     this.props.filterImagesByForm(options)
+    // this.debouncedFilterImagesByForm(options)
   }
 
   render() {
