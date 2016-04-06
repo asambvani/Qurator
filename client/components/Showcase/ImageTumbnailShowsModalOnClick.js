@@ -21,18 +21,11 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
   render() {
     const { image } = this.props
     return (
-      <Col
-        xs={3}
-        md={2}
-        lg={1}
-        key={image.id}
-      >
-        <img
-          className={styles.image}
-          src={`${prefix.tb}${image.url}`}
-          onClick={this.showModal}
-        />
-      </Col>
+      <img
+        className={styles.image}
+        src={`${prefix.tb}${image.url}`}
+        onClick={this.showModal}
+      />
     )
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import autobind from 'autobind-decorator'
-import { Grid, Row } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 import ImageModal from 'components/ImageModal'
 import ImageTumbnailShowsModalOnClick from './ImageTumbnailShowsModalOnClick'
 
@@ -57,12 +57,14 @@ class Showcase extends Component {
         />
         <Row>
           {images.map((img, i) => (
-            <ImageTumbnailShowsModalOnClick
-              key={img.id}
-              index={i}
-              image={img}
-              showModal={showModal}
-            />
+            <Col md={4} key={img.id}>
+              <ImageTumbnailShowsModalOnClick
+                key={img.id}
+                index={i}
+                image={img}
+                showModal={showModal}
+              />
+            </Col>
           ))}
         </Row>
       </Grid>

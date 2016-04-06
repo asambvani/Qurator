@@ -23,23 +23,19 @@ const selector = createSelector(
     currentTagsSelector,
   ],
   (
-    images,
+    images, step, pickerImageIds, pickerSelectedIds, selectedImages,
+    resultFromServer, currentTags
+  ) => ({
+    images: orderBy(toArray(images), 'weight', 'desc'),
     step,
-    pickerImageIds,
-    pickerSelectedIds,
+    picker: {
+      images: pickerImageIds.map(id => images[id]),
+      selectedIds: pickerSelectedIds,
+    },
     selectedImages,
-    resultFromServer,
-    currentTags) => ({
-      images: orderBy(toArray(images), 'weight', 'desc'),
-      step,
-      picker: {
-        images: pickerImageIds.map(id => images[id]),
-        selectedIds: pickerSelectedIds,
-      },
-      selectedImages,
-      resultFromServer: resultFromServer.map(id => images[id]),
-      currentTags,
-    })
+    resultFromServer: resultFromServer.map(id => images[id]),
+    currentTags,
+  })
 )
 
 @connect(selector, { ...pickerActions, ...imagesActions })
@@ -143,12 +139,12 @@ class Qurate extends Component {
               restartButton
             }
           </div>
-          <Picker {...{
+          {pickerActive && <Picker {...{
             pickImage,
             unpickImage,
             picker,
           }}
-          />
+          />}
         </Grid>
         <Showcase {...{ images: resultFromServer } } />
         <hr />
