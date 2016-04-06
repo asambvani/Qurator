@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import styles from './styles'
 import autobind from 'autobind-decorator'
 import config from 'services/config'
-import { Col } from 'react-bootstrap'
 const { image: { prefix } } = config
 
 export default class ImageTumbnailShowsModalOnClick extends Component {
