@@ -1,4 +1,7 @@
 export default {
+  picker: {
+    maxSteps: 5,
+  },
   image: {
     prefix: {
       tb: '/img/thumb/',

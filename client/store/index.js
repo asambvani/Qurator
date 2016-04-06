@@ -3,14 +3,13 @@ import thunk from 'redux-thunk'
 import api from '../middleware/api'
 import rootReducer from '../reducers'
 import DevTools from '../components/DevTools'
-import updateFilter from '../middleware/updateFilter'
 import initialState from '../services/initialState'
 
 const store = createStore(
   rootReducer,
   initialState,
   compose(
-    applyMiddleware(updateFilter, thunk, api),
+    applyMiddleware(thunk, api),
     window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
   )
 )

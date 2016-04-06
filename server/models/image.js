@@ -16,7 +16,7 @@ const ImageSchema = mongoose.Schema({
 })
 
 ImageSchema.statics = {
-  async list({ tags = {} }) {
+  async list(tags = {}) {
     try {
       const images = await this.find()
 
@@ -28,7 +28,7 @@ ImageSchema.statics = {
             const weight = matchingTags.reduce((sum, tag) => sum + tags[tag], 0)
             return { ...image, weight }
           }), 'weight', 'desc')
-      return imagesOrdered.slice(0, 100)
+      return imagesOrdered.slice(0, 15)
     } catch (err) {
       error(err)
       throw err
@@ -39,7 +39,7 @@ ImageSchema.statics = {
     try {
       const fieldsToQuery = ['title', 'description', 'artistBio']
       const expr = fieldsToQuery.map(field => (
-        { [field]: { $regex: `.*${query}*.` } }
+      { [field]: { $regex: `.*${query}*.` } }
       ))
 
       let images = []

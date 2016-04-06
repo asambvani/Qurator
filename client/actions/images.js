@@ -1,22 +1,40 @@
 import { createAction } from 'redux-act'
 import { CALL_API_SYMBOL, Schemas } from 'middleware/api'
 
-export const imagesRequest = createAction('Images request start')
-export const imagesSuccess = createAction('Images request success')
-export const imagesFailure = createAction('Images request failure')
-
-export function fetchImages(options, endpoint = '') {
-  return {
-    [CALL_API_SYMBOL]: {
-      data: options,
-      actions: [imagesRequest, imagesSuccess, imagesFailure],
-      method: 'POST',
-      endpoint: `images${endpoint}`,
-      schema: Schemas.IMAGE_ARRAY,
+const actionsFactory = (actionHash) => actionHash
+const types = actionsFactory(
+  {
+    imageByFiler: {
+      start: createAction('imageByFiler.start'),
+      success: createAction('imageByFiler.success'),
+      fail: createAction('imageByFiler.fail'),
+    },
+    imageByTags: {
+      start: createAction('imageByTags.start'),
+      success: createAction('imageByTags.success'),
+      fail: createAction('imageByTags.fail'),
+    },
+    imagesForPicker: {
+      start: createAction('imagesForPicker.start'),
+      success: createAction('imagesForPicker.success'),
+      fail: createAction('imagesForPicker.fail'),
     },
   }
-}
+)
 
-export function loadImages(options, endpoint) {
-  return dispatch => dispatch(fetchImages(options, endpoint))
-}
+const factory = (endpoint, actions) => (data) => ({
+  [CALL_API_SYMBOL]: {
+    data,
+    actions,
+    method: 'POST',
+    endpoint,
+    schema: Schemas.IMAGE_ARRAY,
+  },
+})
+
+const filterImagesByForm = factory('images/filter', types.imageByFiler)
+const filterImagesByTags = factory('images/tags', types.imageByTags)
+const imagesForPicker = factory('images/picker', types.imagesForPicker)
+
+
+export { filterImagesByForm, filterImagesByTags, imagesForPicker, types }

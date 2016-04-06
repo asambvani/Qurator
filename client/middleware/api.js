@@ -37,7 +37,7 @@ export default store => next => action => { // eslint-disable-line no-unused-var
   }
 
   const { endpoint, schema, actions, method, data } = apiAction
-  const [requestAction, successAction, failureAction] = actions
+  const { start: requestAction, success: successAction, fail: failureAction } = actions
   next(requestAction())
 
   return callAPI(endpoint, method, data, schema).then(

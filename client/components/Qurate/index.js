@@ -1,121 +1,156 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import * as pickerActions from 'actions/picker'
+import * as imagesActions from 'actions/images'
 import { createSelector } from 'reselect'
-import { shuffle, toArray, orderBy } from 'lodash'
+import { toArray, orderBy } from 'lodash'
 import autobind from 'autobind-decorator'
 import { Grid, Button } from 'react-bootstrap'
 import Showcase from 'components/Showcase'
 import Picker from './Picker'
-import TagsCloud from './TagsCloud'
 import styles from './styles'
-
+import config from '../../services/config'
+const { picker: { maxSteps } } = config
+import { currentTags as currentTagsSelector } from '../../selectors'
 const selector = createSelector(
   [
     state => state.entities.images,
-    state => state.picker,
-    state => state.currentPicker,
+    state => state.qurator.step,
+    state => state.qurator.picker.imageIds,
+    state => state.qurator.picker.selectedIds,
+    state => state.qurator.selectedImages,
+    state => state.qurator.resultFromServer,
+    currentTagsSelector,
   ],
-  (images, picker, currentPicker) => ({
-    images: orderBy(toArray(images), 'weight', 'desc'),
-    currentPicker: currentPicker.map(id => images[id]),
-    selectedImagesIds: new Set(picker),
-    selectedTags: picker.map(id => images[id]).reduce((tags, image) => {
-      image.tags.forEach(tag => {
-        tags[tag] = ++tags[tag] || 1
-      })
-      return tags
-    }, {}),
-  })
+  (
+    images,
+    step,
+    pickerImageIds,
+    pickerSelectedIds,
+    selectedImages,
+    resultFromServer,
+    currentTags) => ({
+      images: orderBy(toArray(images), 'weight', 'desc'),
+      step,
+      picker: {
+        images: pickerImageIds.map(id => images[id]),
+        selectedIds: pickerSelectedIds,
+      },
+      selectedImages,
+      resultFromServer: resultFromServer.map(id => images[id]),
+      currentTags,
+    })
 )
 
-@connect(selector, pickerActions)
+@connect(selector, { ...pickerActions, ...imagesActions })
 class Qurate extends Component {
   static propTypes = {
     resetPicker: PropTypes.func.isRequired,
-    showNextPicker: PropTypes.func.isRequired,
+    filterImagesByTags: PropTypes.func.isRequired,
+    imagesForPicker: PropTypes.func.isRequired,
     pickImage: PropTypes.func.isRequired,
     unpickImage: PropTypes.func.isRequired,
-    images: PropTypes.array,
-    selectedImagesIds: PropTypes.object.isRequired,
-    selectedTags: PropTypes.object.isRequired,
-    currentPicker: PropTypes.array.isRequired,
+    images: PropTypes.array.isRequired,
+    step: PropTypes.number.isRequired,
+    selectedImages: PropTypes.array.isRequired,
+    currentTags: PropTypes.object.isRequired,
+    picker: PropTypes.shape({
+      images: PropTypes.array.isRequired,
+      selectedIds: PropTypes.array.isRequired,
+    }),
+    resultFromServer: PropTypes.array.isRequired,
   }
 
   @autobind
-  handleResetClick() {
+  resetPickerClick() {
     this.props.resetPicker()
   }
 
   @autobind
-  handleNextClick() {
-    const { props: { images, selectedImagesIds, showNextPicker } } = this
-    const notSeletedImages = toArray(images)
-      .map(image => image.id)
-      .filter(id => !selectedImagesIds.has(id))
-    showNextPicker(shuffle(notSeletedImages).slice(0, 4))
+  showNextPickerClick() {
+    const {
+      props: {
+        selectedImages,
+        imagesForPicker,
+        filterImagesByTags,
+        currentTags,
+      },
+    } = this
+    imagesForPicker(selectedImages)
+    filterImagesByTags(currentTags)
   }
 
   render() {
     const {
-      handleResetClick,
-      handleNextClick,
+      resetPickerClick,
+      showNextPickerClick,
       props: {
         pickImage,
         unpickImage,
-        selectedImagesIds,
-        selectedTags,
-        currentPicker,
-        images,
+        step,
+        picker,
+        resultFromServer,
       },
     } = this
+
+    const pickerActive = step > 0 && step <= maxSteps
+    const restartButton = step === 0 ?
+      <Button
+        className={styles.startButton}
+        bsStyle="primary"
+        bsSize="large"
+        onClick={ showNextPickerClick }
+      >
+        Start
+      </Button>
+      :
+      <Button
+        className={styles.startButton}
+        bsStyle="primary"
+        bsSize="large"
+        onClick={ resetPickerClick }
+      >
+        Start over
+      </Button>
+
     return (
       <div className="container" >
         <Grid>
           <div className="text-center" >
             <h3>Picker</h3>
             <div>Pick images you like</div>
+            {pickerActive && <div>Step {step} of {maxSteps}</div>}
           </div>
           <div className={styles.buttonBar} >
-            {currentPicker.length ?
+            {pickerActive ?
               <div>
                 <Button
                   bsStyle="danger"
                   className={styles.reset}
-                  onClick={handleResetClick}
+                  onClick={resetPickerClick}
                 >
                   Start over
                 </Button>
                 <Button
                   bsStyle="primary"
                   className={styles.next}
-                  onClick={handleNextClick}
+                  onClick={showNextPickerClick}
                 >
                   Next
                 </Button>
               </div>
               :
-              <Button
-                className={styles.startButton}
-                bsStyle="primary"
-                bsSize="large"
-                onClick={handleNextClick}
-              >
-                Start
-              </Button>
+              restartButton
             }
           </div>
-          <TagsCloud {...{ selectedTags }} />
           <Picker {...{
             pickImage,
             unpickImage,
-            selectedImagesIds,
-            currentPicker,
-            handleNextClick,
+            picker,
           }}
           />
         </Grid>
-        <Showcase {...{ images } } />
+        <Showcase {...{ images: resultFromServer } } />
         <hr />
         <div className={styles.socialBar} >
           <a

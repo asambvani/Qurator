@@ -16,15 +16,18 @@ export const allTags = createSelector(
 )
 
 export const currentTags = createSelector(
-  (state) => state.picker,
   (state) => state.entities.images,
-  (ids, images) => (
-    ids.map(id => images[id]).reduce((tags, image) => {
-      image.tags.forEach(tag => {
-        tags[tag] = ++tags[tag] || 1
-      })
-      return tags
-    }, {})
+  (state) => state.qurator.picker.selectedIds,
+  (state) => state.qurator.selectedImages,
+  (images, pickerSelectedIds, selectedImages) => (
+    [...pickerSelectedIds, ...selectedImages]
+      .map(id => images[id])
+      .reduce((tags, image) => {
+        image.tags.forEach(tag => {
+          tags[tag] = ++tags[tag] || 1
+        })
+        return tags
+      }, {})
   )
 )
 

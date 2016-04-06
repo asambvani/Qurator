@@ -1,8 +1,12 @@
-import { createReducer } from 'redux-act'
 import merge from 'lodash/merge'
 import initialState from 'services/initialState'
-import { imagesSuccess } from 'actions/images'
+import get from 'lodash/get'
 
-export default createReducer({
-  [imagesSuccess]: (state, response) => merge({}, state, response.entities),
-}, initialState.entities)
+
+export default (state = initialState.entities, action) => {
+  const entities = get(action, 'payload.entities')
+  if (entities) {
+    return merge({}, state, entities)
+  }
+  return state
+}
