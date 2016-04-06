@@ -46,10 +46,9 @@ export default class CartItem extends Component {
         </td>
         <td>{variants[variant].size}</td>
         <td>{qty}</td>
-        <td><i
-          className="glyphicon glyphicon-remove"
-          onClick={removeFromCart}
-        />
+        <td><a onClick={removeFromCart}><i
+          className="fa fa-remove"
+        /></a>
         </td>
         <td>{rowTotal}</td>
       </tr>
