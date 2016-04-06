@@ -101,6 +101,7 @@ class Filter extends Component {
               <TagsInput
                 autofocus={false}
                 tags={tags.value}
+                minQueryLength={1}
                 suggestions={availableTags}
                 handleDelete={this.handleTagDelete}
                 handleAddition={this.handleTagAddition}
