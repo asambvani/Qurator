@@ -1,11 +1,12 @@
 import { createReducer } from 'redux-act'
 import { combineReducers } from 'redux'
-import initialState from '../../services/initialState'
 import without from 'lodash/without'
-import { showNextPicker, resetPicker, pickImage, unpickImage } from '../../actions/picker'
+import initialState from 'services/initialState'
+import { showNextPicker, resetPicker, pickImage, unpickImage } from 'actions/picker'
+import { imagesPickerActions } from 'actions/images'
+
 const initSelectedIds = initialState.qurator.picker.selectedIds
 const initImageIds = initialState.qurator.picker.imageIds
-import { types } from '../../actions/images'
 
 const selectedIds = createReducer({
   [pickImage]: (state, id) => [...state, id],
@@ -15,7 +16,7 @@ const selectedIds = createReducer({
 }, initSelectedIds)
 
 const imageIds = createReducer({
-  [types.imagesForPicker.success]: (state, {result}) => result, // eslint-disable-line
+  [imagesPickerActions.success]: (state, { result }) => result, // eslint-disable-line
   [resetPicker]: () => initImageIds,
 }, initImageIds)
 

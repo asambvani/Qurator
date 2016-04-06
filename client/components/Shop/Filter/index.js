@@ -10,7 +10,7 @@ import styles from './styles'
 @reduxForm(
   {
     form: 'shop-filter',
-    fields: ['query', 'artist', 'tags'],
+    fields: ['stringQuery', 'artist', 'tags'],
   },
   state => ({
     availableTags: allTags(state),
@@ -45,10 +45,10 @@ class Filter extends Component {
   @autobind
   handleSearchClick(e) {
     e.preventDefault()
-    const { applyFilter, fields: { query, artist, tags } } = this.props
+    const { applyFilter, fields: { stringQuery, artist, tags } } = this.props
 
     applyFilter({
-      query: query.value,
+      stringQuery: stringQuery.value,
       artist: artist.value,
       tags: tags.value && tags.value.map(tag => tag.text),
     })
@@ -59,7 +59,7 @@ class Filter extends Component {
       availableTags,
       availatbleAritsts,
       fields: {
-        query,
+        stringQuery,
         artist,
         tags,
       },
@@ -70,10 +70,10 @@ class Filter extends Component {
         <form onSubmit={this.handleSearchClick}>
           <Col md={12}>
             <Input
-              {...query}
+              {...stringQuery}
               label="Search"
               type="text"
-              value={query.value}
+              value={stringQuery.value}
             />
             <div className="form-group">
               <label className="control-label">

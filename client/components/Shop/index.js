@@ -39,9 +39,7 @@ class Shop extends Component {
             <div>Find images you like</div>
           </div>
           <br />
-          <Filter
-            applyFilter={this.applyFilter}
-          />
+          <Filter applyFilter={this.applyFilter} />
           <Showcase {...{ images } } />
         </Row>
       </Grid>

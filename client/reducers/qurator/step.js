@@ -1,10 +1,11 @@
 import { createReducer } from 'redux-act'
-import { types } from '../../actions/images'
-import initialState from '../../services/initialState'
+import { imagesPickerActions } from '../../actions/images'
 import { resetPicker } from '../../actions/picker'
+import initialState from '../../services/initialState'
+
 const init = initialState.qurator.step
 
 export default createReducer({
-  [types.imagesForPicker.success]: (state) => state + 1,
+  [imagesPickerActions.success]: (state) => state + 1,
   [resetPicker]: () => init,
 }, init)

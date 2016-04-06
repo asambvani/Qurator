@@ -35,25 +35,22 @@ ImageSchema.statics = {
     }
   },
 
-  async filter({ tags = [], query = '' }) {
+  async filter({ tags = [], stringQuery = '' }) {
     try {
-      const fieldsToQuery = ['title', 'description', 'artistBio']
-      const expr = fieldsToQuery.map(field => (
-      { [field]: { $regex: `.*${query}*.` } }
-      ))
-
-      let images = []
-      if (tags.length && query.length) {
-        images = await this.find({ $or: expr, tags: { $all: tags } })
-      } else if (tags.length) {
-        images = await this.find({ tags: { $all: tags } })
-      } else if (query.length) {
-        images = await this.find({ $or: expr })
-      } else {
-        images = await this.find()
+      const query = {}
+      if (stringQuery.length) {
+        const fieldsToQuery = ['title', 'description', 'artistBio']
+        query.$or = fieldsToQuery.map(field => (
+          { [field]: { $regex: `.*${stringQuery}*.` } }
+        ))
       }
-      log(expr)
-      return images
+
+      if (tags.length) {
+        query.tags = { $all: tags }
+      }
+
+      log(JSON.stringify(query))
+      return await this.find(query)
     } catch (err) {
       error(err)
       throw err
