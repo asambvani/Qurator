@@ -24,7 +24,8 @@ const selector = createSelector(
   ],
   (
     images, step, pickerImageIds, pickerSelectedIds, selectedImages,
-    resultFromServer, currentTags) => ({
+    resultFromServer, currentTags
+  ) => ({
     images: orderBy(toArray(images), 'weight', 'desc'),
     step,
     picker: {
@@ -109,14 +110,17 @@ class Qurate extends Component {
       </Button>
 
     return (
-      <div className="container" >
+      <div className="container">
         <Grid>
-          <div className="text-center" >
+          <div className="text-center">
             <h3>Picker</h3>
             <div>Pick images you like</div>
-            {pickerActive && <div>Step {step} of {maxSteps}</div>}
+            {
+              pickerActive &&
+              <div>Step {step} of {maxSteps}</div>
+            }
           </div>
-          <div className={styles.buttonBar} >
+          <div className={styles.buttonBar}>
             {pickerActive ?
               <div>
                 <Button
@@ -138,14 +142,15 @@ class Qurate extends Component {
               restartButton
             }
           </div>
-          {pickerActive && <Picker {...{
-            pickImage,
-            unpickImage,
-            picker,
-          }}
-          />}
+          {
+            pickerActive &&
+            <Picker {...{ pickImage, unpickImage, picker }} />
+          }
         </Grid>
-        {step > maxSteps && <Showcase {...{ images: resultFromServer } } />}
+        {
+          step > maxSteps &&
+          <Showcase {...{ images: resultFromServer }} />
+        }
         <hr />
         <div className={styles.socialBar} >
           <a
