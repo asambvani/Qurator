@@ -1,0 +1,58 @@
+footer p, footer a,footer li{
+	color: #999999!important;
+}
+.footerRow{
+	margin-bottom: 60px;
+    margin-top: 40px;
+}
+.linkQurate, .linkQurate a{
+	color:#000!important;
+}
+.logo img{
+	width: 80px;
+	height: auto;
+	display: block;
+	margin:auto;
+}
+h4{
+	color:#000000;
+	text-transform: uppercase;
+	font-size: 15px;
+	margin-top: 35px;
+}
+.footerMenu{
+	list-style-type: square;
+	padding-left: 18px;
+	margin-top: 25px;
+	
+}
+.followUs{
+	color:#e9c706;
+}
+.socialBar {
+  text-align: center;
+}
+
+.socialBar > a {
+  margin: 10px;
+  background-color: white;
+}
+.socialBar > a:hover{
+	background-color: white;
+	border:none;
+}
+.socialBar > a > i{
+	color: #666666;
+	font-size: 34px!important;
+}
+.socialBar > a:hover > i{
+	color: #e9c706;
+}
+.copyRight{
+  font-size: 12px;
+  text-align: center;
+}
+.copyRight > a{
+  color: #000!important;
+  font-weight: bold;
+}

@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Nav, Navbar, NavItem } from 'react-bootstrap'
+import { Badge, Nav, Navbar, NavItem } from 'react-bootstrap'
+import styles from './style'
 
 const cartSelector = createStructuredSelector({
   cartCount: state => state.cart.reduce((sum, item) => sum + item.qty, 0),
@@ -22,18 +23,17 @@ class QNavbar extends Component {
 
     return (
       <div>
-        <Navbar inverse >
-          <Navbar.Header>
+        <Navbar className={styles.navBarMain}>
+          <Navbar.Header className={styles.navBarHeader}>
             <Navbar.Brand>
               <Link to="/app" >
                 <img src="/img/logo.jpg" />
-                Qurator
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav>
+          <Navbar.Collapse className={styles.navBar}>
+            <Nav className={styles.navBarMenu}>
               <LinkContainer to="/app/shop" >
                 <NavItem> Shop entire store</NavItem>
               </LinkContainer>
@@ -47,8 +47,8 @@ class QNavbar extends Component {
             <Nav pullRight >
               <LinkContainer to="/app/cart" >
                 <NavItem>
-                  <i className="fa fa-shopping-cart" /><span> </span>
-                  Cart ({this.props.cartCount})</NavItem>
+                  <i className={styles.shoppingCart} />
+                  <Badge className={styles.badgeRed}>{this.props.cartCount}</Badge></NavItem>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>

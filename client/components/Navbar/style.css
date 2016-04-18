@@ -1,0 +1,33 @@
+.navBarMain{
+	background-color: #fff;
+	border:none;
+}
+.navBarMain a{
+	color: #333333!important;
+	text-transform:uppercase;
+	font-size:14px;
+}
+.navBarMain a:hover{
+	color:#ff3f45!important;
+}
+.shoppingCart{
+	background-image: url("../../../img/cart.png");
+	width: 37px;
+	height: 37px;
+	display: block;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.badgeRed{
+	background: #cc0000;
+	position: absolute;
+    right: 5px;
+    top: 37px;
+    
+}
+.navBarMenu,.navBarHeader{
+	margin-top:12px;
+}
+.navBar{
+	float:right;
+}

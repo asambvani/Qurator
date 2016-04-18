@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import { Button } from 'react-bootstrap'
-import styles from 'styles'
+import styles from './styles'
 
 const GetStarted = ({ handleStartClick }) => (
-  <div>
-    <p>
+  <div className={styles.getStartedD}>
+    <p className={styles.ourA}>
       Our algorithm will
-      suggest 15 photos that
+      suggest <span className={styles.ourAyellow}>15 photos</span> that
       match your style
     </p>
     <Button

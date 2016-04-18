@@ -28,3 +28,47 @@
 .socialBar > a {
   margin: 1em;
 }
+.take{
+  text-transform: uppercase;
+  font-size: 70px;
+  line-height: 1;
+  color:#000;
+}
+.takeQ{
+  font-size: 140px;
+}
+.separatorQ{
+  width: 60px;
+  height: 4px;
+  background: #c49b33;
+  margin: 10px auto;
+}
+.steps{
+  list-style: none;
+  clear:both;
+  text-align: center;
+  margin: auto;
+  width: 450px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 0px;
+}
+.steps li{
+  float: left;
+  width: 82px;
+  height: 82px;
+  margin-right: 32px;
+  border: 1px solid #e2e2e2;
+  font-size: 36px;
+  line-height: 82px;
+  color:#666;
+}
+.steps li:last-child{
+  margin-right: 0;
+}
+.steps li:hover, .steps li:focus, .steps li:active{
+  background: #525252;
+  color:#fff;
+  cursor: pointer;
+  cursor: hand;
+}

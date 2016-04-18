@@ -1,0 +1,28 @@
+.getStartedD{
+	margin-top: 60px;
+}
+.ourA{
+	font-size: 60px;
+	color: #999;
+	text-transform: uppercase;
+	width: 70%;
+	margin: auto;
+}
+.ourAyellow{
+	color: #e9c706;
+}
+.startButton{
+	width: 445px;
+	height: 130px;
+	background: #f1d11a;
+	font-size: 34px;
+	text-transform: uppercase;
+	border:none;
+	border-radius: 1px;
+	margin-top: 60px;
+	margin-bottom: 120px;
+}
+.startButton:hover,.startButton:focus,.startButton:active,.startButton:active:hover{
+	background: #e9c706;
+	outline: none;
+}

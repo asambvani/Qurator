@@ -109,9 +109,11 @@ class Qurate extends Component {
     return (
       <div className="container">
         <Grid>
+
           <div className="text-center">
-            <h3>Take our quiz</h3>
-            <ul>
+            <h3 className={styles.take}>Take our <br/><span className={styles.takeQ}>quiz</span></h3>
+            <div className={styles.separatorQ}></div>
+            <ul className={styles.steps}>
               <li>1</li>
               <li>2</li>
               <li>3</li>
@@ -154,21 +156,7 @@ class Qurate extends Component {
           (step > maxSteps) &&
           <Showcase {...{ images: resultFromServer }} />
         }
-        <hr />
-        <div className={styles.socialBar} >
-          <a
-            className="btn btn-social-icon btn-lg btn-facebook"
-            href="https://www.facebook.com/quratorart/"
-          >
-            <i className="fa fa-facebook" />
-          </a>
-          <a
-            className="btn btn-social-icon btn-lg btn-instagram"
-            href="https://www.instagram.com/qurator_art/"
-          >
-            <i className="fa fa-instagram" />
-          </a>
-        </div>
+        
 
       </div>
     )
