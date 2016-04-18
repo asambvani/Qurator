@@ -8,10 +8,12 @@ import autobind from 'autobind-decorator'
 import { Grid, Button } from 'react-bootstrap'
 import Showcase from 'components/Showcase'
 import Picker from './Picker'
+import GetStarted from './GetStarted'
+import config from 'services/config'
+import { currentTags as currentTagsSelector } from 'selectors'
 import styles from './styles'
-import config from '../../services/config'
+
 const { picker: { maxSteps } } = config
-import { currentTags as currentTagsSelector } from '../../selectors'
 const selector = createSelector(
   [
     state => state.entities.images,
@@ -65,13 +67,12 @@ class Qurate extends Component {
   @autobind
   showNextPickerClick() {
     const {
-      props: {
-        selectedImages,
-        imagesForPicker,
-        filterImagesByTags,
-        currentTags,
-      },
-    } = this
+      selectedImages,
+      imagesForPicker,
+      filterImagesByTags,
+      currentTags,
+    } = this.props
+
     imagesForPicker(selectedImages)
     filterImagesByTags(currentTags)
   }
@@ -91,20 +92,16 @@ class Qurate extends Component {
 
     const pickerActive = step > 0 && step <= maxSteps
     const restartButton = step === 0 ?
-      <Button
-        className={styles.startButton}
-        bsStyle="primary"
-        bsSize="large"
-        onClick={ showNextPickerClick }
-      >
-        Start
-      </Button>
+      <GetStarted
+        btnClass={styles.startButton}
+        handleStartClick={showNextPickerClick}
+      />
       :
       <Button
         className={styles.startButton}
         bsStyle="primary"
         bsSize="large"
-        onClick={ resetPickerClick }
+        onClick={resetPickerClick}
       >
         Start over
       </Button>
@@ -113,15 +110,21 @@ class Qurate extends Component {
       <div className="container">
         <Grid>
           <div className="text-center">
-            <h3>Picker</h3>
-            <div>Pick images you like</div>
+            <h3>Take our quiz</h3>
+            <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+            </ul>
             {
               pickerActive &&
               <div>Step {step} of {maxSteps}</div>
             }
           </div>
           <div className={styles.buttonBar}>
-            {pickerActive ?
+            {
+              pickerActive ?
               <div>
                 <Button
                   bsStyle="danger"
@@ -148,7 +151,7 @@ class Qurate extends Component {
           }
         </Grid>
         {
-          step > maxSteps &&
+          (step > maxSteps) &&
           <Showcase {...{ images: resultFromServer }} />
         }
         <hr />

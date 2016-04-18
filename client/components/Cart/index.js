@@ -32,23 +32,23 @@ class Cart extends Component {
     this.setState({ redirectingToShopify: true })
     Promise.all(
       items.map(({ image: { productId } }) => shopClient.fetchProduct(productId))
-      )
-      .then(products => shopClient.createCart().then(cart => cart
-        .addVariants.apply(
-          cart,
-          items.map(({ qty: quantity, variant }, index) => ({
-            variant: products[index].variants[variant],
-            quantity,
-          }))
-          )
+    )
+    .then(products => shopClient.createCart().then(cart => cart
+      .addVariants.apply(
+        cart,
+        items.map(({ qty: quantity, variant }, index) => ({
+          variant: products[index].variants[variant],
+          quantity,
+        }))
         )
-        .then(cart => {
-          location.href = cart.checkoutUrl
-        })
       )
-      .catch(err => {
-        console.error('Request failed', err)
+      .then(cart => {
+        location.href = cart.checkoutUrl
       })
+    )
+    .catch(err => {
+      console.error('Request failed', err)
+    })
   }
 
   renderItems() {
