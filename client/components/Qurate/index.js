@@ -109,9 +109,10 @@ class Qurate extends Component {
     return (
       <div className="container">
         <Grid>
-
           <div className="text-center">
-            <h3 className={styles.take}>Take our <br/><span className={styles.takeQ}>quiz</span></h3>
+            <h3 className={styles.take}>
+              Take our <br /><span className={styles.takeQ}>quiz</span>
+            </h3>
             <div className={styles.separatorQ}></div>
             <ul className={styles.steps}>
               <li>1</li>
@@ -156,8 +157,6 @@ class Qurate extends Component {
           (step > maxSteps) &&
           <Showcase {...{ images: resultFromServer }} />
         }
-        
-
       </div>
     )
   }

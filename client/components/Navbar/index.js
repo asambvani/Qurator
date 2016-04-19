@@ -34,14 +34,20 @@ class QNavbar extends Component {
           </Navbar.Header>
           <Navbar.Collapse className={styles.navBar}>
             <Nav className={styles.navBarMenu}>
-              <LinkContainer to="/app/shop" >
-                <NavItem> Shop entire store</NavItem>
+              <LinkContainer to="/" >
+                <NavItem>Home</NavItem>
               </LinkContainer>
-              <LinkContainer to="/app/contacts" >
-                <NavItem>Contact us</NavItem>
+              <LinkContainer to="/qurate" >
+                <NavItem>Qurator</NavItem>
               </LinkContainer>
-              <LinkContainer to="/app/about" >
-                <NavItem>About</NavItem>
+              <LinkContainer to="/shop" >
+                <NavItem>Shop</NavItem>
+              </LinkContainer>
+              <LinkContainer to="/about" >
+                <NavItem>About us</NavItem>
+              </LinkContainer>
+              <LinkContainer to="/contacts" >
+                <NavItem>Contact</NavItem>
               </LinkContainer>
             </Nav>
             <Nav pullRight >

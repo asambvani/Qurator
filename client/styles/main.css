@@ -15,10 +15,6 @@ body {
   }
 }
 
-.slick-prev {
-  display: none !important;
-}
-
 /* Example Styles for React Tags*/
 div.ReactTags__tags {
     position: relative;

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Provider } from 'react-redux'
-import { Router, browserHistory, Redirect } from 'react-router'
+import { Router, browserHistory } from 'react-router'
 import DevTools from './DevTools'
 import routes from './routes'
 
@@ -18,7 +18,6 @@ class Root extends Component {
       <Provider store={this.props.store}>
         <div>
           <Router history={browserHistory} >
-            <Redirect from="/" to="/app" />
             {routes}
           </Router>
           {!window.devToolsExtension ? <DevTools /> : null}

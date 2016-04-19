@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from './App'
+import Home from './Home'
 import Qurate from './Qurate'
 import Cart from './Cart'
 import Shop from './Shop'
@@ -9,8 +10,9 @@ import About from './About'
 import Notfound from './Notfound'
 
 export default (
-  <Route path="app" component={App}>
-    <IndexRoute component={Qurate} />
+  <Route path="/" component={App}>
+    <IndexRoute component={Home} />
+    <Route path="qurate" component={Qurate} />
     <Route name="#qurator_shop" path="shop" component={Shop} />
     <Route name="cart" path="cart" component={Cart} />
     <Route name="get intouch !" path="contacts" component={Contacts} />
