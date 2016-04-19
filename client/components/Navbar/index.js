@@ -51,10 +51,13 @@ class QNavbar extends Component {
               </LinkContainer>
             </Nav>
             <Nav pullRight >
-              <LinkContainer to="/app/cart" >
+              <LinkContainer to="/cart" >
                 <NavItem>
                   <i className={styles.shoppingCart} />
-                  <Badge className={styles.badgeRed}>{this.props.cartCount}</Badge></NavItem>
+                  <Badge className={styles.badgeRed}>
+                    {this.props.cartCount}
+                  </Badge>
+                </NavItem>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>
