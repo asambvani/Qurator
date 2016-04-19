@@ -59,4 +59,3 @@ class ImageForm extends Component {
 }
 
 export default ImageForm
-

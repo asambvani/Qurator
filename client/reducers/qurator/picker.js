@@ -5,8 +5,10 @@ import initialState from 'services/initialState'
 import { showNextPicker, resetPicker, pickImage, unpickImage } from 'actions/picker'
 import { imagesPickerActions } from 'actions/images'
 
-const initSelectedIds = initialState.qurator.picker.selectedIds
-const initImageIds = initialState.qurator.picker.imageIds
+const { picker: initPicker } = initialState.qurator
+const initSelectedIds = initPicker.selectedIds
+const initImageIds = initPicker.imageIds
+const initStep = initPicker.step
 
 const selectedIds = createReducer({
   [pickImage]: (state, id) => [...state, id],
@@ -20,7 +22,13 @@ const imageIds = createReducer({
   [resetPicker]: () => initImageIds,
 }, initImageIds)
 
+const step = createReducer({
+  [imagesPickerActions.success]: (state) => state + 1,
+  [resetPicker]: () => initStep,
+}, initStep)
+
 export default combineReducers({
+  step,
   selectedIds,
   imageIds,
 })

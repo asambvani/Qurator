@@ -3,6 +3,7 @@ export default {
   qurator: {
     step: 0,
     picker: {
+      step: 0,
       imageIds: [],
       selectedIds: [],
     },

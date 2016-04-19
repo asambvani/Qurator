@@ -1,13 +1,19 @@
 import React, { Component, PropTypes } from 'react'
-import styles from './styles'
-import config from 'services/config'
+import { Button } from 'react-bootstrap'
 import includes from 'lodash/includes'
-const { image: { prefix } } = config
+import { range } from 'lodash'
+import cn from 'classnames'
+import config from 'services/config'
+import styles from './styles'
+
+const { image: { prefix }, picker: { maxSteps } } = config
 
 class Picker extends Component {
   static propTypes = {
+    currentStep: PropTypes.number.isRequired,
     pickImage: PropTypes.func.isRequired,
     unpickImage: PropTypes.func.isRequired,
+    handleNextClick: PropTypes.func,
     picker: PropTypes.shape({
       images: PropTypes.array.isRequired,
       selectedIds: PropTypes.array.isRequired,
@@ -16,15 +22,16 @@ class Picker extends Component {
 
   handleClick({ id }) {
     const { picker: { selectedIds }, pickImage, unpickImage } = this.props
-    if (includes(selectedIds, id)) {
-      unpickImage(id)
-    } else {
-      pickImage(id)
-    }
+    includes(selectedIds, id) ? unpickImage(id) : pickImage(id) // eslint-disable-line
   }
 
   render() {
-    const { picker: { images, selectedIds } } = this.props
+    const {
+      currentStep,
+      handleNextClick,
+      picker: { images, selectedIds },
+    } = this.props
+
     return (
       <div className={styles.picker} >
         {images.map((img) => (
@@ -35,6 +42,17 @@ class Picker extends Component {
             onClick={this.handleClick.bind(this, img)} // eslint-disable-line
           />
         ))}
+        {range(maxSteps).map(i => (
+          <div key={i} className={cn({ active: i === currentStep })}>i</div>
+        ))}
+        <Button
+          bsSize="large"
+          bsStyle="primary"
+          onClick={handleNextClick}
+          className={styles.startButton}
+        >
+          Next
+        </Button>
       </div>
     )
   }
