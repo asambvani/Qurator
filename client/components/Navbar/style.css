@@ -5,10 +5,11 @@
 .navBarMain a{
 	color: #333333!important;
 	text-transform:uppercase;
-	font-size:14px;
+	font-size:12px;
 }
-.navBarMain a:hover{
+.navBarMain a:hover,.navBarMain a:focus,.navBarMain :global(li.active) a{
 	color:#ff3f45!important;
+	background-color:white!important;
 }
 .shoppingCart{
 	background-image: url("../../../img/cart.png");

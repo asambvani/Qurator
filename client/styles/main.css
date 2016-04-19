@@ -96,3 +96,47 @@ div.ReactTags__suggestions ul li.active {
     background: #b7cfe0;
     cursor: pointer;
 }
+.carousel-control{
+    opacity: 1;
+}
+.carousel-control:focus, .carousel-control:hover{
+  opacity: 1;
+}
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .glyphicon-chevron-left{
+  width: 63px;
+  height: 63px;
+  display: block;
+  
+}
+.carousel-control .glyphicon-chevron-right{
+  background: url(/../img/next.jpg) 0 0;
+  right: 0;
+  margin-right: 0px;
+}
+.carousel-control .glyphicon-chevron-left{
+  background: url(/../img/prev.jpg) 0 0;
+  left: 0;
+  margin-left: 0px;
+}
+.carousel-control:hover .glyphicon-chevron-right{
+  background: url(/../img/next.jpg) 0 64px;
+}
+.carousel-control:hover .glyphicon-chevron-left{
+  background: url(/../img/prev.jpg) 0 64px;
+}
+@media screen and (min-width: 768px){
+  .carousel-control .glyphicon-chevron-right{
+  background: url(/../img/next.jpg) 0 0;
+  width: 64px;
+  height: 64px;
+  display: block;
+  right: 0;
+  margin-right: 0px;
+}
+}
+.carousel-caption{
+  top:20px;
+  color:#000;
+  text-shadow: none;
+}
