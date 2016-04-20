@@ -30,11 +30,11 @@ class Home extends Component {
       <Grid fluid >
         <Carousel className={styles.carousel}>
           <CarouselItem className={styles.carouselItem}>
-            <img width="100%" height="500px"  alt="900x500" src="/img/firstSlide.jpg" />
+            <img width="100%" height="500px" alt="900x500" src="/img/firstSlide.jpg" />
             <div className="carousel-caption">
               <h3>Qurator</h3>
               <p>You can't buy this art anywhere else!</p>
-              <ButtonsGroup/>
+              <ButtonsGroup />
             </div>
           </CarouselItem>
           <CarouselItem className={styles.carouselItem}>
@@ -42,7 +42,7 @@ class Home extends Component {
             <div className="carousel-caption">
               <h3 className={styles.white}>Qurator</h3>
               <p className={styles.white}>For when you want art,<br /> but don't know where to start.</p>
-                <ButtonsGroup/>
+                <ButtonsGroup />
             </div>
           </CarouselItem>
           <CarouselItem className={styles.carouselItem}>
@@ -50,7 +50,7 @@ class Home extends Component {
             <div className="carousel-caption">
               <h3>Qurator</h3>
               <p>For when you want art,<br /> but don't know where to start.</p>
-                <ButtonsGroup/>
+                <ButtonsGroup />
             </div>
           </CarouselItem>
         </Carousel>
@@ -96,7 +96,9 @@ And shipping is free! Its' that simple.</p>
                 </Row>
                 <Row>
                   <Col md={12} className={styles.btnStart}>
+                    <Link to="/qurate" >
                     <Button bsStyle="primary" className={styles.btnBlack}>Start Here</Button>
+                    </Link>
                   </Col>
                 </Row>
               </Grid>
