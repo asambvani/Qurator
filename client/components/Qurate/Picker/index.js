@@ -37,10 +37,17 @@ class Picker extends Component {
         <h3 className={styles.pickHeader}>Pick the photos you like best</h3>
         <div className={styles.imageItems}>
         {images.map((img) => (
+<<<<<<< HEAD
           <div className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}>
             <span className={styles.checkItem}></span>
+=======
+          <div
+            key={img.id}
+            className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}
+          >
+            <span></span>
+>>>>>>> origin/master
             <img
-              key={img.id}
               src={`${prefix.tb}${img.url}`}
               onClick={this.handleClick.bind(this, img)} // eslint-disable-line
             />
