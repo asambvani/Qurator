@@ -2,6 +2,28 @@ import React, { Component } from 'react'
 import { Grid, Row, Col, Carousel, CarouselItem, Button } from 'react-bootstrap'
 import styles from './styles'
 import { Link } from 'react-router'
+
+class ButtonsGroup extends Component {
+  render(){
+    return (
+      <div className={styles.buttonsGroup} >
+        <div >
+          <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
+          <Link to="/qurate" >
+            <Button bsStyle="primary" className={styles.btnYellow} ><span
+              className={styles.arrowBtn} ></span>Qurate</Button>
+          </Link>
+        </div>
+        <div>
+          <Link to="/shop" >
+            <Button bsStyle="primary" className={styles.btnBlack} >Shop Now</Button>
+          </Link>
+        </div>
+      </div>
+    )
+  }
+}
+
 class Home extends Component {
   render() {
     return (
@@ -11,20 +33,8 @@ class Home extends Component {
             <img width="100%" height="500px"  alt="900x500" src="/img/firstSlide.jpg" />
             <div className="carousel-caption">
               <h3>Qurator</h3>
-              <p>For when you want art, <br />but dont know where to start.</p>
-              <div className={styles.buttonsGroup}>
-                <div >
-                <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
-                  <Link to="/qurate">
-                <Button bsStyle="primary" className={styles.btnYellow}><span className={styles.arrowBtn}></span>Qurate</Button>
-                  </Link>
-                </div>
-                <div>
-                  <Link to="/shop" >
-                <Button bsStyle="primary" className={styles.btnBlack}>Shop Now</Button>
-                </Link>
-              </div>
-              </div>
+              <p>You can't buy this art anywhere else!</p>
+              <ButtonsGroup/>
             </div>
           </CarouselItem>
           <CarouselItem className={styles.carouselItem}>
@@ -32,15 +42,7 @@ class Home extends Component {
             <div className="carousel-caption">
               <h3 className={styles.white}>Qurator</h3>
               <p className={styles.white}>For when you want art,<br /> but don't know where to start.</p>
-              <div className={styles.buttonsGroup}>
-                <div >
-                <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
-                <Button bsStyle="primary" className={styles.btnYellow}><span className={styles.arrowBtn}></span>Qurate</Button>
-                </div>
-                <div>
-                <Button bsStyle="primary" className={styles.btnBlack}>Shop Now</Button>
-              </div>
-              </div>
+                <ButtonsGroup/>
             </div>
           </CarouselItem>
           <CarouselItem className={styles.carouselItem}>
@@ -48,15 +50,7 @@ class Home extends Component {
             <div className="carousel-caption">
               <h3>Qurator</h3>
               <p>For when you want art,<br /> but don't know where to start.</p>
-              <div className={styles.buttonsGroup}>
-                <div >
-                <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
-                <Button bsStyle="primary" className={styles.btnYellow}><span className={styles.arrowBtn}></span>Qurate</Button>
-                </div>
-                <div>
-                <Button bsStyle="primary" className={styles.btnBlack}>Shop Now</Button>
-              </div>
-              </div>
+                <ButtonsGroup/>
             </div>
           </CarouselItem>
         </Carousel>
