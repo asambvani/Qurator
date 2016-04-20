@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
-import { Modal, Button, Input } from 'react-bootstrap'
+import { Modal, Button, Input, Row, Col } from 'react-bootstrap'
 import times from 'lodash/times'
 import { addToCart as addToCartAction } from 'actions/cart'
 import config from 'services/config'
@@ -65,45 +65,53 @@ class ImageModal extends Component {
 
     return (
       <Modal show={isActive} onHide={onClose} bsSize="large" >
-        <Modal.Header closeButton >
-          <Modal.Title className="text-center">{image.title}</Modal.Title>
-        </Modal.Header>
         <Modal.Body>
-          <img src={`${prefix.large}${image.url}`} className={styles.image} />
-        </Modal.Body>
-        <Modal.Footer>
-          <form onSubmit={handleSubmit} className="form-inline pull-left" >
-            <Input
-              {...variant}
-              label="Size"
-              type="select"
-              value={variant.value}
-              className={styles.paddingForm}
-            >
-              {variants.map(({ size }, index) => (
-                <option key={index} value={index.toString()} >{size}</option>
-              ))}
-            </Input>
-            <Input
-              {...qty}
-              label="Quantity"
-              type="select"
-              defaultValue="1"
-              className={styles.paddingForm}
-            >
-              {times(options.qty, n => (
-                <option key={n} value={n + 1} >{n + 1}</option>
-              ))}
-            </Input>
-          </form>
-          <Button
-            onClick={this.addToCart}
-            bsStyle="primary"
-          >
-            Add to cart
-          </Button>
-        </Modal.Footer>
-        <Modal.Footer>
+          <Row>
+            <div className="close" onClick={onClose}>x</div>
+            <Col md={4}>
+              <div className="image">
+                <img src={`${prefix.large}${image.url}`} className={styles.image} />
+              </div>
+              <div className="author">
+                <div className="artistName">{image.artist}</div>
+                <div className="artistBio">{image.artistBio}</div>
+              </div>
+            </Col>
+            <Col md={4}>
+              <h2>{image.title}</h2>
+              <p className="desc">{image.description}</p>
+              <form onSubmit={handleSubmit} className="form-inline pull-left" >
+                <Input
+                  {...variant}
+                  label="Size"
+                  type="select"
+                  value={variant.value}
+                  className={styles.paddingForm}
+                >
+                  {variants.map(({ size }, index) => (
+                    <option key={index} value={index.toString()} >{size}</option>
+                  ))}
+                </Input>
+                <Input
+                  {...qty}
+                  label="Quantity"
+                  type="select"
+                  defaultValue="1"
+                  className={styles.paddingForm}
+                >
+                  {times(options.qty, n => (
+                    <option key={n} value={n + 1} >{n + 1}</option>
+                  ))}
+                </Input>
+              </form>
+              <Button
+                onClick={this.addToCart}
+                bsStyle="primary"
+              >
+                Add to cart
+              </Button>
+            </Col>
+          </Row>
           <Button
             className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
             onClick={handlePrevClick}
@@ -116,7 +124,7 @@ class ImageModal extends Component {
           >
             Next
           </Button>
-        </Modal.Footer>
+        </Modal.Body>
       </Modal>
     )
   }
