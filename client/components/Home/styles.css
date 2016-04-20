@@ -27,20 +27,18 @@
 .buttonsGroup div{
 	display: inline-block;
 }
-.buttonsGroup div > button{
+button.btnYellow{
+	background: #f0cd06;
+	margin-right: 30px;
+	border:none;
+	color:#000;
+	position: relative;
 	width: 235px;
 	height: 70px;
 	border-radius: 1px;
 	text-transform: uppercase;
 	font-weight: bold;
 	font-size: 18px;
-	}
-.buttonsGroup div > button.btnYellow{
-	background: #f0cd06;
-	margin-right: 30px;
-	border:none;
-	color:#000;
-	position: relative;
 }	
 button.btnBlack{
 	background: #000;
