@@ -66,9 +66,7 @@
 .steps li:last-child{
   margin-right: 0;
 }
-.steps li:hover, .steps li:focus, .steps li:active{
+.steps li:global(.active){
   background: #525252;
   color:#fff;
-  cursor: pointer;
-  cursor: hand;
 }
