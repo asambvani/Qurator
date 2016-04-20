@@ -38,18 +38,25 @@ class Picker extends Component {
         <div className={styles.imageItems}>
         <span className={styles.checkItem}></span>
         {images.map((img) => (
-          <img
-            key={img.id}
-            src={`${prefix.tb}${img.url}`}
-            className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}
-            onClick={this.handleClick.bind(this, img)} // eslint-disable-line
-          />
+          <div className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}>
+            <span></span>
+            <img
+              key={img.id}
+              src={`${prefix.tb}${img.url}`}
+              onClick={this.handleClick.bind(this, img)} // eslint-disable-line
+            />
+          </div>
         ))}
         </div>
         <div className={styles.stepsCircles}>
         <i className="fa fa-chevron-left" aria-hidden="true"></i>
         {range(maxSteps).map(i => (
-          <div key={i} className={cn({ active: i === currentStep })}><i className="fa fa-circle" aria-hidden="true"></i></div>
+          <div
+            key={i}
+            className={cn({ active: i === currentStep })}
+          >
+            <i className="fa fa-circle" aria-hidden="true"></i>
+          </div>
         ))}
         <i className="fa fa-chevron-right" aria-hidden="true"></i>
         </div>
