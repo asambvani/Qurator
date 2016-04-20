@@ -16,14 +16,14 @@ const EmailForm = ({
         {...name}
         type="text"
         value={name.value}
-        placeholder="name"
-        className={styles.paddingForm}
+        placeholder="Type in your name ..."
+        className={[styles.paddingForm, styles.inputName]}
       />
       <Input
         {...email}
         type="text"
-        placeholder="email"
-        className={styles.paddingForm}
+        placeholder="Enter your email address"
+        className={[styles.paddingForm, styles.inputEmail]}
       />
     </form>
     <Button

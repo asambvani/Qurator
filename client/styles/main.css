@@ -98,6 +98,7 @@ div.ReactTags__suggestions ul li.active {
 }
 .carousel-control{
     opacity: 1;
+    background-image:none!important;
 }
 .carousel-control:focus, .carousel-control:hover{
   opacity: 1;

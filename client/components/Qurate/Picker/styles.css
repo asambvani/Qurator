@@ -17,21 +17,31 @@
   width: calc(50% - 14px);
   margin: 5px;
   border: 7px solid transparent;
+  overflow: hidden;
+  position: relative;
 }
 
 .selectedSlide {
   composes: slide;
-  opacity: 0.4;
+  
 
+}
+.selectedSlide > .checkItem{
+	display: block;
+} 
+.selectedSlide > img{
+	opacity: 0.4;
 }
 .checkItem{
 	background: url(../../../../img/checkItem.png) 0 0;
 	width: 132px;
 	height: 111px;
 	background-size: contain;
-	display: block;position: absolute;
-	top: 25%;
-	left: 25;
+	display: none;
+	position: absolute;
+	top: 30%;
+	left: 30%;
+	z-index: 999;
 }
 .stepsCircles {
 	margin-top: 30px;

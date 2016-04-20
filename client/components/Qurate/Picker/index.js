@@ -36,10 +36,9 @@ class Picker extends Component {
       <div className={styles.picker} >
         <h3 className={styles.pickHeader}>Pick the photos you like best</h3>
         <div className={styles.imageItems}>
-        <span className={styles.checkItem}></span>
         {images.map((img) => (
           <div className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}>
-            <span></span>
+            <span className={styles.checkItem}></span>
             <img
               key={img.id}
               src={`${prefix.tb}${img.url}`}

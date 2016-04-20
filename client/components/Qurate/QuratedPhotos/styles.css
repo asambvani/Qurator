@@ -1,0 +1,10 @@
+.yourPhoto{
+	color:#999999;
+	text-transform: uppercase;
+	margin-top: 0px;
+	margin-bottom: 60px;
+	font-size: 60px;
+}
+.yourPhoto > .justFor{
+	color:#f1d11a;
+}
