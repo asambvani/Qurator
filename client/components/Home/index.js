@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col, Carousel, CarouselItem, Button } from 'react-bootstrap'
 import styles from './styles'
-
+import { Link } from 'react-router'
 class Home extends Component {
   render() {
     return (
@@ -15,10 +15,14 @@ class Home extends Component {
               <div className={styles.buttonsGroup}>
                 <div >
                 <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
+                  <Link to="/qurate">
                 <Button bsStyle="primary" className={styles.btnYellow}><span className={styles.arrowBtn}></span>Qurate</Button>
+                  </Link>
                 </div>
                 <div>
+                  <Link to="/shop" >
                 <Button bsStyle="primary" className={styles.btnBlack}>Shop Now</Button>
+                </Link>
               </div>
               </div>
             </div>
