@@ -8,10 +8,10 @@ const EmailForm = ({
   handleSubmitClick,
 }) => (
   <Grid>
-    <h4>Almost done!</h4>
-    <h1>Please enter your e-mail to see your results</h1>
-    <div>Don't worry we won't spam you</div>
-    <form className="form-inline pull-left" >
+    <h4 className={styles.almostD}> Almost done!</h4>
+    <h1 className={styles.enterEmail}>Please enter your e-mail <br />to see your results</h1>
+    <div className={styles.subHeader}>Don't worry we won't spam you</div>
+    <form className={`form ${styles.mainForm}`}>
       <Input
         {...name}
         type="text"
