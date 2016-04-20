@@ -88,7 +88,7 @@ And shipping is free! Its' that simple.</p>
           </Col>
         </Row>
         <Row>
-          Images
+          // Images
         </Row>
       </Grid>
     )

@@ -54,7 +54,7 @@ class Picker extends Component {
         {range(maxSteps).map(i => (
           <div
             key={i}
-            className={cn({ active: i === currentStep })}
+            className={cn({ active: i === currentStep - 1 })}
           >
             <i className="fa fa-circle" aria-hidden="true"></i>
           </div>
