@@ -12,7 +12,7 @@ import * as qurateActions from 'actions/qurate'
 import GetStarted from './GetStarted'
 import Picker from './Picker'
 import EmailForm from './EmailForm'
-import Showcase from 'components/Showcase'
+import QuratedPhotos from './QuratedPhotos'
 import config from 'services/config'
 import styles from './styles'
 
@@ -79,13 +79,23 @@ class Qurate extends Component {
 
   @autobind
   moveQurateForward() {
-    this.props.stepForward()
+    const { stepForward, qurateStep, filterImagesByTags, currentTags } = this.props
+    if (qurateStep === 2) {
+      filterImagesByTags(currentTags)
+    }
+    stepForward()
+  }
+
+  @autobind
+  getStarted() {
     this.showNextPicker()
+    this.moveQurateForward()
   }
 
   render() {
     const {
       resetPickerClick,
+      getStarted,
       showNextPicker,
       moveQurateForward,
       props: {
@@ -100,15 +110,17 @@ class Qurate extends Component {
 
     const content = [
       <GetStarted
-        handleStartClick={moveQurateForward}
+        handleStartClick={getStarted}
       />,
       <Picker
         {...{ pickImage, unpickImage, picker }}
         currentStep={pickerStep}
         handleNextClick={pickerStep === maxSteps ? moveQurateForward : showNextPicker}
       />,
-      <EmailForm />,
-      <Picker {...{ pickImage, unpickImage, picker }} />,
+      <EmailForm
+        handleSubmitClick={moveQurateForward}
+      />,
+      <QuratedPhotos {...{ images: resultFromServer }} />,
     ]
 
     return (

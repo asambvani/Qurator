@@ -54,7 +54,7 @@
   padding: 0px;
 }
 .steps li{
-  float: left;
+  display: inline-block;
   width: 82px;
   height: 82px;
   margin-right: 32px;

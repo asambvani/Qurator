@@ -34,6 +34,7 @@ class Picker extends Component {
 
     return (
       <div className={styles.picker} >
+        <h3>Picker the photos you like best</h3>
         {images.map((img) => (
           <img
             key={img.id}
