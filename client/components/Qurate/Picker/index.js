@@ -35,6 +35,8 @@ class Picker extends Component {
     return (
       <div className={styles.picker} >
         <h3>Picker the photos you like best</h3>
+        <div className={styles.imageItems}>
+        <span className={styles.checkItem}></span>
         {images.map((img) => (
           <img
             key={img.id}
@@ -43,9 +45,14 @@ class Picker extends Component {
             onClick={this.handleClick.bind(this, img)} // eslint-disable-line
           />
         ))}
+        </div>
+        <div className={styles.stepsCircles}>
+        <i className="fa fa-chevron-left" aria-hidden="true"></i>
         {range(maxSteps).map(i => (
-          <div key={i} className={cn({ active: i === currentStep })}>i</div>
+          <div key={i} className={cn({ active: i === currentStep })}><i className="fa fa-circle" aria-hidden="true"></i></div>
         ))}
+        <i className="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
         <Button
           bsSize="large"
           bsStyle="primary"
