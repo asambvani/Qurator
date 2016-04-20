@@ -65,7 +65,7 @@ class QNavbar extends Component {
         <Grid>
         {
           activeRouteName &&
-         <div className="someClass">{activeRouteName}</div>
+         <div className={styles.title}>{activeRouteName}</div>
         }
         </Grid>
       </div>

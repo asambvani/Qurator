@@ -32,3 +32,13 @@
 .navBar{
 	float:right;
 }
+.title{
+	text-transform:uppercase;
+	text-align:center;
+	font-size:40px;
+	font-weight:bold;
+	background: url("../../../img/header.jpg") 0 0 no-repeat;
+	line-height:400px;
+	color:white;
+	height:400px;
+}
