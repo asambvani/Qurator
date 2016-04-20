@@ -64,10 +64,10 @@ class ImageModal extends Component {
     } = this.props
 
     return (
-      <Modal show={isActive} onHide={onClose} bsSize="large" >
-        <Modal.Body>
+      <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
+        <Modal.Body className={styles.modalBody}>
           <Row>
-            <div className="close" onClick={onClose}>x</div>
+            
             <Col md={4}>
               <div className="image">
                 <img src={`${prefix.large}${image.url}`} className={styles.image} />
@@ -77,46 +77,60 @@ class ImageModal extends Component {
                 <div className="artistBio">{image.artistBio}</div>
               </div>
             </Col>
-            <Col md={4}>
-              <h2>{image.title}</h2>
-              <p className="desc">{image.description}</p>
-              <form onSubmit={handleSubmit} className="form-inline pull-left" >
+            <Col md={8}>
+            <div className={`close ${styles.closeBtn}`} onClick={onClose}>x</div>
+              <h2 className={styles.title}>{image.title}</h2>
+              <p><i className="fa fa-star" aria-hidden="true"></i>
+              <i className="fa fa-star" aria-hidden="true"></i>
+              <i className="fa fa-star" aria-hidden="true"></i>
+              <i className="fa fa-star" aria-hidden="true"></i>
+              <i className="fa fa-star" aria-hidden="true"></i>
+                  <span> Be the first to review the product</span></p>
+              <p className={styles.price}>$120</p>
+              <p className="desc">{image.description}
+              The most kickass photograph of the year from an uprising star @theSailor on instagram.
+The photograph is one of a kind and comes in different sizes and finishes etc ...</p>
+
+              <form onSubmit={handleSubmit} className="form" >
                 <Input
                   {...variant}
                   label="Size"
                   type="select"
                   value={variant.value}
-                  className={styles.paddingForm}
                 >
                   {variants.map(({ size }, index) => (
                     <option key={index} value={index.toString()} >{size}</option>
                   ))}
                 </Input>
+                <div className={styles.addToCartBlock}>
                 <Input
                   {...qty}
                   label="Quantity"
                   type="select"
                   defaultValue="1"
-                  className={styles.paddingForm}
                 >
                   {times(options.qty, n => (
                     <option key={n} value={n + 1} >{n + 1}</option>
                   ))}
                 </Input>
-              </form>
-              <Button
+                <Button
                 onClick={this.addToCart}
                 bsStyle="primary"
               >
                 Add to cart
               </Button>
+              </div>
+              </form>
+              
             </Col>
           </Row>
-          <Button
+         
+        </Modal.Body>
+         <Button
             className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
             onClick={handlePrevClick}
           >
-            Previous
+            Prev
           </Button>
           <Button
             className={currentIndex === imagesCount ? 'hidden' : styles.navButtonRight}
@@ -124,7 +138,6 @@ class ImageModal extends Component {
           >
             Next
           </Button>
-        </Modal.Body>
       </Modal>
     )
   }

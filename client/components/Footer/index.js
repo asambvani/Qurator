@@ -5,7 +5,7 @@ import styles from './styles'
 
 const Footer = () => (
   <footer className="footer">
-   <hr />
+
    <Grid>
      <Row className={styles.footerRow}>
       <Col md={3}>

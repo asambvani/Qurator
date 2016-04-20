@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { Link } from 'react-router'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Badge, Nav, Navbar, NavItem } from 'react-bootstrap'
+import { Badge, Nav, Navbar, NavItem, Grid } from 'react-bootstrap'
 import styles from './style'
 
 const cartSelector = createStructuredSelector({
@@ -62,10 +62,12 @@ class QNavbar extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        <Grid>
         {
           activeRouteName &&
-          <div className="someClass">{activeRouteName}</div>
+         <div className="someClass">{activeRouteName}</div>
         }
+        </Grid>
       </div>
     )
   }

@@ -70,6 +70,7 @@ class Picker extends Component {
         >
           Next
         </Button>
+           <hr />
       </div>
     )
   }

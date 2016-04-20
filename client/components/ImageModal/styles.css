@@ -11,9 +11,89 @@
 
 .navButtonPrev {
   display: inline-block;
+    position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: left top 0;
+    left: 25px;
+    top: 50%;
+    border:none;
+    background: transparent;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .navButtonRight {
   display: inline-block;
-  float: right
+  float: right;
+      position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: left top 0;
+    right:0px;
+    top: 50%;
+    border:none;
+    background: transparent;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.navButtonPrev:hover, .navButtonRight:hover{
+	background: transparent;
+	color:#999;
+}
+.modalContent  :global(.modal-content){
+	border-radius: 0px;
+}
+.modalBody{
+	padding: 70px 90px;
+	border-radius: 0px;
+
+}
+.title{
+	margin-top: 0px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.addToCartBlock :global(.form-group){
+	display: inline-block;
+	margin-right: 20px;
+}
+.addToCartBlock button{
+	width: 200px;
+	height: 50px;
+	border-radius: 0px;
+	background: #333333;
+	border:none;
+}
+.addToCartBlock select{
+	height: 50px;
+	border-radius: 0px;
+	text-align: center;
+}
+:global(.form-control){
+	border-radius: 0px!important;
+	box-shadow: none;
+}
+:global(.control-label){
+	text-transform: uppercase;
+	font-size: 14px;
+}
+.closeBtn{
+	background: #333;
+    width: 40px;
+    height: 40px;
+    text-shadow: none;
+    color: white;
+    opacity: 1;
+    line-height: 40px;
+    font-weight: 400;
+    padding: 0 14px;
+}
+.closeBtn:hover{
+	background: #333;
+	opacity: 1;
+}
+.price{
+	font-size: 16px;
+	font-weight: bold;
 }

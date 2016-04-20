@@ -1,8 +1,8 @@
 .carousel{
-	max-height: 800px;
+	max-height: 900px;
 }
 .carouselItem{
-	 max-height: 800px;
+	 max-height: 900px;
 }
 .carouselItem h3,.carouselItem p{
 	text-transform: uppercase;
@@ -13,6 +13,9 @@
 }
 .carouselItem p{
 	font-size: 38px;
+}
+.white{
+	color:white;
 }
 .buttonsGroup p{
 	font-size: 11px;
@@ -117,4 +120,27 @@ button.btnBlack{
 .btnStart{
 	text-align: center;
 	padding-top: 60px;
+}
+.feature{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	position: relative;
+}
+.feature p{
+	position: absolute;
+    display: block;
+    top: 0;
+    color: white;
+    width: 80%;
+    left:10%;
+    right: 10%;
+    top: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 23px;
+}
+.feature p a{
+	color: #e9c706;
+	font-size: 34px;
 }

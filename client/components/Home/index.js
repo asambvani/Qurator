@@ -26,15 +26,33 @@ class Home extends Component {
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/secondSlide.jpg" />
             <div className="carousel-caption">
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3 className={styles.white}>Qurator</h3>
+              <p className={styles.white}>For when you want art,<br /> but don't know where to start.</p>
+              <div className={styles.buttonsGroup}>
+                <div >
+                <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
+                <Button bsStyle="primary" className={styles.btnYellow}><span className={styles.arrowBtn}></span>Qurate</Button>
+                </div>
+                <div>
+                <Button bsStyle="primary" className={styles.btnBlack}>Shop Now</Button>
+              </div>
+              </div>
             </div>
           </CarouselItem>
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/thirdSlide.jpg" />
             <div className="carousel-caption">
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h3>Qurator</h3>
+              <p>For when you want art,<br /> but don't know where to start.</p>
+              <div className={styles.buttonsGroup}>
+                <div >
+                <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
+                <Button bsStyle="primary" className={styles.btnYellow}><span className={styles.arrowBtn}></span>Qurate</Button>
+                </div>
+                <div>
+                <Button bsStyle="primary" className={styles.btnBlack}>Shop Now</Button>
+              </div>
+              </div>
             </div>
           </CarouselItem>
         </Carousel>
@@ -60,12 +78,12 @@ from our collection that best fit your style. </p>
                   <Col md={4}>
                     <div className={styles.secondBlock}>
                     <i className="fa fa-star" aria-hidden="true"></i>
-                      <h3>Unique</h3>
-                      <p>Our photos come from some of the most<br />
+                      <h3>Qurate</h3>
+                    <p>Our photos come from some of the most<br />
 talented, up-and-coming photographers out there.<br />
 Your purchases help support independent<br />
  artists who are passionate about their work<br />
- and whose art is not yet commercialized.  </p>
+ and whose art is not yet commercialized. </p>
                     </div>
                   </Col>
                   <Col md={4}>
@@ -88,7 +106,20 @@ And shipping is free! Its' that simple.</p>
           </Col>
         </Row>
         <Row>
-          Images
+          <Col md={12} className={styles.feature}>
+            <img width="100%" height="auto"  src="/img/feature.jpg" />
+          </Col>
+        </Row>
+         <Row>
+          <Col md={12} className={styles.feature}>
+            <img width="100%" height="267px"  src="/img/artist.jpg" />
+            <p>
+              To become an artist, send an email to<br/>
+                <a href="mailto:artists@qurator-art.com">artists@qurator-art.com</a><br/>
+                with a link to your Instagram account and / or portfolio.<br/>
+                We’d love to hear from you!
+            </p>
+          </Col>
         </Row>
       </Grid>
     )

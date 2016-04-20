@@ -141,3 +141,6 @@ div.ReactTags__suggestions ul li.active {
   color:#000;
   text-shadow: none;
 }
+select, input{
+  border-radius: 0px;
+}

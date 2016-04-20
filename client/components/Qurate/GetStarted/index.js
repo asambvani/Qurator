@@ -17,6 +17,7 @@ const GetStarted = ({ handleStartClick }) => (
     >
       Get started
     </Button>
+       <hr />
   </div>
 )
 
