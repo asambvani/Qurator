@@ -11,6 +11,7 @@ const ImageSchema = mongoose.Schema({
   description: String,
   artist: String,
   artistBio: String,
+  featured: Boolean,
   tags: Array,
   order: Number,
 })
