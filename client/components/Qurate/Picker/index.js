@@ -37,8 +37,11 @@ class Picker extends Component {
         <h3 className={styles.pickHeader}>Pick the photos you like best</h3>
         <div className={styles.imageItems}>
         {images.map((img) => (
-          <div key={img.id}
-            className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}>
+
+          <div
+            key={img.id}
+            className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}
+          >
             <span className={styles.checkItem}></span>
             <img
               src={`${prefix.tb}${img.url}`}
@@ -52,7 +55,7 @@ class Picker extends Component {
         {range(maxSteps).map(i => (
           <div
             key={i}
-            className={cn({ active: i === currentStep })}
+            className={cn({ active: i === currentStep - 1 })}
           >
             <i className="fa fa-circle" aria-hidden="true"></i>
           </div>

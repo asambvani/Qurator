@@ -4,5 +4,10 @@
 .image:hover {
   opacity: 0.5;
 }
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #717171;
+}
 
 
