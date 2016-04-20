@@ -26,7 +26,7 @@ class QNavbar extends Component {
         <Navbar className={styles.navBarMain}>
           <Navbar.Header className={styles.navBarHeader}>
             <Navbar.Brand>
-              <Link to="/app" >
+              <Link to="/" >
                 <img src="/img/logo.jpg" />
               </Link>
             </Navbar.Brand>
