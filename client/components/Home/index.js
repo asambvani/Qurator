@@ -53,6 +53,7 @@ class Home extends Component {
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/firstSlide.jpg" />
             <div className="carousel-caption">
+              <h3>Qurator</h3>
               <p>For when you want art, but don’t know where to start.</p>
               <ButtonsGroup />
             </div>

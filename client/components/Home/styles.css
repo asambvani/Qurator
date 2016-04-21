@@ -10,6 +10,7 @@
 }
 .carouselItem h3{
   font-size: 60px;
+  visibility: hidden;
 }
 .carouselItem p{
   font-size: 38px;
