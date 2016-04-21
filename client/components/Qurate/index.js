@@ -126,17 +126,6 @@ class Qurate extends Component {
       <div className="container">
         <Grid>
           <div className="text-center">
-            <h3 className={styles.take}>
-              Take our <br /><span className={styles.takeQ}>quiz</span>
-            </h3>
-            <div className={styles.separatorQ}></div>
-            <ul className={styles.steps}>
-              {content.map((c, i) => (
-                <li key={i} className={cn({ active: i === qurateStep })}>
-                  {i + 1}
-                </li>
-              ))}
-            </ul>
             {content[qurateStep]}
           </div>
         </Grid>
