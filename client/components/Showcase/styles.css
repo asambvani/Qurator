@@ -1,13 +1,35 @@
 .image {
   margin-bottom: 0.7em;
 }
-.image:hover {
+.imageBlock:hover .image{
   opacity: 0.5;
 }
 .title {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   color: #717171;
 }
-
-
+.price{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.imageBlock{
+	position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.imageBlock:hover .checkItem{
+	display: block;
+}
+.checkItem{
+	background: url(../../../img/checkItem.png) 0 0 no-repeat;
+	width: 80px;
+	height: 80px;
+	background-size: contain;
+	display: none;
+	position: absolute;
+	top: 30%;
+	left: 42%;
+	z-index: 999;
+}

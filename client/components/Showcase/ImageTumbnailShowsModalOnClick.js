@@ -20,8 +20,8 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
   render() {
     const { image } = this.props
     return (
-      <div>
-        <span></span>
+      <div className={styles.imageBlock}>
+        <span className={styles.checkItem} onClick={this.showModal}></span>
         <img
           className={styles.image}
           src={`${prefix.tb}${image.url}`}
@@ -29,6 +29,9 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
         />
         <div className={styles.title}>
           {image.title}
+        </div>
+        <div className={styles.price}>
+          80$
         </div>
       </div>
     )

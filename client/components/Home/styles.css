@@ -27,6 +27,7 @@
 .buttonsGroup div{
 	display: inline-block;
 }
+
 button.btnYellow{
 	background: #f0cd06;
 	margin-right: 30px;

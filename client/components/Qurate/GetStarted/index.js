@@ -5,7 +5,7 @@ import styles from './styles'
 const GetStarted = ({ handleStartClick }) => (
   <div className={styles.getStartedD}>
     <p className={styles.ourA}>
-      Our algorithm will
+      Our algorithm will <br/>
       suggest <span className={styles.ourAyellow}>15 photos</span> that
       match your style
     </p>
