@@ -36,6 +36,7 @@ class ImageModal extends Component {
     imagesCount: PropTypes.number,
     handleNextClick: PropTypes.func,
     handlePrevClick: PropTypes.func,
+    values: PropTypes.object,
   }
 
   @autobind
@@ -61,7 +62,9 @@ class ImageModal extends Component {
       handleNextClick,
       handlePrevClick,
       fields: { variant, qty },
+      values,
     } = this.props
+    const currentVariant = variants[+values.variant]
 
     return (
       <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
@@ -84,12 +87,10 @@ class ImageModal extends Component {
               <i className="fa fa-star" aria-hidden="true"></i>
               <i className="fa fa-star" aria-hidden="true"></i>
               <i className="fa fa-star" aria-hidden="true"></i>
-                  <span> Be the first to review the product</span></p>
-              <p className={styles.price}>$120</p>
-              <p className="desc">{image.description}
-              The most kickass photograph of the year from an uprising star @theSailor on instagram.
-The photograph is one of a kind and comes in different sizes and finishes etc ...</p>
-
+              <span> Be the first to review the product</span></p>
+              <p className={styles.price}>
+                ${currentVariant && values.qty * currentVariant.price}
+              </p>
               <form onSubmit={handleSubmit} className="form" >
                 <Input
                   {...variant}

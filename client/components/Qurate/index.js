@@ -4,7 +4,6 @@ import { createSelector } from 'reselect'
 import { toArray, orderBy } from 'lodash'
 import { Grid } from 'react-bootstrap'
 import autobind from 'autobind-decorator'
-import cn from 'classnames'
 import { currentTags as currentTagsSelector } from 'selectors'
 import * as pickerActions from 'actions/picker'
 import * as imagesActions from 'actions/images'
@@ -13,8 +12,8 @@ import GetStarted from './GetStarted'
 import Picker from './Picker'
 import EmailForm from './EmailForm'
 import QuratedPhotos from './QuratedPhotos'
+import { reduxForm } from 'redux-form'
 import config from 'services/config'
-import styles from './styles'
 
 const { picker: { maxSteps } } = config
 const selector = createSelector(
@@ -45,7 +44,10 @@ const selector = createSelector(
   })
 )
 
-@connect(selector, { ...pickerActions, ...imagesActions, ...qurateActions })
+@reduxForm({
+  form: 'qurate-email',
+  fields: ['name', 'email'],
+}, selector, { ...pickerActions, ...imagesActions, ...qurateActions })
 class Qurate extends Component {
   static propTypes = {
     qurateStep: PropTypes.number.isRequired,
@@ -59,6 +61,8 @@ class Qurate extends Component {
     images: PropTypes.array.isRequired,
     selectedImages: PropTypes.array.isRequired,
     currentTags: PropTypes.object.isRequired,
+    fields: PropTypes.object.isRequired,
+    values: PropTypes.object.isRequired,
     picker: PropTypes.shape({
       images: PropTypes.array.isRequired,
       selectedIds: PropTypes.array.isRequired,
@@ -104,6 +108,8 @@ class Qurate extends Component {
         pickerStep,
         picker,
         resultFromServer,
+        fields,
+        values,
       },
     } = this
 
@@ -117,9 +123,13 @@ class Qurate extends Component {
         handleNextClick={pickerStep === maxSteps ? moveQurateForward : showNextPicker}
       />,
       <EmailForm
+        fields={fields}
         handleSubmitClick={moveQurateForward}
       />,
-      <QuratedPhotos {...{ images: resultFromServer }} />,
+      <QuratedPhotos
+        name={values.name}
+        {...{ images: resultFromServer }}
+      />,
     ]
 
     return (

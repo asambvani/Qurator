@@ -24,7 +24,7 @@
 	position: absolute;
     right: 5px;
     top: 37px;
-    
+
 }
 .navBarMenu,.navBarHeader{
 	margin-top:12px;
@@ -41,4 +41,7 @@
 	line-height:400px;
 	color:white;
 	height:400px;
+}
+:global(.shop) {
+  /* border: 1px solid red; */
 }

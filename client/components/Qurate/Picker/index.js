@@ -34,7 +34,7 @@ class Picker extends Component {
 
     return (
       <div className={styles.picker} >
-        <h3 className={styles.pickHeader}>Pick the photos you like best</h3>
+        <h3 className={styles.pickHeader}>Choose the photos you like best</h3>
         <div className={styles.imageItems}>
         {images.map((img) => (
 

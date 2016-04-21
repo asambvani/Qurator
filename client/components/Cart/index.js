@@ -6,11 +6,12 @@ import { cartItems } from 'selectors'
 import * as cartActions from 'actions/cart'
 import CartItem from './CartItem'
 import configShared from '../../../shared/config'
-const { options: { variants } } = configShared
 import money from 'services/formatMoney'
 import config from 'services/config'
+
 // TODO fix hack, atm shopify-buy from npm is not building
 const shopClient = ShopifyBuy.buildClient(config.shopify) // eslint-disable-line
+const { options: { variants } } = configShared
 
 @connect(state => ({
   items: cartItems(state),

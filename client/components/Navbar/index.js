@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import cn from 'classnames'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { Link } from 'react-router'
@@ -19,7 +20,8 @@ class QNavbar extends Component {
 
   render() {
     const { routes } = this.props
-    const activeRouteName = routes[routes.length - 1].name
+    const specRoute = routes[routes.length - 1]
+    const activeRouteName = specRoute.name
 
     return (
       <div>
@@ -65,7 +67,9 @@ class QNavbar extends Component {
         <Grid>
         {
           activeRouteName &&
-         <div className={styles.title}>{activeRouteName}</div>
+          <div className={cn(styles.title, specRoute.path)}>
+            {activeRouteName}
+          </div>
         }
         </Grid>
       </div>

@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { Input, Button, Grid } from 'react-bootstrap'
-import { reduxForm } from 'redux-form'
 import styles from './styles'
 
 const EmailForm = ({
@@ -42,7 +41,4 @@ EmailForm.propTypes = {
   handleSubmitClick: PropTypes.func.isRequired,
 }
 
-export default reduxForm({
-  form: 'qurate-email',
-  fields: ['name', 'email'],
-})(EmailForm)
+export default EmailForm
