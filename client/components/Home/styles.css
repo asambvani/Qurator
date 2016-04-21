@@ -22,7 +22,40 @@
 	display: inline-block;
 	width: 25%;
 }
-
+.carouselFeatureItem > div:first-child{
+	margin-left: 12%;
+}
+.carouselFeatureItem > div:last-child{
+	margin-right: 12%;
+}
+.preview {
+	width: 100%;
+	text-align: center;
+}
+.preview img{
+	width: 80%;
+}
+.addToCartButton{
+	background: #333;
+	border:none;
+	color:white;
+	padding: 7px 15px;
+	text-align: center;
+}
+.btnGroup{
+	 margin: auto;
+    width: 80%;
+    display: block;
+    text-align: center;
+}
+.btnGroup:global(.btn-group-justified > .btn){
+	width: initial;
+}
+.featureTitle{
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 50px;
+}
 .white{
   color:white;
 }
@@ -134,6 +167,7 @@ button.btnBlack{
   height: auto;
   margin-top: 10px;
   position: relative;
+
 }
 .feature p{
   position: absolute;
@@ -152,6 +186,8 @@ button.btnBlack{
   color: #e9c706;
   font-size: 34px;
 }
-.preview {
-	width: 80%;
+
+.featureSection{
+	  background: #f3f3f3;
+	  padding: 60px 0;
 }

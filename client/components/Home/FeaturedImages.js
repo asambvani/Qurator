@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react'
-import { Carousel, CarouselItem } from 'react-bootstrap'
+import { Carousel, CarouselItem, ButtonGroup, Button } from 'react-bootstrap'
 import { chunk } from 'lodash'
 import ImageModalHandler from 'components/ImageModalHandler'
 import ImageTumbnailShowsModalOnClick from '../Showcase/ImageTumbnailShowsModalOnClick'
 import styles from './styles'
 
 const FeaturedImages = ({ images, showModal, addToCart }) => (
-  <div>
-    <h3>Featured images</h3>
-    <Carousel className={styles.carouselFeature}>
+  <div className={styles.featureSection}>
+    <h3 className={styles.featureTitle}>Featured images</h3>
+    <Carousel className={styles.carouselFeature} indicators={false}>
       {chunk(images, 3).map((chunkedImages, slideNumber) => (
         <CarouselItem className={styles.carouselFeatureItem} key={slideNumber}>
           {chunkedImages.map((img, i) => (
@@ -22,8 +22,10 @@ const FeaturedImages = ({ images, showModal, addToCart }) => (
               <div
                 className={styles.addToCart}
                 onClick={() => addToCart({ id: img.id })}
-              >
-                Add to cart
+              > <ButtonGroup justified className={styles.btnGroup}>
+                <Button className={styles.addToCartButton}>Add to cart</Button>
+                <Button><i className="fa fa-heart-o" aria-hidden="true"></i></Button>
+                </ButtonGroup>
               </div>
             </div>
           ))}

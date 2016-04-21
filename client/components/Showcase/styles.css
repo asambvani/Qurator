@@ -1,5 +1,6 @@
 .image {
   margin-bottom: 0.7em;
+  width: 100%;
 }
 .imageBlock:hover .image{
   opacity: 0.5;
