@@ -15,19 +15,12 @@
   font-size: 38px;
 }
 .carouselFeature{
-<<<<<<< HEAD
 	width: 80%;
 	margin: auto;
 }
 .carouselFeatureItem > div{
 	display: inline-block;
 	width: 25%;
-=======
-  width: 80%;
-}
-.carouselFeatureItem > div{
-  display: inline-block;
->>>>>>> origin/master
 }
 
 .white{
