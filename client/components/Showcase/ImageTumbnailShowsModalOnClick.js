@@ -25,13 +25,14 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
     const { image, imgClass } = this.props
     return (
       <div className={cn(styles.imageBlock, imgClass)}>
-        <span className={styles.checkItem} onClick={this.showModal}></span>
+        <span className={styles.checkItem} onClick={this.showModal}>
+        <i className="fa fa-eye" aria-hidden="true"></i></span>
         <img
           className={styles.image}
           src={`${prefix.tb}${image.url}`}
           onClick={this.showModal}
         />
-        <div>
+        <div className={styles.title}>
           {image.title}
         </div>
         <div className={styles.price}>

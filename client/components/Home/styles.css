@@ -17,7 +17,10 @@
 }
 .carouselFeature{
 	width: 80%;
-	margin: auto;
+	margin: 40px auto 0 ;
+}
+.carouselFeature :global(.carousel-control){
+	top:25%;
 }
 .carouselFeatureItem > div{
 	display: inline-block;
@@ -33,19 +36,51 @@
 	width: 100%;
 	text-align: center;
 }
+.preview > span{
+	background: black;
+	width: 40px;
+	height: 40px;
+	
+}
+.preview > span:before{
+	content: "+";
+	font-size: 32px;
+	color:white;
+	line-height: 36px;
+}
+.preview > span i{
+	display: none;
+}
 .preview img{
-	width: 80%;
+	width: 90%;
 }
 .addToCartButton{
-	background: #333;
-	border:none;
-	color:white;
+	background: transparent;
+	border:1px solid #999;
+	color:#000;
 	padding: 7px 15px;
 	text-align: center;
+	text-shadow: none;
+	border-radius: 0px;
+	margin-right: 10px;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+.addToCartButton:hover,.addToCartButton:focus, .addToCartButton:active,.addToCartButton:active:hover,
+.likeButton:hover, .likeButton:focus, .likeButton:active,.likeButton:active:hover{
+	background: #333;
+	color:white;
+	outline: none;
+}
+.likeButton{
+	background: transparent;
+	border:1px solid #999;
+	border-radius: 0px;
+	color:#999;
 }
 .btnGroup{
 	 margin: auto;
-    width: 80%;
+    width: 90%;
     display: block;
     text-align: center;
 }
@@ -53,9 +88,24 @@
 	width: initial;
 }
 .featureTitle{
-	text-align: center;
-	text-transform: uppercase;
-	margin-bottom: 50px;
+	    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    position: relative;
+    width: inherit;
+    display: inline-block;
+
+}
+.featureTitle > span:first-child{
+	    position: absolute;
+    color: #cccccc;
+    font-size: 120px;
+    opacity: 0.3;
+    top: -50px;
+    display: block;
+    left: 40%;
+    z-index: 1;
 }
 .white{
   color:white;
@@ -191,4 +241,16 @@ button.btnBlack{
 .featureSection{
 	  background: #f3f3f3;
 	  padding: 60px 0;
+}
+:global(.featureIcon){
+	padding: 12px 15px;
+	background: #e1e1e1;
+	text-shadow: none;
+	font-size: 24px;
+
+}
+:global(.featureIcon:hover){
+	background: #000;
+	cursor: hand;
+	cursor: pointer;
 }

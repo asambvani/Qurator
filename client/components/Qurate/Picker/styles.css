@@ -33,15 +33,15 @@
 	opacity: 0.4;
 }
 .checkItem{
-	background: url(../../../../img/checkItem.png) 0 0;
-	width: 132px;
-	height: 111px;
-	background-size: contain;
 	display: none;
 	position: absolute;
-	top: 30%;
-	left: 30%;
+	top: 35%;
+	left: 38%;
 	z-index: 999;
+}
+.checkItem i{
+	font-size: 100px;
+	color:#4f4f4f;
 }
 .stepsCircles {
 	margin-top: 30px;

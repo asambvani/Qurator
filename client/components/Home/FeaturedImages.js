@@ -5,10 +5,13 @@ import ImageModalHandler from 'components/ImageModalHandler'
 import ImageTumbnailShowsModalOnClick from '../Showcase/ImageTumbnailShowsModalOnClick'
 import styles from './styles'
 
+const arrowRight = <i className="arrow_carrot-right featureIcon" aria-hidden="true"></i>
+const arrowLeft = <i className="arrow_carrot-left featureIcon" aria-hidden="true"></i>
+
 const FeaturedImages = ({ images, showModal, addToCart }) => (
   <div className={styles.featureSection}>
-    <h3 className={styles.featureTitle}>Featured images</h3>
-    <Carousel className={styles.carouselFeature} indicators={false}>
+  <div className="text-center"><h3 className={styles.featureTitle}><span>F</span>Featured images</h3></div>
+    <Carousel className={styles.carouselFeature} indicators={false} nextIcon={arrowRight} prevIcon={arrowLeft}>
       {chunk(images, 3).map((chunkedImages, slideNumber) => (
         <CarouselItem className={styles.carouselFeatureItem} key={slideNumber}>
           {chunkedImages.map((img, i) => (
@@ -24,7 +27,7 @@ const FeaturedImages = ({ images, showModal, addToCart }) => (
                 onClick={() => addToCart({ id: img.id })}
               > <ButtonGroup justified className={styles.btnGroup}>
                 <Button className={styles.addToCartButton}>Add to cart</Button>
-                <Button><i className="fa fa-heart-o" aria-hidden="true"></i></Button>
+                <Button className={styles.likeButton}><i className="icon_heart_alt" aria-hidden="true"></i></Button>
                 </ButtonGroup>
               </div>
             </div>

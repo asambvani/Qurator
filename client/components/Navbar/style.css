@@ -6,6 +6,8 @@
 	color: #333333!important;
 	text-transform:uppercase;
 	font-size:12px;
+	font-family: 'Montserrat', sans-serif;
+
 }
 .navBarMain a:hover,.navBarMain a:focus,.navBarMain :global(li.active) a{
 	color:#ff3f45!important;
@@ -37,11 +39,17 @@
 	text-align:center;
 	font-size:40px;
 	font-weight:bold;
-	background: url("../../../img/header.jpg") 0 0 no-repeat;
 	line-height:400px;
 	color:white;
 	height:400px;
 }
+:global(.contacts){
+	background: url("../../../img/Contact.jpg") 0 0 no-repeat;
+}
+
+:global(.about){
+	background: url("../../../img/header.jpg") 0 0 no-repeat;
+}
 :global(.shop) {
-  /* border: 1px solid red; */
+  background: url("../../../img/shop.jpg") 0 0 no-repeat;
 }

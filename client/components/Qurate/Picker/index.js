@@ -42,7 +42,9 @@ class Picker extends Component {
             key={img.id}
             className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}
           >
-            <span className={styles.checkItem}></span>
+            <span className={styles.checkItem}>
+            <i className="fa fa-check-square-o" aria-hidden="true"></i>
+            </span>
             <img
               src={`${prefix.tb}${img.url}`}
               onClick={this.handleClick.bind(this, img)} // eslint-disable-line
