@@ -26,3 +26,20 @@
   background: #e9c706;
   outline: none;
 }
+.take{
+  text-transform: uppercase;
+  font-size: 54px;
+  line-height: 1;
+  color:#000;
+  margin-top: 0px;
+}
+.takeQ{
+  font-size: 120px;
+  margin-left: -25px;
+}
+.separatorQ{
+  width: 60px;
+  height: 4px;
+  background: #c49b33;
+  margin: 10px auto;
+}
