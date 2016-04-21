@@ -67,7 +67,6 @@ class ImageModal extends Component {
       <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
         <Modal.Body className={styles.modalBody}>
           <Row>
-            
             <Col md={4}>
               <div className="image">
                 <img src={`${prefix.large}${image.url}`} className={styles.image} />
@@ -114,22 +113,22 @@ The photograph is one of a kind and comes in different sizes and finishes etc ..
                   ))}
                 </Input>
                 <Button
-                onClick={this.addToCart}
-                bsStyle="primary"
-              >
+                  onClick={this.addToCart}
+                  bsStyle="primary"
+                >
                 Add to cart
               </Button>
               </div>
               </form>
-              
+
             </Col>
           </Row>
-         
+
         </Modal.Body>
          <Button
-            className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
-            onClick={handlePrevClick}
-          >
+           className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
+           onClick={handlePrevClick}
+         >
             Prev
           </Button>
           <Button

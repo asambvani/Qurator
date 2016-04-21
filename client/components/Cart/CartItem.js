@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import autobind from 'autobind-decorator'
 import config from 'services/config'
-import money from '../../services/formatMoney'
+import money from 'services/formatMoney'
 import styles from './styles'
 import configShared from '../../../shared/config'
 const { options: { variants } } = configShared
@@ -24,11 +24,16 @@ export default class CartItem extends Component {
     const {
       removeFromCart,
       props: {
-        item: { image: { url, title, description, artist, artistBio }, variant, qty },
+        item: {
+          image: { url, title, description, artist, artistBio },
+          variant,
+          qty,
+        },
         index,
       },
     } = this
     const rowTotal = money(qty * variants[variant].price)
+
     return (
       <tr>
         <td>{index + 1}</td>

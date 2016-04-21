@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import styles from './styles'
 import autobind from 'autobind-decorator'
+import { formattedLowestPrice } from 'services/formatMoney'
 import config from 'services/config'
 const { image: { prefix } } = config
 
@@ -27,11 +28,11 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
           src={`${prefix.tb}${image.url}`}
           onClick={this.showModal}
         />
-        <div className={styles.title}>
+        <div>
           {image.title}
         </div>
         <div className={styles.price}>
-          80$
+          {formattedLowestPrice}
         </div>
       </div>
     )

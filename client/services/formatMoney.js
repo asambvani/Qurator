@@ -1,2 +1,8 @@
 import numeral from 'numeral'
-export default (number) => numeral(number).format('$0,0.00')
+import configShared from '../../shared/config'
+
+const lowestImagePrice = configShared.options.variants[0].price
+const formatPrice = (number) => numeral(number).format('$0,0.00')
+
+export const formattedLowestPrice = formatPrice(lowestImagePrice)
+export default formatPrice

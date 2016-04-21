@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import autobind from 'autobind-decorator'
-import money from '../../services/formatMoney'
 import { connect } from 'react-redux'
 import { Grid, Row, Table, Button } from 'react-bootstrap'
 import { cartItems } from 'selectors'
@@ -8,7 +7,8 @@ import * as cartActions from 'actions/cart'
 import CartItem from './CartItem'
 import configShared from '../../../shared/config'
 const { options: { variants } } = configShared
-import config from '../../services/config'
+import money from 'services/formatMoney'
+import config from 'services/config'
 // TODO fix hack, atm shopify-buy from npm is not building
 const shopClient = ShopifyBuy.buildClient(config.shopify) // eslint-disable-line
 
@@ -85,7 +85,7 @@ class Cart extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                {this.renderItems()}
+                  {this.renderItems()}
                 </tbody>
               </Table>
               <Button
@@ -104,7 +104,6 @@ class Cart extends Component {
               </Button>
             </div>
           }
-
         </Row>
       </Grid>
     )

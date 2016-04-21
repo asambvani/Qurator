@@ -1,17 +1,23 @@
-import React, { Component } from 'react'
-import { Grid, Row, Col, Carousel, CarouselItem, Button } from 'react-bootstrap'
-import styles from './styles'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { toArray } from 'lodash'
+import { createStructuredSelector } from 'reselect'
+import { Grid, Row, Col, Carousel, CarouselItem, Button } from 'react-bootstrap'
+import { filterImagesByForm } from 'actions/images'
+import { addToCart } from 'actions/cart'
+import FeaturedImages from './FeaturedImages'
+import styles from './styles'
 
 class ButtonsGroup extends Component {
-  render(){
+  render() {
     return (
       <div className={styles.buttonsGroup} >
         <div >
           <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
           <Link to="/qurate" >
-            <Button bsStyle="primary" className={styles.btnYellow} ><span
-              className={styles.arrowBtn} ></span>Qurate</Button>
+            <Button bsStyle="primary" className={styles.btnYellow}>
+            <span className={styles.arrowBtn}></span>Qurate</Button>
           </Link>
         </div>
         <div>
@@ -24,7 +30,27 @@ class ButtonsGroup extends Component {
   }
 }
 
+const selector = createStructuredSelector({
+  images: state => toArray(state.entities.images).filter(img => img.featured),
+})
+
+@connect(selector, { addToCart, filterImagesByForm })
 class Home extends Component {
+  static propTypes = {
+    images: PropTypes.array.isRequired,
+    filterImagesByForm: PropTypes.func.isRequired,
+    addToCart: PropTypes.func.isRequired,
+  }
+
+  // constructor(props) {
+  //   super(props)
+  //   props.filterImagesByForm()
+  // }
+
+  componentDidMount() {
+    this.props.filterImagesByForm()
+  }
+
   render() {
     return (
       <Grid fluid >
@@ -107,16 +133,20 @@ And shipping is free! Its' that simple.</p>
         </Row>
         <Row>
           <Col md={12} className={styles.feature}>
-            <img width="100%" height="auto"  src="/img/feature.jpg" />
+            <img width="100%" height="auto" src="/img/feature.jpg" />
+            <FeaturedImages
+              images={this.props.images}
+              addToCart={this.props.addToCart}
+            />
           </Col>
         </Row>
          <Row>
           <Col md={12} className={styles.feature}>
-            <img width="100%" height="267px"  src="/img/artist.jpg" />
+            <img width="100%" height="267px" src="/img/artist.jpg" />
             <p>
-              To become an artist, send an email to<br/>
-                <a href="mailto:artists@qurator-art.com">artists@qurator-art.com</a><br/>
-                with a link to your Instagram account and / or portfolio.<br/>
+              To become an artist, send an email to<br />
+                <a href="mailto:artists@qurator-art.com">artists@qurator-art.com</a><br />
+                with a link to your Instagram account and / or portfolio.<br />
                 We’d love to hear from you!
             </p>
           </Col>
