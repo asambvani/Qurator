@@ -24,10 +24,10 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
   render() {
     const { image, imgClass } = this.props
     return (
-      <div className={styles.imageBlock}>
+      <div className={cn(styles.imageBlock, imgClass)}>
         <span className={styles.checkItem} onClick={this.showModal}></span>
         <img
-          className={cn(styles.image, imgClass)}
+          className={styles.image}
           src={`${prefix.tb}${image.url}`}
           onClick={this.showModal}
         />
