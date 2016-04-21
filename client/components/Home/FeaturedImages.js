@@ -8,9 +8,9 @@ import styles from './styles'
 const FeaturedImages = ({ images, showModal, addToCart }) => (
   <div>
     <h3>Featured images</h3>
-    <Carousel className={styles.carousel}>
+    <Carousel className={styles.carouselFeature}>
       {chunk(images, 3).map((chunkedImages, slideNumber) => (
-        <CarouselItem className={styles.carouselItem} key={slideNumber}>
+        <CarouselItem className={styles.carouselFeatureItem} key={slideNumber}>
           {chunkedImages.map((img, i) => (
             <div key={img.id}>
               <ImageTumbnailShowsModalOnClick

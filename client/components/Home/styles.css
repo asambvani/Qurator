@@ -14,6 +14,12 @@
 .carouselItem p{
 	font-size: 38px;
 }
+.carouselFeature{
+	width: 80%;
+}
+.carouselFeatureItem > div{
+	display: inline-block;
+}
 .white{
 	color:white;
 }
