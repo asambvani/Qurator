@@ -42,10 +42,6 @@ class Shop extends Component {
     return (
       <Grid>
         <Row>
-          <div className="text-center" >
-            <h3>Shop entire store</h3>
-            <div>Find images you like</div>
-          </div>
           <br />
           <Filter applyFilter={this.applyFilter} />
           <Showcase {...{ images } } />

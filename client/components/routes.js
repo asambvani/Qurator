@@ -15,7 +15,7 @@ export default (
     <Route path="qurate" component={Qurate} />
     <Route name="#qurator_shop" path="shop" component={Shop} />
     <Route name="cart" path="cart" component={Cart} />
-    <Route name="get intouch !" path="contacts" component={Contacts} />
+    <Route name="get in touch !" path="contacts" component={Contacts} />
     <Route name="the qurators" path="about" component={About} />
     <Route name="this page doesn't exist" path="*" component={Notfound} />
   </Route>

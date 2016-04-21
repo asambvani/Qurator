@@ -9,26 +9,22 @@ const Footer = () => (
    <Grid>
      <Row className={styles.footerRow}>
       <Col md={3}>
-        <Link to="/app" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
            <img src="/img/logo.jpg" />
         </Link>
-        <p className="text-center">
-          Awesome art by a community of
-          uprising instagramers
-        </p>
       </Col>
       <Col md={3}>
         <h4>shop</h4>
         <ul className={styles.footerMenu}>
         <li className={styles.linkQurate}><a>Qurate</a></li>
-        <li><a>Shop entire store</a></li>
+        <li><Link to="/shop">Shop entire store</Link></li>
         </ul>
       </Col>
       <Col md={3}>
         <h4>More information</h4>
         <ul className={styles.footerMenu}>
-        <li><a>Contact</a></li>
-        <li><a>About</a></li>
+        <li><Link to="/contacts">Contact</Link></li>
+        <li><Link to="/about">About</Link></li>
         </ul>
       </Col>
       <Col md={3} className="text-center">
