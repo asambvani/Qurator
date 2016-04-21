@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import styles from './styles'
+import cn from 'classnames'
 import autobind from 'autobind-decorator'
 import { formattedLowestPrice } from 'services/formatMoney'
 import config from 'services/config'
+import styles from './styles'
+
 const { image: { prefix } } = config
 
 export default class ImageTumbnailShowsModalOnClick extends Component {
@@ -10,6 +12,7 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
     image: PropTypes.object.isRequired,
     index: PropTypes.number.isRequired,
     showModal: PropTypes.func.isRequired,
+    imgClass: PropTypes.string,
   }
 
   @autobind
@@ -19,12 +22,12 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
   }
 
   render() {
-    const { image } = this.props
+    const { image, imgClass } = this.props
     return (
       <div className={styles.imageBlock}>
         <span className={styles.checkItem} onClick={this.showModal}></span>
         <img
-          className={styles.image}
+          className={cn(styles.image, imgClass)}
           src={`${prefix.tb}${image.url}`}
           onClick={this.showModal}
         />

@@ -67,8 +67,9 @@ class Qurate extends Component {
   }
 
   @autobind
-  resetPickerClick() {
-    this.props.resetPicker()
+  getStarted() {
+    this.showNextPicker()
+    this.moveQurateForward()
   }
 
   @autobind
@@ -87,14 +88,12 @@ class Qurate extends Component {
   }
 
   @autobind
-  getStarted() {
-    this.showNextPicker()
-    this.moveQurateForward()
+  resetPickerClick() {
+    this.props.resetPicker()
   }
 
   render() {
     const {
-      resetPickerClick,
       getStarted,
       showNextPicker,
       moveQurateForward,
