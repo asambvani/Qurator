@@ -53,8 +53,7 @@ class Home extends Component {
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/firstSlide.jpg" />
             <div className="carousel-caption">
-              <h3>Qurator</h3>
-              <p>You can't buy this art anywhere else!</p>
+              <p>For when you want art, but don’t know where to start.</p>
               <ButtonsGroup />
             </div>
           </CarouselItem>
@@ -79,10 +78,12 @@ class Home extends Component {
           <Col md={12}>
             <div className={styles.whatIsSection}>
             <div className="text-center"><h2 className={styles.whatIsH2}>What is Qurator?</h2></div>
-            <p className={styles.whatIsP}>Our goal is to make the process of purchasing high-quality, affordable,<br />
-and ready-to-hang art as simple and seamless as possible and to connect <br />
-up and coming artists with people who love their art. </p>
-              <Grid>
+            <p className={styles.whatIsP}>
+              Our goal is to make the process of purchasing high-quality, affordable,<br />
+              and ready-to-hang art as simple and seamless as possible. We want to <br />
+              up-and-coming artists with customers like you!
+            </p>
+            <Grid>
                 <Row>
                   <Col md={4}>
                     <div className={styles.firstBlock}>
@@ -111,7 +112,7 @@ Your purchases help support independent<br />
                       <h3>Seamless</h3>
                       <p>The art you purchase will arrive right<br />
  to your door, ready-to-hang.<br />
-And shipping is free! Its' that simple.</p>
+And shipping is free! It's that simple.</p>
                     </div>
                   </Col>
                 </Row>

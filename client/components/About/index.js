@@ -41,7 +41,7 @@ class Contacts extends Component {
           of pieces for purchase. These pieces are priced affordably and are delivered to the
           customer’s residence in a ready-to-hang format.</p>
         <p>
-          We hope your enjoy our website and tell your friends about us. We’d also love to hear
+          We hope you enjoy our website and tell your friends about us. We’d also love to hear
           from you, so contact us with any feedback.</p>
         <p>Happy shopping!</p>
       </div>
