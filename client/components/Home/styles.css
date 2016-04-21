@@ -1,139 +1,139 @@
 .carousel{
-	max-height: 900px;
+  max-height: 900px;
 }
 .carouselItem{
-	 max-height: 900px;
+   max-height: 900px;
 }
 .carouselItem h3,.carouselItem p{
-	text-transform: uppercase;
-	font-weight: bold;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .carouselItem h3{
-	font-size: 60px;
+  font-size: 60px;
 }
 .carouselItem p{
-	font-size: 38px;
+  font-size: 38px;
 }
 .carouselFeature{
-	width: 80%;
+  width: 80%;
 }
 .carouselFeatureItem > div{
-	display: inline-block;
+  display: inline-block;
 }
 .white{
-	color:white;
+  color:white;
 }
 .buttonsGroup p{
-	font-size: 11px;
-	line-height: 18px;
+  font-size: 11px;
+  line-height: 18px;
 }
 .buttonsGroup {
-	margin-top: 80px;
+  margin-top: 80px;
 }
 .buttonsGroup div{
-	display: inline-block;
+  display: inline-block;
 }
 
 button.btnYellow{
-	background: #f0cd06;
-	margin-right: 30px;
-	border:none;
-	color:#000;
-	position: relative;
-	width: 235px;
-	height: 70px;
-	border-radius: 1px;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 18px;
-}	
+  background: #f0cd06;
+  margin-right: 30px;
+  border:none;
+  color:#000;
+  position: relative;
+  width: 235px;
+  height: 70px;
+  border-radius: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+}
 button.btnBlack{
-	background: #000;
-	border:none;
-	color:#fff;
-	width: 235px;
-	height: 70px;
-	border-radius: 1px;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-size: 18px;
+  background: #000;
+  border:none;
+  color:#fff;
+  width: 235px;
+  height: 70px;
+  border-radius: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
 
-}	
+}
 .arrowBtn{
-	background: url(../../../img/arrow.png) 0 0;
-	width: 152px;
-	height: 70px;
-	display: block;
-	position: absolute;
-	left:-165px;
-	top:-15px;
+  background: url(../../../img/arrow.png) 0 0;
+  width: 152px;
+  height: 70px;
+  display: block;
+  position: absolute;
+  left:-165px;
+  top:-15px;
 }
 .whatIsSection{
-	background: #ff595f;
-	padding-top: 90px;
-	padding-bottom: 90px;
-	margin-top: 10px;
+  background: #ff595f;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  margin-top: 10px;
 }
 .whatIsH2{
-	text-align: center;
-	text-transform: uppercase;
-	color: white;
-	position: relative;
-	display: inline-block;
-	width: inherit;
-	font-size: 46px;
-	background: url("../../../img/W.png") 50% 0 no-repeat;
-	height: 84px;
-	line-height: 84px;
-	margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  position: relative;
+  display: inline-block;
+  width: inherit;
+  font-size: 46px;
+  background: url("../../../img/W.png") 50% 0 no-repeat;
+  height: 84px;
+  line-height: 84px;
+  margin-bottom: 30px;
 }
 .whatIsP{
-	color: white;
-	text-align: center;
-	font-weight: 400;
-	margin-bottom: 40px;
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 40px;
 }
 .firstBlock, .secondBlock, .thirdBlock{
-	width: 314px;
-	height: 314px;
-	text-align: center;
-	padding: 30px 10px;
+  width: 314px;
+  height: 314px;
+  text-align: center;
+  padding: 30px 10px;
 }
 .firstBlock h3, .secondBlock h3, .thirdBlock h3{
-	text-transform: uppercase;
-	color: #000;
+  text-transform: uppercase;
+  color: #000;
 }
 .firstBlock p, .secondBlock p, .thirdBlock p{
-	color: #999999;
-	font-size: 13px;
-	line-height: 30px;
+  color: #999999;
+  font-size: 13px;
+  line-height: 30px;
 }
 
 .firstBlock i, .secondBlock i, .thirdBlock i{
-	color: #999999;
-	font-size: 40px;
+  color: #999999;
+  font-size: 40px;
 }
 .firstBlock{
-	background: url("../../../img/firstBlock.jpg") 0 0 no-repeat;
+  background: url("../../../img/firstBlock.jpg") 0 0 no-repeat;
 }
 .secondBlock{
-	background: #fefefe;
+  background: #fefefe;
 }
 .thirdBlock{
-	background: url("../../../img/thirdBlock.jpg") 0 0 no-repeat;
+  background: url("../../../img/thirdBlock.jpg") 0 0 no-repeat;
 }
 .btnStart{
-	text-align: center;
-	padding-top: 60px;
+  text-align: center;
+  padding-top: 60px;
 }
 .feature{
-	width: 100%;
-	height: auto;
-	margin-top: 10px;
-	position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  position: relative;
 }
 .feature p{
-	position: absolute;
+  position: absolute;
     display: block;
     top: 0;
     color: white;
@@ -146,6 +146,9 @@ button.btnBlack{
     font-size: 23px;
 }
 .feature p a{
-	color: #e9c706;
-	font-size: 34px;
+  color: #e9c706;
+  font-size: 34px;
+}
+.preview {
+
 }

@@ -14,10 +14,10 @@ const FeaturedImages = ({ images, showModal, addToCart }) => (
           {chunkedImages.map((img, i) => (
             <div key={img.id}>
               <ImageTumbnailShowsModalOnClick
-                key={img.id}
                 index={slideNumber * 3 + i}
                 image={img}
                 showModal={showModal}
+                imgClass={styles.preview}
               />
               <div
                 className={styles.addToCart}
