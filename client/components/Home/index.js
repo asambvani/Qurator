@@ -42,11 +42,6 @@ class Home extends Component {
     addToCart: PropTypes.func.isRequired,
   }
 
-  // constructor(props) {
-  //   super(props)
-  //   props.filterImagesByForm()
-  // }
-
   componentDidMount() {
     this.props.filterImagesByForm()
   }
@@ -133,7 +128,6 @@ And shipping is free! Its' that simple.</p>
         </Row>
         <Row>
           <Col md={12} className={styles.feature}>
-            <img width="100%" height="auto" src="/img/feature.jpg" />
             <FeaturedImages
               images={this.props.images}
               addToCart={this.props.addToCart}
