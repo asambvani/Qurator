@@ -25,7 +25,7 @@ const updateShopifyProductsAndMongoDB = async() => {
 
     log('Loading images from file')
     const images = d3.csv
-      .parse(fs.readFileSync(path.resolve('./server/fixtures/tags.csv'), 'utf-8'))
+      .parse(fs.readFileSync(path.resolve('./server/fixtures/images.csv'), 'utf-8'))
       .map(image => ({
         ...image,
         tags: image.tags.split(', '),
