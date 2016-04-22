@@ -8,7 +8,7 @@ import styles from './styles'
 const arrowRight = <i className="arrow_carrot-right featureIcon" aria-hidden="true"></i>
 const arrowLeft = <i className="arrow_carrot-left featureIcon" aria-hidden="true"></i>
 
-const FeaturedImages = ({ images, showModal, addToCart }) => (
+const FeaturedImages = ({ images, showModal }) => (
   <div className={styles.featureSection}>
   <div className="text-center">
     <h3 className={styles.featureTitle}><span>F</span>Featured images</h3>
