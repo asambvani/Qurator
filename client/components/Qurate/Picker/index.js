@@ -53,7 +53,6 @@ class Picker extends Component {
         ))}
         </div>
         <div className={styles.stepsCircles}>
-        <i className="fa fa-chevron-left" aria-hidden="true"></i>
         {range(maxSteps).map(i => (
           <div
             key={i}
@@ -62,7 +61,6 @@ class Picker extends Component {
             <i className="fa fa-circle" aria-hidden="true"></i>
           </div>
         ))}
-        <i className="fa fa-chevron-right" aria-hidden="true"></i>
         </div>
         <Button
           bsSize="large"
