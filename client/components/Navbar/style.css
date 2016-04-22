@@ -44,7 +44,7 @@
 	height:400px;
 }
 :global(.contacts){
-	background: url("../../../img/Contact.jpg") 0 0 no-repeat;
+	background: url("../../../img/contact.jpg") 0 0 no-repeat;
 }
 
 :global(.about){
