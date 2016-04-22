@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { toArray, orderBy } from 'lodash'
 import { Grid } from 'react-bootstrap'

@@ -11,7 +11,6 @@ import FeaturedImages from './FeaturedImages'
 import styles from './styles'
 
 
-
 const selector = createStructuredSelector({
   images: state => toArray(state.entities.images).filter(img => img.featured),
 })
@@ -44,7 +43,9 @@ class Home extends Component {
             <img width="100%" height="500px" alt="900x500" src="/img/secondSlide.jpg" />
             <div className="carousel-caption">
               <h3 className={styles.white}>Qurator</h3>
-              <p className={styles.white}>For when you want art,<br /> but don't know where to start.</p>
+              <p className={styles.white}>For when you want art,
+                <br /> but don't know where to start.
+              </p>
                 <ButtonsGroup />
             </div>
           </CarouselItem>
@@ -52,7 +53,9 @@ class Home extends Component {
             <img width="100%" height="500px" alt="900x500" src="/img/thirdSlide.jpg" />
             <div className="carousel-caption">
               <h3>Qurator</h3>
-              <p>For when you want art,<br /> but don't know where to start.</p>
+              <p>
+                For when you want art,<br /> but don't know where to start.
+              </p>
                 <ButtonsGroup />
             </div>
           </CarouselItem>
@@ -93,9 +96,11 @@ Your purchases help support independent<br />
                     <div className={styles.thirdBlock}>
                     <i className="fa fa-rocket" aria-hidden="true"></i>
                       <h3>Seamless</h3>
-                      <p>The art you purchase will arrive right<br />
+                      <p>
+                        The art you purchase will arrive right<br />
  to your door, ready-to-hang.<br />
-And shipping is free! It's that simple.</p>
+And shipping is free! It's that simple.
+                      </p>
                     </div>
                   </Col>
                 </Row>

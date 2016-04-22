@@ -63,38 +63,3 @@ const ImageModalHandler = WrappedComponent => class extends Component {
 }
 
 export default ImageModalHandler
-
-      // <Grid fluid >
-      //   <ImageModal
-      //     currentIndex={imageIndex}
-      //     image={images[imageIndex]}
-      //     isActive={modalShown}
-      //     onClose={hideModal}
-      //     imagesCount={images.length}
-      //     handleNextClick={this.handleNextClick}
-      //     handlePrevClick={this.handlePrevClick}
-      //   />
-      //   <WrappedComponent
-      //     showModal={showModal}
-      //   />
-      //   <Row>
-      //     {images.map((img, i) => (
-      //       <Col md={4} key={img.id}>
-      //         <ImageTumbnailShowsModalOnClick
-      //           key={img.id}
-      //           index={i}
-      //           image={img}
-      //           showModal={showModal}
-      //         />
-      //         <div>
-      //           {img.title}
-      //         </div>
-      //         <div>
-      //           {formattedLowestPrice}
-      //         </div>
-      //       </Col>
-      //     ))}
-      //   </Row>
-      // </Grid>
-
-
