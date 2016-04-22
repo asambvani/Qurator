@@ -16,8 +16,8 @@ const Footer = () => (
       <Col md={3}>
         <h4>shop</h4>
         <ul className={styles.footerMenu}>
-        <li className={styles.linkQurate}><a>Qurate</a></li>
-        <li><Link to="/shop">Shop entire store</Link></li>
+        <li className={styles.linkQurate}><Link to="/qurate">Qurator</Link></li>
+        <li><Link to="/shop">Shop</Link></li>
         </ul>
       </Col>
       <Col md={3}>

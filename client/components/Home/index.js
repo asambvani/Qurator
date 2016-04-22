@@ -5,30 +5,12 @@ import { toArray } from 'lodash'
 import { createStructuredSelector } from 'reselect'
 import { Grid, Row, Col, Carousel, CarouselItem, Button } from 'react-bootstrap'
 import { filterImagesByForm } from 'actions/images'
+import ButtonsGroup from './ButtonsGroup'
 import { addToCart } from 'actions/cart'
 import FeaturedImages from './FeaturedImages'
 import styles from './styles'
 
-class ButtonsGroup extends Component {
-  render() {
-    return (
-      <div className={styles.buttonsGroup} >
-        <div >
-          <p>Click here to use our <br />algorithm and find <br />the perfect art for you!</p>
-          <Link to="/qurate" >
-            <Button bsStyle="primary" className={styles.btnYellow}>
-            <span className={styles.arrowBtn}></span>Qurate</Button>
-          </Link>
-        </div>
-        <div>
-          <Link to="/shop" >
-            <Button bsStyle="primary" className={styles.btnBlack} >Shop Now</Button>
-          </Link>
-        </div>
-      </div>
-    )
-  }
-}
+
 
 const selector = createStructuredSelector({
   images: state => toArray(state.entities.images).filter(img => img.featured),
@@ -99,7 +81,7 @@ from our collection that best fit your style. </p>
                   <Col md={4}>
                     <div className={styles.secondBlock}>
                     <i className="fa fa-star" aria-hidden="true"></i>
-                      <h3>Qurate</h3>
+                      <h3>Uniqe</h3>
                     <p>Our photos come from some of the most<br />
 talented, up-and-coming photographers out there.<br />
 Your purchases help support independent<br />

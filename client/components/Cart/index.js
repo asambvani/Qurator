@@ -68,7 +68,6 @@ class Cart extends Component {
     return (
       <Grid>
         <Row>
-          <h1>Cart</h1>
           {items.length === 0 ?
             <div>Your cart is empty</div>
             :

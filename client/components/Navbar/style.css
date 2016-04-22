@@ -53,3 +53,7 @@
 :global(.shop) {
   background: url("../../../img/shop.jpg") 0 0 no-repeat;
 }
+
+:global(.cart) {
+	background: url("../../../img/cart.jpg") 0 0 no-repeat;
+}

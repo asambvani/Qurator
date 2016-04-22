@@ -22,7 +22,6 @@ class QNavbar extends Component {
     const { routes } = this.props
     const specRoute = routes[routes.length - 1]
     const activeRouteName = specRoute.name
-
     return (
       <div>
         <Navbar className={styles.navBarMain}>
@@ -56,9 +55,10 @@ class QNavbar extends Component {
               <LinkContainer to="/cart" >
                 <NavItem>
                   <i className={styles.shoppingCart} />
-                  <Badge className={styles.badgeRed}>
+                  {this.props.cartCount > 0 && <Badge className={styles.badgeRed}>
                     {this.props.cartCount}
                   </Badge>
+                  }
                 </NavItem>
               </LinkContainer>
             </Nav>

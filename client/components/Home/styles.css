@@ -111,7 +111,7 @@
   color:white;
 }
 .buttonsGroup p{
-  font-size: 11px;
+  font-size: 14px;
   line-height: 18px;
 }
 .buttonsGroup {
@@ -175,14 +175,15 @@ button.btnBlack{
   margin-bottom: 30px;
 }
 .whatIsP{
-  color: white;
+  color: white;  
+  font-size: 20px;
   text-align: center;
   font-weight: 400;
   margin-bottom: 40px;
 }
 .firstBlock, .secondBlock, .thirdBlock{
-  width: 314px;
-  height: 314px;
+  width: 340px;
+  height: 340px;
   text-align: center;
   padding: 30px 10px;
 }
@@ -192,7 +193,7 @@ button.btnBlack{
 }
 .firstBlock p, .secondBlock p, .thirdBlock p{
   color: #999999;
-  font-size: 13px;
+  font-size: 17px;
   line-height: 30px;
 }
 

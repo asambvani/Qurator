@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Carousel, CarouselItem, ButtonGroup, Button } from 'react-bootstrap'
+import { Carousel, CarouselItem } from 'react-bootstrap'
 import { chunk } from 'lodash'
 import ImageModalHandler from 'components/ImageModalHandler'
 import ImageTumbnailShowsModalOnClick from '../Showcase/ImageTumbnailShowsModalOnClick'
@@ -10,8 +10,15 @@ const arrowLeft = <i className="arrow_carrot-left featureIcon" aria-hidden="true
 
 const FeaturedImages = ({ images, showModal, addToCart }) => (
   <div className={styles.featureSection}>
-  <div className="text-center"><h3 className={styles.featureTitle}><span>F</span>Featured images</h3></div>
-    <Carousel className={styles.carouselFeature} indicators={false} nextIcon={arrowRight} prevIcon={arrowLeft}>
+  <div className="text-center">
+    <h3 className={styles.featureTitle}><span>F</span>Featured images</h3>
+  </div>
+    <Carousel
+      className={styles.carouselFeature}
+      indicators={false}
+      nextIcon={arrowRight}
+      prevIcon={arrowLeft}
+    >
       {chunk(images, 3).map((chunkedImages, slideNumber) => (
         <CarouselItem className={styles.carouselFeatureItem} key={slideNumber}>
           {chunkedImages.map((img, i) => (
@@ -22,14 +29,6 @@ const FeaturedImages = ({ images, showModal, addToCart }) => (
                 showModal={showModal}
                 imgClass={styles.preview}
               />
-              <div
-                className={styles.addToCart}
-                onClick={() => addToCart({ id: img.id })}
-              > <ButtonGroup justified className={styles.btnGroup}>
-                <Button className={styles.addToCartButton}>Add to cart</Button>
-                <Button className={styles.likeButton}><i className="icon_heart_alt" aria-hidden="true"></i></Button>
-                </ButtonGroup>
-              </div>
             </div>
           ))}
         </CarouselItem>
