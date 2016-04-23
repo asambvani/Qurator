@@ -84,7 +84,7 @@ from our collection that best fit your style. </p>
                   <Col md={4}>
                     <div className={styles.secondBlock}>
                     <i className="fa fa-star" aria-hidden="true"></i>
-                      <h3>Uniqe</h3>
+                      <h3>Unique</h3>
                     <p>Our photos come from some of the most<br />
 talented, up-and-coming photographers out there.<br />
 Your purchases help support independent<br />
