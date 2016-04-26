@@ -2,14 +2,13 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Modal, Button, Input, Row, Col } from 'react-bootstrap'
-import times from 'lodash/times'
 import { addToCart as addToCartAction } from 'actions/cart'
 import config from 'services/config'
 import configShared from '../../../shared/config'
 import styles from './styles'
 
 const { image: { prefix } } = config
-const { options, options: { variants } } = configShared
+const { options: { variants } } = configShared
 
 @reduxForm(
   {
@@ -106,41 +105,43 @@ class ImageModal extends Component {
                 </Input>
                 </div>
                 <div className={styles.addToCartBlock}>
-                <Input
-                  {...qty}
-                  label="Quantity"
-                  type="select"
-                  defaultValue="1"
-                >
-                  {times(options.qty, n => (
-                    <option key={n} value={n + 1} >{n + 1}</option>
-                  ))}
-                </Input>
-                <Button
-                  onClick={this.addToCart}
-                  bsStyle="primary"
-                >
-                Add to cart
-              </Button>
-              </div>
+                  <div
+                    className="dec"
+                    onClick={() => { if (qty.value > 1) qty.onChange(qty.value - 1) }}
+                  >
+                    -
+                  </div>
+                  <Input
+                    {...qty}
+                    disabled
+                    label="Quantity"
+                    type="number"
+                    defaultValue="1"
+                  />
+                  <div onClick={() => qty.onChange(qty.value + 1)} className="inc">+</div>
+                  <Button
+                    onClick={this.addToCart}
+                    bsStyle="primary"
+                  >
+                    Add to cart
+                  </Button>
+                </div>
               </form>
-
             </Col>
           </Row>
-
         </Modal.Body>
-         <Button
-           className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
-           onClick={handlePrevClick}
-         >
-            Prev
-          </Button>
-          <Button
-            className={currentIndex === imagesCount ? 'hidden' : styles.navButtonRight}
-            onClick={handleNextClick}
-          >
-            Next
-          </Button>
+        <Button
+          className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
+          onClick={handlePrevClick}
+        >
+          Prev
+        </Button>
+        <Button
+          className={currentIndex === imagesCount ? 'hidden' : styles.navButtonRight}
+          onClick={handleNextClick}
+        >
+          Next
+        </Button>
       </Modal>
     )
   }
