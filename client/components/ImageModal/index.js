@@ -92,16 +92,19 @@ class ImageModal extends Component {
                 ${currentVariant && values.qty * currentVariant.price}
               </p>
               <form onSubmit={handleSubmit} className="form" >
+                <div className={styles.selectDiv}>
                 <Input
                   {...variant}
                   label="Size"
                   type="select"
                   value={variant.value}
+                  className = {styles.selectInput}
                 >
                   {variants.map(({ size }, index) => (
                     <option key={index} value={index.toString()} >{size}</option>
                   ))}
                 </Input>
+                </div>
                 <div className={styles.addToCartBlock}>
                 <Input
                   {...qty}

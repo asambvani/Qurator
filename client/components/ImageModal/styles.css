@@ -97,3 +97,27 @@
 	font-size: 16px;
 	font-weight: bold;
 }
+.selectInput{
+  border-radius: 0px;
+  appearance: none;
+  z-index: 10;
+  position: relative;
+  background-color: transparent;
+}
+.selectDiv{
+  background-color: #FFF;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+.selectDiv > :global(.form-group:after){
+  content: "\F078";
+    display: block;
+    font-size: 18px;
+    right: 12px;
+    top: 34px;
+    position: absolute;
+    line-height: 1;
+    font: normal normal normal 14px/1 FontAwesome;
+    z-index: 5;
+}
