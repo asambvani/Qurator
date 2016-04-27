@@ -132,13 +132,11 @@ class Qurate extends Component {
     ]
 
     return (
-      <div className="container">
         <Grid>
           <div className="text-center">
             {content[qurateStep]}
           </div>
         </Grid>
-      </div>
     )
   }
 }

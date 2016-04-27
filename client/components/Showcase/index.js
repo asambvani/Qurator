@@ -19,7 +19,7 @@ class Showcase extends Component {
       <Grid fluid >
         <Row>
           {images.map((img, i) => (
-            <Col md={4} key={img.id}>
+            <Col md={4} key={img.id} sm={6} xs={6}>
               <ImageTumbnailShowsModalOnClick
                 key={img.id}
                 index={i}

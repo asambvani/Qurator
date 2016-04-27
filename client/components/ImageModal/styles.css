@@ -40,9 +40,13 @@
     text-transform: uppercase;
     font-weight: 600;
 }
-.navButtonPrev:hover, .navButtonRight:hover{
-  background: transparent;
-  color:#999;
+.navButtonPrev:hover, .navButtonRight:hover,
+.navButtonPrev:focus, .navButtonRight:focus,
+.navButtonPrev:active, .navButtonRight:active{
+  background: white!important;
+  color:#999!important;
+  outline:none!important;
+  box-shadow: none!important;
 }
 .modalContent  :global(.modal-content){
   border-radius: 0px;

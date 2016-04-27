@@ -22,6 +22,7 @@
   overflow: hidden;
   position: relative;
 }
+
 .selectedSlide {
   composes: slide;
 }
@@ -78,4 +79,21 @@
 .startButton:hover,.startButton:focus,.startButton:active,.startButton:active:hover{
   background: #e9c706;
   outline: none;
+}
+@media screen and (max-width: 768px){
+  .picker{
+    width: 100%;
+  }
+  .startButton{
+    width: 40vw;
+    height: 13vw;
+    font-size: 6vw;
+  }
+  .slide img{
+    width: 100%;
+    height: auto;
+  }
+  .checkItem i{
+    font-size: 10vw;
+  }
 }
