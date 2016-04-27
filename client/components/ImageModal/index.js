@@ -73,13 +73,18 @@ class ImageModal extends Component {
               <div className="image">
                 <img src={`${prefix.large}${image.url}`} className={styles.image} />
               </div>
+              <div className={styles.threeImagesBlock}>
+                <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
+                <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
+                <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
+              </div>
               <div className="author">
                 <div className="artistName">{image.artist}</div>
                 <div className="artistBio"></div>
               </div>
             </Col>
             <Col md={8}>
-            <div className={`close ${styles.closeBtn}`} onClick={onClose}>x</div>
+            <div className={`close ${styles.closeBtn}`} onClick={onClose}><i className="icon icon_close"></i></div>
               <h2 className={styles.title}>{image.title}</h2>
               <p><i className="fa fa-star" aria-hidden="true"></i>
               <i className="fa fa-star" aria-hidden="true"></i>
@@ -103,6 +108,7 @@ class ImageModal extends Component {
                     <option key={index} value={index.toString()} >{size}</option>
                   ))}
                 </Input>
+                <span>Field Required *</span>
                 </div>
                 
                 <div className={styles.addToCartBlock}>
