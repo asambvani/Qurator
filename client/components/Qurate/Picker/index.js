@@ -35,15 +35,18 @@ class Picker extends Component {
     return (
       <div className={styles.picker} >
         <h3 className={styles.pickHeader}>Choose the photos you like best</h3>
+        <h4 className={styles.pickSubheader}>You can choose more than one</h4>
         <div className={styles.imageItems}>
         {images.map((img) => (
-
           <div
             key={img.id}
             className={includes(selectedIds, img.id) ? styles.selectedSlide : styles.slide}
           >
-            <span className={styles.checkItem}>
-            <i className="fa fa-check-square-o" aria-hidden="true"></i>
+            <span
+              className={styles.checkItem}
+              onClick={this.handleClick.bind(this, img)} // eslint-disable-line
+            >
+              <i className="fa fa-check-square-o" aria-hidden="true"></i>
             </span>
             <img
               src={`${prefix.tb}${img.url}`}

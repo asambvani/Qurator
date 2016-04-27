@@ -3,15 +3,17 @@
   margin: 1em auto;
 }
 .pickHeader{
-	color: #737373;
-	text-transform: uppercase;
-	margin-bottom: 15px;
+  color: #737373;
+  text-transform: uppercase;
 }
-
+.pickSubheader{
+  composes: pickHeader;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 .slider {
   margin-bottom: 60px;
 }
-
 .slide {
   display: inline-block !important;
   width: calc(50% - 14px);
@@ -20,50 +22,47 @@
   overflow: hidden;
   position: relative;
 }
-
 .selectedSlide {
   composes: slide;
-  
-
 }
 .selectedSlide > .checkItem{
-	display: block;
-} 
+  display: block;
+}
 .selectedSlide > img{
-	opacity: 0.4;
+  opacity: 0.4;
 }
 .checkItem{
-	display: none;
-	position: absolute;
-	top: 35%;
-	left: 38%;
-	z-index: 999;
+  display: none;
+  position: absolute;
+  top: 35%;
+  left: 38%;
+  z-index: 999;
 }
 .checkItem i{
-	font-size: 100px;
-	color:#4f4f4f;
+  font-size: 100px;
+  color:#4f4f4f;
 }
 .stepsCircles {
-	margin-top: 30px;
-	margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 .stepsCircles div{
-	display: inline-block;
-	margin-right: 10px;
-	font-size: 11px;
-	color:#898989;
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 11px;
+  color:#898989;
 }
 .stepsCircles > i:first-child{
-	margin-right: 20px;
+  margin-right: 20px;
 }
 .stepsCircles > i:last-child{
-	margin-left: 10px;
+  margin-left: 10px;
 }
 .stepsCircles > div:last-child{
-	margin-right: 0px;
+  margin-right: 0px;
 }
 .stepsCircles :global(div.active){
-	color:#000;
+  color:#000;
 }
 .startButton{
   width: 445px;

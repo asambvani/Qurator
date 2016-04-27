@@ -1,8 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import { Provider } from 'react-redux'
-import { Router, browserHistory } from 'react-router'
+import { Router, useRouterHistory } from 'react-router'
+import createBrowserHistory from 'history/lib/createBrowserHistory'
+import useScroll from 'scroll-behavior/lib/useStandardScroll'
 import DevTools from './DevTools'
 import routes from './routes'
+
+const appHistory = useScroll(useRouterHistory(createBrowserHistory))()
 
 class Root extends Component {
   static propTypes = {
@@ -17,7 +21,7 @@ class Root extends Component {
     return (
       <Provider store={this.props.store}>
         <div>
-          <Router history={browserHistory} >
+          <Router history={appHistory} >
             {routes}
           </Router>
           {!window.devToolsExtension ? <DevTools /> : null}

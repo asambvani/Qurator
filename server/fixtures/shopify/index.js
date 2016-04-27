@@ -6,7 +6,6 @@ import Image from '../../models/image'
 import Product from './product'
 import d3 from 'd3'
 
-
 const log = console.log.bind(console)
 const error = console.error.bind(console)
 const { options } = configShared
@@ -15,7 +14,6 @@ const variants = options.variants.map(variant => ({
   ...variant,
   option1: variant.size,
 }))
-
 
 const updateShopifyProductsAndMongoDB = async() => {
   try {
