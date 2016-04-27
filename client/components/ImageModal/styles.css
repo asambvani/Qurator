@@ -17,7 +17,7 @@
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: left top 0;
-    left: 25px;
+    left: 15px;
     top: 50%;
     border:none;
     background: transparent;
@@ -32,7 +32,7 @@
       position: absolute;
     transform: rotate(-90deg);
     transform-origin: left top 0;
-    right:0px;
+    right:-15px;
     top: 50%;
     border:none;
     background: transparent;
@@ -52,7 +52,7 @@
   border-radius: 0px;
 }
 .modalBody{
-  padding: 70px 90px;
+  padding: 50px 60px;
   border-radius: 0px;
 
 }
@@ -239,4 +239,20 @@ input[type=number] {
 }
 :global(.Select-menu-outer){
   z-index: 999;
+}
+.artistImage{
+  width: 40%;
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+}
+.artistImage img{
+  width: 100%;
+  border-radius: 100%;
+  height: auto;
+
+}
+.artistData{
+  display: inline-block;
+  vertical-align: top;
 }

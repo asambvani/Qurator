@@ -65,7 +65,7 @@ class ImageModal extends Component {
       <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
         <Modal.Body className={styles.modalBody}>
           <Row>
-            <Col md={4}>
+            <Col md={5}>
               <div className="image">
                 <img src={`${prefix.large}${image.url}`} className={styles.image} />
               </div>
@@ -75,11 +75,16 @@ class ImageModal extends Component {
                 <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
               </div>
               <div className={styles.author}>
+                <div className={styles.artistImage}>
+                <img src={`${prefix.large}${image.url}`} />
+                </div>
+                <div className={styles.artistData}>
                 <div className={styles.artistName}>{image.artist}</div>
                 <div className={styles.artistBio}></div>
+                </div>
               </div>
             </Col>
-            <Col md={8}>
+            <Col md={7}>
               <div className={`close ${styles.closeBtn}`} onClick={onClose}>
                 <i className="icon icon_close"></i>
               </div>
