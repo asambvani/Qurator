@@ -89,7 +89,8 @@
   background: #f3f3f3;
   text-align: center;
   cursor: pointer;
-
+  text-align: center;
+  cursor: pointer;
 }
 .addToCartBlock select{
   height: 50px;

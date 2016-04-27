@@ -1,23 +1,16 @@
 import { createAction } from 'redux-act'
 import { CALL_API_SYMBOL, Schemas } from 'middleware/api'
 
-const imagesFilterActions = {
-  start: createAction('imageByFiler.start'),
-  success: createAction('imageByFiler.success'),
-  fail: createAction('imageByFiler.fail'),
-}
+const START = 'start'
+const SUCCESS = 'success'
+const FAILURE = 'fail'
 
-const imagesTagsActions = {
-  start: createAction('imageByTags.start'),
-  success: createAction('imageByTags.success'),
-  fail: createAction('imageByTags.fail'),
-}
-
-const imagesPickerActions = {
-  start: createAction('imagesForPicker.start'),
-  success: createAction('imagesForPicker.success'),
-  fail: createAction('imagesForPicker.fail'),
-}
+const createRequestActions = (base) => (
+  [START, SUCCESS, FAILURE].reduce((res, key) => {
+    res[key] = createAction(`${base}.${key}`)
+    return res
+  }, {})
+)
 
 const factory = (endpoint, actions) => (data) => ({
   [CALL_API_SYMBOL]: {
@@ -28,6 +21,10 @@ const factory = (endpoint, actions) => (data) => ({
     schema: Schemas.IMAGE_ARRAY,
   },
 })
+
+const imagesTagsActions = createRequestActions('imagesByTags')
+const imagesFilterActions = createRequestActions('imagesByFilter')
+const imagesPickerActions = createRequestActions('imagesForPicker')
 
 const filterImagesByForm = factory('images/filter', imagesFilterActions)
 const filterImagesByTags = factory('images/tags', imagesTagsActions)
