@@ -75,7 +75,7 @@ class ImageModal extends Component {
               </div>
               <div className="author">
                 <div className="artistName">{image.artist}</div>
-                <div className="artistBio">{image.artistBio}</div>
+                <div className="artistBio"></div>
               </div>
             </Col>
             <Col md={8}>
