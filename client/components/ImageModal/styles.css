@@ -85,6 +85,7 @@
 }
 .addToCartBlock button:global(.dec:focus),.addToCartBlock button:global(.inc:focus){
   outline:none;
+  backgroun: #f3f3f3;
 }
 .addToCartBlock select{
   height: 50px;
@@ -213,4 +214,11 @@ input[type=number] {
 }
 .threeImagesBlock > img:last-child{
   margin-right: 0;
+}
+.author{
+  margin-top: 15px;
+}
+.artistName{
+  font-weight: bold;
+  text-transform: uppercase;
 }
