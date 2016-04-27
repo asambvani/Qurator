@@ -97,6 +97,7 @@ class ImageModal extends Component {
               </p>
               <form className="form" >
                 <div className={styles.selectDiv}>
+                <label>Size</label>
                   <Select
                     resetValue={{}}
                     value={decoration.value}
@@ -105,6 +106,7 @@ class ImageModal extends Component {
                     placeholder="Choose a size that you like..."
                     options={decorations.map(value => ({ value, label: value }))}
                   />
+                  <label>Finish</label>
                   <Select
                     resetValue={{}}
                     value={variant.value}
