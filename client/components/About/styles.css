@@ -1,0 +1,124 @@
+.innerContainer{
+	text-align: center;
+	width: 82%;
+	margin: auto;
+}
+.innerContainer h3{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+}
+.innerContainer h3:after{
+	content: '';
+	background: url(../../../img/separator.png) 0 0 no-repeat;
+	width: 42px;
+	height: 5px;
+	display: block;
+	margin: 20px auto;
+}
+.innerContainer p{
+	color: #999999;
+	font-size: 14px;
+	line-height: 28px;
+	margin: 30px 0;
+}
+.innerContainer p.pSimple{
+	color:#000;
+	margin-bottom: 30px;
+}
+.innerContainer section{
+	border-bottom: 1px solid #e5e5e5;
+	padding: 40px 0;
+}
+.innerContainer section:nth-child(3), .innerContainer section:last-child{
+	border-bottom: 0px;
+}
+ul.quratorImg{
+	list-style: none;
+	width: 100%;
+	clear: both;
+}
+ul.quratorImg li{
+	float: left;
+	margin-right: 3%;
+	width: 30%;
+	margin-bottom: 20px;
+	position: relative;
+}
+ul.quratorImg li a img{
+	width: 100%;
+	height: auto;
+}
+ul.quratorImg li > a{
+	position: relative;
+	display: block;
+}
+ul.quratorImg li:hover div.overlay{ 
+	background: rgba(0,0,0,0.55);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+}
+ul.quratorImg li:hover > div{
+	display: block;
+	z-index: 2;
+}
+
+ul.quratorImg li > div{
+	display: none;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	color:white;
+	text-transform: uppercase;
+	font-size: 13px;
+	text-align: left;
+	width: 100%;
+
+}
+ul.quratorImg .firstRow{
+	width: 100%;
+	position: relative;
+	left: 0;
+    bottom: 0;
+}
+ul.quratorImg .qName{
+	font-size: 14px;
+	text-align: left;
+	margin: 0px;
+	color: white;
+	display: inline-block;
+}
+ul.quratorImg .qSocial{
+	text-align: right;
+	margin:0px;
+	display: inline-block;
+	margin-left: 10px;
+	float: right;
+	margin-right: 20px;
+}
+ul.quratorImg .qSocial a{
+	color:white;
+	margin-right: 5px;
+}
+ul.quratorImg .qSocial a:hover{
+	text-decoration: none;
+	color: #e9c706;
+}
+ul.quratorImg .qTitle{
+	color:#ccc;
+	margin:0px;
+	font-size: 12px;
+	line-height: 16px;
+}
+@media screen and (max-width: 768px){
+	.innerContainer{
+		width: 100%;
+	}
+	ul.quratorImg li{
+		width: 45%;
+	}
+}

@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import styles from './styles'
 
 
 class Contacts extends Component {
   render() {
     return (
       <div className="container" >
+        <div className={styles.innerContainer}>
+        <section>
         <h3>OUR PRODUCT</h3>
-        <p>It’s simple. No searching. Just two Sizes. No frames.</p>
+        <p className={styles.pSimple}>It’s simple. No searching. Just two Sizes. No frames.</p>
         <p>
           We want to make buying awesome, affordable, ready-to-hang photos as simple and easy as
           possible for you. That’s why on our Qurate page you can take our preference test, and our
@@ -16,6 +19,8 @@ class Contacts extends Component {
           hang upon arrival. We think that our beautiful canvas boards are a much more elegant
           hanging solution than bulky frames, and we think you’ll agree!
         </p>
+        </section>
+        <section>
         <h3>OUR ARTISTS</h3>
         <p>
           Our photos come from some of the most talented up and coming photographers out there.
@@ -23,6 +28,8 @@ class Contacts extends Component {
           are not yet commercialized. Even more, our site is typically the only online platform
           where you can purchase prints of their photos!
         </p>
+        </section>
+        <section>
         <h3>OUR TEAM</h3>
         <p>
           As a group of busy young professionals, we all prioritized having an attractive living
@@ -44,6 +51,54 @@ class Contacts extends Component {
           We hope you enjoy our website and tell your friends about us. We’d also love to hear
           from you, so contact us with any feedback.</p>
         <p>Happy shopping!</p>
+        </section>
+        <section>
+          <ul className={styles.quratorImg}>
+            <li>
+              <a>
+                <img src="../../../img/quratorImg1.jpg" height="370" width="370" />
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="../../../img/quratorImg2.jpg" height="370" width="370" />
+                <div>
+                  <div className={styles.firstRow}>
+                    <p className={styles.qName}>Alex Sambvani</p>
+                    <p className={styles.qSocial}>
+                      <a href="#"><span className="icon social_facebook"></span></a>
+                      <a href="#"><span className="icon social_twitter"> </span></a>
+                      <a href="#"><span className="icon social_googleplus"> </span></a>
+                    </p>
+                  </div>
+                    <p className={styles.qTitle}>Major Qurator</p>
+                </div>
+                <div className={styles.overlay}></div>
+              </a>
+            </li>
+            <li>
+              <a>
+                <img src="../../../img/quratorImg3.jpg" height="370" width="370" />
+              </a>
+            </li>
+            <li>
+              <a>
+                <img src="../../../img/quratorImg4.jpg" height="370" width="370" />
+              </a>
+            </li>
+            <li>
+              <a>
+                <img src="../../../img/quratorImg5.jpg" height="370" width="370" />
+              </a>
+            </li>
+            <li>
+              <a>
+                <img src="../../../img/quratorImg6.jpg" height="370" width="370" />
+              </a>
+            </li>
+          </ul>
+        </section>
+        </div>
       </div>
     )
   }
