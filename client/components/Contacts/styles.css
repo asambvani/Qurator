@@ -1,0 +1,56 @@
+.contactBox{
+	width: 380px;
+	margin:60px auto 30px;
+	text-align: center;
+	border-right: 1px solid #e5e5e5;
+	border-left: 1px solid #e5e5e5;
+}
+.contactBox i{
+	font-size: 40px;
+	color: #999999;
+	display: block;
+}
+.contactBox a{
+	display: block;
+	color: #e9c706;
+	margin-bottom: 40px;
+	font-weight: 400;
+}
+.contactBox p{
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
+	font-size: 18px;
+}
+.contactBox p.email{
+	margin: 30px auto 0;
+	font-size: 16px;
+}
+.contactText{
+	text-transform: uppercase;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	letter-spacing: 1px;
+	line-height: 18px;
+}
+.contactText span{
+	line-height: 28px;
+}
+.contactSign{
+	    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+@media screen and (max-width: 400px){
+	.contactBox{
+		width: 90%;
+		padding: 0 15px;
+	}
+	.contactBox p{
+		font-size: 16px;
+	}
+}
