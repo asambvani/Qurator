@@ -104,21 +104,27 @@ class ImageModal extends Component {
                   ))}
                 </Input>
                 </div>
+                
                 <div className={styles.addToCartBlock}>
-                  <div
+                <div className={styles.QuantityAdd}>
+                <label> Quantity </label>
+                  <div className={styles.inputAdd}>
+                  <button
                     className="dec"
                     onClick={() => { if (qty.value > 1) qty.onChange(qty.value - 1) }}
                   >
                     -
-                  </div>
+                  </button>
                   <Input
                     {...qty}
                     disabled
-                    label="Quantity"
                     type="number"
                     defaultValue="1"
+                    className={styles.inputAddQuantity}
                   />
-                  <div onClick={() => qty.onChange(qty.value + 1)} className="inc">+</div>
+                  <button onClick={() => qty.onChange(qty.value + 1)} className="inc">+</button>
+                  </div>
+                  </div>
                   <Button
                     onClick={this.addToCart}
                     bsStyle="primary"

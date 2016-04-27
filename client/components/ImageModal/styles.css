@@ -56,7 +56,7 @@
 }
 .addToCartBlock :global(.form-group){
   display: inline-block;
-  margin-right: 20px;
+  margin:0px;
 }
 .addToCartBlock button{
   width: 200px;
@@ -64,6 +64,22 @@
   border-radius: 0px;
   background: #333333;
   border:none;
+  text-transform: uppercase;
+  margin-top: -10px;
+}
+.addToCartBlock button:global(.dec),.addToCartBlock button:global(.inc){
+  display: inline-block;
+  width: 30px;
+  height: auto;
+  background: white;
+  margin-top: 0px;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 48px;
+  padding: 0px;
+}
+.addToCartBlock button:global(.dec:focus),.addToCartBlock button:global(.inc:focus){
+  outline:none;
 }
 .addToCartBlock select{
   height: 50px;
@@ -129,4 +145,27 @@ input[type=number]::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance:textfield;
+}
+.QuantityAdd{
+  display: inline-block;
+  margin-right: 20px;
+}
+.QuantityAdd label{
+  display: block;
+  text-transform: uppercase;
+}
+.inputAdd{
+  border: 1px solid #ccc;
+  height: 50px;
+}
+.inputAddQuantity{
+    border: 0px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+.inputAddQuantity[disabled]{
+  background-color: white;
 }
