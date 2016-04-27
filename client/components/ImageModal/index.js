@@ -2,22 +2,20 @@ import React, { Component, PropTypes } from 'react'
 import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Modal, Button, Input, Row, Col } from 'react-bootstrap'
+import Select from 'react-select'
 import { addToCart as addToCartAction } from 'actions/cart'
 import config from 'services/config'
 import configShared from '../../../shared/config'
 import styles from './styles'
 
 const { image: { prefix } } = config
-const { options: { variants } } = configShared
+const { options: { variants, decorations } } = configShared
 
 @reduxForm(
   {
     form: 'image-popup',
-    fields: ['variant', 'qty'],
-    initialValues: {
-      variant: '0',
-      qty: 1,
-    },
+    fields: ['variant', 'qty', 'decoration'],
+    initialValues: { qty: 1 },
   },
   null,
   { addToCart: addToCartAction }
@@ -28,7 +26,6 @@ class ImageModal extends Component {
     onClose: PropTypes.func,
     image: PropTypes.object,
     addToCart: PropTypes.func,
-    handleSubmit: PropTypes.func,
     fields: PropTypes.object,
     resetForm: PropTypes.func,
     currentIndex: PropTypes.number,
@@ -43,9 +40,9 @@ class ImageModal extends Component {
     const {
       onClose, resetForm, addToCart,
       image: { id },
-      fields: { variant: { value: variant }, qty: { value: qty } },
+      values: { variant, qty, decoration },
     } = this.props
-    addToCart({ id, variant, qty: parseInt(qty, 10) })
+    addToCart({ id, variant, qty: parseInt(qty, 10), decoration })
     onClose()
     resetForm()
   }
@@ -57,10 +54,9 @@ class ImageModal extends Component {
       image = {},
       currentIndex = 0,
       imagesCount = 0,
-      handleSubmit,
       handleNextClick,
       handlePrevClick,
-      fields: { variant, qty },
+      fields: { variant, qty, decoration },
       values,
     } = this.props
     const currentVariant = variants[+values.variant]
@@ -84,52 +80,67 @@ class ImageModal extends Component {
               </div>
             </Col>
             <Col md={8}>
-            <div className={`close ${styles.closeBtn}`} onClick={onClose}><i className="icon icon_close"></i></div>
+              <div className={`close ${styles.closeBtn}`} onClick={onClose}>
+                <i className="icon icon_close"></i>
+              </div>
               <h2 className={styles.title}>{image.title}</h2>
-              <p><i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <i className="fa fa-star" aria-hidden="true"></i>
-              <span> Be the first to review the product</span></p>
+              <p>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
+                <span> Be the first to review the product</span>
+              </p>
               <p className={styles.price}>
                 ${currentVariant && values.qty * currentVariant.price}
               </p>
-              <form onSubmit={handleSubmit} className="form" >
+              <form className="form" >
                 <div className={styles.selectDiv}>
-                <Input
-                  {...variant}
-                  label="Size"
-                  type="select"
-                  value={variant.value}
-                  className = {styles.selectInput}
-                >
-                  {variants.map(({ size }, index) => (
-                    <option key={index} value={index.toString()} >{size}</option>
-                  ))}
-                </Input>
-                <span>Field Required *</span>
-                </div>
-                
-                <div className={styles.addToCartBlock}>
-                <div className={styles.QuantityAdd}>
-                <label> Quantity </label>
-                  <div className={styles.inputAdd}>
-                  <button
-                    className="dec"
-                    onClick={() => { if (qty.value > 1) qty.onChange(qty.value - 1) }}
-                  >
-                    -
-                  </button>
-                  <Input
-                    {...qty}
-                    disabled
-                    type="number"
-                    defaultValue="1"
-                    className={styles.inputAddQuantity}
+                  <Select
+                    resetValue={{}}
+                    value={decoration.value}
+                    className={styles.selectInput}
+                    onChange={decoration.onChange}
+                    placeholder="Choose a size that you like..."
+                    options={decorations.map(value => ({ value, label: value }))}
                   />
-                  <button onClick={() => qty.onChange(qty.value + 1)} className="inc">+</button>
-                  </div>
+                  <Select
+                    resetValue={{}}
+                    value={variant.value}
+                    className={styles.selectInput}
+                    onChange={variant.onChange}
+                    placeholder="Choose a finish that you like..."
+                    options={variants.map(({ size }, index) =>
+                      ({ value: index.toString(), label: size })
+                    )}
+                  />
+                  <span>Field Required *</span>
+                </div>
+                <div className={styles.addToCartBlock}>
+                  <div className={styles.QuantityAdd}>
+                    <label>Quantity</label>
+                    <div className={styles.inputAdd}>
+                      <div
+                        className={styles.dec}
+                        onClick={() => { if (qty.value > 1) qty.onChange(qty.value - 1) }}
+                      >
+                        -
+                      </div>
+                      <Input
+                        {...qty}
+                        disabled
+                        type="number"
+                        defaultValue="1"
+                        className={styles.inputAddQuantity}
+                      />
+                      <div
+                        className={styles.inc}
+                        onClick={() => qty.onChange(qty.value + 1)}
+                      >
+                        +
+                      </div>
+                    </div>
                   </div>
                   <Button
                     onClick={this.addToCart}

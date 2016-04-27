@@ -58,11 +58,6 @@ class Filter extends Component {
     })
   }
 
-  @autobind
-  handleArtistChange(value) {
-    this.props.fields.artist.onChange(Array.isArray(value) ? {} : value)
-  }
-
   render() {
     const {
       availableTags,
@@ -89,9 +84,10 @@ class Filter extends Component {
                 <span>Artist</span>
               </label>
               <Select
+                resetValue={{}}
                 value={artist.value}
-                onChange={this.handleArtistChange}
-                options={availatbleAritsts.map(art => ({ value: art, label: art }))}
+                onChange={artist.onChange}
+                options={availatbleAritsts.map(value => ({ value, label: value }))}
               />
             </div>
             <div className="form-group">

@@ -1,21 +1,21 @@
 .almostD{
-	color: #737373;
-	text-transform: uppercase;
-	font-size: 34px;
+  color: #737373;
+  text-transform: uppercase;
+  font-size: 34px;
 }
 .enterEmail{
-	color: #999999;
-	text-transform: uppercase;
-	font-size: 60px;
-	line-height: 70px;
+  color: #999999;
+  text-transform: uppercase;
+  font-size: 60px;
+  line-height: 70px;
 }
 .subHeader{
-	color: #cc9900;
-	font-size: 30px;
-	text-transform: uppercase;
+  color: #cc9900;
+  font-size: 30px;
+  text-transform: uppercase;
 }
 .startButton{
-	width: 445px;
+  width: 445px;
   height: 130px;
   background: #f1d11a;
   font-size: 34px;
@@ -23,48 +23,54 @@
   border:none;
   border-radius: 1px;
   margin-top: 60px;
-  margin-bottom: 120px;
+  margin-bottom: 30px;
 }
-.startButton:hover,.startButton:focus,.startButton:active,.startButton:active:hover{
+.startButton:hover,
+.startButton:focus,
+.startButton:active,
+.startButton:active:hover{
   background: #e9c706;
   outline: none;
 }
 .mainForm{
-	width: 630px;
-	margin: 50px auto 0;
-
+  width: 630px;
+  margin: 50px auto 0;
 }
 .paddingForm{
-	box-shadow:none;
-	border-radius: 0px;
-	border-color: #d0d0d0;
-	height: 70px;
-
+  box-shadow:none;
+  border-radius: 0px;
+  border-color: #d0d0d0;
+  height: 70px;
 }
 .inputName{
-	border:none;
-	box-shadow:none;
-	border-bottom: 1px solid #d0d0d0;
-	padding-bottom: 0px;
-    padding-top: 35px;
-    margin-bottom: 30px;
+  border:none;
+  box-shadow:none;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 0px;
+  padding-top: 35px;
+  margin-bottom: 30px;
 }
-.inputEmail{
-}
+.inputEmail{}
 input[type="text"]::-webkit-input-placeholder{
-	text-align: center;
-	font-size: 16px;
-	font-weight: 400;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
 }
 input.inputNamev[type="text"]::-webkit-input-placeholder{
-	font-style: italic; 
+  font-style: italic;
 }
 input.inputEmail[type="text"]::-webkit-input-placeholder{
-	
+
 }
 .paddingForm:focus{
-	box-shadow: none;
-	outline: none;
-	border-color: #cc9900;
-	color:#999999;
+  box-shadow: none;
+  outline: none;
+  border-color: #cc9900;
+  color:#999999;
+}
+.skip {
+  font-size: 16px;
+  font-weight: 400;
+  color:#999999;
+  margin-bottom: 110px;
 }

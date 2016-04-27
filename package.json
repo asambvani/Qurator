@@ -99,6 +99,7 @@
     "redux-thunk": "2.0.1",
     "reselect": "2.2.1",
     "rimraf": "2.5.2",
+    "scroll-behavior": "^0.4.0",
     "shopify-node-api": "1.6.3",
     "style-loader": "0.13.1",
     "superagent": "1.8.3",

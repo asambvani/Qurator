@@ -10,7 +10,6 @@ import { addToCart } from 'actions/cart'
 import FeaturedImages from './FeaturedImages'
 import styles from './styles'
 
-
 const selector = createStructuredSelector({
   images: state => toArray(state.entities.images).filter(img => img.featured),
 })
@@ -46,7 +45,7 @@ class Home extends Component {
               <p className={styles.white}>For when you want art,
                 <br /> but don't know where to start.
               </p>
-                <ButtonsGroup />
+              <ButtonsGroup />
             </div>
           </CarouselItem>
           <CarouselItem className={styles.carouselItem}>
@@ -56,7 +55,7 @@ class Home extends Component {
               <p>
                 For when you want art,<br /> but don't know where to start.
               </p>
-                <ButtonsGroup />
+              <ButtonsGroup />
             </div>
           </CarouselItem>
         </Carousel>
@@ -73,40 +72,45 @@ class Home extends Component {
                 <Row>
                   <Col md={4}>
                     <div className={styles.firstBlock}>
-                    <i className="fa fa-picture-o" aria-hidden="true"></i>
-                    <h3>Qurate</h3>
-                    <p>Start by taking the Qurator Quiz<br />
-to determine your unique art preferences.<br />
-Our algorithm will suggest pieces of art<br />
-from our collection that best fit your style. </p>
+                      <i className="fa fa-picture-o" aria-hidden="true"></i>
+                      <h3>Qurate</h3>
+                      <p>
+                        <Link to="/qurate">Start by taking the Qurator Quiz</Link>
+                        <br />
+                        to determine your unique art preferences.<br />
+                        Our algorithm will suggest pieces of art<br />
+                        from our collection that best fit your style.
+                      </p>
                     </div>
                   </Col>
                   <Col md={4}>
                     <div className={styles.secondBlock}>
-                    <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
                       <h3>Unique</h3>
-                    <p>Our photos come from some of the most<br />
-talented, up-and-coming photographers out there.<br />
-Your purchases help support independent<br />
- artists who are passionate about their work<br />
- and whose art is not yet commercialized. </p>
+                      <p>
+                        Our photos come from some of the most<br />
+                        talented, up-and-coming photographers out there.<br />
+                        Your purchases help support independent<br />
+                        artists who are passionate about their work<br />
+                        and whose art is not yet commercialized.
+                      </p>
                     </div>
                   </Col>
                   <Col md={4}>
                     <div className={styles.thirdBlock}>
-                    <i className="fa fa-rocket" aria-hidden="true"></i>
+                      <i className="fa fa-rocket" aria-hidden="true"></i>
                       <h3>Seamless</h3>
                       <p>
                         The art you purchase will arrive right<br />
- to your door, ready-to-hang.<br />
-And shipping is free! It's that simple.
+                        to your door, ready-to-hang.<br />
+                        And shipping is free! It's that simple.
                       </p>
                     </div>
                   </Col>
                 </Row>
                 <Row>
                   <Col md={12} className={styles.btnStart}>
-                    <Link to="/qurate" >
+                    <Link to="/qurate">
                     <Button bsStyle="primary" className={styles.btnBlack}>Start Here</Button>
                     </Link>
                   </Col>

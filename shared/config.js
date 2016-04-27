@@ -1,5 +1,6 @@
 export default {
   options: {
+    decorations: ['glossy', 'matte'],
     variants: [
       {
         size: '16x20 inch',
