@@ -117,7 +117,6 @@ class ImageModal extends Component {
                       ({ value: index.toString(), label: size })
                     )}
                   />
-                  <span>Field Required *</span>
                 </div>
                 <div className={styles.addToCartBlock}>
                   <div className={styles.QuantityAdd}>

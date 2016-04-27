@@ -72,6 +72,9 @@
   margin-top: -10px;
   font-size: 16px;
 }
+.addToCartBlock button:hover{
+  background-color: #6F6E6E;
+}
 .inc, .dec {
   display: inline-block;
   width: 30px;
@@ -133,7 +136,7 @@
   font-size: 16px;
   font-weight: bold;
 }
-.selectInput{
+.selectInput :global(.Select-control){
   border-radius: 0px;
   appearance: none;
   z-index: 10;
@@ -147,7 +150,6 @@
     position: relative;
     width: 100%;
     margin-bottom: 20px;
-    margin-top: 20px;
 }
 .selectDiv label:after, .QuantityAdd label:after{
   content: '  * ';
@@ -158,6 +160,8 @@
   margin-bottom: 15px;
   font-family: Montserrat;
   font-weight: 400;
+  text-transform: uppercase;
+  margin: 30px auto 10px;
 }
 .selectDiv > :global(.form-group:after){
   content: "\F078";
@@ -228,4 +232,7 @@ input[type=number] {
 .artistName{
   font-weight: bold;
   text-transform: uppercase;
+}
+:global(.Select-menu-outer){
+  z-index: 999;
 }
