@@ -82,15 +82,14 @@
   font-size: 24px;
   line-height: 48px;
   padding: 0px;
-<<<<<<< HEAD
+
 }
 .addToCartBlock button:global(.dec:focus),.addToCartBlock button:global(.inc:focus){
   outline:none;
-  backgroun: #f3f3f3;
-=======
+  background: #f3f3f3;
   text-align: center;
   cursor: pointer;
->>>>>>> origin/master
+
 }
 .addToCartBlock select{
   height: 50px;
@@ -220,7 +219,7 @@ input[type=number] {
 .threeImagesBlock > img:last-child{
   margin-right: 0;
 }
-<<<<<<< HEAD
+
 .author{
   margin-top: 15px;
 }
@@ -228,5 +227,3 @@ input[type=number] {
   font-weight: bold;
   text-transform: uppercase;
 }
-=======
->>>>>>> origin/master
