@@ -28,6 +28,7 @@ export default class CartItem extends Component {
           image: { url, title, description, artist, artistBio },
           variant,
           qty,
+          decoration,
         },
         index,
       },
@@ -49,7 +50,11 @@ export default class CartItem extends Component {
           <strong>Artist:</strong> {artist}<br />
           <strong>Bio:</strong> {artistBio}
         </td>
-        <td>{variants[variant].size}</td>
+        <td>
+          {variants[variant].size}
+          <br />
+          {decoration}
+        </td>
         <td>{qty}</td>
         <td><a onClick={removeFromCart}><i
           className="fa fa-remove"

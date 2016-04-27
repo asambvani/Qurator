@@ -15,10 +15,7 @@ const { options: { variants, decorations } } = configShared
   {
     form: 'image-popup',
     fields: ['variant', 'qty', 'decoration'],
-    initialValues: {
-      variant: '0',
-      qty: 1,
-    },
+    initialValues: { qty: 1 },
   },
   null,
   { addToCart: addToCartAction }
@@ -43,9 +40,9 @@ class ImageModal extends Component {
     const {
       onClose, resetForm, addToCart,
       image: { id },
-      fields: { variant: { value: variant }, qty: { value: qty } },
+      values: { variant, qty, decoration },
     } = this.props
-    addToCart({ id, variant, qty: parseInt(qty, 10) })
+    addToCart({ id, variant, qty: parseInt(qty, 10), decoration })
     onClose()
     resetForm()
   }
@@ -113,7 +110,7 @@ class ImageModal extends Component {
                     value={variant.value}
                     className={styles.selectInput}
                     onChange={variant.onChange}
-                    placeholder="Choose a size that you like..."
+                    placeholder="Choose a finish that you like..."
                     options={variants.map(({ size }, index) =>
                       ({ value: index.toString(), label: size })
                     )}
