@@ -62,47 +62,41 @@ class ImageModal extends Component {
     const currentVariant = variants[+values.variant]
 
     return (
-      <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
-        <Modal.Body className={styles.modalBody}>
+      <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent} >
+        <Modal.Body className={styles.modalBody} >
           <Row>
-            <Col md={5}>
-              <div className="image">
+            <Col md={5} >
+              <div className="image" >
                 <img src={`${prefix.large}${image.url}`} className={styles.image} />
               </div>
-              <div className={styles.threeImagesBlock}>
+              <div className={styles.threeImagesBlock} >
                 <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
                 <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
                 <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
               </div>
-              <div className={styles.author}>
-                <div className={styles.artistImage}>
-                <img src={`${prefix.large}${image.url}`} />
+              <div className={styles.author} >
+                <div className={styles.artistImage} >
+                  <img src={`${prefix.large}${image.url}`} />
                 </div>
-                <div className={styles.artistData}>
-                <div className={styles.artistName}>{image.artist}</div>
-                <div className={styles.artistBio}></div>
+                <div className={styles.artistData} >
+                  <div className={styles.artistName} >{image.artist}</div>
+                  <div className={styles.artistBio} ></div>
                 </div>
               </div>
             </Col>
-            <Col md={7}>
-              <div className={`close ${styles.closeBtn}`} onClick={onClose}>
-                <i className="icon icon_close"></i>
+            <Col md={7} >
+              <div className={`close ${styles.closeBtn}`} onClick={onClose} >
+                <i className="icon icon_close" ></i>
               </div>
-              <h2 className={styles.title}>{image.title}</h2>
-              <p>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <span> Be the first to review the product</span>
+              <h2 className={styles.title} >{image.title}</h2>
+              {currentVariant &&
+              <p className={styles.price} >
+                ${values.qty * currentVariant.price}
               </p>
-              <p className={styles.price}>
-                ${currentVariant && values.qty * currentVariant.price}
-              </p>
+              }
               <form className="form" >
-                <div className={styles.selectDiv}>
-                <label>Size</label>
+                <div className={styles.selectDiv} >
+                  <label>Size</label>
                   <Select
                     resetValue={{}}
                     value={decoration.value}
@@ -123,13 +117,14 @@ class ImageModal extends Component {
                     )}
                   />
                 </div>
-                <div className={styles.addToCartBlock}>
-                  <div className={styles.QuantityAdd}>
+                <div className={styles.addToCartBlock} >
+                  <div className={styles.QuantityAdd} >
                     <label>Quantity</label>
-                    <div className={styles.inputAdd}>
+                    <div className={styles.inputAdd} >
                       <div
                         className={styles.dec}
-                        onClick={() => { if (qty.value > 1) qty.onChange(qty.value - 1) }}
+                        onClick={() => { if (qty.value > 1) {qty.onChange(qty.value - 1)
+} }}
                       >
                         -
                       </div>
