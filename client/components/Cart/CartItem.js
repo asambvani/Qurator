@@ -25,7 +25,7 @@ export default class CartItem extends Component {
       removeFromCart,
       props: {
         item: {
-          image: { url, title, description, artist, artistBio },
+          image: { url, title, description, artist },
           variant,
           qty,
           decoration,
@@ -48,7 +48,6 @@ export default class CartItem extends Component {
           <h4>{title}</h4>
           <strong>Description:</strong> {description}<br />
           <strong>Artist:</strong> {artist}<br />
-          <strong>Bio:</strong> {artistBio}
         </td>
         <td>
           {variants[variant].size}
