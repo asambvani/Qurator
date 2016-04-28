@@ -73,6 +73,8 @@ input.inputEmail[type="text"]::-webkit-input-placeholder{
   font-weight: 400;
   color:#999999;
   margin-bottom: 110px;
+  cursor: pointer;
+  display: block;
 }
 @media screen and (max-width: 768px){
   .enterEmail{

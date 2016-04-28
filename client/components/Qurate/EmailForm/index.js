@@ -33,12 +33,12 @@ const EmailForm = ({
     >
       Submit
     </Button>
-    <div
+    <a
       className={styles.skip}
       onClick={handleSubmitClick}
     >
       Skip
-    </div>
+    </a>
   </Grid>
 )
 

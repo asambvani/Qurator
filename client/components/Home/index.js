@@ -75,7 +75,7 @@ class Home extends Component {
                       <i className="fa fa-picture-o" aria-hidden="true"></i>
                       <h3>Qurate</h3>
                       <p>
-                        <Link to="/qurate">Start by taking the Qurator Quiz</Link>
+                        Start by taking the <Link to="/qurate">Qurator Quiz</Link>
                         <br />
                         to determine your unique art preferences.<br />
                         Our algorithm will suggest pieces of art<br />
