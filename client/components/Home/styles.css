@@ -1,3 +1,7 @@
+.homeContainer {
+  position: relative;
+  z-index: 1;
+}
 .carousel{
   max-height: 900px;
 }
@@ -16,79 +20,78 @@
   font-size: 38px;
 }
 .carouselFeature{
-	width: 80%;
-	margin: 40px auto 0 ;
+  width: 80%;
+  margin: 40px auto 0 ;
 }
 .carouselFeature :global(.carousel-control){
-	top:25%;
+  top:25%;
 }
 .carouselFeatureItem > div{
-	display: inline-block;
-	width: 25%;
+  display: inline-block;
+  width: 25%;
 }
 .carouselFeatureItem > div:first-child{
-	margin-left: 12%;
+  margin-left: 12%;
 }
 .carouselFeatureItem > div:last-child{
-	margin-right: 12%;
+  margin-right: 12%;
 }
 .preview {
-	width: 100%;
-	text-align: center;
+  width: 100%;
+  text-align: center;
 }
 .preview > span{
-	background: black;
-	width: 40px;
-	height: 40px;
-	
+  background: black;
+  width: 40px;
+  height: 40px;
 }
 .preview > span:before{
-	content: "+";
-	font-size: 32px;
-	color:white;
-	line-height: 36px;
+  content: "+";
+  font-size: 32px;
+  color:white;
+  line-height: 36px;
 }
 .preview > span i{
-	display: none;
+  display: none;
 }
 .preview img{
-	width: 90%;
+  width: 90%;
 }
 .addToCartButton{
-	background: transparent;
-	border:1px solid #999;
-	color:#000;
-	padding: 7px 15px;
-	text-align: center;
-	text-shadow: none;
-	border-radius: 0px;
-	margin-right: 10px;
-	text-transform: uppercase;
-	font-size: 12px;
+  background: transparent;
+  border:1px solid #999;
+  color:#000;
+  padding: 7px 15px;
+  text-align: center;
+  text-shadow: none;
+  border-radius: 0px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 .addToCartButton:hover,.addToCartButton:focus, .addToCartButton:active,.addToCartButton:active:hover,
 .likeButton:hover, .likeButton:focus, .likeButton:active,.likeButton:active:hover{
-	background: #333;
-	color:white;
-	outline: none;
+  background: #333;
+  color:white;
+  outline: none;
 }
 .likeButton{
-	background: transparent;
-	border:1px solid #999;
-	border-radius: 0px;
-	color:#999;
+  background: transparent;
+  border:1px solid #999;
+  border-radius: 0px;
+  color:#999;
 }
 .btnGroup{
-	 margin: auto;
+   margin: auto;
     width: 90%;
     display: block;
     text-align: center;
 }
 .btnGroup:global(.btn-group-justified > .btn){
-	width: initial;
+  width: initial;
 }
 .featureTitle{
-	    text-align: center;
+      text-align: center;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
@@ -98,7 +101,7 @@
 
 }
 .featureTitle > span:first-child{
-	    position: absolute;
+      position: absolute;
     color: #cccccc;
     font-size: 120px;
     opacity: 0.3;
@@ -175,7 +178,7 @@ button.btnBlack{
   margin-bottom: 30px;
 }
 .whatIsP{
-  color: white;  
+  color: white;
   font-size: 20px;
   text-align: center;
   font-weight: 400;
@@ -185,7 +188,8 @@ button.btnBlack{
   width: 340px;
   height: 340px;
   text-align: center;
-  padding: 30px 10px;
+  padding: 30px 20px;
+  margin-bottom: 10px;
 }
 .firstBlock h3, .secondBlock h3, .thirdBlock h3{
   text-transform: uppercase;
@@ -196,7 +200,6 @@ button.btnBlack{
   font-size: 17px;
   line-height: 30px;
 }
-
 .firstBlock i, .secondBlock i, .thirdBlock i{
   color: #999999;
   font-size: 40px;
@@ -240,18 +243,18 @@ button.btnBlack{
 }
 
 .featureSection{
-	  background: #f3f3f3;
-	  padding: 60px 0;
+    background: #f3f3f3;
+    padding: 60px 0;
 }
 :global(.featureIcon){
-	padding: 12px 15px;
-	background: #e1e1e1;
-	text-shadow: none;
-	font-size: 24px;
+  padding: 12px 15px;
+  background: #e1e1e1;
+  text-shadow: none;
+  font-size: 24px;
 
 }
 :global(.featureIcon:hover){
-	background: #000;
-	cursor: hand;
-	cursor: pointer;
+  background: #000;
+  cursor: hand;
+  cursor: pointer;
 }

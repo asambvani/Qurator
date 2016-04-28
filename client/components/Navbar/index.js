@@ -22,8 +22,9 @@ class QNavbar extends Component {
     const { routes } = this.props
     const specRoute = routes[routes.length - 1]
     const activeRouteName = specRoute.name
+
     return (
-      <div>
+      <div className={styles.navbarContainer}>
         <Navbar className={styles.navBarMain}>
           <Navbar.Header className={styles.navBarHeader}>
             <Navbar.Brand>

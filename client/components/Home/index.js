@@ -28,7 +28,7 @@ class Home extends Component {
 
   render() {
     return (
-      <Grid fluid >
+      <Grid fluid className={styles.homeContainer}>
         <Carousel className={styles.carousel}>
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/firstSlide.jpg" />
@@ -77,8 +77,8 @@ class Home extends Component {
                       <p>
                         Start by taking the <Link to="/qurate">Qurator Quiz</Link>
                         <br />
-                        to determine your unique art preferences.<br />
-                        Our algorithm will suggest pieces of art<br />
+                        to determine your unique art preferences.
+                        Our algorithm will suggest pieces of art
                         from our collection that best fit your style.
                       </p>
                     </div>
@@ -88,10 +88,10 @@ class Home extends Component {
                       <i className="fa fa-star" aria-hidden="true"></i>
                       <h3>Unique</h3>
                       <p>
-                        Our photos come from some of the most<br />
-                        talented, up-and-coming photographers out there.<br />
-                        Your purchases help support independent<br />
-                        artists who are passionate about their work<br />
+                        Our photos come from some of the most
+                        talented, up-and-coming photographers out there.
+                        Your purchases help support independent
+                        artists who are passionate about their work
                         and whose art is not yet commercialized.
                       </p>
                     </div>
