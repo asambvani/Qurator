@@ -16,6 +16,12 @@ const { options: { variants, decorations } } = configShared
     form: 'image-popup',
     fields: ['variant', 'qty', 'decoration'],
     initialValues: { qty: 1 },
+    validate: ({ variant, decoration }) => { // eslint-disable-line
+      const errors = {}
+      if (!variant) { errors.variant = 'Field Required *' }
+      if (!decoration) { errors.decoration = 'Field Required *' }
+      return errors
+    },
   },
   null,
   { addToCart: addToCartAction }
@@ -32,6 +38,7 @@ class ImageModal extends Component {
     imagesCount: PropTypes.number,
     handleNextClick: PropTypes.func,
     handlePrevClick: PropTypes.func,
+    handleSubmit: PropTypes.func,
     values: PropTypes.object,
   }
 
@@ -56,17 +63,18 @@ class ImageModal extends Component {
       imagesCount = 0,
       handleNextClick,
       handlePrevClick,
+      handleSubmit,
       fields: { variant, qty, decoration },
       values,
     } = this.props
     const currentVariant = variants[+values.variant]
 
     return (
-      <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent} >
-        <Modal.Body className={styles.modalBody} >
+      <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
+        <Modal.Body className={styles.modalBody}>
           <Row>
-            <Col md={5} >
-              <div className="image" >
+            <Col md={5}>
+              <div className="image">
                 <img src={`${prefix.large}${image.url}`} className={styles.image} />
               </div>
               <div className={styles.threeImagesBlock} >
@@ -84,28 +92,19 @@ class ImageModal extends Component {
                 </div>
               </div>
             </Col>
-            <Col md={7} >
-              <div className={`close ${styles.closeBtn}`} onClick={onClose} >
-                <i className="icon icon_close" ></i>
+            <Col md={7}>
+              <div className={`close ${styles.closeBtn}`} onClick={onClose}>
+                <i className="icon icon_close"></i>
               </div>
-              <h2 className={styles.title} >{image.title}</h2>
+              <h2 className={styles.title}>{image.title}</h2>
               {currentVariant &&
-              <p className={styles.price} >
+              <p className={styles.price}>
                 ${values.qty * currentVariant.price}
               </p>
               }
-              <form className="form" >
-                <div className={styles.selectDiv} >
+              <form className="form">
+                <div className={styles.selectDiv}>
                   <label>Size</label>
-                  <Select
-                    resetValue={{}}
-                    value={decoration.value}
-                    className={styles.selectInput}
-                    onChange={decoration.onChange}
-                    placeholder="Choose a size that you like..."
-                    options={decorations.map(value => ({ value, label: value }))}
-                  />
-                  <label>Finish</label>
                   <Select
                     resetValue={{}}
                     value={variant.value}
@@ -116,15 +115,25 @@ class ImageModal extends Component {
                       ({ value: index.toString(), label: size })
                     )}
                   />
+                  {variant.touched && <div>{variant.error}</div>}
+                  <label>Finish</label>
+                  <Select
+                    resetValue={{}}
+                    value={decoration.value}
+                    className={styles.selectInput}
+                    onChange={decoration.onChange}
+                    placeholder="Choose a size that you like..."
+                    options={decorations.map(value => ({ value, label: value }))}
+                  />
+                  {decoration.touched && <div>{decoration.error}</div>}
                 </div>
-                <div className={styles.addToCartBlock} >
-                  <div className={styles.QuantityAdd} >
+                <div className={styles.addToCartBlock}>
+                  <div className={styles.QuantityAdd}>
                     <label>Quantity</label>
-                    <div className={styles.inputAdd} >
+                    <div className={styles.inputAdd}>
                       <div
                         className={styles.dec}
-                        onClick={() => { if (qty.value > 1) {qty.onChange(qty.value - 1)
-} }}
+                        onClick={() => { if (qty.value > 1) {qty.onChange(qty.value - 1) } }}
                       >
                         -
                       </div>
@@ -144,7 +153,7 @@ class ImageModal extends Component {
                     </div>
                   </div>
                   <Button
-                    onClick={this.addToCart}
+                    onClick={handleSubmit(this.addToCart)}
                     bsStyle="primary"
                   >
                     Add to cart
