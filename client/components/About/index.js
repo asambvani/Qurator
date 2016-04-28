@@ -60,20 +60,8 @@ class Contacts extends Component {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a>
                 <img src="../../../img/quratorImg2.jpg" height="370" width="370" />
-                <div>
-                  <div className={styles.firstRow}>
-                    <p className={styles.qName}>Alex Sambvani</p>
-                    <p className={styles.qSocial}>
-                      <a href="#"><span className="icon social_facebook"></span></a>
-                      <a href="#"><span className="icon social_twitter"> </span></a>
-                      <a href="#"><span className="icon social_googleplus"> </span></a>
-                    </p>
-                  </div>
-                    <p className={styles.qTitle}>Major Qurator</p>
-                </div>
-                <div className={styles.overlay}></div>
               </a>
             </li>
             <li>
