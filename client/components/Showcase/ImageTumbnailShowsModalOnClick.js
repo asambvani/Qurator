@@ -38,7 +38,7 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
           {image.title}
         </div>
         <div className={styles.price}>
-          {formattedLowestPrice}
+          {formattedLowestPrice}+
         </div>
       </div>
     )
