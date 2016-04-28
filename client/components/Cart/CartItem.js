@@ -10,7 +10,6 @@ const { image: { prefix: { tb } } } = config
 export default class CartItem extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
-    index: PropTypes.number.isRequired,
     removeFromCart: PropTypes.func.isRequired,
   }
 
@@ -25,19 +24,18 @@ export default class CartItem extends Component {
       removeFromCart,
       props: {
         item: {
-          image: { url, title, description, artist, artistBio },
+          image: { url, title },
           variant,
           qty,
           decoration,
         },
-        index,
       },
     } = this
-    const rowTotal = money(qty * variants[variant].price)
+    const price = variants[variant].price
+    const rowTotal = money(qty * price)
 
     return (
       <tr>
-        <td>{index + 1}</td>
         <td className={styles.imageColumn}>
           <img
             className={styles.tumbnail}
@@ -46,21 +44,21 @@ export default class CartItem extends Component {
         </td>
         <td>
           <h4>{title}</h4>
-          <strong>Description:</strong> {description}<br />
-          <strong>Artist:</strong> {artist}<br />
-          <strong>Bio:</strong> {artistBio}
+          <div className="size">
+            Size: {variants[variant].size}
+          </div>
+          <div className="decoration">
+            Finish: {decoration}
+          </div>
         </td>
-        <td>
-          {variants[variant].size}
-          <br />
-          {decoration}
-        </td>
+        <td>{money(price)}</td>
         <td>{qty}</td>
-        <td><a onClick={removeFromCart}><i
-          className="fa fa-remove"
-        /></a>
-        </td>
         <td>{rowTotal}</td>
+        <td>
+          <a onClick={removeFromCart}>
+            <i className="fa fa-remove" />
+          </a>
+        </td>
       </tr>
     )
   }
