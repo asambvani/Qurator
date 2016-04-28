@@ -1,11 +1,11 @@
 import { createReducer } from 'redux-act'
-import { stepForward } from 'actions/qurate'
-import { resetPicker } from 'actions/picker'
+import { stepForward, restartQuiz, resetQurate } from 'actions/qurate'
 import initialState from 'services/initialState'
 
 const init = initialState.qurator.step
 
 export default createReducer({
   [stepForward]: (state) => (state % 4) + 1,
-  [resetPicker]: () => init,
+  [restartQuiz]: () => 1,
+  [resetQurate]: () => init,
 }, init)

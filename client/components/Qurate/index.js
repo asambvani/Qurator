@@ -10,7 +10,7 @@ import * as qurateActions from 'actions/qurate'
 import GetStarted from './GetStarted'
 import Picker from './Picker'
 import EmailForm from './EmailForm'
-import QuratedPhotos from './QuratedPhotos'
+import Result from './Result'
 import { reduxForm } from 'redux-form'
 import config from 'services/config'
 
@@ -51,6 +51,7 @@ class Qurate extends Component {
   static propTypes = {
     qurateStep: PropTypes.number.isRequired,
     pickerStep: PropTypes.number.isRequired,
+    restartQuiz: PropTypes.func.isRequired,
     resetPicker: PropTypes.func.isRequired,
     stepForward: PropTypes.func.isRequired,
     filterImagesByTags: PropTypes.func.isRequired,
@@ -91,8 +92,10 @@ class Qurate extends Component {
   }
 
   @autobind
-  resetPickerClick() {
+  restartQuiz() {
     this.props.resetPicker()
+    this.showNextPicker()
+    this.props.restartQuiz()
   }
 
   render() {
@@ -123,10 +126,12 @@ class Qurate extends Component {
       />,
       <EmailForm
         fields={fields}
+        handleRestartClick={this.restartQuiz}
         handleSubmitClick={moveQurateForward}
       />,
-      <QuratedPhotos
+      <Result
         name={values.name}
+        handleRestartClick={this.restartQuiz}
         {...{ images: resultFromServer }}
       />,
     ]
@@ -142,36 +147,3 @@ class Qurate extends Component {
 }
 
 export default Qurate
-
-        // {
-        //   (pickerStep > maxSteps) &&
-        //   <Showcase {...{ images: resultFromServer }} />
-        // }
-
-        // <div className={styles.buttonBar}>
-        //   {
-        //     pickerActive ?
-        //     <div>
-        //       <Button
-        //         bsStyle="danger"
-        //         className={styles.reset}
-        //         onClick={resetPickerClick}
-        //       >
-        //         Start over
-        //       </Button>
-        //       <Button
-        //         bsStyle="primary"
-        //         className={styles.next}
-        //         onClick={showNextPicker}
-        //       >
-        //         Next
-        //       </Button>
-        //     </div>
-        //     :
-        //     restartButton
-        //   }
-        // </div>
-        // {
-        //   pickerActive &&
-        // }
-        //

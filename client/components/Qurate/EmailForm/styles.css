@@ -68,13 +68,17 @@ input.inputEmail[type="text"]::-webkit-input-placeholder{
   border-color: #cc9900;
   color:#999999;
 }
-.skip {
+.subActions {
+  margin-bottom: 110px;
+  display: block;
+}
+.action {
   font-size: 16px;
   font-weight: 400;
-  color:#999999;
-  margin-bottom: 110px;
+  color: #999999;
   cursor: pointer;
-  display: block;
+  display: inline-block;
+  margin-right: 45px;
 }
 @media screen and (max-width: 768px){
   .enterEmail{
