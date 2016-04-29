@@ -241,15 +241,14 @@ input[type=number] {
   z-index: 999;
 }
 .artistImage{
-  width: 40%;
   position: relative;
   display: inline-block;
   margin-right: 15px;
 }
 .artistImage img{
-  width: 100%;
+  width: 80px;
   border-radius: 100%;
-  height: auto;
+  height: 80px;
 
 }
 .artistData{
