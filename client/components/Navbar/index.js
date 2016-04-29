@@ -65,7 +65,7 @@ class QNavbar extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <Grid>
+        <Grid fluid>
         {
           activeRouteName &&
           <div className={cn(styles.title, specRoute.path)}>

@@ -51,16 +51,16 @@
   height:400px;
 }
 :global(.contacts){
-  background: url("../../../img/contact.jpg") 0 0 no-repeat;
+  background: url("../../../img/contact.jpg") 50% 0 no-repeat;
 }
 
 :global(.about){
-  background: url("../../../img/header.jpg") 0 0 no-repeat;
+  background: url("../../../img/header.jpg") 50% 0 no-repeat;
 }
 :global(.shop) {
-  background: url("../../../img/shop.jpg") 0 0 no-repeat;
+  background: url("../../../img/shop.jpg") 50% 0 no-repeat;
 }
 
 :global(.cart) {
-  background: url("../../../img/cart.jpg") 0 0 no-repeat;
+  background: url("../../../img/cart.jpg") 50% 0 no-repeat;
 }

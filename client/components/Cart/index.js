@@ -79,16 +79,18 @@ class Cart extends Component {
           {items.length === 0 ?
             <div>Your cart is empty</div>
             :
-            <div>
+            <Grid className={styles.cartContainer}>
               <h2>Your cart items</h2>
-              <Table striped bordered condensed hover>
+              <Table condensed responsive className={styles.cartTable}>
                 <thead>
                 <tr>
+                  <th width="20"></th>
                   <th colSpan="2">Image</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  <th></th>
+                  <th width="70">Price</th>
+                  <th width="50">Quantity</th>
+                  <th width="50">Total</th>
+                  <th width="10"></th>
+                  <th width="20"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -102,19 +104,19 @@ class Cart extends Component {
                 >
                   Clear shopping cart
                 </div>
-                <div className="total">
-                  <div className="subtotal">
+                <div className={styles.total}>
+                  <div className={styles.subtotal}>
                     Sub total {total.price}
                   </div>
-                  <div className="grantotal">
-                    Grand total {total.price}
+                  <div className={styles.grandTotal}>
+                    Grand total <span className={styles.totalPrice}> {total.price}</span>
                   </div>
                 </div>
               </div>
 
               <Button
                 disabled={redirectingToShopify}
-                className="pull-right"
+                className={`pull-right ${styles.buttonCheck}`}
                 bsStyle="primary"
                 bsSize="large"
                 onClick={checkout}
@@ -126,7 +128,7 @@ class Cart extends Component {
                 /> }
                 Proceed to checkout
               </Button>
-            </div>
+            </Grid>
           }
         </Row>
       </Grid>

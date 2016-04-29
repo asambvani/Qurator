@@ -36,6 +36,7 @@ export default class CartItem extends Component {
 
     return (
       <tr>
+        <td width="20"></td>
         <td className={styles.imageColumn}>
           <img
             className={styles.tumbnail}
@@ -45,20 +46,21 @@ export default class CartItem extends Component {
         <td>
           <h4>{title}</h4>
           <div className="size">
-            Size: {variants[variant].size}
+            <i className="icon arrow_carrot-right"></i> Size : <span className={styles.grey}>{variants[variant].size}</span>
           </div>
           <div className="decoration">
-            Finish: {decoration}
+             <i className="icon arrow_carrot-right"></i>  Finish : <span className={styles.grey}>{decoration}</span>
           </div>
         </td>
         <td>{money(price)}</td>
         <td>{qty}</td>
         <td>{rowTotal}</td>
         <td>
-          <a onClick={removeFromCart}>
-            <i className="fa fa-remove" />
+          <a onClick={removeFromCart} className={styles.removeItem}>
+            <i className="icon icon_close" />
           </a>
         </td>
+        <td width="20"></td>
       </tr>
     )
   }
