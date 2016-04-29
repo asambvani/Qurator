@@ -13,6 +13,7 @@ const { options } = configShared
 const variants = options.variants.map(variant => ({
   ...variant,
   option1: variant.size,
+  option2: variant.finish,
 }))
 
 const updateShopifyProductsAndMongoDB = async() => {
@@ -61,9 +62,13 @@ const updateShopifyProductsAndMongoDB = async() => {
                 published_scope: 'global',
                 published: true,
                 variants,
+                options: [
+                  { name: 'Size' },
+                  { name: 'Finish' },
+                ],
                 body_html: `<strong>Description:</strong> ${description}<br /> ` +
-                `<strong>Artist:</strong> ${artist}<br /> ` +
-                `<strong>Artist BIO:</strong> ${artistBio}`,
+                  `<strong>Artist:</strong> ${artist}<br /> ` +
+                  `<strong>Artist BIO:</strong> ${artistBio}`,
                 product_type: 'Image on canvas',
                 images: [
                   {

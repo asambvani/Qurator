@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import autobind from 'autobind-decorator'
+import { find } from 'lodash'
 import config from 'services/config'
 import money from 'services/formatMoney'
-import styles from './styles'
 import configShared from '../../../shared/config'
+import styles from './styles'
+
 const { options: { variants } } = configShared
 const { image: { prefix: { tb } } } = config
 
@@ -24,14 +26,14 @@ export default class CartItem extends Component {
       removeFromCart,
       props: {
         item: {
-          image: { url, title, description, artist },
-          variant,
+          image: { url, title },
+          size,
           qty,
-          decoration,
+          finish,
         },
       },
     } = this
-    const price = variants[variant].price
+    const price = find(variants, { finish, size }).price
     const rowTotal = money(qty * price)
 
     return (
@@ -46,10 +48,12 @@ export default class CartItem extends Component {
         <td>
           <h4>{title}</h4>
           <div className="size">
-            <i className="icon arrow_carrot-right"></i> Size : <span className={styles.grey}>{variants[variant].size}</span>
+            <i className="icon arrow_carrot-right">
+            </i> Size : <span className={styles.grey}>{size}</span>
           </div>
           <div className="decoration">
-             <i className="icon arrow_carrot-right"></i>  Finish : <span className={styles.grey}>{decoration}</span>
+             <i className="icon arrow_carrot-right">
+             </i>  Finish : <span className={styles.grey}>{finish}</span>
           </div>
         </td>
         <td>{money(price)}</td>

@@ -3,23 +3,24 @@ import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Modal, Button, Input, Row, Col } from 'react-bootstrap'
 import Select from 'react-select'
+import { find } from 'lodash'
 import { addToCart as addToCartAction } from 'actions/cart'
 import config from 'services/config'
 import configShared from '../../../shared/config'
 import styles from './styles'
 
 const { image: { prefix } } = config
-const { options: { variants, decorations } } = configShared
+const { options: { variants, finishes, sizes } } = configShared
 
 @reduxForm(
   {
     form: 'image-popup',
-    fields: ['variant', 'qty', 'decoration'],
+    fields: ['size', 'qty', 'finish'],
     initialValues: { qty: 1 },
-    validate: ({ variant, decoration }) => { // eslint-disable-line
+    validate: ({ size, finish }) => { // eslint-disable-line
       const errors = {}
-      if (!variant) { errors.variant = 'Field Required *' }
-      if (!decoration) { errors.decoration = 'Field Required *' }
+      if (!size) { errors.size = 'Field Required *' }
+      if (!finish) { errors.finish = 'Field Required *' }
       return errors
     },
   },
@@ -47,9 +48,9 @@ class ImageModal extends Component {
     const {
       onClose, resetForm, addToCart,
       image: { id },
-      values: { variant, qty, decoration },
+      values: { size, qty, finish },
     } = this.props
-    addToCart({ id, variant, qty: parseInt(qty, 10), decoration })
+    addToCart({ id, size, qty: parseInt(qty, 10), finish })
     onClose()
     resetForm()
   }
@@ -64,10 +65,11 @@ class ImageModal extends Component {
       handleNextClick,
       handlePrevClick,
       handleSubmit,
-      fields: { variant, qty, decoration },
+      fields: { size, qty, finish },
       values,
     } = this.props
-    const currentVariant = variants[+values.variant]
+
+    const variant = find(variants, { size: values.size }) || variants[0]
 
     return (
       <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
@@ -97,9 +99,9 @@ class ImageModal extends Component {
                 <i className="icon icon_close"></i>
               </div>
               <h2 className={styles.title}>{image.title}</h2>
-              {currentVariant &&
+              {variant &&
               <p className={styles.price}>
-                ${values.qty * currentVariant.price}
+                ${values.qty * variant.price}
               </p>
               }
               <form className="form">
@@ -107,25 +109,23 @@ class ImageModal extends Component {
                   <label>Size</label>
                   <Select
                     resetValue={{}}
-                    value={variant.value}
+                    value={size.value}
                     className={styles.selectInput}
-                    onChange={variant.onChange}
+                    onChange={size.onChange}
                     placeholder="Choose a finish that you like..."
-                    options={variants.map(({ size }, index) =>
-                      ({ value: index.toString(), label: size })
-                    )}
+                    options={sizes.map(value => ({ value, label: value }))}
                   />
-                  {variant.touched && <div>{variant.error}</div>}
+                  {size.touched && <div>{size.error}</div>}
                   <label>Finish</label>
                   <Select
                     resetValue={{}}
-                    value={decoration.value}
+                    value={finish.value}
                     className={styles.selectInput}
-                    onChange={decoration.onChange}
+                    onChange={finish.onChange}
                     placeholder="Choose a size that you like..."
-                    options={decorations.map(value => ({ value, label: value }))}
+                    options={finishes.map(value => ({ value, label: value }))}
                   />
-                  {decoration.touched && <div>{decoration.error}</div>}
+                  {finish.touched && <div>{finish.error}</div>}
                 </div>
                 <div className={styles.addToCartBlock}>
                   <div className={styles.QuantityAdd}>

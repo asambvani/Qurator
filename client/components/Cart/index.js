@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import autobind from 'autobind-decorator'
 import { connect } from 'react-redux'
 import { Grid, Row, Table, Button } from 'react-bootstrap'
+import { find, findIndex } from 'lodash'
 import { cartItems } from 'selectors'
 import * as cartActions from 'actions/cart'
 import CartItem from './CartItem'
@@ -24,10 +25,7 @@ class Cart extends Component {
     resetCart: PropTypes.func.isRequired,
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
+  state = {}
 
   @autobind
   checkout() {
@@ -39,12 +37,11 @@ class Cart extends Component {
     .then(products => shopClient.createCart().then(cart => cart
       .addVariants.apply(
         cart,
-        items.map(({ qty: quantity, variant }, index) => ({
-          variant: products[index].variants[variant],
+        items.map(({ qty: quantity, finish, size }, index) => ({
+          variant: products[index].variants[findIndex(variants, { finish, size })],
           quantity,
         }))
-        )
-      )
+      ))
       .then(cart => {
         location.href = cart.checkoutUrl
       })
@@ -70,7 +67,9 @@ class Cart extends Component {
 
     const total = {
       qty: items.reduce((sum, item) => sum + item.qty, 0),
-      price: money(items.reduce((sum, item) => sum + item.qty * variants[item.variant].price, 0)),
+      price: money(items.reduce((sum, item) =>
+        sum + item.qty * find(variants, { size: item.size }).price
+      , 0)),
     }
 
     return (
