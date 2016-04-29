@@ -25,7 +25,7 @@ class QNavbar extends Component {
 
     return (
       <div className={styles.navbarContainer}>
-        <Navbar className={styles.navBarMain}>
+        <Navbar fluid className={styles.navBarMain}>
           <Navbar.Header className={styles.navBarHeader}>
             <Navbar.Brand>
               <Link to="/" >
