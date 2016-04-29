@@ -8,6 +8,9 @@
   margin-top: 10px;
   margin-bottom: 10px; 
 }
+.navBarMain :global(.container-fluid){
+  max-width: 1830px;
+}
 .navBarMain a{
   color: #333333!important;
   text-transform:uppercase;
