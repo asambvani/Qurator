@@ -121,3 +121,18 @@
     margin: 5px 0 10px; 
   }
 }
+@media (min-width: 550px) and (min-height: 700px) and (max-height: 800px) { 
+  .slide{
+    width: calc(35% - 14px);
+  }
+  }
+@media (min-width: 550px) and (min-height: 800px) and (max-height: 900px) { 
+.slide{
+  width: calc(40% - 14px);
+}
+}
+@media (min-width: 550px) and (min-height: 900px) and (max-height: 1000px) { 
+.slide{
+  width: calc(45% - 14px);
+}
+}
