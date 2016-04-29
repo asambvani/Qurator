@@ -19,6 +19,18 @@
 .carouselItem p{
   font-size: 38px;
 }
+.carouselItem p.launchSale{
+  font-size: 18px;
+  line-height: 28px;
+  color: #ff595f;
+  // text-shadow: 0px 1px 0px #000;
+}
+.carouselItem p.launchSale:global(.white){
+  color:white;
+}
+.carouselItem p.launchSale span.red{
+  color:#000;
+}
 .carouselFeature{
   width: 80%;
   margin: 40px auto 0 ;
@@ -258,3 +270,4 @@ button.btnBlack{
   cursor: hand;
   cursor: pointer;
 }
+

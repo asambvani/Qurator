@@ -8,17 +8,25 @@
 .title {
   text-align: center;
   margin-bottom: 5px;
-  color: #717171;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
 }
 .price{
   text-align: center;
   font-weight: bold;
   margin-bottom: 15px;
+  font-size: 16px;
 }
 .imageBlock{
 	position: relative;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 30px;
+}
+.imageBlock:hover .title{
+	color: #999999;
 }
 .imageBlock:hover .checkItem{
 	display: block;

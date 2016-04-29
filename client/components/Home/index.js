@@ -35,6 +35,9 @@ class Home extends Component {
             <div className="carousel-caption">
               <h3>Qurator</h3>
               <p>For when you want art, but don’t know where to start.</p>
+              <p className={styles.launchSale}>&#34;Launch Sale! For 20% off and free shipping,
+              use the discount code:<span className={styles.yellow}> QURATORLANCH</span>&#34;
+              </p>
               <ButtonsGroup />
             </div>
           </CarouselItem>
@@ -43,7 +46,10 @@ class Home extends Component {
             <div className="carousel-caption">
               <h3 className={styles.white}>Qurator</h3>
               <p className={styles.white}>For when you want art,
-                <br /> but don't know where to start.
+                <br /> but don&#39;t know where to start.
+              </p>
+              <p className={`white ${styles.launchSale}`}>&#34;Launch Sale! For 20% off and free shipping,
+              use the discount code: QURATORLANCH&#34;
               </p>
               <ButtonsGroup />
             </div>
@@ -53,7 +59,10 @@ class Home extends Component {
             <div className="carousel-caption">
               <h3>Qurator</h3>
               <p>
-                For when you want art,<br /> but don't know where to start.
+                For when you want art,<br /> but don&#39;t know where to start.
+              </p>
+              <p className={styles.launchSale}>&#34;Launch Sale! For 20% off and free shipping,
+              use the discount code: QURATORLANCH&#34;
               </p>
               <ButtonsGroup />
             </div>
