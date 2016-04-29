@@ -5,6 +5,7 @@ import styles from './styles'
 const EmailForm = ({
   fields: { name, email },
   handleSubmitClick,
+  handleRestartClick,
 }) => (
   <Grid>
     <h4 className={styles.almostD}> Almost done!</h4>
@@ -33,11 +34,13 @@ const EmailForm = ({
     >
       Submit
     </Button>
-    <div
-      className={styles.skip}
-      onClick={handleSubmitClick}
-    >
-      Skip
+    <div className={styles.subActions}>
+      <a className={styles.action} onClick={handleRestartClick}>
+        Restart the Quiz
+      </a>
+      <a className={styles.action} onClick={handleSubmitClick}>
+        Skip
+      </a>
     </div>
   </Grid>
 )
@@ -45,6 +48,7 @@ const EmailForm = ({
 EmailForm.propTypes = {
   fields: PropTypes.object.isRequired,
   handleSubmitClick: PropTypes.func.isRequired,
+  handleRestartClick: PropTypes.func.isRequired,
 }
 
 export default EmailForm

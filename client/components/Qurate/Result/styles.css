@@ -1,0 +1,26 @@
+.yourPhoto{
+  color:#999999;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 60px;
+}
+.yourPhoto > .justFor{
+  color:#f1d11a;
+}
+@media screen and (max-width: 768px) {
+  .yourPhoto{
+    font-size: 8vw;
+  }
+  .checkItem i{
+    font-size: 20vw;
+  }
+}
+.skip {
+  font-size: 16px;
+  font-weight: 400;
+  color:#999999;
+  margin-bottom: 30px;
+  cursor: pointer;
+  display: block;
+}

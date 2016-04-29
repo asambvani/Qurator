@@ -1,59 +1,64 @@
+.navbarContainer {
+  position: relative;
+  z-index: 2;
+}
 .navBarMain{
-	background-color: #fff;
-	border:none;
+  background-color: #fff;
+  border:none;
 }
 .navBarMain a{
-	color: #333333!important;
-	text-transform:uppercase;
-	font-size:12px;
-	font-family: 'Montserrat', sans-serif;
-
+  color: #333333!important;
+  text-transform:uppercase;
+  font-size:12px;
+  font-family: 'Montserrat', sans-serif;
 }
-.navBarMain a:hover,.navBarMain a:focus,.navBarMain :global(li.active) a{
-	color:#ff3f45!important;
-	background-color:white!important;
+.navBarMain a:hover,
+.navBarMain a:focus,
+.navBarMain :global(li.active) a{
+  color:#ff3f45!important;
+  background-color:white!important;
 }
 .shoppingCart{
-	background-image: url("../../../img/cart.png");
-	width: 37px;
-	height: 37px;
-	display: block;
-	background-repeat: no-repeat;
-	background-size: cover;
+  background-image: url("../../../img/cart.png");
+  width: 37px;
+  height: 37px;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .badgeRed{
-	background: #cc0000;
-	position: absolute;
+  background: #cc0000;
+  position: absolute;
     right: 5px;
     top: 37px;
 
 }
 .navBarMenu,.navBarHeader{
-	margin-top:12px;
+  margin-top:12px;
 }
 .navBar{
-	float:right;
+  float:right;
 }
 .title{
-	text-transform:uppercase;
-	text-align:center;
-	font-size:40px;
-	font-weight:bold;
-	line-height:400px;
-	color:white;
-	height:400px;
+  text-transform:uppercase;
+  text-align:center;
+  font-size:40px;
+  font-weight:bold;
+  line-height:400px;
+  color:white;
+  height:400px;
 }
 :global(.contacts){
-	background: url("../../../img/contact.jpg") 0 0 no-repeat;
+  background: url("../../../img/contact.jpg") 0 0 no-repeat;
 }
 
 :global(.about){
-	background: url("../../../img/header.jpg") 0 0 no-repeat;
+  background: url("../../../img/header.jpg") 0 0 no-repeat;
 }
 :global(.shop) {
   background: url("../../../img/shop.jpg") 0 0 no-repeat;
 }
 
 :global(.cart) {
-	background: url("../../../img/cart.jpg") 0 0 no-repeat;
+  background: url("../../../img/cart.jpg") 0 0 no-repeat;
 }

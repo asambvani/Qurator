@@ -1,6 +1,9 @@
 .tumbnail {
-    width: 200px;
+  width: 200px;
 }
 .imageColumn {
-    width: 1%;
+  width: 1%;
+}
+.resetCart {
+  cursor: pointer;
 }
