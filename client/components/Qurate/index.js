@@ -13,6 +13,8 @@ import EmailForm from './EmailForm'
 import Result from './Result'
 import { reduxForm } from 'redux-form'
 import config from 'services/config'
+import styles from './styles'
+
 
 const { picker: { maxSteps } } = config
 const selector = createSelector(
@@ -137,7 +139,7 @@ class Qurate extends Component {
     ]
 
     return (
-        <Grid>
+        <Grid className={styles.qurateContainer}>
           <div className="text-center">
             {content[qurateStep]}
           </div>

@@ -1,3 +1,4 @@
+
 .reset {
   float: left;
 }
@@ -60,4 +61,9 @@
 .steps li:global(.active){
   background: #525252;
   color:#fff;
+}
+@media screen and (min-width:992px){
+  .qurateContainer{
+  width: 970px;
+}
 }
