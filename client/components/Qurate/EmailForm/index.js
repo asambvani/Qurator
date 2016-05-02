@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Input, Button, Grid } from 'react-bootstrap'
+import { Input, Button } from 'react-bootstrap'
 import styles from './styles'
 
 const EmailForm = ({

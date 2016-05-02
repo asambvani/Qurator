@@ -13,7 +13,7 @@ class Contacts extends Component {
         </a>
         <p>We’d love to hear from you!</p>
         <p>
-          Feel free to contact us at 
+          Feel free to contact us
         </p>
         </div>
         <p className={styles.contactText}>

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Grid, Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import Showcase from 'components/Showcase'
 import styles from './styles'
 

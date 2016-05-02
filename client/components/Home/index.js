@@ -35,8 +35,8 @@ class Home extends Component {
             <div className="carousel-caption">
               <h3>Qurator</h3>
               <p>For when you want art, but don’t know where to start.</p>
-              <p className={styles.launchSale}>&#34;Launch Sale! For 20% off and free shipping,
-              use the discount code:<span className={styles.yellow}> QURATORLANCH</span>&#34;
+              <p className={styles.launchSale}>Launch Sale! For 20% off and free shipping,
+              use the discount code:<span className={styles.yellow}> QURATORLANCH</span>
               </p>
               <ButtonsGroup />
             </div>
@@ -48,8 +48,8 @@ class Home extends Component {
               <p className={styles.white}>For when you want art,
                 <br /> but don&#39;t know where to start.
               </p>
-              <p className={`white ${styles.launchSale}`}>&#34;Launch Sale! For 20% off and free shipping,
-              use the discount code: QURATORLANCH&#34;
+              <p className={`white ${styles.launchSale}`}>Launch Sale! For 20% off and free
+              shipping, use the discount code: QURATORLANCH
               </p>
               <ButtonsGroup />
             </div>
@@ -61,8 +61,8 @@ class Home extends Component {
               <p>
                 For when you want art,<br /> but don&#39;t know where to start.
               </p>
-              <p className={styles.launchSale}>&#34;Launch Sale! For 20% off and free shipping,
-              use the discount code: QURATORLANCH&#34;
+              <p className={styles.launchSale}>Launch Sale! For 20% off and free shipping,
+              use the discount code: QURATORLANCH
               </p>
               <ButtonsGroup />
             </div>
@@ -74,8 +74,8 @@ class Home extends Component {
             <div className="text-center"><h2 className={styles.whatIsH2}>What is Qurator?</h2></div>
             <p className={styles.whatIsP}>
               Our goal is to make the process of purchasing high-quality, affordable,<br />
-              and ready-to-hang art as simple and seamless as possible. We want to <br />
-              up-and-coming artists with customers like you!
+              and ready-to-hang art as simple and seamless as possible. We want to connect<br />
+              up-and-coming artists with customers just like you!
             </p>
             <Grid>
                 <Row>
