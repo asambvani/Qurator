@@ -7,7 +7,7 @@ const EmailForm = ({
   handleSubmitClick,
   handleRestartClick,
 }) => (
-  <Grid>
+  <div>
     <h4 className={styles.almostD}> Almost done!</h4>
     <h1 className={styles.enterEmail}>Please enter your e-mail <br />to see your results</h1>
     <div className={styles.subHeader}>Don't worry we won't spam you</div>
@@ -42,7 +42,7 @@ const EmailForm = ({
         Skip
       </a>
     </div>
-  </Grid>
+  </div>
 )
 
 EmailForm.propTypes = {
