@@ -4,7 +4,7 @@ import Showcase from 'components/Showcase'
 import styles from './styles'
 
 const Result = ({ images, name, handleRestartClick }) => (
-  <Grid>
+  <div>
     <Row>
       <h3 className={styles.yourPhoto}>
         {name ? `${name},` : ''} here are the photos <br />
@@ -15,7 +15,7 @@ const Result = ({ images, name, handleRestartClick }) => (
       </a>
       <Showcase {...{ images }} />
     </Row>
-  </Grid>
+  </div>
 )
 
 Result.propTypes = {
