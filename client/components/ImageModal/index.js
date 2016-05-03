@@ -84,15 +84,6 @@ class ImageModal extends Component {
                 <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
                 <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
               </div>
-              <div className={styles.author} >
-                <div className={styles.artistImage} >
-                  <img src={`${prefix.large}${image.url}`} />
-                </div>
-                <div className={styles.artistData} >
-                  <div className={styles.artistName} >{image.artist}</div>
-                  <div className={styles.artistBio} ></div>
-                </div>
-              </div>
             </Col>
             <Col md={7}>
               <div className={`close ${styles.closeBtn}`} onClick={onClose}>
