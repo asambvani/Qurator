@@ -36,7 +36,7 @@ class Home extends Component {
               <h3>Qurator</h3>
               <p>For when you want art, but don’t know where to start.</p>
               <p className={styles.launchSale}>Launch Sale! For 20% off and free shipping,
-              use the discount code:<span className={styles.yellow}> QURATORLANCH</span>
+              use the discount code:<span className={styles.yellow}> QURATORLAUNCH</span>
               </p>
               <ButtonsGroup />
             </div>
@@ -49,7 +49,7 @@ class Home extends Component {
                 <br /> but don&#39;t know where to start.
               </p>
               <p className={`white ${styles.launchSale}`}>Launch Sale! For 20% off and free
-              shipping, use the discount code: QURATORLANCH
+              shipping, use the discount code: QURATORLAUNCH
               </p>
               <ButtonsGroup />
             </div>
@@ -62,7 +62,7 @@ class Home extends Component {
                 For when you want art,<br /> but don&#39;t know where to start.
               </p>
               <p className={styles.launchSale}>Launch Sale! For 20% off and free shipping,
-              use the discount code: QURATORLANCH
+              use the discount code: QURATORLAUNCH
               </p>
               <ButtonsGroup />
             </div>
