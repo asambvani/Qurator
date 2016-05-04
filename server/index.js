@@ -9,45 +9,44 @@ import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig from '../webpack.config'
 import db from './db'
+import log from './log'
 import router from './api'
 
 const app = express()
 const compiler = webpack(webpackConfig)
 const port = config.get('port')
 
-app.use(logger('dev'))
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-app.use('/api', router)
-app.use(history())
+db(config.get('db'), log).then(() => {
+  app.use(logger('dev'))
+  app.use(bodyParser.urlencoded({ extended: true }))
+  app.use(bodyParser.json())
+  app.use('/api', router)
+  app.use(history())
 
-if (process.env.NODE_ENV !== 'production') {
-  app.use(webpackDevMiddleware(compiler, {
-    hot: true,
-    noInfo: true,
-    publicPath: webpackConfig.output.publicPath,
-    historyApiFallback: true,
-    stats: {
-      hash: false,
-      colors: true,
-      timings: true,
-      chunks: true,
-      assets: false,
-      version: false,
-      children: false,
-      chunkModules: false,
-    },
-  }))
+  if (process.env.NODE_ENV !== 'production') {
+    app.use(webpackDevMiddleware(compiler, {
+      hot: true,
+      noInfo: true,
+      publicPath: webpackConfig.output.publicPath,
+      historyApiFallback: true,
+      stats: {
+        hash: false,
+        colors: true,
+        timings: true,
+        chunks: true,
+        assets: false,
+        version: false,
+        children: false,
+        chunkModules: false,
+      },
+    }))
 
-  app.use(webpackHotMiddleware(compiler))
-}
+    app.use(webpackHotMiddleware(compiler))
+  }
 
-app.use('/img', express.static(path.join(__dirname, '../img')))
-app.use(express.static(path.join(__dirname, '../public')))
-
-const listen = () => {
+  app.use('/img', express.static(path.join(__dirname, '../img')))
+  app.use(express.static(path.join(__dirname, '../public')))
   app.listen(port)
-  console.log(`🔥 Listening at http://localhost:${port}`)
-}
+  log(`Listening at http://localhost:${port}`)
+})
 
-db.once('open', listen)
