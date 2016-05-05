@@ -5,7 +5,7 @@
 }
 .innerContainer h3{
 	font-family: 'Montserrat', sans-serif;
-	font-size: 18px;
+	font-size: 24px;
 }
 .innerContainer h3:after{
 	content: '';
@@ -17,7 +17,7 @@
 }
 .innerContainer p{
 	color: #999999;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 28px;
 	margin: 30px 0;
 }

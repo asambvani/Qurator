@@ -62,8 +62,3 @@
   background: #525252;
   color:#fff;
 }
-@media screen and (min-width:992px){
-  .qurateContainer{
-  width: 750px;
-}
-}

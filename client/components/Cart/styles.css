@@ -104,3 +104,11 @@
 .grey{
 	color: #999;
 }
+.empty{
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-top: 80px;
+	padding-bottom: 80px;
+}

@@ -76,7 +76,7 @@ class Cart extends Component {
       <Grid>
         <Row>
           {items.length === 0 ?
-            <div>Your cart is empty</div>
+            <div className={styles.empty}><h3>Your cart is empty</h3></div>
             :
             <Grid className={styles.cartContainer}>
               <h2>Your cart items</h2>

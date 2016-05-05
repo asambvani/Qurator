@@ -100,6 +100,7 @@
 @media (min-width: 550px) and (max-height:1000px) { 
   .picker{
     width: 100%;
+    margin-top: 0px;
   }
   .startButton{
     width: 26vw;
@@ -120,10 +121,13 @@
   .stepsCircles{
     margin: 5px 0 10px; 
   }
+  .pickHeader{
+    margin-top: 0px;
+  }
 }
 @media (min-width: 550px) and (min-height: 700px) and (max-height: 800px) { 
   .slide{
-    width: calc(35% - 14px);
+    width: calc(34% - 14px);
   }
   }
 @media (min-width: 550px) and (min-height: 800px) and (max-height: 900px) { 
