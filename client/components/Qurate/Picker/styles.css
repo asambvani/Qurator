@@ -140,3 +140,15 @@
   width: calc(45% - 14px);
 }
 }
+@media (min-width: 1200px){
+  .imageItems{
+  max-width: 750px;
+  margin: auto;
+}
+.startButton{
+    width: 320px;
+    height: 90px;
+    font-size: 34px;
+    margin-top: 0px;
+  }
+}
