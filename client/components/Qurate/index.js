@@ -78,10 +78,14 @@ class Qurate extends Component {
     this.moveQurateForward()
   }
 
+  allPickerImages = []
+
   @autobind
   showNextPicker() {
-    const { selectedImages, imagesForPicker } = this.props
-    imagesForPicker(selectedImages)
+    const { imagesForPicker, picker: { images } } = this.props
+    const pickerImages = images.map(({ id }) => id)
+    this.allPickerImages = this.allPickerImages.concat(pickerImages)
+    imagesForPicker(this.allPickerImages)
   }
 
   @autobind

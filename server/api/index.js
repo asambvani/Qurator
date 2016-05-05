@@ -6,26 +6,6 @@ import shuffle from 'lodash/shuffle'
 const Image = mongoose.model('Image')
 const router = express.Router()
 
-// router.get('/cart', () => {
-//   res.json([
-//     {
-//       size,
-//       id,
-//       count
-//     }
-//   ])
-// })
-//
-// router.post('/cart', () => {
-//   res.json([
-//     {
-//       size,
-//       id,
-//       count
-//     }
-//   ])
-// })
-
 router.post('/images/tags', async(req, res) => {
   try {
     const images = await Image.list(req.body)
@@ -53,14 +33,5 @@ router.post('/images/picker', async(req, res) => {
     res.status(500).send({ error: err.message })
   }
 })
-
-// router.post('/shopify', () => {
-//   //reset cart if shopiufy ok
-//   //else keep cart
-//   {
-//     sessionId,
-//     result
-//   }
-// })
 
 export default router

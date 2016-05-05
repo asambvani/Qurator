@@ -81,8 +81,8 @@ class ImageModal extends Component {
               </div>
               <div className={styles.threeImagesBlock} >
                 <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
-                <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
-                <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
+                <img src="/img/thumb2.jpg" className={styles.threeImage} />
+                <img src="/img/thumb3.jpg" className={styles.threeImage} />
               </div>
             </Col>
             <Col md={7}>
@@ -161,7 +161,7 @@ class ImageModal extends Component {
           Prev
         </Button>
         <Button
-          className={currentIndex === imagesCount ? 'hidden' : styles.navButtonRight}
+          className={currentIndex === imagesCount - 1 ? 'hidden' : styles.navButtonRight}
           onClick={handleNextClick}
         >
           Next
