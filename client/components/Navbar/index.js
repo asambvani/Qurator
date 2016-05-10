@@ -27,13 +27,13 @@ class QNavbar extends Component {
       <div className={styles.navbarContainer}>
         <Navbar fluid className={styles.navBarMain}>
           <Navbar.Header className={styles.navBarHeader}>
-          <Navbar.Toggle />
+            <Navbar.Toggle />
             <Navbar.Brand className={styles.navBarBrand}>
               <Link to="/" >
                 <img src="/img/logo.jpg" />
               </Link>
             </Navbar.Brand>
-            <Nav pullRight className={[styles.navBarMenu, styles.navBarCart]} lgHidden>
+            <Nav pullRight className={cn(styles.navBarMenu, styles.navBarCart)} lgHidden>
               <LinkContainer to="/cart" >
                 <NavItem>
                   <i className={styles.shoppingCart} />
@@ -44,9 +44,7 @@ class QNavbar extends Component {
                 </NavItem>
               </LinkContainer>
             </Nav>
-            
           </Navbar.Header>
-
           <Navbar.Collapse className={styles.navBar}>
             <Nav className={styles.navBarMenu}>
               <LinkContainer to="/" >
