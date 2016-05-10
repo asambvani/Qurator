@@ -32,8 +32,7 @@ class Home extends Component {
         <Carousel className={styles.carousel}>
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/firstSlide.jpg" />
-            <div className="carousel-caption">
-              <h3>Qurator</h3>
+            <div className={`carousel-caption ${styles.carouselCaption}`}>
               <p>For when you want art, but don’t know where to start.</p>
               <p className={styles.launchSale}>Launch Sale! For 20% off and free shipping,
               use the discount code:<span className={styles.yellow}> QURATORLAUNCH</span>
@@ -43,8 +42,7 @@ class Home extends Component {
           </CarouselItem>
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/secondSlide.jpg" />
-            <div className="carousel-caption">
-              <h3 className={styles.white}>Qurator</h3>
+            <div className={`carousel-caption ${styles.carouselCaption}`}>
               <p className={styles.white}>For when you want art,
                 <br /> but don&#39;t know where to start.
               </p>
@@ -56,8 +54,7 @@ class Home extends Component {
           </CarouselItem>
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/thirdSlide.jpg" />
-            <div className="carousel-caption">
-              <h3>Qurator</h3>
+            <div className={`carousel-caption ${styles.carouselCaption}`}>
               <p>
                 For when you want art,<br /> but don&#39;t know where to start.
               </p>
@@ -77,7 +74,7 @@ class Home extends Component {
               and ready-to-hang art as simple and seamless as possible. We want to connect<br />
               up-and-coming artists with customers just like you!
             </p>
-            <Grid>
+            <Grid className={styles.redBlockMob}>
                 <Row>
                   <Col md={4} xs={12}>
                     <div className={styles.firstBlock}>
@@ -137,14 +134,15 @@ class Home extends Component {
           </Col>
         </Row>
          <Row>
-          <Col md={12} className={styles.feature}>
-            <img width="100%" height="267px" src="/img/artist.jpg" />
+          <Col md={12} className={styles.contactSection}>
+            <div className={styles.contactSectionBackground}>
             <p>
               To become an artist, send an email to<br />
                 <a href="mailto:artists@qurator-art.com">artists@qurator-art.com</a><br />
                 with a link to your Instagram account and / or portfolio.<br />
                 We’d love to hear from you!
             </p>
+            </div>
           </Col>
         </Row>
       </Grid>

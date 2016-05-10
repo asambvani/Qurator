@@ -48,6 +48,9 @@
 .carouselFeatureItem > div:last-child{
   margin-right: 12%;
 }
+.carouselCaption{
+  top: 60px;
+}
 .preview {
   width: 100%;
   text-align: center;
@@ -229,27 +232,23 @@ button.btnBlack{
   text-align: center;
   padding-top: 60px;
 }
-.feature{
+.feature,.contactSection{
   width: 100%;
   height: auto;
   margin-top: 10px;
   position: relative;
+  
 
 }
-.feature p{
-  position: absolute;
-    display: block;
-    top: 0;
+
+.contactSection p{
+        position: relative;
     color: white;
-    width: 80%;
-    left:10%;
-    right: 10%;
-    top: 60px;
     text-align: center;
     text-transform: uppercase;
     font-size: 23px;
 }
-.feature p a{
+.contactSection p a{
   color: #e9c706;
   font-size: 34px;
 }
@@ -257,6 +256,10 @@ button.btnBlack{
 .featureSection{
     background: #f3f3f3;
     padding: 60px 0;
+}
+.contactSectionBackground{
+  background: url("/img/artist.jpg") 0 0 no-repeat;
+  padding: 40px 20px;
 }
 :global(.featureIcon){
   padding: 12px 15px;
@@ -275,6 +278,75 @@ button.btnBlack{
     width: 100%;
     height: auto;
     background-size: cover;
-    padding: 40px 20px;
+    padding: 40px 10px;
+  }
+  .firstBlock p, .secondBlock p, .thirdBlock p{
+    font-size: 16px;
+  }
+  .whatIsSection{
+    padding: 40px 15px;
+  }
+  .whatIsH2{
+    font-size: 24px;
+  }
+  .whatIsP{
+    font-size: 16px;
+  }
+  .contactSection p{
+    font-size: 16px;
+    line-height: 32px;
+  }
+  .contactSection p a{
+    font-size: 18px;
+  }
+  .carouselItem > img{
+    min-height: 500px!important;
+  }
+  .carouselCaption{
+    top:10px;
+  }
+  .carouselItem p{
+  font-size: 24px;
+  }
+  .buttonsGroup p{
+  font-size: 14px;
+  }
+  .buttonsGroup{
+    margin-top: 40px;
+  }
+  button.btnYellow{
+    margin: 15px 0;
+  }
+  .redBlockMob{
+    padding: 0;
   }
 }
+@media (max-width: 480px){
+  .carouselItem p{
+  font-size: 6vw;
+  }
+  .carouselItem p.launchSale{
+    font-size: 5vw;
+  }
+  .carouselCaption{
+    width: 90%;
+    left: 5%;
+  }
+  
+  .buttonsGroup p{
+  font-size: 14px;
+  }
+  .arrowBtn{
+    display: none;
+  }
+  button.btnYellow,button.btnBlack{
+    width: 200px;
+    height: 50px;
+  }
+  button.btnYellow{
+    margin: 5px 0;
+  }
+  .buttonsGroup{
+    margin-top: 25px;
+  }
+  }

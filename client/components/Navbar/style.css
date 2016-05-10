@@ -67,3 +67,44 @@
 :global(.cart) {
   background: url("../../../img/cart.jpg") 50% 0 no-repeat;
 }
+@media (max-width: 768px){
+  .navBar{
+    width: 50%;
+    text-align: left;
+    float: left;
+  }
+  .shoppingCart{
+    float: right;
+    clear: both;
+  }
+  .navBarBrand{
+    position: absolute;
+    left: 35%;
+    top:0;
+  }
+  .navBarHeader{
+    margin: 12px 0!important;
+  }
+  .navBarHeader > button{
+    float: left;
+    border:0px;
+  }
+  .navBarHeader > button:hover,.navBarHeader > button:hover{
+    background-color:transparent!important; 
+  }
+  .navBarHeader > button span{
+    background-color: #000!important;
+  }
+  .navBarCart{
+    float: right;
+    margin: 0;
+  }
+  .navBarCartLG{
+    display: none;
+  }
+}
+@media (min-width: 768px){
+  .navBarCart{
+    display: none;
+  }
+}

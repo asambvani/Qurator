@@ -13,7 +13,7 @@
 }
 
 .navButtonPrev {
-  display: inline-block;
+  display: block;
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: left top 0;
@@ -27,9 +27,8 @@
 }
 
 .navButtonRight {
-  display: inline-block;
-  float: right;
-      position: absolute;
+    display: block;
+    position: absolute;
     transform: rotate(-90deg);
     transform-origin: left top 0;
     right:-15px;
@@ -124,6 +123,9 @@
     font-weight: 400;
     padding: 0 8px;
     font-size: 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .closeBtn i{
   font-size: 24px;
@@ -254,4 +256,35 @@ input[type=number] {
 .artistData{
   display: inline-block;
   vertical-align: top;
+}
+@media (max-width: 768px){
+  .modalBody{
+  padding: 80px 10px 30px;
+
+}
+  .navButtonRight{
+    top: 40px;
+    transform: none;
+    right: 0;
+  }
+  .navButtonPrev{
+    top: 40px;
+    transform: none;
+    left: 0;
+  }
+  .modalContent{
+    position: absolute;
+  }
+  .modalContentRight{
+    margin-top: 15px;
+  }
+  .title{
+    text-align: center;
+  }
+  .selectDiv label{
+    margin: 10px auto 5px;
+  }
+  :global(.modal-backdrop){
+    // position: absolute;
+  }
 }

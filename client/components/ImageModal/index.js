@@ -74,6 +74,9 @@ class ImageModal extends Component {
     return (
       <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
         <Modal.Body className={styles.modalBody}>
+        <div className={`close ${styles.closeBtn}`} onClick={onClose}>
+                <i className="icon icon_close"></i>
+              </div>
           <Row>
             <Col md={5}>
               <div className="image">
@@ -85,10 +88,7 @@ class ImageModal extends Component {
                 <img src="/img/thumb3.jpg" className={styles.threeImage} />
               </div>
             </Col>
-            <Col md={7}>
-              <div className={`close ${styles.closeBtn}`} onClick={onClose}>
-                <i className="icon icon_close"></i>
-              </div>
+            <Col md={7} className={styles.modalContentRight}>
               <h2 className={styles.title}>{image.title}</h2>
               {variant &&
               <p className={styles.price}>
