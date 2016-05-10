@@ -270,4 +270,11 @@ button.btnBlack{
   cursor: hand;
   cursor: pointer;
 }
-
+@media (max-width: 991px){
+  .firstBlock, .secondBlock, .thirdBlock{
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    padding: 40px 20px;
+  }
+}

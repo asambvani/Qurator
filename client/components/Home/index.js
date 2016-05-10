@@ -79,7 +79,7 @@ class Home extends Component {
             </p>
             <Grid>
                 <Row>
-                  <Col md={4}>
+                  <Col md={4} xs={12}>
                     <div className={styles.firstBlock}>
                       <i className="fa fa-picture-o" aria-hidden="true"></i>
                       <h3>Qurate</h3>
@@ -92,7 +92,7 @@ class Home extends Component {
                       </p>
                     </div>
                   </Col>
-                  <Col md={4}>
+                  <Col md={4} xs={12}>
                     <div className={styles.secondBlock}>
                       <i className="fa fa-star" aria-hidden="true"></i>
                       <h3>Unique</h3>
@@ -105,7 +105,7 @@ class Home extends Component {
                       </p>
                     </div>
                   </Col>
-                  <Col md={4}>
+                  <Col md={4} xs={12}>
                     <div className={styles.thirdBlock}>
                       <i className="fa fa-rocket" aria-hidden="true"></i>
                       <h3>Seamless</h3>
