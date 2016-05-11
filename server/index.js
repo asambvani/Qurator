@@ -2,8 +2,10 @@ import path from 'path'
 import express from 'express'
 import config from 'config'
 import logger from 'morgan'
-import bodyParser from 'body-parser'
 import webpack from 'webpack'
+import bodyParser from 'body-parser'
+import session from 'express-session'
+import connectMongo from 'connect-mongo'
 import history from 'connect-history-api-fallback'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
@@ -15,11 +17,18 @@ import router from './api'
 const app = express()
 const compiler = webpack(webpackConfig)
 const port = config.get('port')
+const mongoStore = connectMongo(session)
 
-db(config.get('db'), log).then(() => {
+db(config.get('db'), log).then(({ connection }) => {
   app.use(logger('dev'))
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(bodyParser.json())
+  app.use(session({
+    secret: 'qurator',
+    store: new mongoStore({ mongooseConnection: connection }),
+    resave: true,
+    saveUninitialized: true,
+  }))
   app.use('/api', router)
   app.use(history())
 
@@ -48,4 +57,4 @@ db(config.get('db'), log).then(() => {
   app.use(express.static(path.join(__dirname, '../public')))
   app.listen(port)
   log(`Listening at http://localhost:${port}`)
-})
+}).catch(e => console.log(e))

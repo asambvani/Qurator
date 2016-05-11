@@ -21,6 +21,7 @@ export default (mongoUrl, fatalLog) => {
     'disconnected',
     'close',
   ]
+
   eventTypes.forEach(event => {
     db.on(event, msg => {
       if (msg) {
