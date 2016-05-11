@@ -77,14 +77,14 @@ class ImageModal extends Component {
         <div className={`close ${styles.closeBtn}`} onClick={onClose}>
                 <i className="icon icon_close"></i>
               </div>
-          <Row>
+          <Row className={styles.firstRow}>
             <Col md={5}>
               <div className="image">
                 <img src={`${prefix.large}${image.url}`} className={styles.image} />
               </div>
               <div className={styles.threeImagesBlock} >
-                <img src={`${prefix.large}${image.url}`} className={styles.threeImage} />
                 <img src="/img/thumb2.jpg" className={styles.threeImage} />
+                <img src="/img/thumb1.jpg" className={styles.threeImage} />
                 <img src="/img/thumb3.jpg" className={styles.threeImage} />
               </div>
             </Col>
@@ -152,9 +152,7 @@ class ImageModal extends Component {
                 </div>
               </form>
             </Col>
-          </Row>
-        </Modal.Body>
-        <Button
+             <Button
           className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
           onClick={handlePrevClick}
         >
@@ -166,6 +164,22 @@ class ImageModal extends Component {
         >
           Next
         </Button>
+          </Row>
+          <Row className={styles.secondRow}>
+            <Col className={styles.artistImage} md={2}>
+               <img src="/img/johnDow.png" className={`img-circle ${styles.threeImage}`} />
+            </Col>
+            <Col className={styles.artistData} md={10}>
+                <p className={styles.artistName}>jOHN DOE</p>
+@Thesailor
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
+            
+              <div className={styles.minimize}> Minimize </div>
+            </Col>
+
+          </Row>
+        </Modal.Body>
+       
       </Modal>
     )
   }

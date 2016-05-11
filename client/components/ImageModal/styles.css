@@ -51,9 +51,19 @@
   border-radius: 0px;
 }
 .modalBody{
-  padding: 50px 60px;
+  padding: 0;
   border-radius: 0px;
 
+}
+.firstRow{
+  padding: 50px 60px;
+  position: relative;
+  margin: 0;
+}
+.secondRow{
+  background:#020202;
+  margin: 0;
+  padding: 40px 60px; 
 }
 .title{
   margin-top: 0px;
@@ -124,8 +134,9 @@
     padding: 0 8px;
     font-size: 24px;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 60px;
+    top: 40px;
+    z-index: 999;
 }
 .closeBtn i{
   font-size: 24px;
@@ -248,29 +259,45 @@ input[type=number] {
   margin-right: 15px;
 }
 .artistImage img{
-  width: 80px;
+  width: 115px;
   border-radius: 100%;
-  height: 80px;
+  height: 115px;
+  border: 5px solid white;
 
 }
 .artistData{
   display: inline-block;
   vertical-align: top;
+  width: 80%;
+  color: white;
+}
+.minimize{
+  font-style: italic;
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
 }
 @media (max-width: 768px){
-  .modalBody{
-  padding: 80px 10px 30px;
+.firstRow{
+  padding: 80px 30px 20px;
 
+}
+.secondRow{
+  padding: 20px 30px; 
 }
   .navButtonRight{
     top: 40px;
     transform: none;
-    right: 0;
+    right: 30px;
   }
   .navButtonPrev{
     top: 40px;
     transform: none;
-    left: 0;
+    left: 30px;
+  }
+  .closeBtn{
+    top: 0;
+    right: 0;
   }
   .modalContent{
     position: absolute;
