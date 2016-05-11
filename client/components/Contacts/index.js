@@ -19,9 +19,9 @@ class Contacts extends Component {
         <p className={styles.contactText}>
           If you are an artist interested in joining our platform,<br />
           please send an email with your Instagram handle and / or
-          a link <br /> to your portfolio to artists@qurator-art.com.
+          a link <br /> to your portfolio to <a href="mailto:artists@qurator-art.com" >artists@qurator-art.com</a>.
         </p>
-        <p className={styles.contactSign}>
+        <p className={styles.contactText}>
           Love,<br />
           The Qurator Team
         </p>
