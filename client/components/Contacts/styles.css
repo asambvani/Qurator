@@ -39,12 +39,6 @@
 .contactText span{
 	line-height: 28px;
 }
-.contactSign{
-	    text-transform: uppercase;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 30px;
-}
 @media screen and (max-width: 400px){
 	.contactBox{
 		width: 90%;

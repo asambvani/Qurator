@@ -81,7 +81,7 @@ class Filter extends Component {
             />
             <div className="form-group">
               <label className="control-label">
-                <span>Artist</span>
+                <span>Filter by artist</span>
               </label>
               <Select
                 resetValue={{}}
@@ -92,7 +92,7 @@ class Filter extends Component {
             </div>
             <div className="form-group">
               <label className="control-label">
-                <span>Tags</span>
+                <span>Filter by tags</span>
               </label>
               <TagsInput
                 autofocus={false}
