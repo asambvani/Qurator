@@ -4,6 +4,7 @@ import autobind from 'autobind-decorator'
 import { Modal, Button, Input, Row, Col } from 'react-bootstrap'
 import Select from 'react-select'
 import { find } from 'lodash'
+import cn from 'classnames'
 import { addToCart as addToCartAction } from 'actions/cart'
 import config from 'services/config'
 import configShared from '../../../shared/config'
@@ -43,6 +44,8 @@ class ImageModal extends Component {
     values: PropTypes.object,
   }
 
+  state = { minimized: false }
+
   @autobind
   addToCart() {
     const {
@@ -53,6 +56,11 @@ class ImageModal extends Component {
     addToCart({ id, size, qty: parseInt(qty, 10), finish })
     onClose()
     resetForm()
+  }
+
+  @autobind
+  toggleMinimize() {
+    this.setState({ minimized: !this.state.minimized })
   }
 
   render() {
@@ -72,11 +80,18 @@ class ImageModal extends Component {
     const variant = find(variants, { size: values.size }) || variants[0]
 
     return (
-      <Modal show={isActive} onHide={onClose} bsSize="large" className={styles.modalContent}>
-        <Modal.Body className={styles.modalBody}>
-        <div className={`close ${styles.closeBtn}`} onClick={onClose}>
-                <i className="icon icon_close"></i>
-              </div>
+      <Modal
+        show={isActive}
+        onHide={onClose}
+        bsSize="large"
+        className={cn(styles.modalContent)}
+      >
+        <Modal.Body
+          className={cn(styles.modalBody, { [styles.minimized]: this.state.minimized })}
+        >
+          <div className={`close ${styles.closeBtn}`} onClick={onClose}>
+            <i className="icon icon_close"></i>
+          </div>
           <Row className={styles.firstRow}>
             <Col md={5}>
               <div className="image">
@@ -90,10 +105,11 @@ class ImageModal extends Component {
             </Col>
             <Col md={7} className={styles.modalContentRight}>
               <h2 className={styles.title}>{image.title}</h2>
-              {variant &&
-              <p className={styles.price}>
-                ${values.qty * variant.price}
-              </p>
+              {
+                variant &&
+                <p className={styles.price}>
+                  ${values.qty * variant.price}
+                </p>
               }
               <form className="form">
                 <div className={styles.selectDiv}>
@@ -152,34 +168,41 @@ class ImageModal extends Component {
                 </div>
               </form>
             </Col>
-             <Button
-          className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
-          onClick={handlePrevClick}
-        >
-          Prev
-        </Button>
-        <Button
-          className={currentIndex === imagesCount - 1 ? 'hidden' : styles.navButtonRight}
-          onClick={handleNextClick}
-        >
-          Next
-        </Button>
+            <Button
+              className={currentIndex === 0 ? 'hidden' : styles.navButtonPrev}
+              onClick={handlePrevClick}
+            >
+              Prev
+            </Button>
+            <Button
+              className={currentIndex === imagesCount - 1 ? 'hidden' : styles.navButtonRight}
+              onClick={handleNextClick}
+            >
+              Next
+            </Button>
           </Row>
           <Row className={styles.secondRow}>
-            <Col className={styles.artistImage} md={2}>
-               <img src="/img/johnDow.png" className={`img-circle ${styles.threeImage}`} />
-            </Col>
-            <Col className={styles.artistData} md={10}>
+            <div className={styles.artistInfo}>
+              <Col className={styles.artistImage} md={2}>
+                 <img src="/img/johnDow.png" className={`img-circle ${styles.threeImage}`} />
+              </Col>
+              <Col className={styles.artistData} md={10}>
                 <p className={styles.artistName}>jOHN DOE</p>
-@Thesailor
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
-            
-              <div className={styles.minimize}> Minimize </div>
-            </Col>
-
+                @Thesailor
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
+              </Col>
+            </div>
+            <div
+              className={styles.minimize}
+              onClick={this.toggleMinimize}
+            >
+              { this.state.minimized ? 'Expand' : 'Minimize' }
+            </div>
           </Row>
         </Modal.Body>
-       
       </Modal>
     )
   }

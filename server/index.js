@@ -49,4 +49,3 @@ db(config.get('db'), log).then(() => {
   app.listen(port)
   log(`Listening at http://localhost:${port}`)
 })
-
