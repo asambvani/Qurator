@@ -279,21 +279,21 @@ input[type=number] {
 }
 @media (max-width: 768px){
 .firstRow{
-  padding: 80px 30px 20px;
+  padding: 80px 15px 20px;
 
 }
 .secondRow{
-  padding: 20px 30px; 
+  padding: 20px 15px; 
 }
   .navButtonRight{
     top: 40px;
     transform: none;
-    right: 30px;
+    right: 15px;
   }
   .navButtonPrev{
     top: 40px;
     transform: none;
-    left: 30px;
+    left: 15px;
   }
   .closeBtn{
     top: 0;
@@ -306,12 +306,20 @@ input[type=number] {
     margin-top: 15px;
   }
   .title{
-    text-align: center;
+    text-align: left;
   }
   .selectDiv label{
     margin: 10px auto 5px;
   }
   :global(.modal-backdrop){
     // position: absolute;
+  }
+  .artistData{
+    margin-top: 10px;
+  }
+}
+@media (max-width: 414px){
+  .addToCartBlock button{
+    margin-top: 10px;
   }
 }
