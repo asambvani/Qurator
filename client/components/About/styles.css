@@ -52,7 +52,7 @@ ul.quratorImg li > a{
 	position: relative;
 	display: block;
 }
-ul.quratorImg li:hover div.overlay{ 
+ul.quratorImg li:hover a:after{ 
 	background: rgba(0,0,0,0.55);
     width: 100%;
     height: 100%;
@@ -61,10 +61,12 @@ ul.quratorImg li:hover div.overlay{
     display: block;
     top: 0;
     left: 0;
+    content: "";
 }
-ul.quratorImg li:hover > div{
+ul.quratorImg li:hover > a p.qName{
 	display: block;
 	z-index: 2;
+
 }
 
 ul.quratorImg li > div{
@@ -79,41 +81,18 @@ ul.quratorImg li > div{
 	width: 100%;
 
 }
-ul.quratorImg .firstRow{
-	width: 100%;
-	position: relative;
-	left: 0;
-    bottom: 0;
-}
 ul.quratorImg .qName{
 	font-size: 14px;
-	text-align: left;
-	margin: 0px;
-	color: white;
-	display: inline-block;
+    text-align: left;
+    margin: 0px;
+    color: white;
+    display: none;
+    bottom: 20px;
+    left: 30%;
+    text-transform: uppercase;
+    position: absolute;
 }
-ul.quratorImg .qSocial{
-	text-align: right;
-	margin:0px;
-	display: inline-block;
-	margin-left: 10px;
-	float: right;
-	margin-right: 20px;
-}
-ul.quratorImg .qSocial a{
-	color:white;
-	margin-right: 5px;
-}
-ul.quratorImg .qSocial a:hover{
-	text-decoration: none;
-	color: #e9c706;
-}
-ul.quratorImg .qTitle{
-	color:#ccc;
-	margin:0px;
-	font-size: 12px;
-	line-height: 16px;
-}
+
 @media screen and (max-width: 768px){
 	.innerContainer{
 		width: 100%;

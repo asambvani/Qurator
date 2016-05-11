@@ -57,31 +57,37 @@ class Contacts extends Component {
             <li>
               <a>
                 <img src="../../../img/quratorImg1.jpg" height="370" width="370" />
+                <p className={styles.qName}>Alejandra Rios</p>
               </a>
             </li>
             <li>
               <a>
                 <img src="../../../img/quratorImg2.jpg" height="370" width="370" />
+                <p className={styles.qName}>Alex Sambvani</p>
               </a>
             </li>
             <li>
               <a>
                 <img src="../../../img/quratorImg3.jpg" height="370" width="370" />
+                <p className={styles.qName}>Danielle Even</p>
               </a>
             </li>
             <li>
               <a>
                 <img src="../../../img/quratorImg4.jpg" height="370" width="370" />
+                <p className={styles.qName}>Ian Clow</p>
               </a>
             </li>
             <li>
               <a>
                 <img src="../../../img/quratorImg5.jpg" height="370" width="370" />
+                <p className={styles.qName}>Mark Mason</p>
               </a>
             </li>
             <li>
               <a>
                 <img src="../../../img/quratorImg6.jpg" height="370" width="370" />
+                <p className={styles.qName}>Peter Curran</p>
               </a>
             </li>
           </ul>
