@@ -7,7 +7,7 @@ console.log(`Connecting to ${config.get('db')}`)
 export default (mongoUrl, fatalLog) => {
   mongoose.connect(mongoUrl, {
     server: {
-      socketOptions: { keepAlive: 1, connectTimeoutMS: 10000 },
+      socketOptions: { keepAlive: 10000, connectTimeoutMS: 10000 },
       reconnectTries: 60 * 60 * 24 * 30,
       reconnectInterval: 1000,
     },
