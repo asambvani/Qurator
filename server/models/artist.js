@@ -4,6 +4,7 @@ const log = console.log.bind(console)
 const error = console.error.bind(console)
 
 const ArtistSchema = mongoose.Schema({
+  _id: Number,
   bio: String,
   name: String,
   image: String,

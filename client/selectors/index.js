@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect'
-import { toArray, uniq } from 'lodash'
+import { toArray, uniqBy } from 'lodash'
 
 export const allArtists = createSelector(
   (state) => state.entities.images,
-  (images) => uniq(toArray(images).map(image => image.artist))
+  (images) => uniqBy(toArray(images).map(image => image.artist), 'id')
 )
 
 export const allTags = createSelector(

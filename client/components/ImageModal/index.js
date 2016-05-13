@@ -78,6 +78,8 @@ class ImageModal extends Component {
       values,
     } = this.props
 
+    const { artist } = image
+    console.log(artist)
     const variant = find(variants, { size: values.size }) || variants[0]
 
     return (
@@ -182,18 +184,17 @@ class ImageModal extends Component {
               Next
             </Button>
           </Row>
-          {false && <Row className={styles.secondRow} >
-            <div className={styles.artistInfo} >
-              <Col className={styles.artistImage} md={2} >
-                <img src="/img/johnDow.png" className={`img-circle ${styles.threeImage}`} />
+          <Row className={styles.secondRow}>
+            <div className={styles.artistInfo}>
+              <Col className={styles.artistImage} md={2}>
+                 <img
+                   src={`/img/artists/${artist.image}`}
+                   className={`img-circle ${styles.threeImage}`}
+                 />
               </Col>
-              <Col className={styles.artistData} md={10} >
-                <p className={styles.artistName} >jOHN DOE</p>
-                @Thesailor
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
+              <Col className={styles.artistData} md={10}>
+                <p className={styles.artistName}>{artist.name}</p>
+                @{artist.instagram} {artist.bio}
               </Col>
             </div>
             <div

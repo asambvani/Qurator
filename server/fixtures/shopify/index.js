@@ -25,9 +25,9 @@ db(config.get('db'), log).then(() => {
 
   const updateShopifyProductsAndMongoDB = async() => {
     try {
-      // log('Removing images from DB')
-      // await Image.remove({})
-      // log('Removed images from DB')
+      log('Removing images from DB')
+      await Image.remove({})
+      log('Removed images from DB')
 
       log('Loading images from file')
       const images = d3.csv.parse(readFixtures('images.csv'), image => {
@@ -64,50 +64,44 @@ db(config.get('db'), log).then(() => {
 
       log('Adding products to shopify')
 
-      const createdProducts = await images.reduce(
-        (acc, image, index) => acc
-          .then(res => {
-            const { title, description, artist, artistBio, url } = image
-            return Product.create(
-              {
-                product: {
-                  title,
-                  published_scope: 'global',
-                  published: true,
-                  variants,
-                  options: [
-                    { name: 'Size' },
-                    { name: 'Finish' },
-                  ],
-                  body_html: `<strong>Description:</strong> ${description}<br /> ` +
-                  `<strong>Artist:</strong> ${artist}<br /> ` +
-                  `<strong>Artist BIO:</strong> ${artistBio}`,
-                  product_type: 'Image on canvas',
-                  images: [
-                    {
-                      attachment: fs.readFileSync(path.resolve(`./img/thumb/${url}`), 'base64'),
-                    },
-                  ],
-                },
-              })
-              .then(
-                ({ product }) => {
-                  log(`Added #${index} productId ${product.id}`)
-                  log(`Saving #${index} image to Mongo...`)
-                  res.push(product)
-                  return Image
-                    .create({ ...image, productId: product.id })
-                    .then(() => {
-                      log('...saved')
-                      return res
-                    })
-                })
-          }),
-        Promise.resolve([])
-      )
+      for (let i = 0; i < images.length; i++) {
+        const image = images[i]
+        const { title, url, artist_id } = image
+        const artist = artists[artist_id]
 
-      log(`Added ${createdProducts.length} products`)
-      return createdProducts
+        const { product } = await Product.create({
+          product: {
+            title,
+            variants,
+            published: true,
+            published_scope: 'global',
+            product_type: 'Image on canvas',
+            options: [
+              { name: 'Size' },
+              { name: 'Finish' },
+            ],
+            body_html: `<strong>Artist:</strong> ${artist.name}<br /> ` +
+              `<strong>Artist BIO:</strong> ${artist.bio}`,
+            images: [
+              {
+                attachment: fs.readFileSync(path.resolve(`./img/thumb/${url}`), 'base64'),
+              },
+            ],
+          },
+        })
+
+        log(`Added #${i} productId ${product.id}`)
+        log(`Saving #${i} image to Mongo...`)
+        await Image.create({ ...image, productId: product.id })
+        log('...saved')
+      }
+
+      log(`Added ${images.length} products`)
+
+      log('Saving artists to Mongo')
+      await Artist.collection.insert(artists)
+      log(`Added ${artists.length} artists`)
+      return images
     } catch (err) {
       error(err)
       return err
@@ -117,5 +111,5 @@ db(config.get('db'), log).then(() => {
   updateShopifyProductsAndMongoDB().then(() => {
     log('Go to shopify and publish all products for Button#6')
     process.exit()
-  })
+  }).catch(() => log('Go and fix your ERROR!'))
 })

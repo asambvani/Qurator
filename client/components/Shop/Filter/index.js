@@ -87,7 +87,7 @@ class Filter extends Component {
                 resetValue={{}}
                 value={artist.value}
                 onChange={artist.onChange}
-                options={availatbleAritsts.map(value => ({ value, label: value }))}
+                options={availatbleAritsts.map(({ name, id }) => ({ value: id, label: name }))}
               />
             </div>
             <div className="form-group">
