@@ -5,7 +5,7 @@ import { Modal, Button, Input, Row, Col } from 'react-bootstrap'
 import Select from 'react-select'
 import { find } from 'lodash'
 import cn from 'classnames'
-import { addToCart as addToCartAction } from 'actions/cart'
+import { addToCart as addToCartAction, syncCart } from 'actions/cart'
 import config from 'services/config'
 import configShared from '../../../shared/config'
 import styles from './styles'
@@ -26,7 +26,7 @@ const { options: { variants, finishes, sizes } } = configShared
     },
   },
   null,
-  { addToCart: addToCartAction }
+  { addToCart: addToCartAction, syncCart }
 )
 class ImageModal extends Component {
   static propTypes = {
@@ -54,6 +54,7 @@ class ImageModal extends Component {
       values: { size, qty, finish },
     } = this.props
     addToCart({ id, size, qty: parseInt(qty, 10), finish })
+    this.props.syncCart({ test: 'cart' })
     onClose()
     resetForm()
   }

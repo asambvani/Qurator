@@ -1,19 +1,16 @@
 import mongoose from 'mongoose'
 import _ from 'lodash'
 
-const log = console.log.bind(console) // eslint-disable-line
+const log = console.log.bind(console)
 const error = console.error.bind(console)
 
 const ImageSchema = mongoose.Schema({
   url: String,
   title: String,
+  artistId: Number,
   productId: Number,
-  description: String,
-  artist: String,
-  artistBio: String,
   featured: Boolean,
   tags: Array,
-  order: Number,
 })
 
 ImageSchema.statics = {

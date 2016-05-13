@@ -3,10 +3,15 @@ import path from 'path'
 import configShared from '../../../shared/config'
 import db from '../../db'
 import Image from '../../models/image'
+import Artist from '../../models/artist'
 import Product from './product'
 import d3 from 'd3'
 import log from '../../log'
 import config from 'config'
+
+const readFixtures = (fileName) => (
+  fs.readFileSync(path.resolve(`./server/fixtures/${fileName}`), 'utf-8')
+)
 
 db(config.get('db'), log).then(() => {
   const error = console.error.bind(console)
@@ -20,36 +25,42 @@ db(config.get('db'), log).then(() => {
 
   const updateShopifyProductsAndMongoDB = async() => {
     try {
-      log('Removing images from DB')
-      await Image.remove({})
-      log('Removed images from DB')
+      // log('Removing images from DB')
+      // await Image.remove({})
+      // log('Removed images from DB')
 
       log('Loading images from file')
-      const images = d3.csv
-        .parse(fs.readFileSync(path.resolve('./server/fixtures/images.csv'), 'utf-8'))
-        .map(image => ({
+      const images = d3.csv.parse(readFixtures('images.csv'), image => {
+        if (!image.featured) { delete image.featured }
+        return {
           ...image,
+          _id: +image._id,
+          artist_id: +image.artist_id,
           tags: image.tags.split(', '),
-        }))
+        }
+      })
+
+      const artists = d3.csv.parse(readFixtures('artists.csv'), artist => ({
+        ...artist,
+        _id: +artist._id,
+      }))
 
       log(`Loaded ${images.length} images from file`)
+      log(`Loaded ${artists.length} artists from file`)
 
       log('Loading products from shopify')
       const products = await Product.list()
       log(`Found ${products.length} products`)
 
-      log('Deleting products from shopify')
-      const productsDeleted = await products.reduce(
-        (acc, product, index) => acc.then(res => Product.delete(product.id).then(
-          result => {
-            log(`Deleted #${index} id ${product.id}`)
-            res.push(result)
-            return res
-          })
-        ),
-        Promise.resolve([])
-      )
-      log(`Deleted ${productsDeleted.length} products`)
+      if (products.length) {
+        log('Deleting products from shopify')
+
+        for (let i = 0; i < products.length; i++) {
+          const product = products[i]
+          await Product.delete(product.id)
+          log(`Deleted #${i} id ${product.id}`)
+        }
+      }
 
       log('Adding products to shopify')
 

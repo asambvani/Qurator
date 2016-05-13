@@ -4,6 +4,7 @@ import config from 'config'
 import logger from 'morgan'
 import webpack from 'webpack'
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 import session from 'express-session'
 import connectMongo from 'connect-mongo'
 import history from 'connect-history-api-fallback'
@@ -23,11 +24,12 @@ db(config.get('db'), log).then(({ connection }) => {
   app.use(logger('dev'))
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(bodyParser.json())
+  app.use(cookieParser())
   app.use(session({
     secret: 'qurator',
     store: new mongoStore({ mongooseConnection: connection }),
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
   }))
   app.use('/api', router)
   app.use(history())
