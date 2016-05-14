@@ -119,7 +119,7 @@ class ImageModal extends Component {
                     value={size.value}
                     className={styles.selectInput}
                     onChange={size.onChange}
-                    placeholder="Choose a finish that you like..."
+                    placeholder="Choose a size that you like..."
                     options={sizes.map(value => ({ value, label: value }))}
                   />
                   {size.touched && <div>{size.error}</div>}
@@ -129,7 +129,7 @@ class ImageModal extends Component {
                     value={finish.value}
                     className={styles.selectInput}
                     onChange={finish.onChange}
-                    placeholder="Choose a size that you like..."
+                    placeholder="Choose a finish that you like..."
                     options={finishes.map(value => ({ value, label: value }))}
                   />
                   {finish.touched && <div>{finish.error}</div>}
@@ -181,13 +181,13 @@ class ImageModal extends Component {
               Next
             </Button>
           </Row>
-          <Row className={styles.secondRow}>
-            <div className={styles.artistInfo}>
-              <Col className={styles.artistImage} md={2}>
-                 <img src="/img/johnDow.png" className={`img-circle ${styles.threeImage}`} />
+          {false && <Row className={styles.secondRow} >
+            <div className={styles.artistInfo} >
+              <Col className={styles.artistImage} md={2} >
+                <img src="/img/johnDow.png" className={`img-circle ${styles.threeImage}`} />
               </Col>
-              <Col className={styles.artistData} md={10}>
-                <p className={styles.artistName}>jOHN DOE</p>
+              <Col className={styles.artistData} md={10} >
+                <p className={styles.artistName} >jOHN DOE</p>
                 @Thesailor
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
@@ -201,7 +201,7 @@ class ImageModal extends Component {
             >
               { this.state.minimized ? 'Expand' : 'Minimize' }
             </div>
-          </Row>
+          </Row>}
         </Modal.Body>
       </Modal>
     )
