@@ -68,7 +68,7 @@ class ImageModal extends Component {
     const {
       isActive,
       onClose,
-      image = {},
+      image,
       currentIndex = 0,
       imagesCount = 0,
       handleNextClick,
@@ -78,8 +78,9 @@ class ImageModal extends Component {
       values,
     } = this.props
 
-    const { artist } = image
-    console.log(artist)
+    if (!image) return null
+
+    const { artist = {} } = image
     const variant = find(variants, { size: values.size }) || variants[0]
 
     return (

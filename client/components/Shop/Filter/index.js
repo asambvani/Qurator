@@ -3,6 +3,7 @@ import { reduxForm } from 'redux-form'
 import autobind from 'autobind-decorator'
 import { Input, Col } from 'react-bootstrap'
 import Select from 'react-select'
+import shallowEqual from 'fbjs/lib/shallowEqual'
 import { cloneDeep } from 'lodash'
 import { WithContext as TagsInput } from 'react-tag-input'
 import { allTags, allArtists } from 'selectors'
@@ -11,7 +12,11 @@ import { allTags, allArtists } from 'selectors'
   {
     form: 'shop-filter',
     fields: ['stringQuery', 'artist', 'tags'],
-    initialValues: { tags: [] },
+    initialValues: {
+      stringQuery: '',
+      artist: null,
+      tags: [],
+    },
   },
   state => ({
     availableTags: allTags(state),
@@ -28,7 +33,7 @@ class Filter extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.values !== this.props.values) {
+    if (!shallowEqual(nextProps.values, this.props.values)) {
       this.invokeSearch(nextProps.values)
     }
   }

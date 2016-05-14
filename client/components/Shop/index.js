@@ -3,14 +3,18 @@ import { connect } from 'react-redux'
 import autobind from 'autobind-decorator'
 import { throttle } from 'lodash'
 import { Grid, Row } from 'react-bootstrap'
-import { createStructuredSelector } from 'reselect'
+import { createSelector } from 'reselect'
 import { filterImagesByForm } from 'actions/images'
 import Showcase from 'components/Showcase'
 import Filter from './Filter'
 
-const selector = createStructuredSelector({
-  images: state => state.imagesFilter.ids.map(id => state.entities.images[id]),
-})
+const selector = createSelector(
+  state => state.entities.images,
+  state => state.imagesFilter.ids,
+  (images, filteredImages) => ({
+    images: filteredImages.map(id => images[id]),
+  })
+)
 
 @connect(selector, { filterImagesByForm })
 class Shop extends Component {

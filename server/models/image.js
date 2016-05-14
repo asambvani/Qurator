@@ -17,16 +17,22 @@ const ImageSchema = mongoose.Schema({
 ImageSchema.statics = {
   async list(tags = {}) {
     try {
-      const images = await this.find()
+      const images = await this.aggregate()
+        .lookup({
+          from: 'artists',
+          localField: 'artist_id',
+          foreignField: '_id',
+          as: 'artist',
+        })
+        .unwind('$artist')
+        .exec()
 
       const imagesOrdered = _.orderBy(
-        images
-          .map(image => image.toObject())
-          .map(image => {
-            const matchingTags = _.intersection(image.tags, Object.keys(tags))
-            const weight = matchingTags.reduce((sum, tag) => sum + tags[tag], 0)
-            return { ...image, weight }
-          }), 'weight', 'desc')
+        images.map(image => {
+          const matchingTags = _.intersection(image.tags, Object.keys(tags))
+          const weight = matchingTags.reduce((sum, tag) => sum + tags[tag], 0)
+          return { ...image, weight }
+        }), 'weight', 'desc')
       return imagesOrdered.slice(0, 15)
     } catch (err) {
       error(err)

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import cn from 'classnames'
 import autobind from 'autobind-decorator'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { formattedLowestPrice } from 'services/formatMoney'
 import config from 'services/config'
 import styles from './styles'
@@ -15,6 +16,8 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
     imgClass: PropTypes.string,
   }
 
+  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+
   @autobind
   showModal() {
     const { showModal, index } = this.props
@@ -23,6 +26,7 @@ export default class ImageTumbnailShowsModalOnClick extends Component {
 
   render() {
     const { image, imgClass } = this.props
+
     return (
       <div className={cn(styles.imageBlock, imgClass)}>
         <div className= {styles.oneImageBlock}>
