@@ -54,7 +54,7 @@ class ImageModal extends Component {
       values: { size, qty, finish },
     } = this.props
     addToCart({ id, size, qty: parseInt(qty, 10), finish })
-    this.props.syncCart({ test: 'cart' })
+    this.props.syncCart({ test: 'cart' }) // eslint-disable-line
     onClose()
     resetForm()
   }
