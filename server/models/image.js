@@ -49,7 +49,7 @@ ImageSchema.statics = {
       if (tags.length) { query.tags = { $all: tags } }
       if (artist) { query.artist_id = artist }
 
-      const images = await this.find().limit(100)
+      const images = await this.find(query).limit(100)
       const artists = await Artist.find()
 
       return images.map(imageDoc => {
