@@ -25,9 +25,13 @@ db(config.get('db'), log).then(() => {
 
   const updateShopifyProductsAndMongoDB = async() => {
     try {
-      log('Removing images from DB')
-      await Image.remove({})
+      log('Removing images from DB...')
+      await Image.remove()
       log('Removed images from DB')
+
+      log('Removing artits from DB...')
+      await Artist.remove()
+      log('Removed artists from DB')
 
       log('Loading images from file')
       const images = d3.csv.parse(readFixtures('images.csv'), image => {

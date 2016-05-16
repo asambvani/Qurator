@@ -13,8 +13,8 @@
     "dev": "npm run clean && nodemon --watch server --watch node_modules .",
     "fixturesShopify": "NODE_ENV=production babel-node ./server/fixtures/shopify",
     "localFixtures": "babel-node ./server/fixtures/shopify",
-    "exportMongo": "mongoexport -h ds015508.mlab.com:15508 -d qurator -c images -u dbuser -p 029jflkdjwf028y3htgwdfs -o backup/images.json",
-    "restoreMongo": "mongo qurator --eval \"db.dropDatabase()\" && mongoimport -h localhost -d qurator -c images --file backup/images.json",
+    "exportMongo": "mongodump -h ds015508.mlab.com:15508 -d qurator -u dbuser -p 029jflkdjwf028y3htgwdfs -o backup",
+    "restoreMongo": "mongo qurator --eval \"db.dropDatabase()\" && mongorestore -h localhost -d qurator ./backup/qurator",
     "restoreProdutionMongo": "mongoimport -h ds015508.mlab.com:15508 -d qurator -c images -u dbuser -p 029jflkdjwf028y3htgwdfs --file backup/images.json",
     "copyMongo": "npm run exportMongo && npm run restoreMongo",
     "lint": "eslint ."

@@ -15,7 +15,6 @@ router.post('/images/tags', async (req, res) => {
 })
 
 router.post('/images/filter', async (req, res) => {
-  // console.log('filter req - session.cart: ', req.session.cart)
   try {
     const images = await Image.filter(req.body)
     res.json(images)
@@ -34,9 +33,7 @@ router.post('/images/picker', async (req, res) => {
 })
 
 router.post('/cart', async (req, res) => {
-  // console.log('cart post: ', req.body)
   req.session.cart = req.body
-  // console.log('cart set: ', req.session.cart)
   res.sendStatus(200)
 })
 
