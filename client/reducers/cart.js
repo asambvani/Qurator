@@ -1,8 +1,8 @@
 import { createReducer } from 'redux-act'
 import { defaults } from 'lodash'
 import findIndex from 'lodash/findIndex'
-import initialState from '../services/initialState'
-import { addToCart, removeFromCart, resetCart } from '../actions/cart'
+import initialState from 'services/initialState'
+import { addToCart, removeFromCart, resetCart } from 'actions/cart'
 
 export default createReducer({
   [addToCart]: (state, item) => {
@@ -10,7 +10,7 @@ export default createReducer({
     const index = findIndex(state, { id: item.id })
     if (index > -1) {
       const updatedItem = Object.assign({}, itemWithDefaults, { qty: state[index].qty + 1 })
-      // Don't know why [ ...updatedItem ] syntax isn't wokring
+      // TODO: Don't know why [ ...updatedItem ] syntax isn't wokring
       return state.slice(0, index).concat(updatedItem).concat(state.slice(index + 1))
     }
     return [...state, itemWithDefaults]
@@ -27,4 +27,3 @@ export default createReducer({
   },
   [resetCart]: () => initialState.cart,
 }, initialState.cart)
-

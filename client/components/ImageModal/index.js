@@ -5,7 +5,7 @@ import { Modal, Button, Input, Row, Col } from 'react-bootstrap'
 import Select from 'react-select'
 import { find } from 'lodash'
 import cn from 'classnames'
-import { addToCart as addToCartAction } from 'actions/cart'
+import { addToCart as addToCartAction, syncCart } from 'actions/cart'
 import config from 'services/config'
 import configShared from '../../../shared/config'
 import styles from './styles'
@@ -26,7 +26,7 @@ const { options: { variants, finishes, sizes } } = configShared
     },
   },
   null,
-  { addToCart: addToCartAction }
+  { addToCart: addToCartAction, syncCart }
 )
 class ImageModal extends Component {
   static propTypes = {
@@ -54,6 +54,7 @@ class ImageModal extends Component {
       values: { size, qty, finish },
     } = this.props
     addToCart({ id, size, qty: parseInt(qty, 10), finish })
+    this.props.syncCart({ test: 'cart' })
     onClose()
     resetForm()
   }
@@ -67,7 +68,7 @@ class ImageModal extends Component {
     const {
       isActive,
       onClose,
-      image = {},
+      image,
       currentIndex = 0,
       imagesCount = 0,
       handleNextClick,
@@ -77,6 +78,9 @@ class ImageModal extends Component {
       values,
     } = this.props
 
+    if (!image) return null
+
+    const { artist = {} } = image
     const variant = find(variants, { size: values.size }) || variants[0]
 
     return (
@@ -181,18 +185,17 @@ class ImageModal extends Component {
               Next
             </Button>
           </Row>
-          {false && <Row className={styles.secondRow} >
-            <div className={styles.artistInfo} >
-              <Col className={styles.artistImage} md={2} >
-                <img src="/img/johnDow.png" className={`img-circle ${styles.threeImage}`} />
+          <Row className={styles.secondRow}>
+            <div className={styles.artistInfo}>
+              <Col className={styles.artistImage} md={2}>
+                 <img
+                   src={`/img/artists/${artist.image}`}
+                   className={`img-circle ${styles.threeImage}`}
+                 />
               </Col>
-              <Col className={styles.artistData} md={10} >
-                <p className={styles.artistName} >jOHN DOE</p>
-                @Thesailor
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Nullam facilisis diam sed tellus cursus, quis dictum erat pellentesque.
+              <Col className={styles.artistData} md={10}>
+                <p className={styles.artistName}>{artist.name}</p>
+                @{artist.instagram} {artist.bio}
               </Col>
             </div>
             <div

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 import ImageModalHandler from 'components/ImageModalHandler'
 import ImageTumbnailShowsModalOnClick from './ImageTumbnailShowsModalOnClick'
 
@@ -10,10 +11,10 @@ class Showcase extends Component {
     showModal: PropTypes.func.isRequired,
   }
 
+  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+
   render() {
-    const {
-      props: { images, showModal },
-    } = this
+    const { images, showModal } = this.props
 
     return (
       <Grid fluid >

@@ -1,34 +1,15 @@
-import { createAction } from 'redux-act'
-import { CALL_API_SYMBOL, Schemas } from 'middleware/api'
-
-const START = 'start'
-const SUCCESS = 'success'
-const FAILURE = 'fail'
-
-const createRequestActions = (base) => (
-  [START, SUCCESS, FAILURE].reduce((res, key) => {
-    res[key] = createAction(`${base}.${key}`)
-    return res
-  }, {})
-)
-
-const factory = (endpoint, actions) => (data) => ({
-  [CALL_API_SYMBOL]: {
-    data,
-    actions,
-    endpoint,
-    method: 'POST',
-    schema: Schemas.IMAGE_ARRAY,
-  },
-})
+import { Schemas } from 'middleware/api'
+import { createRequestActions, factory } from './api'
 
 const imagesTagsActions = createRequestActions('imagesByTags')
 const imagesFilterActions = createRequestActions('imagesByFilter')
 const imagesPickerActions = createRequestActions('imagesForPicker')
 
-const filterImagesByForm = factory('images/filter', imagesFilterActions)
-const filterImagesByTags = factory('images/tags', imagesTagsActions)
-const imagesForPicker = factory('images/picker', imagesPickerActions)
+const { IMAGE_ARRAY } = Schemas
+
+const filterImagesByForm = factory('images/filter', imagesFilterActions, IMAGE_ARRAY)
+const filterImagesByTags = factory('images/tags', imagesTagsActions, IMAGE_ARRAY)
+const imagesForPicker = factory('images/picker', imagesPickerActions, IMAGE_ARRAY)
 
 export {
   filterImagesByForm,

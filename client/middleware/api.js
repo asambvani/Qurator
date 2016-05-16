@@ -13,6 +13,7 @@ export const Schemas = {
 const callAPI = (endpoint, method, data, schema) => { // eslint-disable-line arrow-body-style
   return fetch(`/api/${endpoint}`, {
     method: method || 'GET',
+    credentials: 'same-origin',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

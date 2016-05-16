@@ -1,34 +1,38 @@
 import mongoose from 'mongoose'
 import _ from 'lodash'
 
-const log = console.log.bind(console) // eslint-disable-line
+const log = console.log.bind(console) // eslint-disable-line no-unused-vars
 const error = console.error.bind(console)
 
 const ImageSchema = mongoose.Schema({
+  _id: Number,
   url: String,
   title: String,
+  artist_id: Number,
   productId: Number,
-  description: String,
-  artist: String,
-  artistBio: String,
   featured: Boolean,
   tags: Array,
-  order: Number,
 })
 
 ImageSchema.statics = {
   async list(tags = {}) {
     try {
-      const images = await this.find()
+      const images = await this.aggregate()
+        .lookup({
+          from: 'artists',
+          localField: 'artist_id',
+          foreignField: '_id',
+          as: 'artist',
+        })
+        .unwind('$artist')
+        .exec()
 
       const imagesOrdered = _.orderBy(
-        images
-          .map(image => image.toObject())
-          .map(image => {
-            const matchingTags = _.intersection(image.tags, Object.keys(tags))
-            const weight = matchingTags.reduce((sum, tag) => sum + tags[tag], 0)
-            return { ...image, weight }
-          }), 'weight', 'desc')
+        images.map(image => {
+          const matchingTags = _.intersection(image.tags, Object.keys(tags))
+          const weight = matchingTags.reduce((sum, tag) => sum + tags[tag], 0)
+          return { ...image, weight }
+        }), 'weight', 'desc')
       return imagesOrdered.slice(0, 15)
     } catch (err) {
       error(err)
@@ -36,26 +40,30 @@ ImageSchema.statics = {
     }
   },
 
-  async filter({ tags = [], artist = '', stringQuery = '' }) {
+  async filter({ tags = [], artist, stringQuery = '' }) {
     try {
       const query = {}
       if (stringQuery.length) {
-        const fieldsToQuery = ['title', 'description', 'artistBio']
+        const fieldsToQuery = ['title']
         query.$or = fieldsToQuery.map(field => (
           { [field]: { $regex: `.*${stringQuery}*.`, $options: 'i' } }
         ))
       }
 
-      if (tags.length) {
-        query.tags = { $all: tags }
-      }
+      if (tags.length) { query.tags = { $all: tags } }
+      if (artist) { query.artist_id = artist }
 
-      if (artist && artist.length) {
-        query.artist = { $regex: `.*${artist}*.`, $options: 'i' }
-      }
-
-      log(JSON.stringify(query))
-      return await this.find(query).limit(100)
+      return await this.aggregate()
+        .match(query)
+        .limit(100)
+        .lookup({
+          from: 'artists',
+          localField: 'artist_id',
+          foreignField: '_id',
+          as: 'artist',
+        })
+        .unwind('$artist')
+        .exec()
     } catch (err) {
       error(err)
       throw err
