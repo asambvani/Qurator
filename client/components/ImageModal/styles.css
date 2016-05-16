@@ -62,7 +62,7 @@
 }
 .secondRow{
   background:#020202;
-  margin: 0;
+  margin: 0 0 0 -1px;
   padding: 40px 60px;
 }
 .title{

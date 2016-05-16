@@ -204,7 +204,7 @@ class ImageModal extends Component {
             >
               { this.state.minimized ? 'Expand' : 'Minimize' }
             </div>
-          </Row>}
+          </Row>
         </Modal.Body>
       </Modal>
     )
