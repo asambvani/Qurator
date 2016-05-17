@@ -8,9 +8,10 @@ import Product from './product'
 import d3 from 'd3'
 import log from '../../log'
 import config from 'config'
+import { Iconv } from 'iconv'
 
 const readFixtures = (fileName) => (
-  fs.readFileSync(path.resolve(`./server/fixtures/${fileName}`), 'utf-8')
+  fs.readFileSync(path.resolve(`./server/fixtures/${fileName}`))
 )
 
 db(config.get('db'), log).then(() => {
@@ -34,7 +35,7 @@ db(config.get('db'), log).then(() => {
       log('Removed artists from DB')
 
       log('Loading images from file')
-      const images = d3.csv.parse(readFixtures('images.csv'), image => {
+      const images = d3.csv.parse(readFixtures('images.csv').toString('utf8'), image => {
         if (!image.featured) { delete image.featured }
         return {
           ...image,
@@ -44,7 +45,9 @@ db(config.get('db'), log).then(() => {
         }
       })
 
-      const artists = d3.csv.parse(readFixtures('artists.csv'), artist => ({
+      const iconv = new Iconv('cp1252', 'utf-8')
+      const encodedArtists = iconv.convert(readFixtures('artists.csv'))
+      const artists = d3.csv.parse(encodedArtists.toString('utf8'), artist => ({
         ...artist,
         _id: +artist._id,
       }))
