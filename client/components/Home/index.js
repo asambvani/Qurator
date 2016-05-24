@@ -33,7 +33,7 @@ class Home extends Component {
           <CarouselItem className={styles.carouselItem}>
             <img width="100%" height="500px" alt="900x500" src="/img/firstSlide.jpg" />
             <div className={`carousel-caption ${styles.carouselCaption}`}>
-              <p>For when you want art, but don’t know where to start.</p>
+              <p>For when you want art, but don’t know where to start!</p>
               <p className={styles.launchSale}>Launch Sale! For 20% off and free shipping,
               use the discount code:<span className={styles.yellow}> QURATORLAUNCH</span>
               </p>
@@ -44,7 +44,7 @@ class Home extends Component {
             <img width="100%" height="500px" alt="900x500" src="/img/secondSlide.jpg" />
             <div className={`carousel-caption ${styles.carouselCaption}`}>
               <p className={styles.white}>For when you want art,
-                <br /> but don&#39;t know where to start.
+                <br /> but don&#39;t know where to start!
               </p>
               <p className={`white ${styles.launchSale}`}>Launch Sale! For 20% off and free
               shipping, use the discount code: QURATORLAUNCH
@@ -56,7 +56,7 @@ class Home extends Component {
             <img width="100%" height="500px" alt="900x500" src="/img/thirdSlide.jpg" />
             <div className={`carousel-caption ${styles.carouselCaption}`}>
               <p>
-                For when you want art,<br /> but don&#39;t know where to start.
+                For when you want art,<br /> but don&#39;t know where to start!
               </p>
               <p className={styles.launchSale}>Launch Sale! For 20% off and free shipping,
               use the discount code: QURATORLAUNCH
